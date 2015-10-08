@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+html {overflow-y: scroll}
+body {width:100%;height:100%;margin:0;padding:0;background: black;}
+hr {display:none;}
+img,fieldset {border:0 none;}
+dl,ul,ol,li {list-style: none;}
+h1,h2,h3,h4,h5,h6 {font-size: 100%; font-weight: normal}
+h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,li,ol,th,td,p,blockquote,form,fieldset,legend,input {margin:0;padding:0;}
+q, blockquote {quotes:none;}
+q:before, q:after {content:"";}
+caption, legend {display:none ;}
+a {text-decoration:none; color:#222;}
+a:visited {text-decoration:none;}
+a:active {text-decoration:none;}
+a:hover{text-decoration:none;}
+dfn, em, cite, address {font-style:normal ;}
+select,button {vertical-align:middle;}
+button {border:0 none ; padding:0 ; background:none ; cursor:pointer ;}
+body,th,td,input,select,big,button,textarea, li {font-size:12px;font-family:Arial, Helvetica, sans-serif;color:#222;}
