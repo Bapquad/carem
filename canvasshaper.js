@@ -3,7 +3,7 @@
 //	Date: 10.09.2015
 //	Description: A Library Of Javascript, Framework For Canvas
 //	Author: Vu Huy Cuong - Email: vuhuycuong291987@gmail.com
-//	Organize: Bapquad Games.
+//	Company: Bapquad Games.
 //	Lisence: FFA lisence (Free For All).
 -------------------------------------------------------------------*/
 var CANVAS_SHAPER_PATH_RECT = 1000; 
