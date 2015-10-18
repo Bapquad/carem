@@ -11,11 +11,139 @@ h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,li,ol,th,td,p,blockquote,form,fieldset,legend,inpu
 q, blockquote {quotes:none;}
 q:before, q:after {content:"";}
 caption, legend {display:none ;}
-a {text-decoration:none; color:#222;}
-a:visited {text-decoration:none;}
-a:active {text-decoration:none;}
-a:hover{text-decoration:none;}
+a {text-decoration:none; color:#f30;}
+a:visited {text-decoration:none; color:#f30;}
+a:active {text-decoration:none; color:#f30;}
+a:hover{text-decoration:none; color:#f30;}
 dfn, em, cite, address {font-style:normal ;}
 select,button {vertical-align:middle;}
 button {border:0 none ; padding:0 ; background:none ; cursor:pointer ;}
-body,th,td,input,select,big,button,textarea, li {font-size:12px;font-family:Arial, Helvetica, sans-serif;color:#222;}
+body,th,td,input,select,big,button,textarea, li {font-size:12px;font-family:Tahoma, Helvetica, sans-serif;color:#fff;}
+
+body.border-col 
+{
+	background-image: url("documentations/border-col.gif");
+	background-repeat: repeat-y;
+	background-position: 210px top;
+	background-color: #222;
+}
+
+.ml25 
+{
+	margin-left: 25px;
+}
+
+.mt15 
+{
+	margin-top: 15px;
+}
+
+h1, h2 
+{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+h2 
+{
+	font-size: 14px;
+}
+
+.tree-col 
+{
+	float: left;
+	width: 210px;
+	padding: 20px 10px;
+	height: 500px;
+}
+
+.tree-col h1 
+{
+	margin: 10px 0 2px;
+}
+
+.content-col 
+{
+	margin-left: 210px;
+	padding: 20px 50px 20px 30px;
+}
+
+.content-col h3 
+{
+	font-size: 18px;
+	background: #555;
+	padding: 3px 10px 5px;
+}
+
+.content-col h4 
+{
+	border-top: 1px solid #222;
+	padding-top: 5px;
+	font-size: 16px;
+	color: #fff;
+	font-weight: bold;
+}
+
+.inner 
+{
+	margin-bottom: 35px;
+}
+
+.note, .tips , .code
+{
+	margin: 15px 0;
+}
+
+.tips, .code-block
+{
+	margin-left: 25px;
+	margin-right: 25px;
+	border: 1px solid #777;
+	padding: 10px 20px;
+}
+
+.code, .code-block 
+{
+	font-family: "Lucida Console";
+}
+
+.code-comment 
+{
+	color: #777;
+	font-family: "Lucida Console";
+}
+
+.code-keyword
+{
+	color: #06f;
+	font-family: "Lucida Console";
+}
+
+.code-param 
+{
+	color: #f90;
+	font-style: italic;
+	font-family: "Lucida Console";
+}
+
+.code-constant 
+{
+	color: #7e28d7;
+	font-family: "Lucida Console";
+}
+
+.code-hint 
+{
+	color: #36f;
+	font-family: "Lucida Console";
+}
+
+.list 
+{
+	margin-left: 25px;
+}
+
+h2.member 
+{
+	border-top: 1px solid #999;
+}

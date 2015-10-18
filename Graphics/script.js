@@ -17,9 +17,9 @@ function UnTick() {
 
 function CyGame() {
 	/** Create Layer */
-	var Layer01 = new CanvasShaper("canvas_Slider");
-	var Layer02 = new CanvasShaper("canvas_Slider");
-	var Layer03 = new CanvasShaper("canvas_Slider2");
+	var Layer01 = new CanvasShaper_Layer("canvas_Slider");
+	var Layer02 = new CanvasShaper_Layer("canvas_Slider");
+	var Layer03 = new CanvasShaper_Layer("canvas_Slider2");
 	var rot = 0.0;
 	
 	/** Set Layer */
