@@ -1,4 +1,4 @@
-﻿var CanvasShaper_Physics = function(sceneObject) 
+var CanvasShaper_Physics = function(sceneObject) 
 {
 	this.SceneObject = sceneObject;
 	this.velocityX = 0;

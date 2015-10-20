@@ -383,8 +383,264 @@
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
 			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
-			<p>button.getSize();</p>
-			<p>console.<span class="code-keyword">log</span>(button.getPositionY());</p>
+			<p>console.<span class="code-keyword">log</span>(button.getSize());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setSize">setSize(<span class="code-param">width</span>, <span class="code-param">height</span>)</h4>
+		<p class="note"><span class="code-hint">setSize()</span> được dùng để cài đặt kích thước của button.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">width</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho độ rộng của button.</li>
+			<li><span class="code-param">height</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho độ rộng của button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setSize()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setSize(<span class="code-constant">100</span>, <span class="code-constant">200</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getWidth">getWidth()</h4>
+		<p class="note"><span class="code-hint">getWidth()</span> được dùng để xem kích thước chiều ngang của button.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getWidth()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.getWidth());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setWidth">setWidth(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setSize()</span> được dùng để cài đặt độ rộng của button.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho độ rộng của button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setWidth()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setWidth(<span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getHeight">getHeight()</h4>
+		<p class="note"><span class="code-hint">getHeight()</span> được dùng để xem kích thước chiều cao của button.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getHeight()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.getHeight());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setHeight">setHeight(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setHeight()</span> được dùng để cài đặt độ cao của button.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho độ cao của button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setHeight()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setHeight(<span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getRotate">getRotate()</h4>
+		<p class="note"><span class="code-hint">getRotate()</span> được dùng để xem góc xoay của button.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getRotate()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.getRotate());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setRotate">setRotate(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setRotate()</span> được dùng để cài đặt góc xoay của button.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho góc xoay của button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setRotate()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setRotate(<span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="isDisable">isDisable()</h4>
+		<p class="note"><span class="code-hint">isDisable()</span> được dùng để kiểm tra xem button có bị vô hiệu hóa.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">isDisable()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.isDisable());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="disable">disable()</h4>
+		<p class="note"><span class="code-hint">disable()</span> được dùng để vô hiệu hóa button.</p>
+		<p class="tips">Khi bị vô hiệu hóa, button sẽ không sử dụng được các sự kiện <span class="code-comment">"mouseup | mouseover | click"</span>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">disable()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.disable();</p>
+			<p>console.<span class="code-keyword">log</span>(button.isDisable());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="isEnable">isEnable()</h4>
+		<p class="note"><span class="code-hint">isEnable()</span> được dùng để kiểm tra xem button đang có hiệu lực.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">isEnable()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.isEnable());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="enable">enable()</h4>
+		<p class="note"><span class="code-hint">enable()</span> được dùng để khôi phục trạng thái hiệu lực.</p>
+		<p class="tips">Khi bị vô hiệu hóa, button sẽ không sử dụng được các sự kiện <span class="code-comment">"mouseup | mouseover | click"</span>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">enable()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.enable();</p>
+			<p>console.<span class="code-keyword">log</span>(button.isDisable());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="isHide">isHide()</h4>
+		<p class="note"><span class="code-hint">isHide()</span> được dùng để kiểm tra xem button có bị ẩn đi.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">isHide()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.isHide());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="hide">hide()</h4>
+		<p class="note"><span class="code-hint">hide()</span> được dùng để ẩn đi button.</p>
+		<p class="tips">Khi bị ẩn đi, button sẽ không sử dụng được các sự kiện <span class="code-comment">"mouseup | mouseover | click"</span>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">hide()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.hide();</p>
+			<p>console.<span class="code-keyword">log</span>(button.isDisable()); <span class="code-comment">// Output true.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="isShow">isShow()</h4>
+		<p class="note"><span class="code-hint">isShow()</span> được dùng để kiểm tra xem button đang được hiển thị.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">isShow()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.isShow());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="show">show()</h4>
+		<p class="note"><span class="code-hint">show()</span> được dùng để khôi phục trạng thái hiển thị button.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">show()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.hide();</p>
+			<p>button.show();</p>
+			<p>console.<span class="code-keyword">log</span>(button.isHide()); <span class="code-comment">// Output false.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="invisible">invisible()</h4>
+		<p class="note"><span class="code-hint">invisible()</span> được dùng để làm khuất button.</p>
+		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">invisible</span>, nó sẽ làm cho button không còn được hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-param">"mouseup | mouseover | click".</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">invisible()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.invisible();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="visible">visible()</h4>
+		<p class="note"><span class="code-hint">visible()</span> được dùng để khôi phục trạng thái hiển thị của button.</p>
+		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">visible</span>, nó sẽ làm cho button khôi phục được trạng thái hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-param">"mouseup | mouseover | click".</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">visible()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.visible();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setAlpha">setAlpha()</h4>
+		<p class="note"><span class="code-hint">setAlpha()</span> được dùng để khôi phục trạng thái hiển thị của button.</p>
+		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">visible</span>, nó sẽ làm cho button khôi phục được trạng thái hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-param">"mouseup | mouseover | click".</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">visible()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.visible();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="Draw">Draw()</h4>
+		<p class="note"><span class="code-hint">Draw()</span> được dùng để vẽ button.</p>
+		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">Draw</span>, nó sẽ làm cho button khôi phục được trạng thái hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-param">"mouseup | mouseover | click".</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">Draw()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.Draw();</p>
 		</div>
 	</div>
 </div>
