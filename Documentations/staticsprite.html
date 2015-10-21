@@ -52,7 +52,7 @@
 <div class="content-col">
 	<h1>CanvasShaper_StaticSprite</h1>
 	<h2>Giới thiệu</h2>
-	<p class="note">CanvasShaper_StaticSprite là class dùng để chứa các <a href="#property"></a> và <a href="#method">phương thức</a> của CanvasShaper_StaticSprite.</p>
+	<p class="note">CanvasShaper_StaticSprite là class dùng để chứa các <a href="#property">thuộc tính</a> và <a href="#method">phương thức</a> của CanvasShaper_StaticSprite.</p>
 
 	<h3 id="proproty">Thuộc tính</h3>
 	<div class="inner">
@@ -61,102 +61,112 @@
 		<p class="note">Cách truy cập vào <span class="code-hint">DOMCanvasElement</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.DOMCanvasElement);</p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="context">context</h4>
 		<p class="note"><span class="code-hint">context</span> là thành phần dom trong html5 được lưu trong thành phần Canvas. Tại đây nó được share ra cho <span class="code-hint">CanvasShaper_StaticSprite</span>.</p>
 		<p class="note">Cách truy cập vào <span class="code-hint">context</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.context);</p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="Graphics">Graphics</h4>
 		<p class="note"><span class="code-hint">Graphics</span> lưu trữ đối tượng graphics dùng để xử lý đồ họa, hình họa cho CanvasShaper_StaticSprite.</p>
 		<p class="note">Cách truy cập vào <span class="code-hint">Graphics</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.Graphics);</p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="SceneObject">SceneObject</h4>
 		<p class="note"><span class="code-hint">SceneObject</span> lưu trữ đối tượng SceneObject dùng để xử lý cách thức làm việc của CanvasShaper_StaticSprite trên bảng vẽ.</p>
 		<p class="note">Cách truy cập vào <span class="code-hint">SceneObject</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.SceneObject);</p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="Physics">Physics</h4>
 		<p class="note"><span class="code-hint">Physics</span> lưu trữ đối tượng Physics dùng để xử lý vật lý của CanvasShaper_StaticSprite.</p>
 		<p class="note">Cách truy cập vào <span class="code-hint">Physics</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.Physics);</p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="WorldLimit">WorldLimit</h4>
 		<p class="note"><span class="code-hint">WorldLimit</span> lưu trữ đối tượng WorldLimit dùng để xử lý không gian giới hạn world của CanvasShaper_StaticSprite.</p>
 		<p class="note">Cách truy cập vào <span class="code-hint">WorldLimit</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.WorldLimit);</p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="Collision">Collision</h4>
 		<p class="note"><span class="code-hint">Collision</span> lưu trữ đối tượng Collision dùng để xử lý va đụng của CanvasShaper_StaticSprite.</p>
 		<p class="note">Cách truy cập vào <span class="code-hint">Collision</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.Collision);</p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="image">image</h4>
 		<p class="note"><span class="code-hint">image</span> lưu trữ đối tượng image dùng để xử lý hình ảnh của CanvasShaper_StaticSprite.</p>
 		<p class="note">Cách truy cập vào <span class="code-hint">image</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.image);</p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="cropX">cropX</h4>
 		<p class="note"><span class="code-hint">cropX</span> lưu trữ tọa độ x điểm bắt đầu crop hình ảnh của CanvasShaper_StaticSprite.</p>
 		<p class="note">Cách truy cập vào <span class="code-hint">cropX</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.cropX);</p>
 		</div>
 	</div>
+	
 	<div class="inner">
 		<h4 class="member" id="cropY">cropY</h4>
 		<p class="note"><span class="code-hint">cropY</span> lưu trữ tọa độ y điểm bắt đầu crop hình ảnh của CanvasShaper_StaticSprite.</p>
 		<p class="note">Cách truy cập vào <span class="code-hint">cropY</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.cropY);</p>
 		</div>
 	</div>
 
 	<h3 id="method">Phương thức</h3>
+
 	<div class="inner">
 		<h4 class="member" id="setOrgin">setOrgin(<span class="code-param">x</span>, <span class="code-param">y</span>)</h4>
 		<p class="note"><span class="code-hint">setOrgin()</span> được dùng để cài đặt tọa độ điểm gốc của CanvasShaper_StaticSprite.</p>
@@ -168,32 +178,35 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setOrgin()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setOrgin(<span class="code-constant">10</span>, <span class="code-constant">10</span>);</p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="resetOrgin">resetOrgin()</h4>
-		<p class="note"><span class="code-hint">resetOrgin()</span> được dùng để khôi phục cài đặt tọa độ điểm gốc của hình vẽ về cài đặt ban đầu.</p>
+		<p class="note"><span class="code-hint">resetOrgin()</span> được dùng để khôi phục cài đặt tọa độ điểm gốc của CanvasShaper_StaticSprite về cài đặt ban đầu.</p>
 		<p class="note">Cách sử dụng <span class="code-hint">resetOrgin()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setOrgin(<span class="code-constant">10</span>, <span class="code-constant">10</span>);</p>
 			<p>staticSprite.resetOrgin();</p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="getPosition">getPosition()</h4>
 		<p class="note"><span class="code-hint">getPosition()</span> được dùng để xem tọa độ điểm vị trí của CanvasShaper_StaticSprite.</p>
-		<p class="tips">Phương thức <span class="code-hint">getPosition</span> sẽ trả lại một json <span class="code">{x: posX, y: posY}</span> tọa độ điểm của vị trí hình vẽ.</p>
+		<p class="tips">Phương thức <span class="code-hint">getPosition</span> sẽ trả lại một json <span class="code">{x: posX, y: posY}</span> tọa độ điểm của vị trí CanvasShaper_StaticSprite.</p>
 		<p class="note">Cách sử dụng <span class="code-hint">getPosition()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getPosition()); <span class="code-comment">// Output {x: 0, y: 0}</span></p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="setPosition">setPosition(<span class="code-param">x</span>, <span class="code-param">y</span>)</h4>
 		<p class="note"><span class="code-hint">setPosition()</span> được dùng để cài đặt tọa độ điểm vị trí của CanvasShaper_StaticSprite.</p>
@@ -205,26 +218,28 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setPosition()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setPosition(<span class="code-constant">10</span>, <span class="code-constant">10</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getPosition()); <span class="code-comment">// Output {x: 10, y: 10}</span></p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="getPositionX">getPositionX()</h4>
 		<p class="note"><span class="code-hint">getPositionX()</span> được dùng để xem tọa độ x của điểm vị trí CanvasShaper_StaticSprite.</p>
-		<p class="tips">Phương thức <span class="code-hint">getPositionX</span> sẽ trả lại một số (<span class="code">int|float</span>) cho biết tọa độ x của điểm vị trí hình vẽ.</p>
+		<p class="tips">Phương thức <span class="code-hint">getPositionX</span> sẽ trả lại một số (<span class="code">int|float</span>) cho biết tọa độ x của điểm vị trí CanvasShaper_StaticSprite.</p>
 		<p class="note">Cách sử dụng <span class="code-hint">getPositionX()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setPosition(<span class="code-constant">10</span>, <span class="code-constant">20</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getPositionX()); <span class="code-comment">// Output 10</span></p>
 		</div>
 	</div>
+
 	<div class="inner">
 		<h4 class="member" id="setPositionX">setPositionX(<span class="code-param">value</span>)</h4>
-		<p class="note"><span class="code-hint">setPositionX()</span> được dùng để cài đặt tọa độ x của điểm vị trí của hình vẽ.</p>
+		<p class="note"><span class="code-hint">setPositionX()</span> được dùng để cài đặt tọa độ x của điểm vị trí của CanvasShaper_StaticSprite.</p>
 		<h5>Tham số:</h5>
 		<ul>
 			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho tọa độ x của điểm vị trí CanvasShaper_StaticSprite.</li>
@@ -232,7 +247,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setPositionX()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setPositionX(<span class="code-constant">10</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getPosition()); <span class="code-comment">// Output {x: 10, y: 0}</span></p>
 		</div>
@@ -245,7 +260,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">getPositionY()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setPosition(<span class="code-constant">10</span>, <span class="code-constant">20</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getPositionY()); <span class="code-comment">// Output 20</span></p>
 		</div>
@@ -261,7 +276,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setPositionY()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setPositionY(<span class="code-constant">10</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getPosition()); <span class="code-comment">// Output {x: 0, y: 10}</span></p>
 		</div>
@@ -274,23 +289,23 @@
 		<p class="note">Cách sử dụng <span class="code-hint">getSize()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getSize()); <span class="code-comment">// Output {width: 0, height: 0}</span></p>
 		</div>
 	</div>
 
 	<div class="inner">
 		<h4 class="member" id="setSize">setSize(<span class="code-param">width</span>, <span class="code-param">height</span>)</h4>
-		<p class="note"><span class="code-hint">setSize()</span> được dùng để cài đặt kích thước của hình vẽ.</p>
+		<p class="note"><span class="code-hint">setSize()</span> được dùng để cài đặt kích thước của CanvasShaper_StaticSprite.</p>
 		<h5>Tham số:</h5>
 		<ul>
 			<li><span class="code-param">width</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho độ rộng của đối tượng CanvasShaper_StaticSprite.</li>
-			<li><span class="code-param">height</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho độ ngang của đối tượng hình vẽ.</li>
+			<li><span class="code-param">height</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho độ cao của đối tượng CanvasShaper_StaticSprite.</li>
 		</ul>
 		<p class="note">Cách sử dụng <span class="code-hint">setSize()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setSize(<span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getSize()); <span class="code-comment">// Output {width: 100, height: 50}</span></p>
 		</div>
@@ -299,11 +314,11 @@
 	<div class="inner">
 		<h4 class="member" id="getWidth">getWidth()</h4>
 		<p class="note"><span class="code-hint">getWidth()</span> được dùng để xem kích thước chiều ngang của CanvasShaper_StaticSprite.</p>
-		<p class="tips">Phương thức <span class="code-hint">getWidth</span> sẽ trả lại một số (<span class="code">int|float</span>) cho biết kích thước theo chiều ngang của hình vẽ.</p>
+		<p class="tips">Phương thức <span class="code-hint">getWidth</span> sẽ trả lại một số (<span class="code">int|float</span>) cho biết kích thước theo chiều ngang của CanvasShaper_StaticSprite.</p>
 		<p class="note">Cách sử dụng <span class="code-hint">getWidth()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setSize(<span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getWidth()); <span class="code-comment">// Output 100</span></p>
 		</div>
@@ -311,7 +326,7 @@
 
 	<div class="inner">
 		<h4 class="member" id="setWidth">setWidth(<span class="code-param">value</span>)</h4>
-		<p class="note"><span class="code-hint">setWidth()</span> được dùng để cài đặt kích thước ngang của hình vẽ.</p>
+		<p class="note"><span class="code-hint">setWidth()</span> được dùng để cài đặt kích thước ngang của CanvasShaper_StaticSprite.</p>
 		<h5>Tham số:</h5>
 		<ul>
 			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho kích thước theo chiều ngang của CanvasShaper_StaticSprite.</li>
@@ -319,7 +334,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setWidth()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setWidth(<span class="code-constant">100</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getSize()); <span class="code-comment">// Output {width: 100, height: 0}</span></p>
 		</div>
@@ -332,7 +347,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">getHeight()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setSize(<span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getHeight()); <span class="code-comment">// Output 50</span></p>
 		</div>
@@ -348,7 +363,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setHeight()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setHeight(<span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getSize()); <span class="code-comment">// Output {width: 0, height: 50}</span></p>
 		</div>
@@ -361,7 +376,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">getScale()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getScale());</p>
 		</div>
 	</div>
@@ -378,7 +393,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setScale()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setScale(<span class="code-constant">0.25</span>, <span class="code-constant">0.25</span>)</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getScale());</p>
 		</div>
@@ -391,7 +406,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">getScaleX()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getScaleX());</p>
 		</div>
 	</div>
@@ -407,7 +422,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setScale()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setScaleX(<span class="code-constant">0.25</span>)</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getScaleX()); <span class="code-comment">// Output 0</span></p>
 		</div>
@@ -420,7 +435,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">getScaleY()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getScaleY());</p>
 		</div>
 	</div>
@@ -436,7 +451,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setScale()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setScaleY(<span class="code-constant">0.25</span>)</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getScaleY()); <span class="code-comment">// Output 0</span></p>
 		</div>
@@ -449,22 +464,22 @@
 		<p class="note">Cách sử dụng <span class="code-hint">getRotate()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getRotate()); <span class="code-comment">// Output 0</span></p>
 		</div>
 	</div>
 
 	<div class="inner">
 		<h4 class="member" id="setRotate">setRotate(<span class="code-param">angle</span>)</h4>
-		<p class="note"><span class="code-hint">setRotate()</span> được dùng để cài đặt góc xoay của hình vẽ.</p>
+		<p class="note"><span class="code-hint">setRotate()</span> được dùng để cài đặt góc xoay của CanvasShaper_StaticSprite.</p>
 		<h5>Tham số:</h5>
 		<ul>
-			<li><span class="code-param">angle</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho góc xoay hiện tại của hình vẽ.</li>
+			<li><span class="code-param">angle</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho góc xoay hiện tại của CanvasShaper_StaticSprite.</li>
 		</ul>
 		<p class="note">Cách sử dụng <span class="code-hint">setRotate()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setRotate(<span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.getRotate()); <span class="code-comment">// Output 50</span></p>
 		</div>
@@ -480,7 +495,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">toggleFlip()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setRotate(<span class="code-constant">50</span>);</p>
 			<p>staticSprite.toggleFlip(<span class="code-constant">CANVAS_SHAPER_FLIP_HORIZONTAL</span>); <span class="code-comment">// flip of horizontal.</span></p>
 		</div>
@@ -496,7 +511,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setFlip()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setRotate(<span class="code-constant">50</span>);</p>
 			<p>staticSprite.setFlip(<span class="code-constant">CANVAS_SHAPER_FLIP_VERTICLE</span>); <span class="code-comment">// flip of vertical.</span></p>
 		</div>
@@ -512,7 +527,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">resetFlip()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setRotate(<span class="code-constant">50</span>);</p>
 			<p>staticSprite.resetFlip(<span class="code-constant">CANVAS_SHAPER_FLIP_VERTICLE</span>); <span class="code-comment">// reset flip of vertical to first settings.</span></p>
 		</div>
@@ -530,7 +545,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">hitPoint()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setRotate(<span class="code-constant">50</span>);</p>
 			<p>staticSprite.hitPoint(<span class="code-constant">10</span>, <span class="code-constant">10</span>, <span class="code-keyword">function</span>() {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Settings OK.</span>
@@ -548,7 +563,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setHitPointTest()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setRotate(<span class="code-constant">50</span>);</p>
 			<p>staticSprite.hitPoint(<span class="code-constant">10</span>, <span class="code-constant">10</span>, <span class="code-keyword">function</span>() {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Settings OK.</span>
@@ -570,7 +585,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setHitPoint()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setRotate(<span class="code-constant">50</span>);</p>
 			<p>staticSprite.hitPoint(<span class="code-constant">10</span>, <span class="code-constant">10</span>, <span class="code-keyword">function</span>() {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Settings OK.</span>
@@ -585,7 +600,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setHitPoint()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.setRotate(<span class="code-constant">50</span>);</p>
 			<p>staticSprite.hitPoint(<span class="code-constant">10</span>, <span class="code-constant">10</span>, <span class="code-keyword">function</span>() {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Settings OK.</span>
@@ -601,7 +616,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">isDisable()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.isDisable()); <span class="code-comment">// Output false</span></p>
 		</div>
 	</div>
@@ -612,7 +627,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">disable()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.disable();</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.isDisable()); <span class="code-comment">// Output true</span></p>
 		</div>
@@ -624,7 +639,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">isEnable()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.disable();</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.isEnable()); <span class="code-comment">// Output false</span></p>
 		</div>
@@ -636,7 +651,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">enable()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.disable();</p>
 			<p>staticSprite.enable();</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.isDisable()); <span class="code-comment">// Output false</span></p>
@@ -650,7 +665,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">isHide()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.isHide()); <span class="code-comment">// Output false</span></p>
 		</div>
 	</div>
@@ -658,11 +673,11 @@
 	<div class="inner">
 		<h4 class="member" id="hide">hide()</h4>
 		<p class="note"><span class="code-hint">hide()</span> được dùng để cài đặt trạng thái ẩn cho CanvasShaper_StaticSprite.</p>
-		<p class="tips">Khi đối tượng được cài đặt trạng thái ẩn, có hai thứ sẽ xãy ra hình vẽ, thứ nhất là CanvasShaper_StaticSprite sẽ không nhìn thấy được, thứ hai là CanvasShaper_StaticSprite sẽ không còn hiệu lực với các sự kiện <span class="code-comment">"mouseup | mouseover | click | hitpoint"</span>.</p>
+		<p class="tips">Khi đối tượng được cài đặt trạng thái ẩn, có hai thứ sẽ xãy ra CanvasShaper_StaticSprite, thứ nhất là CanvasShaper_StaticSprite sẽ không nhìn thấy được, thứ hai là CanvasShaper_StaticSprite sẽ không còn hiệu lực với các sự kiện <span class="code-comment">"mouseup | mouseover | click | hitpoint"</span>.</p>
 		<p class="note">Cách sử dụng <span class="code-hint">hide()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.hide();</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.isHide()); <span class="code-comment">// Output true</span></p>
 		</div>
@@ -671,11 +686,11 @@
 	<div class="inner">
 		<h4 class="member" id="isShow">isShow()</h4>
 		<p class="note"><span class="code-hint">isShow()</span> được dùng để kiểm tra xem trạng thái hiển thị của CanvasShaper_StaticSprite.</p>
-		<p class="tips">Mặc định trạng thái hiển thị của hình vẽ là giá trị <span class="code-constant">true</span>.</p>
+		<p class="tips">Mặc định trạng thái hiển thị của CanvasShaper_StaticSprite là giá trị <span class="code-constant">true</span>.</p>
 		<p class="note">Cách sử dụng <span class="code-hint">isShow()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.isShow()); <span class="code-comment">// Output true</span></p>
 		</div>
 	</div>
@@ -687,10 +702,290 @@
 		<p class="note">Cách sử dụng <span class="code-hint">show()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>staticSprite.hide();</p>
 			<p>staticSprite.show();</p>
 			<p>console.<span class="code-keyword">log</span>(staticSprite.isHide()); <span class="code-comment">// Output false</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="invisible">invisible()</h4>
+		<p class="note"><span class="code-hint">invisible()</span> được dùng để cài đặt trạng thái hiển thị của CanvasShaper_StaticSprite sang trạng thái không hiển thị.</p>
+		<p class="tips">Mặc định CanvasShaper_StaticSprite có trạng thái nhìn thấy được, và sau đó người ta sử dụng phương thức <span class="code-hint">invisible</span> để chuyển CanvasShaper_StaticSprite về trạng thái không nhìn thấy được.</p>
+		<p class="tips">Chú ý, phương thức <span class="code-hint">invisible</span> hoàn toàn khác với phương thức <span class="code-hint">hide</span>, phương thức <span class="code-hint">invisible</span> chỉ làm cho CanvasShaper_StaticSprite vô hình, trong khi nó vẫn còn hiệu lực với các sự kiện <span class="code-comment">"mouseup | mouseover | click | hitpoint"</span>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">invisible()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.invisible();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="visible">visible(<span class="code-param">percent</span>)</h4>
+		<p class="note"><span class="code-hint">visible()</span> được dùng để cài đặt độ trong suốt hay chắn sáng của CanvasShaper_StaticSprite.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">percent</span> - Tỉ lệ phần trăm độ trong suốt hay chắn sáng của CanvasShaper_StaticSprite.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">visible()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.visible(); <span class="code-comment">// set transparent to 100.</span></p>
+			<p>staticSprite.visible(<span class="code-constant">50</span>); <span class="code-comment">// set transparent to 50.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setAlpha">setAlpha(<span class="code-param">percent</span>)</h4>
+		<p class="note"><span class="code-hint">setAlpha()</span> được dùng để cài đặt độ trong suốt hay chắn sáng của CanvasShaper_StaticSprite.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">percent</span> - Tỉ lệ phần trăm độ trong suốt hay chắn sáng của CanvasShaper_StaticSprite.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setAlpha()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setAlpha(); <span class="code-comment">// set transparent to 100.</span></p>
+			<p>staticSprite.setAlpha(<span class="code-constant">50</span>); <span class="code-comment">// set transparent to 50.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setGravity">setGravity(<span class="code-param">constant</span>)</h4>
+		<p class="note"><span class="code-hint">setGravity()</span> được dùng để cài đặt hằng số trọng lực của CanvasShaper_StaticSprite.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">constant</span> - Kiểu số (<span class="code">int|float</span>) là hằng số trọng lực của CanvasShaper_StaticSprite.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setGravity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setGravity(<span class="code-constant">50</span>); <span class="code-comment">// set gravity to 50.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="disableGravity">disableGravity()</h4>
+		<p class="note"><span class="code-hint">disableGravity()</span> được dùng để vô hiệu trọng lực của CanvasShaper_StaticSprite.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">disableGravity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setGravity(<span class="code-constant">50</span>); <span class="code-comment">// set gravity to 50.</span></p>
+			<p>staticSprite.disableGravity(); <span class="code-comment">// disable gravity.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="enableGravity">enableGravity()</h4>
+		<p class="note"><span class="code-hint">enableGravity()</span> được dùng để khôi phục trạng thái trọng lực của CanvasShaper_StaticSprite.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">enableGravity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setGravity(<span class="code-constant">50</span>); <span class="code-comment">// set gravity to 50.</span></p>
+			<p>staticSprite.disableGravity(); <span class="code-comment">// disable gravity.</span></p>
+			<p>staticSprite.enableGravity(); <span class="code-comment">// enable gravity.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setLinearVelocity">setLinearVelocity(<span class="code-param">x</span>, <span class="code-param">y</span>)</h4>
+		<p class="note"><span class="code-hint">setLinearVelocity()</span> được dùng để cài đặt tốc độ di chuyển thẳng của CanvasShaper_StaticSprite.</p>
+		<h5>Các tham số</h5>
+		<ul>
+			<li><span class="code-param">x</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho thành phần x của vector vận tốc dịch chuyển thẳng.</li>
+			<li><span class="code-param">y</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho thành phần y của vector vận tốc dịch chuyển thẳng.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setLinearVelocity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setLinearVelocity(<span class="code-constant">1.0</span>, <span class="code-constant">1.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setLinearVelocityX">setLinearVelocityX(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setLinearVelocityX()</span> được dùng để cài đặt tốc độ di chuyển thẳng của CanvasShaper_StaticSprite theo chiều ngang.</p>
+		<h5>Tham số</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho thành phần x của vector vận tốc dịch chuyển thẳng.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setLinearVelocityX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setLinearVelocityX(<span class="code-constant">1.0</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setLinearVelocityY">setLinearVelocityY(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setLinearVelocityY()</span> được dùng để cài đặt tốc độ di chuyển thẳng của CanvasShaper_StaticSprite theo chiều dọc.</p>
+		<h5>Tham số</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho thành phần y của vector vận tốc dịch chuyển thẳng.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setLinearVelocityY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setLinearVelocityY(<span class="code-constant">1.0</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setAngularVelocity">setAngularVelocity(<span class="code-param">angle</span>)</h4>
+		<p class="note"><span class="code-hint">setAngularVelocity()</span> được dùng để cài đặt tốc độ góc của CanvasShaper_StaticSprite.</p>
+		<h5>Tham số</h5>
+		<ul>
+			<li><span class="code-param">angle</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho thành phần y của vector vận tốc dịch chuyển thẳng.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setAngularVelocity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setAngularVelocity(<span class="code-constant">1.0</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="forceGravity">forceGravity()</h4>
+		<p class="note"><span class="code-hint">forceGravity()</span> được dùng để tính toán và thực thi vật lý trọng lượng của CanvasShaper_StaticSprite.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setAngularVelocity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setGravity(<span class="code-constant">50</span>); <span class="code-comment">// set gravity to 50.</span></p>
+			<p>staticSprite.forceGravity();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="forceAccum">forceAccum()</h4>
+		<p class="note"><span class="code-hint">forceAccum()</span> được dùng để tính toán và thực thi vật lý lực của CanvasShaper_StaticSprite.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">forceAccum()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.forceAccum();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="linearVelocityX">linearVelocityX()</h4>
+		<p class="note"><span class="code-hint">linearVelocityX()</span> được dùng để tính toán và thực thi vận tốc ngang của CanvasShaper_StaticSprite.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">linearVelocityX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setLinearVelocity(<span class="code-constant">1.0</span>, <span class="code-constant">1.5</span>);</p>
+			<p>staticSprite.linearVelocityX();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="linearVelocityY">linearVelocityY()</h4>
+		<p class="note"><span class="code-hint">linearVelocityY()</span> được dùng để tính toán và thực thi vận tốc dọc của CanvasShaper_StaticSprite.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">linearVelocityY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setLinearVelocity(<span class="code-constant">1.0</span>, <span class="code-constant">1.5</span>);</p>
+			<p>staticSprite.linearVelocityY();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="angularVelocity">angularVelocity()</h4>
+		<p class="note"><span class="code-hint">angularVelocity()</span> được dùng để tính toán và thực thi vận tốc góc của CanvasShaper_StaticSprite.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">angularVelocity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setAngularVelocity(<span class="code-constant">1.0</span>);</p>
+			<p>staticSprite.angularVelocity();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setCollisionBound">setCollisionBound(<span class="code-param">left</span>, <span class="code-param">top</span>, <span class="code-param">width</span>, <span class="code-param">height</span>)</h4>
+		<p class="note"><span class="code-hint">setCollisionBound()</span> được dùng để cài đặt đường bao quanh CanvasShaper_StaticSprite để kiểm tra đụng.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setCollisionBound()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setCollisionBound(<span class="code-constant">100</span>, <span class="code-constant">200</span>, <span class="code-constant">50</span>, <span class="code-constant">50</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="addCollisionTarget">addCollisionTarget(<span class="code-param">Target</span>, <span class="code-param">Callback</span>)</h4>
+		<p class="note"><span class="code-hint">addCollisionTarget()</span> được dùng để cài đặt đối tượng sẽ được kiểm tra đụng với CanvasShaper_StaticSprite.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">addCollisionTarget()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite1 = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite1.setCollisionBound(<span class="code-constant">100</span>, <span class="code-constant">200</span>, <span class="code-constant">50</span>, <span class="code-constant">50</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite2 = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite2.setCollisionBound(<span class="code-constant">100</span>, <span class="code-constant">195</span>, <span class="code-constant">50</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite2.addCollisionTarget(staticSprite2, <span class="code-keyword">function</span>() {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Some code...</span>
+			<br>});</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setWorldLimit">setWorldLimit(<span class="code-param">minX</span>, <span class="code-param">minY</span>, <span class="code-param">maxX</span>, <span class="code-param">maxY</span>)</h4>
+		<p class="note"><span class="code-hint">setWorldLimit()</span> được dùng để cài đặt đường bao giới hạn của CanvasShaper_StaticSprite với world.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setWorldLimit()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setWorldLimit(<span class="code-constant">100</span>, <span class="code-constant">200</span>, <span class="code-constant">50</span>, <span class="code-constant">50</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setWorldLimitTest">setWorldLimitTest(<span class="code-param">callback</span>)</h4>
+		<p class="note"><span class="code-hint">setWorldLimitTest()</span> được dùng để cài đặt hàm thực thi khi va chạm vào đường bao giới hạn của CanvasShaper_StaticSprite.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setWorldLimitTest()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.setWorldLimitTest(<span class="code-keyword">function</span>(<span class="code-param">limit</span>) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Some code...</span>
+			<br>});</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="testWorldLimit">testWorldLimit(<span class="code-param">callback</span>)</h4>
+		<p class="note"><span class="code-hint">testWorldLimit()</span> được dùng để kiểm tra va chạm vào đường bao giới hạn của CanvasShaper_StaticSprite.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">testWorldLimit()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.testWorldLimit(<span class="code-keyword">function</span>(<span class="code-param">limit</span>) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Some code...</span>
+			<br>});</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="Draw">Draw()</h4>
+		<p class="note"><span class="code-hint">Draw()</span> được dùng để kiểm tra va chạm vào đường bao giới hạn của CanvasShaper_StaticSprite.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">Draw()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> staticSprite = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>staticSprite.Draw();</p>
 		</div>
 	</div>
 </div>

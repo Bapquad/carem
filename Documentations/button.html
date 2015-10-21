@@ -61,7 +61,7 @@
 		<p class="note">Cách truy cập vào <span class="code-hint">DOMCanvasElement</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.DOMCanvasElement);</p>
 		</div>
 	</div>
@@ -72,7 +72,7 @@
 		<p class="note">Cách truy cập vào <span class="code-hint">context</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.context);</p>
 		</div>
 	</div>
@@ -83,7 +83,7 @@
 		<p class="note">Cách truy cập vào <span class="code-hint">Graphics</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.Graphics);</p>
 		</div>
 	</div>
@@ -94,7 +94,7 @@
 		<p class="note">Cách truy cập vào <span class="code-hint">SceneObject</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.SceneObject);</p>
 		</div>
 	</div>
@@ -105,7 +105,7 @@
 		<p class="note">Cách truy cập vào <span class="code-hint">image</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.image);</p>
 		</div>
 	</div>
@@ -116,7 +116,7 @@
 		<p class="note">Cách truy cập vào <span class="code-hint">mouseUpCallback</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.mouseUpCallback);</p>
 		</div>
 	</div>
@@ -127,7 +127,7 @@
 		<p class="note">Cách truy cập vào <span class="code-hint">mouseOverCallback</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.mouseOverCallback);</p>
 		</div>
 	</div>
@@ -138,7 +138,7 @@
 		<p class="note">Cách truy cập vào <span class="code-hint">clickCallback</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.clickCallback);</p>
 		</div>
 	</div>
@@ -149,7 +149,7 @@
 		<p class="note">Cách truy cập vào <span class="code-hint">imagePositionX</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.imagePositionX);</p>
 		</div>
 	</div>
@@ -160,7 +160,7 @@
 		<p class="note">Cách truy cập vào <span class="code-hint">imagePositionY</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.imagePositionY);</p>
 		</div>
 	</div>
@@ -177,7 +177,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setAsset()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 		</div>
 	</div>
@@ -193,7 +193,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setImagePosition()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.setImagePosition(<span class="code-constant">100</span>, <span class="code-constant">0</span>);</p>
 		</div>
@@ -209,7 +209,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setImagePositionX()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.setImagePositionX(<span class="code-constant">100</span>);</p>
 		</div>
@@ -225,7 +225,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setImagePositionY()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.setImagePositionY(<span class="code-constant">100</span>);</p>
 		</div>
@@ -241,7 +241,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">onClick()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.onClick(<span class="code-keyword">function</span>() {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>("OK");
@@ -259,7 +259,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">onMouseOver()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.onMouseOver(<span class="code-keyword">function</span>() {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>("OK");
@@ -277,7 +277,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">onMouseUp()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.onMouseUp(<span class="code-keyword">function</span>() {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>("OK");
@@ -292,7 +292,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">getPosition()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.getPosition());</p>
 		</div>
@@ -309,7 +309,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setPosition()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.setPosition(<span class="code-constant">10</span>, <span class="code-constant">10</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.getPosition());</p>
@@ -322,7 +322,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setPositionX()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.setPosition(<span class="code-constant">10</span>, <span class="code-constant">10</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.getPositionX());</p>
@@ -339,7 +339,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setPositionX()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.setPositionX(<span class="code-constant">10</span>);</p>
 		</div>
@@ -351,7 +351,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setPositionY()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.setPosition(<span class="code-constant">10</span>, <span class="code-constant">10</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.getPositionY());</p>
@@ -368,7 +368,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setPositionY()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.setPositionY(<span class="code-constant">10</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.getPositionY());</p>
@@ -381,7 +381,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">getSize()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.getSize());</p>
 		</div>
@@ -398,7 +398,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setSize()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.setSize(<span class="code-constant">100</span>, <span class="code-constant">200</span>);</p>
 		</div>
@@ -410,7 +410,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">getWidth()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.getWidth());</p>
 		</div>
@@ -426,7 +426,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setWidth()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.setWidth(<span class="code-constant">100</span>);</p>
 		</div>
@@ -438,7 +438,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">getHeight()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.getHeight());</p>
 		</div>
@@ -454,7 +454,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setHeight()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.setHeight(<span class="code-constant">100</span>);</p>
 		</div>
@@ -466,7 +466,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">getRotate()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.getRotate());</p>
 		</div>
@@ -482,7 +482,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">setRotate()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.setRotate(<span class="code-constant">100</span>);</p>
 		</div>
@@ -494,7 +494,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">isDisable()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.isDisable());</p>
 		</div>
@@ -507,7 +507,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">disable()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.disable();</p>
 			<p>console.<span class="code-keyword">log</span>(button.isDisable());</p>
@@ -520,7 +520,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">isEnable()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.isEnable());</p>
 		</div>
@@ -533,7 +533,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">enable()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.enable();</p>
 			<p>console.<span class="code-keyword">log</span>(button.isDisable());</p>
@@ -546,7 +546,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">isHide()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.isHide());</p>
 		</div>
@@ -559,7 +559,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">hide()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.hide();</p>
 			<p>console.<span class="code-keyword">log</span>(button.isDisable()); <span class="code-comment">// Output true.</span></p>
@@ -572,7 +572,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">isShow()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(button.isShow());</p>
 		</div>
@@ -584,7 +584,7 @@
 		<p class="note">Cách sử dụng <span class="code-hint">show()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.hide();</p>
 			<p>button.show();</p>
@@ -595,11 +595,11 @@
 	<div class="inner">
 		<h4 class="member" id="invisible">invisible()</h4>
 		<p class="note"><span class="code-hint">invisible()</span> được dùng để làm khuất button.</p>
-		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">invisible</span>, nó sẽ làm cho button không còn được hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-param">"mouseup | mouseover | click".</span></p>
+		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">invisible</span>, nó sẽ làm cho button không còn được hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-comment">"mouseup | mouseover | click".</span></p>
 		<p class="note">Cách sử dụng <span class="code-hint">invisible()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.invisible();</p>
 		</div>
@@ -608,11 +608,11 @@
 	<div class="inner">
 		<h4 class="member" id="visible">visible()</h4>
 		<p class="note"><span class="code-hint">visible()</span> được dùng để khôi phục trạng thái hiển thị của button.</p>
-		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">visible</span>, nó sẽ làm cho button khôi phục được trạng thái hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-param">"mouseup | mouseover | click".</span></p>
+		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">visible</span>, nó sẽ làm cho button khôi phục được trạng thái hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-comment">"mouseup | mouseover | click".</span></p>
 		<p class="note">Cách sử dụng <span class="code-hint">visible()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.visible();</p>
 		</div>
@@ -621,11 +621,11 @@
 	<div class="inner">
 		<h4 class="member" id="setAlpha">setAlpha()</h4>
 		<p class="note"><span class="code-hint">setAlpha()</span> được dùng để khôi phục trạng thái hiển thị của button.</p>
-		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">visible</span>, nó sẽ làm cho button khôi phục được trạng thái hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-param">"mouseup | mouseover | click".</span></p>
+		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">visible</span>, nó sẽ làm cho button khôi phục được trạng thái hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-comment">"mouseup | mouseover | click".</span></p>
 		<p class="note">Cách sử dụng <span class="code-hint">visible()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.visible();</p>
 		</div>
@@ -634,11 +634,11 @@
 	<div class="inner">
 		<h4 class="member" id="Draw">Draw()</h4>
 		<p class="note"><span class="code-hint">Draw()</span> được dùng để vẽ button.</p>
-		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">Draw</span>, nó sẽ làm cho button khôi phục được trạng thái hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-param">"mouseup | mouseover | click".</span></p>
+		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">Draw</span>, nó sẽ làm cho button khôi phục được trạng thái hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-comment">"mouseup | mouseover | click".</span></p>
 		<p class="note">Cách sử dụng <span class="code-hint">Draw()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> CanvasShaper_Layer(<span class="code-param">"canvas_id"</span>);</p>
-			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> CanvasShaper_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
 			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
 			<p>button.Draw();</p>
 		</div>
