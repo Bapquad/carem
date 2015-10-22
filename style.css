@@ -38,6 +38,11 @@ body.border-col
 	margin-top: 15px;
 }
 
+.mb5 
+{
+	margin-bottom: 5px;
+}
+
 h1, h2 
 {
 	font-size: 18px;
@@ -138,6 +143,16 @@ h2
 	font-family: "Lucida Console";
 }
 
+.code-attr 
+{
+	color: #fe0;
+}
+
+.code-value 
+{
+	color: #6f0;
+}
+
 .list 
 {
 	margin-left: 25px;
@@ -146,4 +161,15 @@ h2
 h2.member 
 {
 	border-top: 1px solid #999;
+}
+
+.mark-folder 
+{
+	color: #dc0;
+}
+
+
+.mark-file 
+{
+	color: #6e0;
 }

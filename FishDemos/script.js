@@ -23,7 +23,6 @@ function CyGame()
 	/** Create Layer */
 	var Layer01 = new CanvasShaper_Layer("FishDemos");
 	var Layer02 = new CanvasShaper_Layer("FishDemos");
-	
 	/** Settings Layer */
 	Layer01.setBackground(255, 255, 255, 1);
 	Layer02.setBackground(255, 150, 0, 1);
@@ -60,14 +59,17 @@ function CyGame()
 	function CreateFishLevel() 
 	{
 		/** Set Background For Level */
-		Layer02.Background = new CanvasShaper_StaticSprite(Layer02, AssetManager.getAsset("images/background.jpg"), 0, 0, 480, 320);
+		Layer02.Background = new CanvasShaper_StaticSprite(
+			Layer02, 
+			AssetManager.getAsset("images/background.jpg"), 
+			0, 0, 480, 320
+		);
 		/** Create Scroller Wave */
 		Layer02.Wave = new CanvasShaper_Scroller(Layer02, AssetManager.getAsset("images/wave.png"));
 		Layer02.Wave.setAlpha(15);
 		Layer02.Wave.setVelocity(0.32);
 		Layer02.Wave.setPosition(0, 200);
 		Layer02.Wave.setFlip(CANVAS_SHAPER_FLIP_HORIZONTAL);
-
 		/** Create Play Button */
 		Layer02.PlayButton = new CanvasShaper_Button(Layer02, AssetManager.getAsset("images/play.png"), 0, 0, 76, 32);
 		Layer02.PlayButton.setPosition(100, 200);
@@ -79,7 +81,6 @@ function CyGame()
 			Layer02.Player.setPositionY(150);
 			Layer02.PlayButton.hide();
 		});
-		
 		/** Create Static Fish */
 		Layer02.Fish01 = new CanvasShaper_StaticSprite(Layer02, AssetManager.getAsset("images/fish.png"), 228, 18, 198, 114);
 		Layer02.Fish01.Game_Streng = CanvasShaper_Math.intRandom(5, 30);
@@ -108,7 +109,6 @@ function CyGame()
 					break;
 			}
 		});
-		
 		/** Create Animate Fish */
 		Layer02.Fish02 = new CanvasShaper_AnimeSprite(Layer02, AssetManager.getAsset("images/fish1.png"), 198, 114);
 		Layer02.Fish02.Game_Streng = CanvasShaper_Math.intRandom(5, 30);
@@ -118,10 +118,8 @@ function CyGame()
 		Layer02.Fish02.setLinearVelocityX(1.0);
 		Layer02.Fish02.Actions = {Xuoi: 0, Nguoc: 1};
 		Layer02.Fish02.setCollisionBound(0, 0, 198*Layer02.Fish02.Game_Streng/100, 114*Layer02.Fish02.Game_Streng/100);
-		/** Create Test Hit Point for Fish*/
 		Layer02.Fish02.setHitPointTest(function(){console.log("Hit Point!");});
 		Layer02.Fish02.setHitPoint(155, 202);
-		
 		Layer02.Fish02.setWorldLimit(-100, -50, 530, 370);
 		Layer02.Fish02.setWorldLimitTest(function(Limit) 
 		{
@@ -141,7 +139,6 @@ function CyGame()
 					break;
 			}
 		});
-		
 		/** Create Player Fish */
 		Layer02.Player = new CanvasShaper_AnimeSprite(Layer02, AssetManager.getAsset("images/fish1.png"), 198, 114);
 		Layer02.Player.Game_Streng = 10;		// Dynamic Field (Free in Javascript) 
@@ -196,28 +193,22 @@ function CyGame()
 				Layer02.Player.Game_Over = 1;
 			}
 		});
-		
 		/** Create Bubbles Paricle */
 		Layer02.Bubble = new CanvasShaper_Particle(Layer02, AssetManager.getAsset("images/bubble.png"), 7);
 		Layer02.Bubble.setAlphaBase(0.5);
-		//Layer02.Bubble.setAlphaLife(1.0, 0.1);
 		Layer02.Bubble.setScaleBase(0.3);
-		//Layer02.Bubble.setScaleLife(0.01, 0.2);
 		Layer02.Bubble.setLifeTime(50, 23);
 		Layer02.Bubble.setPositionRandom(0, 480, 200, 300);
-		//Layer02.Bubble.setRotation(45);
 		Layer02.Bubble.setAngularSpeed(0);
 		Layer02.Bubble.setWorldLimit(-10, -10, 480, 360);
 		Layer02.Bubble.setEmittion(true);
 		Layer02.Bubble.genParticle();
-		
 		/** Create Tile */
 		Layer02.Tile = new CanvasShaper_Tile(Layer02);
 		Layer02.Tile.setPosition(320, 280);
 		Layer02.Tile.addCell(AssetManager.getAsset("images/bubble.png"), 0, 0);
 		Layer02.Tile.addCell(AssetManager.getAsset("images/bubble.png"), 320, 0);
 		Layer02.Tile.setLinearVelocityX(-1.0);
-		
 		/** Create Event for Layer */
 		function overInteract() 
 		{
@@ -249,30 +240,29 @@ function CyGame()
 				return;
 			setTimeout(overInteract, 200);
 		}, false);
-		
 		/** Finish the creating game level */
-		TickGID = RequestAnimationFrame(RunFishLevel);
+		TickGID = RequestAnimationFrame(PlayFishLevel);
 		return;
 	}
 	
-	function RunFishLevel() 
+	function PlayFishLevel() 
 	{
+		/** Play Tile Actions */
 		Layer02.Tile.linearVelocityX();
-
+		/** Play Player Actions */
 		Layer02.Player.linearVelocityY();
 		Layer02.Player.forceGravity();
 		Layer02.Player.testWorldLimit();
-		
+		/** Play Fish Actions */
 		Layer02.Fish01.linearVelocityX();
 		Layer02.Fish01.testWorldLimit();
-		
+		/** Play Fish Actions */
 		Layer02.Fish02.linearVelocityX();
 		Layer02.Fish02.testWorldLimit();
-		
 		/** Swap To New View For Player */
 		Layer02.Swap();
 		/** Request This Frame */
-		TickGID = RequestAnimationFrame(RunFishLevel);
+		TickGID = RequestAnimationFrame(PlayFishLevel);
 		return;
 	}
 	
