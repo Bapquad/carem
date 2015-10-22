@@ -2,7 +2,6 @@
 //	File: canvasshaper.js
 //	Date: 10.09.2015
 //	Description: A Library Of Javascript, Framework For Canvas
-//	Author: Vu Huy Cuong - Email: vuhuycuong291987@gmail.com
 //	Company: Bapquad Games.
 //	Lisence: FFA lisence (Free For All).
 -------------------------------------------------------------------*/
