@@ -67,7 +67,7 @@
 				<li><a href="#setup_fish">Cài đặt cá</a></li>
 				<li><a href="#setup_player">Cài đặt người chơi</a></li>
 				<li><a href="#setup_bubble">Cài đặt bong bóng</a></li>
-				<li><a href="#setup_player">Cài đặt tương tác Game</a></li>
+				<li><a href="#setup_click">Cài đặt tương tác Game</a></li>
 			</ul>
 		</li>
 		<li class="mb5"><a href="#play_level">Chạy level game.</a></li>
@@ -324,7 +324,237 @@
 			&nbsp;&nbsp;&nbsp;&nbsp;});<br>
 			}
 		</div>
+		<h4 id="setup_fish" class="mt15"><strong>Cài đặt cá</strong></h4>
+		<p class="note">Bạn sẽ cài đặt cá cho game bằng cách như viết tiếp phương thức <span class="code-hint">CreateFishLevel</span> với đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Static Fish */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01 = <span class="code-keyword">new</span> CanvasShaper_StaticSprite(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.getAsset(<span class="code-param">"images/fish.png"</span>), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">228</span>, <span class="code-constant">18</span>, <span class="code-constant">198</span>, <span class="code-constant">114</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.Game_Streng = CanvasShaper_Math.intRandom(<span class="code-constant">5</span>, <span class="code-constant">30</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setPosition(<span class="code-constant">30</span>, <span class="code-constant">30</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setScale(Layer02.Fish01.Game_Streng/<span class="code-constant">100</span>, Layer02.Fish01.Game_Streng/<span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setLinearVelocityX(<span class="code-constant">1.0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setFlip(<span class="code-constant">CANVAS_SHAPER_FLIP_HORIZONTAL</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setOrgin(<span class="code-constant">10</span>, <span class="code-constant">-10</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setCollisionBound(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>*Layer02.Fish01.Game_Streng/<span class="code-constant">100</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">114</span>*Layer02.Fish01.Game_Streng/<span class="code-constant">100</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setWorldLimit(<span class="code-constant">-100</span>, <span class="code-constant">-50</span>, <span class="code-constant">530</span>, <span class="code-constant">370</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setWorldLimitTest(function(limit) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.Game_Streng = CanvasShaper_Math.intRandom(<span class="code-constant">5</span>, <span class="code-constant">30</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setScale(Layer02.Fish01.Game_Streng/<span class="code-constant">100</span>, Layer02.Fish01.Game_Streng/<span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setCollisionBound(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>*Layer02.Fish01.Game_Streng/<span class="code-constant">100</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">114</span>*Layer02.Fish01.Game_Streng/<span class="code-constant">100</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setPositionY(CanvasShaper_Math.intRandom(<span class="code-constant">25</span>, <span class="code-constant">200</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">switch</span>(limit) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> <span class="code-constant">CANVAS_SHAPER_LIMIT_RIGHT</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.resetFlip(<span class="code-constant">CANVAS_SHAPER_FLIP_HORIZONTAL</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setLinearVelocityX(CanvasShaper_Math.intRandom(<span class="code-constant">-1</span>, <span class="code-constant">-5</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">break</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> <span class="code-constant">CANVAS_SHAPER_LIMIT_LEFT</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setFlip(<span class="code-constant">CANVAS_SHAPER_FLIP_HORIZONTAL</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setLinearVelocityX(CanvasShaper_Math.intRandom(<span class="code-constant">1</span>, <span class="code-constant">5</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">break</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Animate Fish */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02 = <span class="code-keyword">new</span> CanvasShaper_AnimeSprite(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02, AssetManager.getAsset(<span class="code-param">"images/fish1.png"</span>), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>, <span class="code-constant">114</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.Game_Streng = CanvasShaper_Math.intRandom(<span class="code-constant">5</span>, <span class="code-constant">30</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setPosition(<span class="code-constant">100</span>, <span class="code-constant">200</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setScale(Layer02.Fish02.Game_Streng/<span class="code-constant">100</span>, Layer02.Fish02.Game_Streng/<span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setAction(<span class="code-constant">1</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setLinearVelocityX(<span class="code-constant">1.0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.Actions = {Xuoi: <span class="code-constant">0</span>, Nguoc: <span class="code-constant">1</span>};<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setCollisionBound(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>*Layer02.Fish02.Game_Streng/<span class="code-constant">100</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">114</span>*Layer02.Fish02.Game_Streng/<span class="code-constant">100</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setHitPointTest(<span class="code-keyword">function</span>()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>(<span class="code-param">"Hit Point!"</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setHitPoint(<span class="code-constant">155</span>, <span class="code-constant">202</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setWorldLimit(<span class="code-constant">-100</span>, <span class="code-constant">-50</span>, <span class="code-constant">530</span>, <span class="code-constant">370</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setWorldLimitTest(<span class="code-keyword">function</span>(Limit) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.Game_Streng = CanvasShaper_Math.intRandom(<span class="code-constant">5</span>, <span class="code-constant">30</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setScale(Layer02.Fish02.Game_Streng/<span class="code-constant">100</span>, Layer02.Fish02.Game_Streng/<span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setCollisionBound(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>*Layer02.Fish02.Game_Streng/<span class="code-constant">100</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">114</span>*Layer02.Fish02.Game_Streng/<span class="code-constant">100</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setPositionY(CanvasShaper_Math.intRandom(<span class="code-constant">25</span>, <span class="code-constant">200</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">switch</span>(Limit) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> <span class="code-constant">CANVAS_SHAPER_LIMIT_RIGHT</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setAction(Layer02.Fish02.Actions.Xuoi);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setLinearVelocityX(CanvasShaper_Math.intRandom(<span class="code-constant">-1</span>, <span class="code-constant">-5</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">break</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> <span class="code-constant">CANVAS_SHAPER_LIMIT_LEFT</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setAction(Layer02.Fish02.Actions.Nguoc);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setLinearVelocityX(CanvasShaper_Math.intRandom(<span class="code-constant">1</span>, <span class="code-constant">5</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">break</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			}
+		</div>
+		<h4 id="setup_player" class="mt15"><strong>Cài đặt người chơi</strong></h4>
+		<p class="note">Bạn sẽ cài đặt người chơi cho game bằng cách như viết tiếp phương thức <span class="code-hint">CreateFishLevel</span> với đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Player Fish */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player = <span class="code-keyword">new</span> CanvasShaper_AnimeSprite(Layer02, AssetManager.getAsset(<span class="code-param">"images/fish1.png"</span>), 198, 114);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng = <span class="code-constant">10</span>; <span class="code-comment">// Dynamic Field (Free in Javascript)</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Over = <span class="code-constant">0</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setPosition(<span class="code-constant">200</span>, <span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setScale(Layer02.Player.Game_Streng/<span class="code-constant">100</span>, Layer02.Player.Game_Streng/<span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setGravity(<span class="code-constant">2.0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setLinearVelocityX(<span class="code-constant">1</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Actions = {Xuoi: <span class="code-constant">0</span>, Nguoc: <span class="code-constant">1</span>};<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setAction(Layer02.Player.Actions.Nguoc);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setCollisionBound(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>*Layer02.Player.Game_Streng/<span class="code-constant">100</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">114</span>*Layer02.Player.Game_Streng/<span class="code-constant">100</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setWorldLimit(<span class="code-constant">-100</span>, <span class="code-constant">-50</span>, <span class="code-constant">530</span>, <span class="code-constant">370</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setWorldLimitTest(<span class="code-keyword">function</span>(limit) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span>(limit == <span class="code-constant">CANVAS_SHAPER_LIMIT_BOTTOM</span>)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.disableGravity();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">else</span> <span class="code-keyword">if</span>(limit == <span class="code-constant">CANVAS_SHAPER_LIMIT_TOP</span>) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.mouseDown = <span class="code-constant">false</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.enableGravity();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.addCollisionTarget(Layer02.Fish01, <span class="code-keyword">function</span>() <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span>(Layer02.Fish01.Game_Streng < Layer02.Player.Game_Streng) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng += <span class="code-constant">1</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setScale(<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng/<span class="code-constant">100</span>, <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng/<span class="code-constant">100</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setPosition(-100, CanvasShaper_Math.intRandom(<span class="code-constant">0</span>, <span class="code-constant">240</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">else</span> <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Over = <span class="code-constant">1</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.addCollisionTarget(Layer02.Fish02, <span class="code-keyword">function</span>() <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span>(Layer02.Fish02.Game_Streng < Layer02.Player.Game_Streng) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng += <span class="code-constant">1</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setScale(<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng/<span class="code-constant">100</span>, <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng/<span class="code-constant">100</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setPosition(<span class="code-constant">-100</span>, CanvasShaper_Math.intRandom(<span class="code-constant">0</span>, <span class="code-constant">240</span>&nbsp;&nbsp;&nbsp;&nbsp;));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">else</span> <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Over = <span class="code-constant">1</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			}<br>
+		</div>
+		<h4 id="setup_bubble" class="mt15"><strong>Cài đặt bong bóng</strong></h4>
+		<p class="note">Bạn sẽ cài đặt bong bóng cho game bằng cách như viết tiếp phương thức <span class="code-hint">CreateFishLevel</span> với đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Bubbles Paricle */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble = <span class="code-keyword">new</span> CanvasShaper_Particle(Layer02, AssetManager.getAsset(<span class="code-param">"images/bubble.png"</span>), <span class="code-constant">7</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setAlphaBase(<span class="code-constant">0.5</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setScaleBase(<span class="code-constant">0.3</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setLifeTime(<span class="code-constant">50</span>, <span class="code-constant">23</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setPositionRandom(<span class="code-constant">0</span>, <span class="code-constant">480</span>, <span class="code-constant">200</span>, <span class="code-constant">300</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setAngularSpeed(<span class="code-constant">0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setWorldLimit(<span class="code-constant">-10</span>, <span class="code-constant">-10</span>, <span class="code-constant">480</span>, <span class="code-constant">360</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setEmittion(<span class="code-constant">true</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.genParticle();<br>
+			}
+		</div>
+		<h4 id="setup_tile" class="mt15"><strong>Cài đặt tile</strong></h4>
+		<p class="note">Bạn sẽ cài đặt tile cho game bằng cách như viết tiếp phương thức <span class="code-hint">CreateFishLevel</span> với đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Tile */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Tile = <span class="code-keyword">new</span> CanvasShaper_Tile(Layer02);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Tile.setPosition(<span class="code-constant">320</span>, <span class="code-constant">280</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Tile.addCell(AssetManager.getAsset(<span class="code-param">"images/bubble.png"</span>), <span class="code-constant">0</span>, <span class="code-constant">0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Tile.addCell(AssetManager.getAsset(<span class="code-param">"images/bubble.png"</span>), <span class="code-constant">320</span>, <span class="code-constant">0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Tile.setLinearVelocityX(<span class="code-constant">-1.0</span>);<br>
+			}
+		</div>
+		<h4 id="setup_click" class="mt15"><strong>Cài đặt tương tác Game</strong></h4>
+		<p class="note">Bạn sẽ cài đặt tương tác mouse cho game bằng cách như viết tiếp phương thức <span class="code-hint">CreateFishLevel</span> với đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Event for Layer */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">function</span> overInteract() <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.mouseDown = <span class="code-constant">false</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.enableGravity();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setLinearVelocityY(<span class="code-constant">0.0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">function</span> enterInteract(Event) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span>(Layer02.Player.mouseDown || Layer02.Player.Game_Over)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span>(Event.pageX > Layer02.Player.getPositionX()) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setAction(Layer02.Player.Actions.Nguoc);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">else</span> <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setAction(Layer02.Player.Actions.Xuoi);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.disableGravity();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setLinearVelocityY(<span class="code-constant">-3.0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.mouseDown = <span class="code-constant">true</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-constant">false</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.addEventListener(<span class="code-param">"click"</span>, <span class="code-keyword">function</span>(<span class="code-constant">e</span>) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(enterInteract(<span class="code-constant">e</span>))<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(overInteract, <span class="code-constant">200</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;}, <span class="code-constant">false</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Finish the creating game level */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;TickGID = RequestAnimationFrame(PlayFishLevel);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+			}
+		</div>
 	</div>
+	<h3 id="play_level">Chạy Level Game</h3>
+	<div class="inner">
+		<p class="note">Sau khi tạo xong level. Bạn sẽ chạy chúng bằng phương thức <span class="code-hint">PlayFishLevel</span></p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> PlayFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Play Tile Actions */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Tile.linearVelocityX();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Play Player Actions */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.linearVelocityY();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.forceGravity();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.testWorldLimit();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Play Fish Actions */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.linearVelocityX();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.testWorldLimit();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Play Fish Actions */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.linearVelocityX();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.testWorldLimit();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Swap To New View For Player */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Swap();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Request This Frame */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;TickGID = RequestAnimationFrame(PlayFishLevel);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span>;<br>
+			}
+		</div>
+	</div>
+	<h3 id="consolute">Kết luận</h3>
+	<p class="note">Như vậy là chúng ta đã có một game. bạn có thể download xem code mẫu trong thư mục FishDemos.</p>
 </div>
 </body>
 </html>
