@@ -1,0 +1,383 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+<link href="../style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../jquery.js" type="text/javascript"></script>
+<script src="../carem.js" type="text/javascript"></script>
+<script src="../carem+.js" type="text/javascript"></script>
+<title>Physics | Bapquad Games | bapquadgames.com</title>
+</head>
+
+<body class="border-col">
+<div class="tree-col">
+	<p><a href="index.html">Main Index</a></p>
+	<h1>Carem</h1>
+	<ul>
+		<li class="class-tree"><a href="layer.html">Carem_Layer</a></li>
+		<li class="class-tree"><a href="math.html">Carem_Math</a></li>
+		<li class="class-tree"><a href="filter.html">Carem_Filter</a></li>
+		<li class="class-tree"><a href="assetmanager.html">Carem_AssetManager</a></li>
+		<li class="class-tree"><a href="graphics.html">Carem_Graphics</a></li>
+		<li class="class-tree"><a href="sceneobject.html">Carem_SceneObject</a></li>
+		<li class="class-tree"><a href="symbolarc.html">Carem_SymbolArc</a></li>
+		<li class="class-tree"><a href="symbolcircle.html">Carem_SymbolCircle</a></li>
+		<li class="class-tree"><a href="symbolline.html">Carem_SymbolLine</a></li>
+		<li class="class-tree"><a href="symboloval.html">Carem_SymbolOval</a></li>
+		<li class="class-tree"><a href="symbolpolygon.html">Carem_SymbolPolygon</a></li>
+		<li class="class-tree"><a href="symbolrect.html">Carem_SymbolRect</a></li>
+		<li class="class-tree"><a href="symbolroundrect.html">Carem_SymbolRoundRect</a></li>
+		<li class="class-tree"><a href="symbolshape.html">Carem_SymbolShape</a></li>
+		<li class="class-tree"><a href="symboltext.html">Carem_Text</a></li>
+		<li class="class-tree"><a href="symbolimage.html">Carem_Image</a></li>
+	</ul>
+	<h1>Carem+</h1>
+	<ul>
+		<li class="class-tree"><a href="physics.html">Carem_Physics</a></li>
+		<li class="class-tree"><a href="worldlimit.html">Carem_WorldLimit</a></li>
+		<li class="class-tree"><a href="collision.html">Carem_Collision</a></li>
+		<li class="class-tree"><a href="button.html">Carem_Button</a></li>
+		<li class="class-tree"><a href="staticsprite.html">Carem_StaticSprite</a></li>
+		<li class="class-tree"><a href="animesprite.html">Carem_AnimeSprite</a></li>
+		<li class="class-tree"><a href="scroller.html">Carem_Scroller</a></li>
+		<li class="class-tree"><a href="particle.html">Carem_Particle</a></li>
+		<li class="class-tree"><a href="tile.html">Carem_Tile</a></li>
+	</ul>
+	<h1>Hướng dẫn thực hiện</h1>
+	<ul>
+		<li class="class-tree"><a href="fish-demo.html">Fish Demo</a></li>
+	</ul>
+</div>
+<div class="content-col">
+	<h1>Carem_Physics</h1>
+	<h2>Giới thiệu</h2>
+	<p class="note">Carem_Physics là class dùng để chứa các <a href="#property">thuộc tính</a> và <a href="#method">phương thức</a> quản lý, và thao tác vật lý.</p>
+
+	<h3 id="property">Thuộc tính</h3>
+	<div class="inner">
+		<h4 class="member" id="SceneObject">SceneObject</h4>
+		<p class="note"><span class="code-hint">SceneObject</span> lưu trữ đối tượng SceneObject dùng để xử lý cách thức làm việc của myImg trên bảng vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">SceneObject</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>console.<span class="code-keyword">log</span>(Physics.SceneObject);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="velocityX">velocityX</h4>
+		<p class="note"><span class="code-hint">velocityX</span> lưu trữ vận tốc, theo chiều ngang.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">velocityX</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>console.<span class="code-keyword">log</span>(Physics.velocityX);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="velocityY">velocityY</h4>
+		<p class="note"><span class="code-hint">velocityY</span> lưu trữ vận tốc, theo chiều dọc.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">velocityY</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>console.<span class="code-keyword">log</span>(Physics.velocityY);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="angleVelocity">angleVelocity</h4>
+		<p class="note"><span class="code-hint">angleVelocity</span> lưu trữ vận tốc góc dùng để xoay đối tượng.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">angleVelocity</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>console.<span class="code-keyword">log</span>(Physics.angleVelocity);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="constantForceX">constantForceX</h4>
+		<p class="note"><span class="code-hint">constantForceX</span> lưu trữ hằng số lực, theo chiều ngang.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">constantForceX</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>console.<span class="code-keyword">log</span>(Physics.constantForceX);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="constantForceY">constantForceY</h4>
+		<p class="note"><span class="code-hint">constantForceY</span> lưu trữ hằng số lực, theo chiều dọc.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">constantForceY</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>console.<span class="code-keyword">log</span>(Physics.constantForceY);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="gravity">gravity</h4>
+		<p class="note"><span class="code-hint">gravity</span> lưu trữ hằng số trọng lực.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">gravity</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>console.<span class="code-keyword">log</span>(Physics.gravity);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="gravityMode">gravityMode</h4>
+		<p class="note"><span class="code-hint">gravityMode</span> lưu trữ chế độ trọng lực.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">gravityMode</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>console.<span class="code-keyword">log</span>(Physics.gravityMode);</p>
+		</div>
+	</div>
+
+	<h3 id="method">Phương thức</h3>
+
+	<div class="inner">
+		<h4 class="member" id="enableGravity">enableGravity()</h4>
+		<p class="note"><span class="code-hint">enableGravity()</span> được dùng để kích hoạt chế độ tạo trọng lực.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">enableGravity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.enableGravity();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="disableGravity">disableGravity()</h4>
+		<p class="note"><span class="code-hint">disableGravity()</span> được dùng để vô hiệu hóa chế độ tạo trọng lực.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">disableGravity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.disableGravity();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setGravity">setGravity(<span class="code-param">gravity</span>)</h4>
+		<p class="note"><span class="code-hint">setGravity()</span> được dùng để cài đặt giá trị hằng số trọng lực.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">gravity</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho trọng lực mà người ta cần cài đặt.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setGravity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.setGravity(<span class="code-constant">10</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="addConstantForce">addConstantForce(<span class="code-param">cfX</span>, <span class="code-param">cfY</span>)</h4>
+		<p class="note"><span class="code-hint">addConstantForce()</span> được dùng để cộng thêm giá trị hằng số lực tác động.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">cfX</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho lực theo chiều ngang mà người ta cần cộng thêm.</li>
+			<li><span class="code-param">cfY</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho lực theo chiều dọc mà người ta cần cộng thêm.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">addConstantForce()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.addConstantForce(<span class="code-constant">1.5</span>, <span class="code-constant">1.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="addConstantForceX">addConstantForceX(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">addConstantForceX()</span> được dùng để cộng thêm giá trị hằng số lực tác động theo chiều ngang.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho lực theo chiều ngang mà người ta cần cài đặt.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">addConstantForceX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.addConstantForceX(<span class="code-constant">1.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="addConstantForceY">addConstantForceY(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">addConstantForceY()</span> được dùng để cộng thêm giá trị hằng số lực tác động theo chiều dọc.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho lực theo chiều dọc mà người ta cần cài đặt.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">addConstantForceY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.addConstantForceY(<span class="code-constant">1.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setConstantForce">setConstantForce(<span class="code-param">cfX</span>, <span class="code-param">cfY</span>)</h4>
+		<p class="note"><span class="code-hint">setConstantForce()</span> được dùng để cài đặt giá trị hằng số lực tác động.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">cfX</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho lực theo chiều ngang mà người ta cần cài đặt.</li>
+			<li><span class="code-param">cfY</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho lực theo chiều dọc mà người ta cần cài đặt.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setConstantForce()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.setConstantForce(<span class="code-constant">1.5</span>, <span class="code-constant">2.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setConstantForceX">setConstantForceX(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setConstantForceX()</span> được dùng để cài đặt giá trị hằng số lực tác động theo chiều ngang.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho lực theo chiều ngang mà người ta cần cài đặt.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setConstantForceX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.setConstantForceX(<span class="code-constant">1.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setConstantForceY">setConstantForceY(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setConstantForceY()</span> được dùng để cài đặt giá trị hằng số lực tác động theo chiều dọc.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho lực theo chiều dọc mà người ta cần cài đặt.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setConstantForceY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.setConstantForceY(<span class="code-constant">1.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setLinearVelocity">setLinearVelocity(<span class="code-param">velocityX</span>, <span class="code-param">velocityY</span>)</h4>
+		<p class="note"><span class="code-hint">setLinearVelocity()</span> được dùng để cài đặt giá trị vận tốc.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">velocityX</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho vận tốc theo chiều ngang mà người ta cần cài đặt.</li>
+			<li><span class="code-param">velocityY</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho vận tốc theo chiều dọc mà người ta cần cài đặt.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setLinearVelocity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.setLinearVelocity(<span class="code-constant">1.5</span>, <span class="code-constant">1.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setLinearVelocityX">setLinearVelocityX(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setLinearVelocityX()</span> được dùng để cài đặt giá trị vận tốc theo chiều ngang.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho vận tốc theo chiều ngang mà người ta cần cài đặt.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setLinearVelocityX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.setLinearVelocityX(<span class="code-constant">1.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setLinearVelocityY">setLinearVelocityY(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setLinearVelocityY()</span> được dùng để cài đặt giá trị vận tốc theo chiều dọc.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho vận tốc theo chiều dọc mà người ta cần cài đặt.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setLinearVelocityY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.setLinearVelocityY(<span class="code-constant">1.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setAngularVelocity">setAngularVelocity(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setAngularVelocity()</span> được dùng để cài đặt giá trị vận tốc góc.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho vận tốc góc mà người ta cần cài đặt.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setAngularVelocity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.setAngularVelocity(<span class="code-constant">1.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="forceGravity">forceGravity()</h4>
+		<p class="note"><span class="code-hint">forceGravity()</span> được dùng để chạy chế độ trọng lực.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">forceGravity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.forceGravity();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="forceAccum">forceAccum()</h4>
+		<p class="note"><span class="code-hint">forceAccum()</span> được dùng để chạy hằng số lực.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">forceAccum()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.forceAccum();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="linearVelocityX">linearVelocityX(<span class="code-param">velocity</span>)</h4>
+		<p class="note"><span class="code-hint">linearVelocityX()</span> được dùng để chạy vận tốc, theo chiều ngang.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">velocity</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng vận tốc theo chiều ngang hiện tại.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">linearVelocityX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.linearVelocityX();</p>
+		</div>
+		<p class="note">Một khi bạn để trống vào tham số <span class="code-param">velocity</span>, thì nó sẽ lấy giá trị từ thuộc tính <span class="code-hint">velocityX</span></p>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="linearVelocityY">linearVelocityY(<span class="code-param">velocity</span>)</h4>
+		<p class="note"><span class="code-hint">linearVelocityY()</span> được dùng để chạy vận tốc, theo chiều dọc.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">velocity</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng vận tốc theo chiều dọc hiện tại.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">linearVelocityY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.linearVelocityY();</p>
+		</div>
+		<p class="note">Một khi bạn để trống vào tham số <span class="code-param">velocity</span>, thì nó sẽ lấy giá trị từ thuộc tính <span class="code-hint">velocityY</span></p>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="angularVelocity">angularVelocity(<span class="code-param">angle</span>)</h4>
+		<p class="note"><span class="code-hint">angularVelocity()</span> được dùng để chạy vận tốc góc.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">angle</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng vận tốc góc.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">angularVelocity()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Physics = <span class="code-keyword">new</span> Carem_Physics(SceneObject);</p>
+			<p>Physics.angularVelocity();</p>
+		</div>
+		<p class="note">Một khi bạn để trống vào tham số <span class="code-param">angle</span>, thì nó sẽ lấy giá trị từ thuộc tính <span class="code-hint">velocityY</span></p>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+<link href="carem2.0.js/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="carem2.0.js/jquery.js" type="text/javascript"></script>
+<script src="carem2.0.js/carem.js" type="text/javascript"></script>
+<script src="carem2.0.js/carem+.js" type="text/javascript"></script>
+<title>Documentation | Bapquad Games | bapquadgames.com</title>
+</head>
+
+<body class="border-col">
+<div class="tree-col">
+	<p><a href="index.html">Main Index</a></p>
+	<h1>Carem</h1>
+	<ul>
+		<li class="class-tree"><a href="layer.html">Carem.Layer</a></li>
+		<li class="class-tree"><a href="math.html">Carem.Math</a></li>
+		<li class="class-tree"><a href="filter.html">Carem.Filter</a></li>
+		<li class="class-tree"><a href="assetmanager.html">Carem.AssetManager</a></li>
+		<li class="class-tree"><a href="graphics.html">Carem.Graphics</a></li>
+		<li class="class-tree"><a href="sceneobject.html">Carem.SceneObject</a></li>
+		<li class="class-tree"><a href="symbolarc.html">Carem.SymbolArc</a></li>
+		<li class="class-tree"><a href="symbolcircle.html">Carem.SymbolCircle</a></li>
+		<li class="class-tree"><a href="symbolline.html">Carem.SymbolLine</a></li>
+		<li class="class-tree"><a href="symboloval.html">Carem.SymbolOval</a></li>
+		<li class="class-tree"><a href="symbolpolygon.html">Carem.SymbolPolygon</a></li>
+		<li class="class-tree"><a href="symbolrect.html">Carem.SymbolRect</a></li>
+		<li class="class-tree"><a href="symbolroundrect.html">Carem.SymbolRoundRect</a></li>
+		<li class="class-tree"><a href="symbolshape.html">Carem.SymbolShape</a></li>
+		<li class="class-tree"><a href="symboltext.html">Carem.Text</a></li>
+		<li class="class-tree"><a href="symbolimage.html">Carem.Image</a></li>
+	</ul>
+	<h1>Carem+</h1>
+	<ul>
+		<li class="class-tree"><a href="physics.html">Carem.Physics</a></li>
+		<li class="class-tree"><a href="worldlimit.html">Carem.WorldLimit</a></li>
+		<li class="class-tree"><a href="collision.html">Carem.Collision</a></li>
+		<li class="class-tree"><a href="button.html">Carem.Button</a></li>
+		<li class="class-tree"><a href="staticsprite.html">Carem.StaticSprite</a></li>
+		<li class="class-tree"><a href="animesprite.html">Carem.AnimeSprite</a></li>
+		<li class="class-tree"><a href="scroller.html">Carem.Scroller</a></li>
+		<li class="class-tree"><a href="particle.html">Carem.Particle</a></li>
+		<li class="class-tree"><a href="tile.html">Carem.Tile</a></li>
+	</ul>
+	<h1>Hướng dẫn thực hiện</h1>
+	<ul>
+		<li class="class-tree"><a href="fish-demo.html">Fish Demo</a></li>
+	</ul>
+</div>
+<div class="content-col">
+	<h1>Hướng dẫn thực hiện - Fish Demo</h1>
+	<h2>Giới thiệu</h2>
+	<p class="note">Fish Demo là là một demo game về cá. Trong game chú cá sẽ có nhiệm vụ ăn những con cá nhỏ để lớn lên, nhưng đồng thời cũng phải né những con cá lớn.</p>
+	<p class="note">Bài hướng dẫn Fish Demo sẽ được tạo nên từ các tập tin: hình ảnh, một trang html, một tập tin script.js. Và bài hướng dẫn được chia làm các phần như sau:</p>
+	<ul class="ml25">
+		<li class="mb5"><a href="#prepair">Chuẩn bị.</a></li>
+		<li class="mb5"><a href="#create_layer">Tạo Layer.</a></li>
+		<li class="mb5"><a href="#create_progressbar">Tạo loading progress bar.</a></li>
+		<li class="mb5">
+			<p><a href="#create_level">Tạo level game.</a></p>
+			<ul class="ml25">
+				<li><a href="#setup_background">Cài đặt background cho level.</a></li>
+				<li><a href="#setup_scroller_wave">Cài đặt sóng nước cho level.</a></li>
+				<li><a href="#setup_play_button">Cài đặt nút play</a></li>
+				<li><a href="#setup_fish">Cài đặt cá</a></li>
+				<li><a href="#setup_player">Cài đặt người chơi</a></li>
+				<li><a href="#setup_bubble">Cài đặt bong bóng</a></li>
+				<li><a href="#setup_click">Cài đặt tương tác Game</a></li>
+			</ul>
+		</li>
+		<li class="mb5"><a href="#play_level">Chạy level game.</a></li>
+		<li class="mb5"><a href="#consolute">Kết luận</a></li>
+	</ul>
+	<p class="note">Bây giờ bắt tay vào việc thôi!</p>
+	<h3 id="prepair">Chuẩn bị</h3>
+	<div class="inner">
+		<p class="note">Bạn vào thư mục <span class="mark-folder">.\FishDemos\images\</span> kiểm tra các tập tin hình ảnh sau:</p>
+		<ul class="ml25">
+			<li>1. background.jpg</li>
+			<li>2. bubble.png</li>
+			<li>3. explode.png</li>
+			<li>4. filter-sample.jpg</li>
+			<li>5. fish.png</li>
+			<li>6. fish1.png</li>
+			<li>7. play.png</li>
+			<li>8. wave.png</li>
+		</ul>
+		<p class="note">Bạn vào thư mục <span class="mark-folder">.\FishDemos\sounds\</span> kiểm tra các tập tin âm thanh sau:</p>
+		<ul class="ml25">
+			<li>1. alien_boom.mp3</li>
+			<li>2. bullet.mp3</li>
+			<li>3. bullet_boom.mp3</li>
+			<li>4. nuke.mp3</li>
+		</ul>
+		<p class="mt15 mb5">Bạn vào thư mục <span class="mark-folder">.\FishDemos\</span> tạo ra tập tin <span class="mark-file">index.html</span> với các nội dung như sau</p>
+		<div class="code-block">
+			&lt;<span class="code-keyword">!DOCTYPE HTML</span>&gt;<br>
+			&lt;<span class="code-keyword">html</span>&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">head</span>&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">meta</span> <span class="code-attr">charset</span>=<span class="code-value">&quot;utf-8&quot;</span>&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">meta</span> <span class="code-attr">name</span>=<span class="code-value">&quot;viewport&quot;</span> <span class="code-attr">content</span>=<span class="code-value">&quot;user-scalable=no, width=device-width&quot;</span> /&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">link</span> <span class="code-attr">href</span>=<span class="code-value">&quot;../style.css&quot;</span> <span class="code-attr">rel</span>=<span class="code-value">&quot;stylesheet&quot;</span> <span class="code-attr">type</span>=<span class="code-value">&quot;text/css&quot;</span> <span class="code-attr">media</span>=<span class="code-value">&quot;all&quot;</span> /&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">script</span> <span class="code-attr">src</span>=<span class="code-value">&quot;../jquery.js&quot;</span> <span class="code-attr">type</span>=<span class="code-value">&quot;text/javascript&quot;</span>&gt;&lt;/<span class="code-keyword">script</span>&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">script</span> <span class="code-attr">src</span>=<span class="code-value">&quot;../carem.js&quot;</span> <span class="code-attr">type</span>=<span class="code-value">&quot;text/javascript&quot;</span>&gt;&lt;/<span class="code-keyword">script</span>&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">script</span> <span class="code-attr">src</span>=<span class="code-value">&quot;../carem+.js&quot;</span> <span class="code-attr">type</span>=<span class="code-value">&quot;text/javascript&quot;</span>&gt;&lt;/<span class="code-keyword">script</span>&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">script</span> <span class="code-attr">src</span>=<span class="code-value">&quot;script.js&quot;</span> <span class="code-attr">type</span>=<span class="code-value">&quot;text/javascript&quot;</span>&gt;&lt;/<span class="code-keyword">script</span>&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">title</span>&gt;FishDemos | Bapquad Games | bapquadgames.com&lt;/<span class="code-keyword">title</span>&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="code-keyword">head</span>&gt;<br>
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">body</span>&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">div</span>&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-keyword">canvas</span> <span class="code-attr">id</span>=<span class="code-value">&quot;FishDemos&quot;</span> <span class="code-attr">width</span>=<span class="code-value">&quot;480&quot;</span> <span class="code-attr">height</span>=<span class="code-value">&quot;320&quot;</span> <span class="code-attr">style</span>=<span class="code-value">&quot;display:block;&quot;</span>&gt;&lt;/<span class="code-keyword">canvas</span>&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="code-keyword">div</span>&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="code-keyword">body</span>&gt;<br>
+			&lt;/<span class="code-keyword">html</span>&gt;<br>
+		</div>
+		<p class="mt15 mb5">Trong đoạn code html trên bạn sẽ thấy dòng code</p>
+		<div class="code-block">
+			<p>&lt;<span class="code-keyword">canvas</span> <span class="code-attr">id</span>=<span class="code-value">&quot;FishDemos&quot;</span> <span class="code-attr">width</span>=<span class="code-value">&quot;480&quot;</span> <span class="code-attr">height</span>=<span class="code-value">&quot;320&quot;</span> <span class="code-attr">style</span>=<span class="code-value">&quot;display:block;&quot;</span>&gt;&lt;/<span class="code-keyword">canvas</span>&gt;</p>
+		</div>
+		<p class="note">Nó sẽ tạo ra một canvas có kích thước chiều ngang là 480 pixel, và kích thước chiều cao là 320 pixel.</p>
+		<p class="mt15 mb5">Bạn vào thư mục <span class="mark-folder">.\FishDemos\</span> tạo ra tập tin <span class="mark-file">script.js</span> với các dòng mã sau:</p>
+		<div class="code-block">
+			<span class="code-comment">// JavaScript Document</span><br>
+			<span class="code-keyword">var</span> TickGID;<br>
+			<span class="code-keyword">var</span> RequestAnimationFrame = window.requestAnimationFrame || <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;window.mozRequestAnimationFrame || <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;window.webkitRequestAnimationFrame || <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;window.msRequestAnimationFrame || <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">function</span>( callback ) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> window.<span class="code-keyword">setTimeout</span>(callback, <span class="code-constant">1000</span> / <span class="code-constant">60</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+			<span class="code-keyword">var</span> cancelAnimationFrame = window.cancelAnimationFrame || <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">function</span>(animId) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> window.<span class="code-keyword">clearTimeout</span>(animId);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;};<br><br>
+			<span class="code-keyword">function</span> UnTick() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;cancelAnimationFrame(TickGID);	<br>
+			}<br><br>
+			<span class="code-keyword">function</span> CyGame() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Some code come here...</span><br>
+			}<br><br>
+			<span class="code-constant">$</span>(document).<span class="code-keyword">ready</span>(<span class="code-keyword">function</span>(e) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;CyGame();<br>
+			});<br><br>
+			<span class="code-constant">$</span>(window).<span class="code-keyword">resize</span>(<span class="code-keyword">function</span>(e) {<br>
+				<br>
+			});<br>
+		</div>
+		<p class="mt15 mb5">Trong đoạn code javascript trên ta sẽ thấy các dòng code sau</p>
+		<div class="code-block">
+			<span class="code-keyword">var</span> TickGID;<br>
+			<span class="code-keyword">var</span> RequestAnimationFrame = window.requestAnimationFrame || <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;window.mozRequestAnimationFrame || <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;window.webkitRequestAnimationFrame || <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;window.msRequestAnimationFrame || <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">function</span>( callback ) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> window.<span class="code-keyword">setTimeout</span>(callback, <span class="code-constant">1000</span> / <span class="code-constant">60</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+			<span class="code-keyword">var</span> cancelAnimationFrame = window.cancelAnimationFrame || <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">function</span>(animId) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> window.<span class="code-keyword">clearTimeout</span>(animId);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;};
+		</div>
+		<p class="note">Chúng được dùng để ngăn ngừa trình duyệt của bạn không hỗ trợ phương thức <span class="code-hint">RequestAnimationFrame</span> và <span class="code-hint">CancelAnimationFrame</span>. Trong trường hợp nếu không được hỗ trợ hoạt hình thì code sẽ tạo ra một phương thức hoạt hình với framerate là 60 frame/giây.</p>
+		<p class="mt15 mb5">Sau đó bạn tạo ra hàm <span class="code-hint">UnTick</span> dùng để stop hoạt hình.</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> UnTick() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;cancelAnimationFrame(TickGID);	<br>
+			}
+		</div>
+		<p class="note">Hàm <span class="code-hint">CyGame</span> dùng để tạo ra game.</p>
+		<p class="mt15 mb5">Các đoạn code ở cuối file <span class="mark-file">script.js</span> được dùng để tạo khởi tạo ứng dụng, và bắt đầu chạy ứng dụng game tại đây.</p>
+		<div class="code-block">
+			<span class="code-constant">$</span>(document).<span class="code-keyword">ready</span>(<span class="code-keyword">function</span>(e) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;CyGame();<br>
+			});<br><br>
+			<span class="code-constant">$</span>(window).<span class="code-keyword">resize</span>(<span class="code-keyword">function</span>(e) {<br>
+				<br>
+			});
+		</div>
+
+		<p class="note">Giờ thì chúng ta sẽ bắt đầu tạo layer để chứa các thành phần game.</p>
+	</div>
+	
+	<h3 id="create_layer">Tạo Layer.</h3>
+	<div class="inner">
+		<p class="note">Thông thường, bạn tạo layer bằng class <a class="code-hint" href="layer.html">Carem.Layer</a>. Hãy viết đoạn code như sau vào trong phương thức <span class="code-hint">CyGame</span>.</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CyGame() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Layer */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">var</span> Layer01 = <span class="code-keyword">new</span> Carem.Layer(<span class="code-param">"FishDemos"</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">var</span> Layer02 = <span class="code-keyword">new</span> Carem.Layer(<span class="code-param">"FishDemos"</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Settings Layer */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer01.setBackground(<span class="code-constant">255</span>, <span class="code-constant">255</span>, <span class="code-constant">255</span>, <span class="code-constant">1</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.setBackground(<span class="code-constant">255</span>, <span class="code-constant">150</span>, <span class="code-constant">0</span>, <span class="code-constant">1</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br>
+			}
+		</div>
+		<p class="note"><span class="code-hint">Layer01</span> được dùng cho việc tạo progress bar tải hình ảnh và âm thanh. Còn <span class="code-hint">Layer02</span> được dùng để tạo level cho game. Sau đó ta dùng phương thức <span class="code-hint">setBackground</span> để cài đặt màu nền cho các layer. Trắng cho <span class="code-hint">Layer01</span>, và Cam cho <span class="code-hint">Layer02</span>.</p>
+		<p class="note">Để một game có thể hoàn thành và chạy được, bạn cần phải khởi tạo các tài nguyên bên trong nó, chúng bao gồm các tập tin hình ảnh, âm thanh. Và bây giờ là lúc bạn sẽ qua <a href="#create_progressbar">Tạo loading progress bar</a> và học cách sử dụng <a class="code-hint" href="assetmanager.html">Carem.AssetManager</a>.</p>
+	</div>
+
+	<h3 id="create_progressbar">Tạo loading progress bar</h3>
+	<div class="inner">
+		<p class="note">Sau khi tạo layer, bạn sẽ tiếp tục tạo loading progress bar, nó được dùng để hiển thị tiến trình load âm thanh, và hình ảnh vào game.</p>
+		<p class="note">Bạn sẽ viết tiếp vào trong phương thức <span class="code-hint">CyGame</span> đoạn code như sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CyGame() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Initialize the loading screen */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer01.LoadingBar = <span class="code-keyword">new</span> Carem.SymbolRect(Layer01);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer01.LoadingBar.setPosition(<span class="code-constant">480</span>/<span class="code-constant">2</span>-<span class="code-constant">160</span>, <span class="code-constant">320</span>/<span class="code-constant">2</span>-<span class="code-constant">10</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer01.LoadingBar.setSize(<span class="code-constant">1</span>, <span class="code-constant">10</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer01.LoadingBar.setBackground([{r:<span class="code-constant">255</span>, g:<span class="code-constant">138</span>, b:<span class="code-constant">0</span>, a:<span class="code-constant">1</span>, stop:<span class="code-constant">0</span>}]);<br>
+			}
+		</div>
+		<p class="note">Tiếp theo bạn sẽ sử dụng <a class="code-hint" href="assetmanager.html">Carem.AssetManager</a> để tải các hình ảnh và âm thanh vào trong game.</p>
+		<p class="note">Bạn sẽ code tiếp phương thức <span class="code-hint">CyGame</span> như sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CyGame() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Import File into Asset List */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">var</span> AssetManager = <span class="code-keyword">new</span> Carem.AssetManager(<span class="code-param">"jpg|gif|png"</span>, <span class="code-param">"wav|ogg|mp3"</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.QueueFile(<span class="code-param">"images/background.jpg"</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.QueueFile(<span class="code-param">"images/bubble.png"</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.QueueFile(<span class="code-param">"images/filter-sample.jpg"</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.QueueFile(<span class="code-param">"images/fish.png"</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.QueueFile(<span class="code-param">"images/fish1.png"</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.QueueFile(<span class="code-param">"images/explode.png"</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.QueueFile(<span class="code-param">"images/wave.png"</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.QueueFile(<span class="code-param">"images/play.png"</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.QueueDownloadAll();<br>
+			}
+		</div>
+		<p class="note">Sau khi bạn tạo ra được AssetManager, chúng ta cần phải hiển thị tiến trình tải của nó.</p>
+		<p class="note">Bạn sẽ tiếp tục code thêm vào phương thức <span class="code-hint">CyGame</span> đoạn code như sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CyGame() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Progress Asset Loading */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">function</span> ProgressAssetLoading() <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer01.LoadingBar.setSize((AssetManager.getProgress()/<span class="code-constant">100</span>)*<span class="code-constant">300</span>, <span class="code-constant">2</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer01.Swap();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(AssetManager.isComplete()) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnTick();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(CreateFishLevel, <span class="code-constant">300</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TickGID = RequestAnimationFrame(ProgressAssetLoading);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			}
+		</div>
+		<p class="note">Như vậy là bạn đã hoàn thành việc tạo ra loading progress bar. Giờ thì chúng ta sẽ qua tiếp phần <a href="#create_level">Tạo level game</a>.</p>
+	</div>
+
+	<h3 id="create_level">Tạo level game</h3>
+	<div class="inner">
+		<p class="note">Trong phương thức <span class="code-hint">CyGame</span> bạn tạo ra phương thức <span class="code-hint">CreateFishLevel</span> như sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CyGame() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">function</span> CreateFishLevel() <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ... </span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			}
+		</div>
+		<h4 id="setup_background" class="mt15"><strong>Cài đặt background cho level</strong></h4>
+		<p class="note">Bạn sẽ cài đặt background cho game bằng cách như đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Set Background For Level */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Background = <span class="code-keyword">new</span> Carem.StaticSprite(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.getAsset(<span class="code-param">"images/background.jpg"</span>), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <span class="code-constant">480</span>, <span class="code-constant">320</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			}
+		</div>
+		<h4 id="setup_scroller_wave" class="mt15"><strong>Cài đặt sóng nước cho level</strong></h4>
+		<p class="note">Bạn sẽ cài đặt sóng nước cho game bằng cách như viết tiếp phương thức <span class="code-hint">CreateFishLevel</span> với đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Scroller Wave */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Wave = <span class="code-keyword">new</span> Carem.Scroller(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.getAsset(<span class="code-param">"images/wave.png"</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Wave.setAlpha(<span class="code-constant">15</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Wave.setVelocity(<span class="code-constant">0.32</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Wave.setPosition(<span class="code-constant">0</span>, <span class="code-constant">200</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Wave.setFlip(<span class="code-constant">CAREM_FLIP_HORIZONTAL</span>);<br>
+			}
+		</div>
+		<h4 id="setup_play_button" class="mt15"><strong>Cài đặt nút play</strong></h4>
+		<p class="note">Bạn sẽ cài đặt nút play cho game bằng cách như viết tiếp phương thức <span class="code-hint">CreateFishLevel</span> với đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Play Button */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.PlayButton = <span class="code-keyword">new</span> Carem.Button(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.getAsset(<span class="code-param">"images/play.png"</span>), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <span class="code-constant">76</span>, <span class="code-constant">32</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.PlayButton.setPosition(<span class="code-constant">100</span>, <span class="code-constant">200</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.PlayButton.onClick(function(<span class="code-param">e</span>) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Over = <span class="code-constant">0</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng = <span class="code-constant">10</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setScale(Layer02.Player.Game_Streng/<span class="code-constant">100</span>, Layer02.Player.Game_Streng/<span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setCollisionBound(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>*Layer02.Player.Game_Streng/<span class="code-constant">100</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">114</span>*Layer02.Player.Game_Streng/<span class="code-constant">100</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setPositionY(<span class="code-constant">150</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.PlayButton.hide();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			}
+		</div>
+		<h4 id="setup_fish" class="mt15"><strong>Cài đặt cá</strong></h4>
+		<p class="note">Bạn sẽ cài đặt cá cho game bằng cách như viết tiếp phương thức <span class="code-hint">CreateFishLevel</span> với đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Static Fish */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01 = <span class="code-keyword">new</span> Carem.StaticSprite(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AssetManager.getAsset(<span class="code-param">"images/fish.png"</span>), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">228</span>, <span class="code-constant">18</span>, <span class="code-constant">198</span>, <span class="code-constant">114</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.Game_Streng = Carem.Math.intRandom(<span class="code-constant">5</span>, <span class="code-constant">30</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setPosition(<span class="code-constant">30</span>, <span class="code-constant">30</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setScale(Layer02.Fish01.Game_Streng/<span class="code-constant">100</span>, Layer02.Fish01.Game_Streng/<span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setLinearVelocityX(<span class="code-constant">1.0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setFlip(<span class="code-constant">CAREM_FLIP_HORIZONTAL</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setOrgin(<span class="code-constant">10</span>, <span class="code-constant">-10</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setCollisionBound(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>*Layer02.Fish01.Game_Streng/<span class="code-constant">100</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">114</span>*Layer02.Fish01.Game_Streng/<span class="code-constant">100</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setWorldLimit(<span class="code-constant">-100</span>, <span class="code-constant">-50</span>, <span class="code-constant">530</span>, <span class="code-constant">370</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setWorldLimitTest(function(limit) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.Game_Streng = Carem.Math.intRandom(<span class="code-constant">5</span>, <span class="code-constant">30</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setScale(Layer02.Fish01.Game_Streng/<span class="code-constant">100</span>, Layer02.Fish01.Game_Streng/<span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setCollisionBound(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>*Layer02.Fish01.Game_Streng/<span class="code-constant">100</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">114</span>*Layer02.Fish01.Game_Streng/<span class="code-constant">100</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setPositionY(Carem.Math.intRandom(<span class="code-constant">25</span>, <span class="code-constant">200</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">switch</span>(limit) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> <span class="code-constant">CAREM_LIMIT_RIGHT</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.resetFlip(<span class="code-constant">CAREM_FLIP_HORIZONTAL</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setLinearVelocityX(Carem.Math.intRandom(<span class="code-constant">-1</span>, <span class="code-constant">-5</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">break</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> <span class="code-constant">CAREM_LIMIT_LEFT</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setFlip(<span class="code-constant">CAREM_FLIP_HORIZONTAL</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setLinearVelocityX(Carem.Math.intRandom(<span class="code-constant">1</span>, <span class="code-constant">5</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">break</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Animate Fish */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02 = <span class="code-keyword">new</span> Carem.AnimeSprite(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02, AssetManager.getAsset(<span class="code-param">"images/fish1.png"</span>), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>, <span class="code-constant">114</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.Game_Streng = Carem.Math.intRandom(<span class="code-constant">5</span>, <span class="code-constant">30</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setPosition(<span class="code-constant">100</span>, <span class="code-constant">200</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setScale(Layer02.Fish02.Game_Streng/<span class="code-constant">100</span>, Layer02.Fish02.Game_Streng/<span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setAction(<span class="code-constant">1</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setLinearVelocityX(<span class="code-constant">1.0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.Actions = {Xuoi: <span class="code-constant">0</span>, Nguoc: <span class="code-constant">1</span>};<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setCollisionBound(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>*Layer02.Fish02.Game_Streng/<span class="code-constant">100</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">114</span>*Layer02.Fish02.Game_Streng/<span class="code-constant">100</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setHitPointTest(<span class="code-keyword">function</span>()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>(<span class="code-param">"Hit Point!"</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setHitPoint(<span class="code-constant">155</span>, <span class="code-constant">202</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setWorldLimit(<span class="code-constant">-100</span>, <span class="code-constant">-50</span>, <span class="code-constant">530</span>, <span class="code-constant">370</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setWorldLimitTest(<span class="code-keyword">function</span>(Limit) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.Game_Streng = Carem.Math.intRandom(<span class="code-constant">5</span>, <span class="code-constant">30</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setScale(Layer02.Fish02.Game_Streng/<span class="code-constant">100</span>, Layer02.Fish02.Game_Streng/<span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setCollisionBound(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>*Layer02.Fish02.Game_Streng/<span class="code-constant">100</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">114</span>*Layer02.Fish02.Game_Streng/<span class="code-constant">100</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setPositionY(Carem.Math.intRandom(<span class="code-constant">25</span>, <span class="code-constant">200</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">switch</span>(Limit) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> <span class="code-constant">CAREM_LIMIT_RIGHT</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setAction(Layer02.Fish02.Actions.Xuoi);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setLinearVelocityX(Carem.Math.intRandom(<span class="code-constant">-1</span>, <span class="code-constant">-5</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">break</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> <span class="code-constant">CAREM_LIMIT_LEFT</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setAction(Layer02.Fish02.Actions.Nguoc);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setLinearVelocityX(Carem.Math.intRandom(<span class="code-constant">1</span>, <span class="code-constant">5</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">break</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			}
+		</div>
+		<h4 id="setup_player" class="mt15"><strong>Cài đặt người chơi</strong></h4>
+		<p class="note">Bạn sẽ cài đặt người chơi cho game bằng cách như viết tiếp phương thức <span class="code-hint">CreateFishLevel</span> với đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Player Fish */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player = <span class="code-keyword">new</span> Carem.AnimeSprite(Layer02, AssetManager.getAsset(<span class="code-param">"images/fish1.png"</span>), 198, 114);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng = <span class="code-constant">10</span>; <span class="code-comment">// Dynamic Field (Free in Javascript)</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Over = <span class="code-constant">0</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setPosition(<span class="code-constant">200</span>, <span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setScale(Layer02.Player.Game_Streng/<span class="code-constant">100</span>, Layer02.Player.Game_Streng/<span class="code-constant">100</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setGravity(<span class="code-constant">2.0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setLinearVelocityX(<span class="code-constant">1</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Actions = {Xuoi: <span class="code-constant">0</span>, Nguoc: <span class="code-constant">1</span>};<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setAction(Layer02.Player.Actions.Nguoc);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setCollisionBound(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">0</span>, <span class="code-constant">0</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">198</span>*Layer02.Player.Game_Streng/<span class="code-constant">100</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-constant">114</span>*Layer02.Player.Game_Streng/<span class="code-constant">100</span><br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setWorldLimit(<span class="code-constant">-100</span>, <span class="code-constant">-50</span>, <span class="code-constant">530</span>, <span class="code-constant">370</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setWorldLimitTest(<span class="code-keyword">function</span>(limit) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span>(limit == <span class="code-constant">CAREM_LIMIT_BOTTOM</span>)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.disableGravity();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">else</span> <span class="code-keyword">if</span>(limit == <span class="code-constant">CAREM_LIMIT_TOP</span>) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.mouseDown = <span class="code-constant">false</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.enableGravity();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.addCollisionTarget(Layer02.Fish01, <span class="code-keyword">function</span>() <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span>(Layer02.Fish01.Game_Streng < Layer02.Player.Game_Streng) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng += <span class="code-constant">1</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setScale(<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng/<span class="code-constant">100</span>, <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng/<span class="code-constant">100</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.setPosition(-100, Carem.Math.intRandom(<span class="code-constant">0</span>, <span class="code-constant">240</span>));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">else</span> <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Over = <span class="code-constant">1</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.addCollisionTarget(Layer02.Fish02, <span class="code-keyword">function</span>() <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span>(Layer02.Fish02.Game_Streng < Layer02.Player.Game_Streng) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng += <span class="code-constant">1</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setScale(<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng/<span class="code-constant">100</span>, <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Streng/<span class="code-constant">100</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.setPosition(<span class="code-constant">-100</span>, Carem.Math.intRandom(<span class="code-constant">0</span>, <span class="code-constant">240</span>&nbsp;&nbsp;&nbsp;&nbsp;));<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">else</span> <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.Game_Over = <span class="code-constant">1</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+			}<br>
+		</div>
+		<h4 id="setup_bubble" class="mt15"><strong>Cài đặt bong bóng</strong></h4>
+		<p class="note">Bạn sẽ cài đặt bong bóng cho game bằng cách như viết tiếp phương thức <span class="code-hint">CreateFishLevel</span> với đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Bubbles Paricle */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble = <span class="code-keyword">new</span> Carem.Particle(Layer02, AssetManager.getAsset(<span class="code-param">"images/bubble.png"</span>), <span class="code-constant">7</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setAlphaBase(<span class="code-constant">0.5</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setScaleBase(<span class="code-constant">0.3</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setLifeTime(<span class="code-constant">50</span>, <span class="code-constant">23</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setPositionRandom(<span class="code-constant">0</span>, <span class="code-constant">480</span>, <span class="code-constant">200</span>, <span class="code-constant">300</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setAngularSpeed(<span class="code-constant">0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setWorldLimit(<span class="code-constant">-10</span>, <span class="code-constant">-10</span>, <span class="code-constant">480</span>, <span class="code-constant">360</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.setEmittion(<span class="code-constant">true</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Bubble.genParticle();<br>
+			}
+		</div>
+		<h4 id="setup_tile" class="mt15"><strong>Cài đặt tile</strong></h4>
+		<p class="note">Bạn sẽ cài đặt tile cho game bằng cách như viết tiếp phương thức <span class="code-hint">CreateFishLevel</span> với đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Tile */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Tile = <span class="code-keyword">new</span> Carem.Tile(Layer02);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Tile.setPosition(<span class="code-constant">320</span>, <span class="code-constant">280</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Tile.addCell(AssetManager.getAsset(<span class="code-param">"images/bubble.png"</span>), <span class="code-constant">0</span>, <span class="code-constant">0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Tile.addCell(AssetManager.getAsset(<span class="code-param">"images/bubble.png"</span>), <span class="code-constant">320</span>, <span class="code-constant">0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Tile.setLinearVelocityX(<span class="code-constant">-1.0</span>);<br>
+			}
+		</div>
+		<h4 id="setup_click" class="mt15"><strong>Cài đặt tương tác Game</strong></h4>
+		<p class="note">Bạn sẽ cài đặt tương tác mouse cho game bằng cách như viết tiếp phương thức <span class="code-hint">CreateFishLevel</span> với đoạn code sau:</p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> CreateFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ...</span><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Create Event for Layer */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">function</span> overInteract() <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.mouseDown = <span class="code-constant">false</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.enableGravity();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setLinearVelocityY(<span class="code-constant">0.0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">function</span> enterInteract(Event) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span>(Layer02.Player.mouseDown || Layer02.Player.Game_Over)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span>(Event.pageX > Layer02.Player.getPositionX()) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setAction(Layer02.Player.Actions.Nguoc);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">else</span> <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setAction(Layer02.Player.Actions.Xuoi);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.disableGravity();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.setLinearVelocityY(<span class="code-constant">-3.0</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.mouseDown = <span class="code-constant">true</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-constant">false</span>;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.addEventListener(<span class="code-param">"click"</span>, <span class="code-keyword">function</span>(<span class="code-constant">e</span>) <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(enterInteract(<span class="code-constant">e</span>))<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(overInteract, <span class="code-constant">200</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;}, <span class="code-constant">false</span>);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Finish the creating game level */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;TickGID = RequestAnimationFrame(PlayFishLevel);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+			}
+		</div>
+	</div>
+	<h3 id="play_level">Chạy Level Game</h3>
+	<div class="inner">
+		<p class="note">Sau khi tạo xong level. Bạn sẽ chạy chúng bằng phương thức <span class="code-hint">PlayFishLevel</span></p>
+		<div class="code-block">
+			<span class="code-keyword">function</span> PlayFishLevel() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Play Tile Actions */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Tile.linearVelocityX();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Play Player Actions */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.linearVelocityY();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.forceGravity();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Player.testWorldLimit();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Play Fish Actions */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.linearVelocityX();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish01.testWorldLimit();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Play Fish Actions */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.linearVelocityX();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Fish02.testWorldLimit();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Swap To New View For Player */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Layer02.Swap();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">/** Request This Frame */</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;TickGID = RequestAnimationFrame(PlayFishLevel);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span>;<br>
+			}
+		</div>
+	</div>
+	<h3 id="consolute">Kết luận</h3>
+	<p class="note">Như vậy là chúng ta đã có một game. bạn có thể download xem code mẫu trong thư mục FishDemos.</p>
+</div>
+</body>
+</html>
