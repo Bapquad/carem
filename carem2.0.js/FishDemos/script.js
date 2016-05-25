@@ -35,7 +35,6 @@ function CyGame()
 	var AssetManager = new Carem.AssetManager("jpg|gif|png", "wav|ogg|mp3");
 	AssetManager.QueueFile("images/background.jpg");
 	AssetManager.QueueFile("images/bubble.png");
-	AssetManager.QueueFile("images/filter-sample.jpg");
 	AssetManager.QueueFile("images/fish.png");
 	AssetManager.QueueFile("images/fish1.png");
 	AssetManager.QueueFile("images/explode.png");
