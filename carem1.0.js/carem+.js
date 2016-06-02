@@ -484,9 +484,9 @@ var Carem_Button = function(Canvas, Asset, x, y, width, height)
 		return;
 	};
 
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.SceneObject.UpdateParameter();
+		this.SceneObject.UpdateParameter(ratio);
 		this.Graphics.UpdateParameter();
 		this.context.rect(0, 0, this.SceneObject.width, this.SceneObject.height);
 		this.context.clip();
@@ -854,9 +854,9 @@ var Carem_StaticSprite = function(Canvas, Asset, x, y, width, height)
 	};
 	
 	/** Graphics Property Settings */
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.SceneObject.UpdateParameter();
+		this.SceneObject.UpdateParameter(ratio);
 		this.Graphics.UpdateParameter();
 		if(this.Collision != 0)
 			this.Collision.Test();
@@ -1223,9 +1223,9 @@ var Carem_AnimeSprite = function(Canvas, Asset, Width, Height)
 	};
 
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.SceneObject.UpdateParameter();
+		this.SceneObject.UpdateParameter(ratio);
 		this.Graphics.UpdateParameter();
 		if(this.Collision != 0)
 			this.Collision.Test();
@@ -1460,9 +1460,9 @@ var Carem_Scroller = function(Canvas, Asset)
 		return;
 	};
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.SceneObject.UpdateParameter();
+		this.SceneObject.UpdateParameter(ratio);
 		this.Graphics.UpdateParameter();
 		this.context.rect(0, 0, this.image.width, this.image.height);
 		this.SceneObject.testHitPoint();
@@ -1697,7 +1697,7 @@ var Carem_Particle = function(Canvas, Asset, Density)
 		return;
 	};
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
 		//this.SceneObject.UpdateParameter();
 		this.Graphics.UpdateParameter();
@@ -1993,9 +1993,9 @@ var Carem_Tile = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.SceneObject.UpdateParameter();
+		this.SceneObject.UpdateParameter(ratio);
 		this.Graphics.UpdateParameter();
 		var size = this.tiles.length;
 		for(var i=0;i<size;i++) 

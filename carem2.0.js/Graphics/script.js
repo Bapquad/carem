@@ -42,15 +42,15 @@ function CyGame() {
 	canvasShaperAssetManager.QueueDownloadAll();
 	
 	function RunGameLevel() {
-		Layer02.Flower1.setRotate(rot+=0.1);
-		Layer02.Swap();
-		Layer03.Swap();
+		Layer02.swap();
+		Layer03.swap();
 		TickGID = RequestAnimationFrame(RunGameLevel);
 	}
 	
 	function CreateGameLevel() {
 		Layer02.addEventListener("click", function(){}, false);
 		Layer02.Flower1 = new Carem.SymbolRect(Layer02);
+		// Layer02.Flower1.setRotate(25);
 		Layer02.Flower1.setPosition(60, 50);
 		Layer02.Flower1.setSize(120, 20);
 		Layer02.Flower1.setOrgin(30, 25);
@@ -62,7 +62,6 @@ function CyGame() {
 		Layer02.RoundRect.setSize(120, 35);
 		Layer02.RoundRect.setRadius(5);
 		Layer02.RoundRect.setStrokeColor([{r:128, g:128, b:128, a:1, stop:0}]);
-		Layer02.RoundRect.endMask();
 		
 		Layer02.RoundRect2 = new Carem.SymbolRoundRect(Layer02);
 		Layer02.RoundRect2.setPosition(60, 10);
@@ -70,6 +69,7 @@ function CyGame() {
 		Layer02.RoundRect2.setRound(5, 10, 15, 20);
 		Layer02.RoundRect2.setStrokeColor([{r:255, g:255, b:255, a:1, stop:0}]);
 		Layer02.RoundRect2.setBackground([{r:255, g:255, b:255, a:0.5, stop:0}]);
+		Layer02.RoundRect2.endMask();
 		
 		Layer02.Circle = new Carem.SymbolCircle(Layer02);
 		Layer02.Circle.setPosition(220, 15);
@@ -221,6 +221,8 @@ function CyGame() {
 			 1/9, 1/9, 1/9]
 		);
 		Layer02.Image04.setStrokeWidth(6);
+		
+		
 		/** Create Static Text For Layer 03 */
 		Layer03.Text = new Carem.Text(Layer03);
 		Layer03.Text.setPosition(0, 0);
@@ -295,7 +297,7 @@ function CyGame() {
 	
 	function LoadAssetProgress() {
 		Layer01.OrganBar.setSize((canvasShaperAssetManager.getProgress()/100)*300, 2);
-		Layer01.Swap();
+		Layer01.swap();
 		if(canvasShaperAssetManager.isComplete()) {
 			UnTick();
 			setTimeout(CreateGameLevel, 300);

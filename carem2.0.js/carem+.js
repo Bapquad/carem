@@ -363,9 +363,9 @@ Carem.Button = function(Canvas, Asset, x, y, width, height)
 		return;
 	};
 
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		this.context.rect(0, 0, this.width, this.height);
 		this.context.clip();
@@ -454,9 +454,9 @@ Carem.StaticSprite = function(Canvas, Asset, x, y, width, height)
 	};
 	
 	/** Graphics Property Settings */
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		if(this != 0)
 			this.Test();
@@ -565,9 +565,9 @@ Carem.AnimeSprite = function(Canvas, Asset, Width, Height)
 	};
 
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		if(this != 0)
 			this.Test();
@@ -646,9 +646,9 @@ Carem.Scroller = function(Canvas, Asset)
 		return;
 	};
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		this.context.rect(0, 0, this.image.width, this.image.height);
 		this.testHitPoint();
@@ -884,9 +884,9 @@ Carem.Particle = function(Canvas, Asset, Density)
 		return;
 	};
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		//this.UpdateScene();
+		//this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		
 		for(var i=0; i<this.density; i++) 
@@ -1060,9 +1060,9 @@ Carem.Tile = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		var size = this.tiles.length;
 		for(var i=0;i<size;i++) 

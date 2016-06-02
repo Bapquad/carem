@@ -45,7 +45,7 @@ function CyGame()
 	function ProgressAssetLoading() 
 	{
 		Layer01.LoadingBar.setSize((AssetManager.getProgress()/100)*300, 2);
-		Layer01.Swap();
+		Layer01.swap();
 		if(AssetManager.isComplete()) {
 			UnTick();
 			setTimeout(CreateFishLevel, 300);
@@ -259,7 +259,7 @@ function CyGame()
 		Layer02.Fish02.linearVelocityX();
 		Layer02.Fish02.testWorldLimit();
 		/** Swap To New View For Player */
-		Layer02.Swap();
+		Layer02.swap();
 		/** Request This Frame */
 		TickGID = RequestAnimationFrame(PlayFishLevel);
 		return;

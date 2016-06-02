@@ -91,11 +91,10 @@ Carem.Layer = function(canvasId)
 	this.context = this.DOMElement.getContext("2d");
 	this.x = 0;
 	this.y = 0;
-	this.width = this.DOMElement.width;
-	this.height = this.DOMElement.height;
 	this.childList = new Array();
 	this.buttonList = new Array();
 	this.fillStyle = 0;
+	this.ratio = 1.0;
 	
 	this.DOMElement.addEventListener("click", function(e) 
 	{
@@ -173,17 +172,31 @@ Carem.Layer = function(canvasId)
 	{
 		return this.DOMElement;
 	};
+	
+	this.setWidth = function(value)  
+	{
+		this.DOMElement.width = value;
+	};
+	
+	this.setHeight = function(value) 
+	{
+		this.DOMElement.height = value;
+	};
+	
+	this.setSize = function(width, height) 
+	{
+		this.DOMElement.width = width;
+		this.DOMElement.height = height;
+	};
 
 	this.getWidth = function() 
 	{
-		this.width = this.DOMElement.width;
-		return this.width;
+		return this.DOMElement.width;
 	};
 
 	this.getHeight = function() 
 	{
-		this.height = this.DOMElement.height;
-		return this.height;
+		return this.DOMElement.height;
 	};
 	
 	this.getContext = function() 
@@ -205,9 +218,9 @@ Carem.Layer = function(canvasId)
 	
 	this.clear = function() 
 	{
-		this.context.setTransform(1, 0, 0, 1, 0, 0);
+		this.context.setTransform(1, 0, 0, 1, this.x, this.y);
 		this.context.fillStyle = this.fillStyle;
-		this.context.fillRect(0, 0, this.width, this.height);
+		this.context.fillRect(0, 0, this.DOMElement.width, this.DOMElement.height);
 		return;
 	};
 	
@@ -224,20 +237,26 @@ Carem.Layer = function(canvasId)
 		return;
 	};
 	
-	this.Swap = function() 
+	this.zoom = function(percent) 
+	{
+		this.ratio = percent/100;
+		this.DOMElement.width *= this.ratio;
+		this.DOMElement.height *= this.ratio;
+	};
+	
+	this.swap = function() 
 	{
 		this.context.save();
 		this.clear();
-		var size = this.childList.length;
-		for(var i=0;i<size;i++) 
+		var lim = this.childList.length;
+		for(var i=0;i<lim;i++) 
 		{
-			if(!this.childList[i].visible) 
-			{
+			if(!this.childList[i].visible)
 				continue;
-			}
 			this.context.save();
-			this.childList[i].Draw();
+			this.childList[i].Draw(this.ratio);
 			this.context.restore();
+			this.childList[i].updateMask();
 		}
 		this.context.restore();
 		return;
@@ -248,8 +267,6 @@ Carem.Layer = function(canvasId)
 	{
 		this.DOMElement.addEventListener(eventType, callback, track);
 	};
-
-	
 };
 
 
@@ -617,9 +634,18 @@ Carem.Graphics = function(context)
 	this.alpha = 1.0;
 	this.composite = CAREM_GLOBAL_CO_SRCOVER;
 	this.clip = false;
-	this.save = false;
-	this.restore = false;
+	this.unclip = false;
 	
+	this.updateMask = function() 
+	{
+		if(this.clip) 
+		{
+			this.context.save();
+			this.context.clip();
+		}
+		if(this.unclip) 
+			this.context.restore();
+	};
 	
 	/**********************************************************
 	 * function setMask();
@@ -629,8 +655,7 @@ Carem.Graphics = function(context)
 	 **********************************************************/
 	this.setMask = function() 
 	{
-		this.setSave(true);
-		this.setClip(true);
+		this.clip = true;
 		return;
 	};
 	
@@ -643,8 +668,8 @@ Carem.Graphics = function(context)
 	 **********************************************************/
 	this.clearMask = function() 
 	{
-		this.setSave(false);
-		this.setClip(false);
+		this.clip = false;
+		this.unclip = false;
 		return;
 	};
 	
@@ -657,8 +682,7 @@ Carem.Graphics = function(context)
 	 **********************************************************/
 	this.endMask = function() 
 	{
-		this.releaseMask();
-		return;
+		return this.releaseMask();
 	};
 	
 	
@@ -670,33 +694,7 @@ Carem.Graphics = function(context)
 	 **********************************************************/
 	this.releaseMask = function() 
 	{
-		this.setRestore(true);
-		return;
-	};
-	
-	
-	/**********************************************************
-	 * function setSave();
-	 * Description: This method used to set save 
-	 *				for saving current drawing.
-	 * Parameters:	1. state
-	 **********************************************************/
-	this.setSave  = function(state) 
-	{
-		this.save = state;
-		return;
-	};
-	
-	
-	/**********************************************************
-	 * function setRestore();
-	 * Description: This method used to set restore 
-	 *				for restoring current drawing.
-	 * Parameters:	1. state
-	 **********************************************************/
-	this.setRestore = function(state) 
-	{
-		this.restore = state;
+		this.unclip = true;
 		return;
 	};
 	
@@ -709,7 +707,16 @@ Carem.Graphics = function(context)
 	 **********************************************************/
 	this.setClip = function(clip) 
 	{
-		this.clip = clip;
+		if(clip)
+		{
+			this.clip = true;
+			this.unclip = false;
+		}
+		else 
+		{
+			this.clip = false;
+			this.unclip = true;
+		}
 		return;
 	};
 	
@@ -1147,10 +1154,6 @@ Carem.Graphics = function(context)
 			if(this.strokeWidth != 0) 
 				this.context.stroke();
 		}
-		if(this.clip)
-			this.context.clip();
-		if(this.restore)
-			this.context.restore();
 	};
 	
 	
@@ -1181,10 +1184,6 @@ Carem.Graphics = function(context)
 					this.context.strokeText(textDoc[i].text, textDoc[i].x, textDoc[i].y);
 			}
 		}
-		if(this.clip)
-			this.context.clip();
-		if(this.restore)
-			this.context.restore();
 	};
 	
 	
@@ -1196,8 +1195,6 @@ Carem.Graphics = function(context)
 	 **********************************************************/
 	this.UpdateGraphics = function() 
 	{
-		if(this.save)
-			this.context.save();
 		this.context.globalAlpha = this.alpha;
 		this.context.globalCompositeOperation= this.composite;
 		if(this.fillStyle != 0)
@@ -1598,13 +1595,13 @@ Carem.SceneObject = function(context)
 		return !(this.Enable);
 	};
 	
-	this.UpdateScene = function() 
+	this.UpdateScene = function(ratio) 
 	{
+		ratio = ratio || 1.0;
 		this.context.beginPath();
 		/** Transform Objects */
-		this.context.setTransform(this.scaleX*this.hScaleMode, 0, 0, this.scaleY*this.vScaleMode, this.x, this.y);
+		this.context.setTransform(this.scaleX*this.hScaleMode*ratio, 0, 0, this.scaleY*this.vScaleMode*ratio, this.x*ratio, this.y*ratio);
 		this.context.rotate(this.angle);
-		
 		var translateX = (this.hScaleMode < 0) ? (-1)*(this.width+this.orginNode.x) : this.orginNode.x;
 		var translateY = (this.vScaleMode < 0) ? (-1)*(this.height+this.orginNode.y) : this.orginNode.y;
 		this.context.translate(translateX, translateY);
@@ -1683,9 +1680,9 @@ Carem.SymbolArc = function(Canvas)
 		return;
 	};
 
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		var s = Carem.Math.VectorFromRadian(this.sliceAngleTo);
 		radius = this.getScaleRatio()/2;
@@ -1750,9 +1747,9 @@ Carem.SymbolCircle = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		this.context.arc(
 			this.width/2, 
@@ -1832,9 +1829,9 @@ Carem.SymbolLine = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		this.context.moveTo(this.pointArray[0].x, this.pointArray[0].y);
 		this.context.lineTo(this.pointArray[1].x, this.pointArray[1].y);
@@ -1890,9 +1887,9 @@ Carem.SymbolOval = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		var value = this.getScaleRatio()/2;
 		this.context.arc(value, value, value, 0, 2*Math.PI);
@@ -1964,9 +1961,9 @@ Carem.SymbolPolygon = function(Canvas)
 		return;
 	};
 
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		var Size = this.pointArray.length;
 		var Radius = this.getScaleRatio()/2;
@@ -2037,9 +2034,9 @@ Carem.SymbolRect = function(Canvas)
 		return;
 	};
 
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		this.context.rect(0, 0, this.width, this.height);
 		this.testHitPoint();
@@ -2120,9 +2117,9 @@ Carem.SymbolRoundRect = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		this.context.moveTo(this.radiusLeftTop, 0);
 		this.context.lineTo(this.width-this.radiusRightTop, 0);
@@ -2212,9 +2209,9 @@ Carem.SymbolShape = function(Canvas)
 		return;
 	};
 
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		this.context.moveTo(this.openShape.x, this.openShape.y);
 		var Size = this.pointArray.length;
@@ -2357,9 +2354,9 @@ Carem.Text = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		this.context.font = this.fontSize+"px "+this.fontName;
 		this.context.textAlign = this.textAlign;
@@ -2430,9 +2427,9 @@ Carem.Image = function(Canvas, Asset)
 		return;
 	};
 	
-	this.Draw = function() 
+	this.Draw = function(ratio) 
 	{
-		this.UpdateScene();
+		this.UpdateScene(ratio);
 		this.UpdateGraphics();
 		if(this.idata != 0)
 			this.context.rect(0, 0, this.idata.width, this.idata.height);

@@ -80,24 +80,13 @@
 	</div>
 
 	<div class="inner">
-		<h4 class="member" id="width">width</h4>
-		<p class="note"><span class="code-hint">width</span> là thành phần nắm giữ thông số độ rộng của canvas.</p>
-		<p class="note">Bạn có thể truy cập vào thành phần <span class="code-hint">width</span> của layer bằng như cách sau:</p>
+		<h4 class="member" id="ratio">ratio</h4>
+		<p class="note"><span class="code-hint">ratio</span> là thành phần nắm giữ thông số tỉ lệ phóng thu của canvas.</p>
+		<p class="note">Bạn có thể truy cập vào thành phần <span class="code-hint">ratio</span> của layer bằng như cách sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
-			<p>console.<span class="code-keyword">log</span>(Layer.width);</p>
+			<p>console.<span class="code-keyword">log</span>(Layer.ratio);</p>
 			<p>console.<span class="code-keyword">log</span>(Layer.getWidth());</p>
-		</div>
-	</div>
-
-	<div class="inner">
-		<h4 class="member" id="height">height</h4>
-		<p class="note"><span class="code-hint">height</span> là thành phần nắm giữ thông số độ cao của canvas.</p>
-		<p class="note">Bạn có thể truy cập vào thành phần <span class="code-hint">height</span> của layer bằng như cách sau:</p>
-		<div class="code-block">
-			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
-			<p>console.<span class="code-keyword">log</span>(Layer.height);</p>
-			<p>console.<span class="code-keyword">log</span>(Layer.getHeight());</p>
 		</div>
 	</div>
 
@@ -184,6 +173,49 @@
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
 			<p>console.<span class="code-keyword">log</span>(Layer.getHeight());</p>
+		</div>
+	</div>
+	
+	<div class="inner">
+		<h4 class="member" id="setWidth">setWidth(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setWidth()</span> cài đặt độ rộng của canvas trong html5.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Độ rộng được cài đặt cho layer.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setWidth()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
+			<p>Layer.setWidth(<span class="code-param">320</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setHeight">setHeight(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setHeight()</span> cài đặt độ cao của canvas trong html5.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Độ cao được cài đặt cho layer.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setHeight()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
+			<p>Layer.setHeight(<span class="code-param">420</span>);</p>			
+		</div>
+	</div>
+	
+	<div class="inner">
+		<h4 class="member" id="setSize">setSize(<span class="code-param">width</span>, <span class="code-param">height</span>)</h4>
+		<p class="note"><span class="code-hint">setSize()</span> sẽ trả lại độ cao của canvas trong html5.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">width</span> - Độ rộng được cài đặt cho layer.</li>
+			<li><span class="code-param">height</span> - Độ cao được cài đặt cho layer.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setSize()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
+			<p>Layer.setSize(<span class="code-param">320</span>, <span class="code-param">420</span>);</p>
 		</div>
 	</div>
 
@@ -273,15 +305,30 @@
 			<p>Layer02.addChild(<span class="code-param">button</span>)</p>
 		</div>
 	</div>
-
+	
 	<div class="inner">
-		<h4 class="member" id="Swap">Swap()</h4>
-		<p class="note"><span class="code-hint">Swap()</span> dùng để vẽ các thành phần đồ họa được đặt trong mảng childList của đổi tượng layer.</p>
-		<p class="note">Cách sử dụng <span class="code-hint">Swap()</span> như ví dụ sau:</p>
+		<h4 class="member" id="zoom">zoom(<span class="code-param">percent</span>)</h4>
+		<p class="note"><span class="code-hint">zoom()</span> dùng để phóng thu các thành phần đồ họa được đặt trong mảng childList của đổi tượng layer.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">percent</span> - Tỉ lệ phần trăm độ phóng thu.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">zoom()</span> như ví dụ sau:</p>
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
 			<p class="code-comment">// ... Add childs.</p>
-			<p>Layer.Swap();</p>
+			<p>Layer.zoom(<span class="code-param">200</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="swap">swap()</h4>
+		<p class="note"><span class="code-hint">swap()</span> dùng để vẽ các thành phần đồ họa được đặt trong mảng childList của đổi tượng layer.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">swap()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
+			<p class="code-comment">// ... Add childs.</p>
+			<p>Layer.swap();</p>
 		</div>
 	</div>
 
