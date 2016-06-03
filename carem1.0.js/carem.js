@@ -214,8 +214,9 @@ var Carem_Layer = function(canvasId)
 	
 	this.clear = function() 
 	{
-		this.context.setTransform(1, 0, 0, 1, 0, 0);
+		this.context.setTransform(1, 0, 0, 1, this.x, this.y);
 		this.context.fillStyle = this.fillStyle;
+		this.context.clearRect(0, 0, this.DOMElement.width, this.DOMElement.height);
 		this.context.fillRect(0, 0, this.DOMElement.width, this.DOMElement.height);
 		return;
 	};
