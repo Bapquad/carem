@@ -240,8 +240,6 @@ Carem.Layer = function(canvasId)
 	this.zoom = function(percent) 
 	{
 		this.ratio = percent/100;
-		this.DOMElement.width *= this.ratio;
-		this.DOMElement.height *= this.ratio;
 	};
 	
 	this.swap = function() 
