@@ -216,13 +216,17 @@ Carem.Layer = function(canvasId)
 		return;
 	};
 	
-	this.clear = function() 
+	this.fill = function() 
 	{
 		this.context.setTransform(1, 0, 0, 1, this.x, this.y);
 		this.context.fillStyle = this.fillStyle;
-		this.context.clearRect(0, 0, this.DOMElement.width, this.DOMElement.height);
 		this.context.fillRect(0, 0, this.DOMElement.width, this.DOMElement.height);
 		return;
+	};
+	
+	this.clear = function() 
+	{
+		this.context.clearRect(0, 0, this.DOMElement.width, this.DOMElement.height);
 	};
 	
 	this.addChild = function(child) 
@@ -246,7 +250,7 @@ Carem.Layer = function(canvasId)
 	this.swap = function() 
 	{
 		this.context.save();
-		this.clear();
+		this.fill();
 		var lim = this.childList.length;
 		for(var i=0;i<lim;i++) 
 		{
@@ -818,7 +822,6 @@ Carem.Graphics = function(context)
 	{
 		this.alpha = alpha/100;
 		return;
-		
 	};
 	
 	
@@ -1654,12 +1657,6 @@ Carem.SymbolArc = function(Canvas)
 			this.setAlpha(100);
 		return;
 	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
-		return;
-	};
 	
 	this.setBackgroundImage = function(asset, mode) 
 	{
@@ -1725,12 +1722,6 @@ Carem.SymbolCircle = function(Canvas)
 			this.setAlpha(percent);
 		else 
 			this.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 	
@@ -1815,12 +1806,6 @@ Carem.SymbolLine = function(Canvas)
 			this.setAlpha(100);
 		return;
 	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
-		return;
-	};
 	
 	this.setStrokeImage = function(asset, mode) 
 	{
@@ -1865,12 +1850,6 @@ Carem.SymbolOval = function(Canvas)
 			this.setAlpha(percent);
 		else
 			this.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 
@@ -1941,12 +1920,6 @@ Carem.SymbolPolygon = function(Canvas)
 			this.setAlpha();
 		return;
 	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
-		return;
-	};
 	
 	this.setBackgroundImage = function(asset, mode) 
 	{
@@ -2012,12 +1985,6 @@ Carem.SymbolRect = function(Canvas)
 			this.setAlpha(percent);
 		else 
 			this.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 	
@@ -2095,12 +2062,6 @@ Carem.SymbolRoundRect = function(Canvas)
 			this.setAlpha(percent);
 		else 
 			this.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 		
@@ -2187,12 +2148,6 @@ Carem.SymbolShape = function(Canvas)
 			this.setAlpha(percent);
 		else
 			this.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 	
@@ -2334,12 +2289,6 @@ Carem.Text = function(Canvas)
 			this.setAlpha(100);
 		return;
 	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
-		return;
-	};
 	
 	this.setBackgroundImage = function(asset, mode) 
 	{
@@ -2399,12 +2348,6 @@ Carem.Image = function(Canvas, Asset)
 			this.setAlpha(percent);
 		else 
 			this.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 	

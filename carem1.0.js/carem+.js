@@ -478,12 +478,6 @@ var Carem_Button = function(Canvas, Asset, x, y, width, height)
 		return;
 	};
 
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
-		return;
-	};
-
 	this.Draw = function(ratio) 
 	{
 		this.SceneObject.UpdateParameter(ratio);
@@ -732,12 +726,6 @@ var Carem_StaticSprite = function(Canvas, Asset, x, y, width, height)
 			this.Graphics.setAlpha(percent);
 		else 
 			this.Graphics.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 	
@@ -1102,12 +1090,6 @@ var Carem_AnimeSprite = function(Canvas, Asset, Width, Height)
 			this.Graphics.setAlpha(100);
 		return;
 	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
-		return;
-	};
 	
 	/** Physics Settings */
 	this.setGravity = function(constant) 
@@ -1451,12 +1433,6 @@ var Carem_Scroller = function(Canvas, Asset)
 			this.Graphics.setAlpha(percent);
 		else 
 			this.Graphics.setAlpha(100);
-		return;
-	};
-	
-	this.setAlpha = function(value) 
-	{
-		this.Graphics.setAlpha(value);
 		return;
 	};
 	
@@ -1916,12 +1892,6 @@ var Carem_Tile = function(Canvas)
 			this.Graphics.setAlpha(percent);
 		else 
 			this.Graphics.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 

@@ -212,13 +212,17 @@ var Carem_Layer = function(canvasId)
 		return;
 	};
 	
-	this.clear = function() 
+	this.fill = function() 
 	{
 		this.context.setTransform(1, 0, 0, 1, this.x, this.y);
 		this.context.fillStyle = this.fillStyle;
-		this.context.clearRect(0, 0, this.DOMElement.width, this.DOMElement.height);
 		this.context.fillRect(0, 0, this.DOMElement.width, this.DOMElement.height);
 		return;
+	};
+	
+	this.clear = function() 
+	{
+		this.context.clearRect(0, 0, this.DOMElement.width, this.DOMElement.height);
 	};
 	
 	this.addChild = function(child) 
@@ -242,7 +246,7 @@ var Carem_Layer = function(canvasId)
 	this.swap = function() 
 	{
 		this.context.save();
-		this.clear();
+		this.fill();
 		var lim = this.childList.length;
 		for(var i=0;i<lim;i++) 
 		{
@@ -819,7 +823,6 @@ var Carem_Graphics = function(context)
 	{
 		this.alpha = alpha/100;
 		return;
-		
 	};
 	
 	
@@ -1812,12 +1815,6 @@ var Carem_SymbolArc = function(Canvas)
 			this.Graphics.setAlpha(100);
 		return;
 	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
-		return;
-	};
 	
 	this.setBackground = function(color, startPoint, endPoint, radius) 
 	{
@@ -2055,12 +2052,6 @@ var Carem_SymbolCircle = function(Canvas)
 			this.Graphics.setAlpha(percent);
 		else 
 			this.Graphics.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 	
@@ -2322,12 +2313,6 @@ var Carem_SymbolLine = function(Canvas)
 			this.Graphics.setAlpha(100);
 		return;
 	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
-		return;
-	};
 	
 	this.setStrokeColor = function(color, startPoint, endPoint, radius) 
 	{
@@ -2584,12 +2569,6 @@ var Carem_SymbolOval = function(Canvas)
 			this.Graphics.setAlpha(percent);
 		else
 			this.Graphics.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 	
@@ -2870,12 +2849,6 @@ var Carem_SymbolPolygon = function(Canvas)
 			this.Graphics.setAlpha();
 		else 
 			this.Graphics.setAlpha();
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 	
@@ -3171,12 +3144,6 @@ var Carem_SymbolRect = function(Canvas)
 			this.Graphics.setAlpha(percent);
 		else 
 			this.Graphics.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 	
@@ -3485,12 +3452,6 @@ var Carem_SymbolRoundRect = function(Canvas)
 			this.Graphics.setAlpha(100);
 		return;
 	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
-		return;
-	};
 	
 	this.setBackground = function(color, startPoint, endPoint, radius) 
 	{
@@ -3753,12 +3714,6 @@ var Carem_SymbolShape = function(Canvas)
 			this.Graphics.setAlpha(percent);
 		else
 			this.Graphics.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 	
@@ -4077,12 +4032,6 @@ var Carem_Text = function(Canvas)
 			this.Graphics.setAlpha(100);
 		return;
 	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
-		return;
-	};
 	
 	this.setBackground = function(color, startPoint, endPoint, radius) 
 	{
@@ -4308,12 +4257,6 @@ var Carem_Image = function(Canvas, Asset)
 			this.Graphics.setAlpha(percent);
 		else 
 			this.Graphics.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 	

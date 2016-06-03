@@ -357,12 +357,6 @@ Carem.Button = function(Canvas, Asset, x, y, width, height)
 		return;
 	};
 
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
-		return;
-	};
-
 	this.Draw = function(ratio) 
 	{
 		this.UpdateScene(ratio);
@@ -525,12 +519,6 @@ Carem.AnimeSprite = function(Canvas, Asset, Width, Height)
 			this.setAlpha(percent);
 		else 
 			this.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 	
@@ -1033,12 +1021,6 @@ Carem.Tile = function(Canvas)
 			this.setAlpha(percent);
 		else 
 			this.setAlpha(100);
-		return;
-	};
-
-	this.setAlpha = function(percent) 
-	{
-		this.visible(percent);
 		return;
 	};
 
