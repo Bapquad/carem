@@ -157,26 +157,6 @@
 	</div>
 
 	<div class="inner">
-		<h4 class="member" id="getWidth">getWidth()</h4>
-		<p class="note"><span class="code-hint">getWidth()</span> sẽ trả lại độ rộng của canvas trong html5.</p>
-		<p class="note">Cách sử dụng <span class="code-hint">getWidth()</span> như ví dụ sau:</p>
-		<div class="code-block">
-			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
-			<p>console.<span class="code-keyword">log</span>(Layer.getWidth());</p>
-		</div>
-	</div>
-
-	<div class="inner">
-		<h4 class="member" id="getHeight">getHeight()</h4>
-		<p class="note"><span class="code-hint">getHeight()</span> sẽ trả lại độ cao của canvas trong html5.</p>
-		<p class="note">Cách sử dụng <span class="code-hint">getHeight()</span> như ví dụ sau:</p>
-		<div class="code-block">
-			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
-			<p>console.<span class="code-keyword">log</span>(Layer.getHeight());</p>
-		</div>
-	</div>
-	
-	<div class="inner">
 		<h4 class="member" id="setWidth">setWidth(<span class="code-param">value</span>)</h4>
 		<p class="note"><span class="code-hint">setWidth()</span> cài đặt độ rộng của canvas trong html5.</p>
 		<h5>Các tham số:</h5>
@@ -206,7 +186,7 @@
 	
 	<div class="inner">
 		<h4 class="member" id="setSize">setSize(<span class="code-param">width</span>, <span class="code-param">height</span>)</h4>
-		<p class="note"><span class="code-hint">setSize()</span> sẽ trả lại độ cao của canvas trong html5.</p>
+		<p class="note"><span class="code-hint">setSize()</span> cài đặt kích thước của canvas trong html5.</p>
 		<h5>Các tham số:</h5>
 		<ul>
 			<li><span class="code-param">width</span> - Độ rộng được cài đặt cho layer.</li>
@@ -216,6 +196,89 @@
 		<div class="code-block">
 			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
 			<p>Layer.setSize(<span class="code-param">320</span>, <span class="code-param">420</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getWidth">getWidth()</h4>
+		<p class="note"><span class="code-hint">getWidth()</span> sẽ trả lại độ rộng của canvas trong html5.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getWidth()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Layer.getWidth());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getHeight">getHeight()</h4>
+		<p class="note"><span class="code-hint">getHeight()</span> sẽ trả lại độ cao của canvas trong html5.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getHeight()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Layer.getHeight());</p>
+		</div>
+	</div>
+	
+	<div class="inner">
+		<h4 class="member" id="setPositionX">setPositionX(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setPositionX()</span> cài đặt tọa độ X của canvas trong html5.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Tọa độ X vị trí được cài đặt cho layer.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setPositionX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
+			<p>Layer.setPositionX(<span class="code-param">320</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setPositionY">setPositionY(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setPositionY()</span> cài đặt tọa dộ Y của canvas trong html5.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Tọa độ Y vị trí được cài đặt cho layer.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setPositionY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
+			<p>Layer.setPositionY(<span class="code-param">420</span>);</p>			
+		</div>
+	</div>
+	
+	<div class="inner">
+		<h4 class="member" id="setPosition">setPosition(<span class="code-param">x</span>, <span class="code-param">y</span>)</h4>
+		<p class="note"><span class="code-hint">setPosition()</span> cài đặt vị trí  của canvas trong html5.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">x</span> - Tọa độ X vị trí được cài đặt cho layer.</li>
+			<li><span class="code-param">y</span> - Tọa độ Y vị trí được cài đặt cho layer.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setPosition()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
+			<p>Layer.setPosition(<span class="code-param">10</span>, <span class="code-param">10</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getPositionX">getPositionX()</h4>
+		<p class="note"><span class="code-hint">getPositionX()</span> sẽ trả lại tọa độ X vị trí của canvas trong html5.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getPositionX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Layer.getPositionX());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getPositionY">getPositionY()</h4>
+		<p class="note"><span class="code-hint">getPositionY()</span> sẽ trả lại tọa độ Y vị trí của canvas trong html5.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getPositionY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> <strong>Carem_Layer</strong>(<span class="code-param">"canvas_id"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Layer.getPositionY());</p>
 		</div>
 	</div>
 

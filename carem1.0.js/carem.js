@@ -195,6 +195,32 @@ var Carem_Layer = function(canvasId)
 		return this.DOMElement.height;
 	};
 	
+	this.setPosition = function(x, y) 
+	{
+		this.x = x;
+		this.y = y;
+	};
+	
+	this.setPositionX = function(value) 
+	{
+		this.x = value;
+	};
+	
+	this.setPositionY = function(value) 
+	{
+		this.y = value;
+	};
+	
+	this.getPositionX = function() 
+	{
+		return this.x;
+	};
+	
+	this.getPositionY = function() 
+	{
+		return this.y;
+	};
+	
 	this.getContext = function() 
 	{
 		return this.context;
@@ -1598,12 +1624,14 @@ var Carem_SceneObject = function(context)
 		return !(this.Enable);
 	};
 	
-	this.UpdateParameter = function(ratio) 
+	this.UpdateParameter = function(ratio, layerX, layerY) 
 	{
 		ratio = ratio || 1.0;
+		layerX = layerX || 0;
+		layerY = layerY || 0;
 		this.context.beginPath();
 		/** Transform Objects */
-		this.context.setTransform(this.scaleX*this.hScaleMode*ratio, 0, 0, this.scaleY*this.vScaleMode*ratio, this.x*ratio, this.y*ratio);
+		this.context.setTransform(this.scaleX*this.hScaleMode*ratio, 0, 0, this.scaleY*this.vScaleMode*ratio, (this.x+layerX)*ratio, (this.y+layerY)*ratio);
 		this.context.rotate(this.angle);
 		var translateX = (this.hScaleMode < 0) ? (-1)*(this.width+this.orginNode.x) : this.orginNode.x;
 		var translateY = (this.vScaleMode < 0) ? (-1)*(this.height+this.orginNode.y) : this.orginNode.y;
@@ -1894,9 +1922,9 @@ var Carem_SymbolArc = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function(ratio) 
+	this.Draw = function(ratio, layerX, layerY) 
 	{
-		this.SceneObject.UpdateParameter(ratio);
+		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
 		this.Graphics.UpdateParameter();
 		var s = Carem_Math.VectorFromRadian(this.sliceAngleTo);
 		radius = this.SceneObject.getScaleRatio()/2;
@@ -2121,9 +2149,9 @@ var Carem_SymbolCircle = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function(ratio) 
+	this.Draw = function(ratio, layerX, layerY) 
 	{
-		this.SceneObject.UpdateParameter(ratio);
+		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
 		this.Graphics.UpdateParameter();
 		this.context.arc(
 			this.SceneObject.width/2, 
@@ -2374,9 +2402,9 @@ var Carem_SymbolLine = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function(ratio) 
+	this.Draw = function(ratio, layerX, layerY) 
 	{
-		this.SceneObject.UpdateParameter(ratio);
+		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
 		this.Graphics.UpdateParameter();
 		this.context.moveTo(this.pointArray[0].x, this.pointArray[0].y);
 		this.context.lineTo(this.pointArray[1].x, this.pointArray[1].y);
@@ -2638,9 +2666,9 @@ var Carem_SymbolOval = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function(ratio) 
+	this.Draw = function(ratio, layerX, layerY) 
 	{
-		this.SceneObject.UpdateParameter(ratio);
+		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
 		this.Graphics.UpdateParameter();
 		var value = this.SceneObject.getScaleRatio()/2;
 		this.context.arc(value, value, value, 0, 2*Math.PI);
@@ -2935,9 +2963,9 @@ var Carem_SymbolPolygon = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function(ratio) 
+	this.Draw = function(ratio, layerX, layerY) 
 	{
-		this.SceneObject.UpdateParameter(ratio);
+		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
 		this.Graphics.UpdateParameter();
 		var Size = this.pointArray.length;
 		var Radius = this.SceneObject.getScaleRatio()/2;
@@ -3231,9 +3259,9 @@ var Carem_SymbolRect = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function(ratio) 
+	this.Draw = function(ratio, layerX, layerY) 
 	{
-		this.SceneObject.UpdateParameter(ratio);
+		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
 		this.Graphics.UpdateParameter();
 		this.context.rect(0, 0, this.SceneObject.width, this.SceneObject.height);
 		this.SceneObject.testHitPoint();
@@ -3519,9 +3547,9 @@ var Carem_SymbolRoundRect = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function(ratio) 
+	this.Draw = function(ratio, layerX, layerY) 
 	{
-		this.SceneObject.UpdateParameter(ratio);
+		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
 		this.Graphics.UpdateParameter();
 		this.context.moveTo(this.radiusLeftTop, 0);
 		this.context.lineTo(this.SceneObject.width-this.radiusRightTop, 0);
@@ -3807,9 +3835,9 @@ var Carem_SymbolShape = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function(ratio) 
+	this.Draw = function(ratio, layerX, layerY) 
 	{
-		this.SceneObject.UpdateParameter(ratio);
+		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
 		this.Graphics.UpdateParameter();
 		this.context.moveTo(this.openShape.x, this.openShape.y);
 		var Size = this.pointArray.length;
@@ -4087,9 +4115,9 @@ var Carem_Text = function(Canvas)
 		return;
 	};
 	
-	this.Draw = function(ratio) 
+	this.Draw = function(ratio, layerX, layerY) 
 	{
-		this.SceneObject.UpdateParameter(ratio);
+		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
 		this.Graphics.UpdateParameter();
 		this.context.font = this.fontSize+"px "+this.fontName;
 		this.context.textAlign = this.textAlign;
@@ -4308,9 +4336,9 @@ var Carem_Image = function(Canvas, Asset)
 		return;
 	};
 	
-	this.Draw = function(ratio) 
+	this.Draw = function(ratio, layerX, layerY) 
 	{
-		this.SceneObject.UpdateParameter(ratio);
+		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
 		this.Graphics.UpdateParameter();
 		if(this.idata != 0)
 			this.context.rect(0, 0, this.idata.width, this.idata.height);
