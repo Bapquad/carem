@@ -211,6 +211,22 @@ var Carem_Layer = function(canvasId)
 		this.y = value;
 	};
 	
+	this.addPosition = function(x, y) 
+	{
+		this.x += x;
+		this.y += y;
+	};
+	
+	this.addPositionX = function(value) 
+	{
+		this.x += value;
+	};
+	
+	this.addPositionY = function(value) 
+	{
+		this.y += value;
+	};
+	
 	this.getPositionX = function() 
 	{
 		return this.x;
@@ -1631,7 +1647,7 @@ var Carem_SceneObject = function(context)
 		layerY = layerY || 0;
 		this.context.beginPath();
 		/** Transform Objects */
-		this.context.setTransform(this.scaleX*this.hScaleMode*ratio, 0, 0, this.scaleY*this.vScaleMode*ratio, (this.x+layerX)*ratio, (this.y+layerY)*ratio);
+		this.context.setTransform(this.scaleX*this.hScaleMode*ratio, 0, 0, this.scaleY*this.vScaleMode*ratio, parseInt((this.x+layerX)*ratio)+.5, parseInt((this.y+layerY)*ratio)+.5);
 		this.context.rotate(this.angle);
 		var translateX = (this.hScaleMode < 0) ? (-1)*(this.width+this.orginNode.x) : this.orginNode.x;
 		var translateY = (this.vScaleMode < 0) ? (-1)*(this.height+this.orginNode.y) : this.orginNode.y;
