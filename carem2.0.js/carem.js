@@ -215,6 +215,22 @@ Carem.Layer = function(canvasId)
 		this.y = value;
 	};
 	
+	this.addPosition = function(x, y) 
+	{
+		this.x += x;
+		this.y += y;
+	};
+	
+	this.addPositionX = function(value) 
+	{
+		this.x += value;
+	};
+	
+	this.addPositionY = function(value) 
+	{
+		this.y += value;
+	};
+	
 	this.getPositionX = function() 
 	{
 		return this.x;
