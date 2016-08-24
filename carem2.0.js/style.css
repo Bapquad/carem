@@ -22,7 +22,7 @@ body,th,td,input,select,big,button,textarea, li {font-size:12px;font-family:Taho
 
 body.border-col 
 {
-	background-image: url("Documentations/border-col.gif");
+	background-image: url("documentations/border-col.gif");
 	background-repeat: repeat-y;
 	background-position: 210px top;
 	background-color: #222;
