@@ -1,0 +1,648 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+<link href="../style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../jquery.js" type="text/javascript"></script>
+<script src="../carem.js" type="text/javascript"></script>
+<script src="../carem+.js" type="text/javascript"></script>
+<title>Button | Bapquad Games | bapquadgames.com</title>
+</head>
+
+<body class="border-col">
+<div class="tree-col">
+	<p><a href="index.html">Main Index</a></p>
+	<h1>Carem</h1>
+	<ul>
+		<li class="class-tree"><a href="layer.html">Carem_Layer</a></li>
+		<li class="class-tree"><a href="math.html">Carem_Math</a></li>
+		<li class="class-tree"><a href="filter.html">Carem_Filter</a></li>
+		<li class="class-tree"><a href="assetmanager.html">Carem_AssetManager</a></li>
+		<li class="class-tree"><a href="graphics.html">Carem_Graphics</a></li>
+		<li class="class-tree"><a href="sceneobject.html">Carem_SceneObject</a></li>
+		<li class="class-tree"><a href="symbolarc.html">Carem_SymbolArc</a></li>
+		<li class="class-tree"><a href="symbolcircle.html">Carem_SymbolCircle</a></li>
+		<li class="class-tree"><a href="symbolline.html">Carem_SymbolLine</a></li>
+		<li class="class-tree"><a href="symboloval.html">Carem_SymbolOval</a></li>
+		<li class="class-tree"><a href="symbolpolygon.html">Carem_SymbolPolygon</a></li>
+		<li class="class-tree"><a href="symbolrect.html">Carem_SymbolRect</a></li>
+		<li class="class-tree"><a href="symbolroundrect.html">Carem_SymbolRoundRect</a></li>
+		<li class="class-tree"><a href="symbolshape.html">Carem_SymbolShape</a></li>
+		<li class="class-tree"><a href="symboltext.html">Carem_Text</a></li>
+		<li class="class-tree"><a href="symbolimage.html">Carem_Image</a></li>
+	</ul>
+	<h1>Carem+</h1>
+	<ul>
+		<li class="class-tree"><a href="physics.html">Carem_Physics</a></li>
+		<li class="class-tree"><a href="worldlimit.html">Carem_WorldLimit</a></li>
+		<li class="class-tree"><a href="collision.html">Carem_Collision</a></li>
+		<li class="class-tree"><a href="button.html">Carem_Button</a></li>
+		<li class="class-tree"><a href="staticsprite.html">Carem_StaticSprite</a></li>
+		<li class="class-tree"><a href="animesprite.html">Carem_AnimeSprite</a></li>
+		<li class="class-tree"><a href="scroller.html">Carem_Scroller</a></li>
+		<li class="class-tree"><a href="particle.html">Carem_Particle</a></li>
+		<li class="class-tree"><a href="tile.html">Carem_Tile</a></li>
+	</ul>
+	<h1>Hướng dẫn thực hiện</h1>
+	<ul>
+		<li class="class-tree"><a href="fish-demo.html">Fish Demo</a></li>
+	</ul>
+</div>
+<div class="content-col">
+	<h1>Carem_Button</h1>
+	<h2>Giới thiệu</h2>
+	<p class="note">Carem_Button là class dùng để chứa các <a href="#method">phương thức</a> toán học, Carem_Button là class tĩnh, bạn có thể sử dụng trực tiếp mà không cần tạo cụ thể.</p>
+
+	<h3 id="method">Thuộc tính</h3>
+	<div class="inner">
+		<h4 class="member" id="DOMCanvasElement">DOMCanvasElement</h4>
+		<p class="note"><span class="code-hint">DOMCanvasElement</span> là thành phần dom trong html5 được lưu trong thành phần Canvas. Tại đây nó được share ra cho <span class="code-hint">Carem_Button</span>.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">DOMCanvasElement</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.DOMCanvasElement);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="context">context</h4>
+		<p class="note"><span class="code-hint">context</span> là thành phần dom trong html5 được lưu trong thành phần Canvas. Tại đây nó được share ra cho <span class="code-hint">Carem_Button</span>.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">context</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.context);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="Graphics">Graphics</h4>
+		<p class="note"><span class="code-hint">Graphics</span> lưu trữ đối tượng graphics dùng để xử lý đồ họa, hình họa cho button.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">Graphics</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.Graphics);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="SceneObject">SceneObject</h4>
+		<p class="note"><span class="code-hint">SceneObject</span> lưu trữ đối tượng SceneObject dùng để xử lý cách thức làm việc của button trên bảng vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">SceneObject</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.SceneObject);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="image">image</h4>
+		<p class="note"><span class="code-hint">image</span> lưu trữ đối tượng Image dùng để làm hình ảnh của button.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">image</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.image);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="mouseUpCallback">mouseUpCallback</h4>
+		<p class="note"><span class="code-hint">mouseUpCallback</span> lưu trữ hàm thực thi khi chuột được thả ra khỏi button.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">mouseUpCallback</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.mouseUpCallback);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="mouseOverCallback">mouseOverCallback</h4>
+		<p class="note"><span class="code-hint">mouseOverCallback</span> lưu trữ hàm thực thi khi chuột được rê qua button.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">mouseOverCallback</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.mouseOverCallback);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="clickCallback">clickCallback</h4>
+		<p class="note"><span class="code-hint">clickCallback</span> lưu trữ hàm thực thi khi chuột được nhấp xuống button.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">clickCallback</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.clickCallback);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="imagePositionX">imagePositionX</h4>
+		<p class="note"><span class="code-hint">imagePositionX</span> lưu trữ tọa độ x điểm vị trí của ảnh được vẽ trong phạm vi của button.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">imagePositionX</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.imagePositionX);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="imagePositionY">imagePositionY</h4>
+		<p class="note"><span class="code-hint">imagePositionY</span> lưu trữ tọa độ x điểm vị trí của ảnh được vẽ trong phạm vi của button.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">imagePositionY</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.imagePositionY);</p>
+		</div>
+	</div>
+
+	<h3 id="method">Phương thức</h3>
+
+	<div class="inner">
+		<h4 class="member" id="setAsset">setAsset(<span class="code-param">Asset</span>)</h4>
+		<p class="note"><span class="code-hint">setAsset()</span> được dùng để cài đặt hình ảnh vào button.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">Asset</span> - Tài nguyên hình ảnh mà người ta cần cài đặt cho button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setAsset()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setImagePosition">setImagePosition(<span class="code-param">x</span>, <span class="code-param">y</span>)</h4>
+		<p class="note"><span class="code-hint">setImagePosition()</span> được dùng để cài đặt vị trí hình ảnh được vẽ vào button.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">x</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho tọa độ x của điểm vị trí hình ảnh được vẽ vào button.</li>
+			<li><span class="code-param">y</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho tọa độ y của điểm vị trí hình ảnh được vẽ vào button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setImagePosition()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setImagePosition(<span class="code-constant">100</span>, <span class="code-constant">0</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setImagePositionX">setImagePositionX(<span class="code-param">x</span>)</h4>
+		<p class="note"><span class="code-hint">setImagePositionX()</span> được dùng để cài đặt vị trí hình ảnh được vẽ vào button.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">x</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho tọa độ x của điểm vị trí hình ảnh được vẽ vào button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setImagePositionX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setImagePositionX(<span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setImagePositionY">setImagePositionY(<span class="code-param">x</span>)</h4>
+		<p class="note"><span class="code-hint">setImagePositionY()</span> được dùng để cài đặt vị trí hình ảnh được vẽ vào button.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">x</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho tọa độ x của điểm vị trí hình ảnh được vẽ vào button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setImagePositionY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setImagePositionY(<span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="onClick">onClick(<span class="code-param">callback</span>)</h4>
+		<p class="note"><span class="code-hint">onClick()</span> được dùng để cài đặt hàm thực thi khi chuột được thả ra khỏi button.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">callback</span> - Hàm thực thi khi có sự kiện <span class="code-comment">"click"</span>.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">onClick()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.onClick(<span class="code-keyword">function</span>() {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>("OK");
+			<br>});</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="onMouseOver">onMouseOver(<span class="code-param">callback</span>)</h4>
+		<p class="note"><span class="code-hint">onMouseOver()</span> được dùng để cài đặt hàm thực thi khi chuột được rê qua button.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">callback</span> - Hàm thực thi khi có sự kiện <span class="code-comment">"mousemove"</span>.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">onMouseOver()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.onMouseOver(<span class="code-keyword">function</span>() {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>("OK");
+			<br>});</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="onMouseUp">onMouseUp(<span class="code-param">callback</span>)</h4>
+		<p class="note"><span class="code-hint">onMouseUp()</span> được dùng để cài đặt hàm thực thi khi chuột được rê qua button.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">callback</span> - Hàm thực thi khi có sự kiện <span class="code-comment">"mouseup"</span>.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">onMouseUp()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.onMouseUp(<span class="code-keyword">function</span>() {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>("OK");
+			<br>});</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getPosition">getPosition()</h4>
+		<p class="note"><span class="code-hint">getPosition()</span> được dùng để xem vị trí của button.</p>
+		<p class="tips">Trả lại một json <span class="code">{x: posX, y: posY}</span> tượng trưng cho vị trí của button.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getPosition()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.getPosition());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setPosition">setPosition(<span class="code-param">x</span>, <span class="code-param">y</span>)</h4>
+		<p class="note"><span class="code-hint">setPosition()</span> được dùng để cài đặt vị trí của button.</p>
+		<h5>Các tham số:</h5>
+		<ul>
+			<li><span class="code-param">x</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho tọa độ x của vị trí button.</li>
+			<li><span class="code-param">y</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho tọa độ y của vị trí button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setPosition()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setPosition(<span class="code-constant">10</span>, <span class="code-constant">10</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.getPosition());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getPositionX">getPositionX()</h4>
+		<p class="note"><span class="code-hint">getPositionX()</span> được dùng để xem tọa độ x của vị trí button.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setPositionX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setPosition(<span class="code-constant">10</span>, <span class="code-constant">10</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.getPositionX());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setPositionX">setPositionX(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setPositionX()</span> được dùng để cài đặt tọa độ x vị trí button.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho tọa độ x của vị trí button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setPositionX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setPositionX(<span class="code-constant">10</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getPositionY">getPositionY()</h4>
+		<p class="note"><span class="code-hint">getPositionY()</span> được dùng để xem tọa độ y của vị trí button.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setPositionY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setPosition(<span class="code-constant">10</span>, <span class="code-constant">10</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.getPositionY());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setPositionY">setPositionY(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setPositionY()</span> được dùng để cài đặt tọa độ y vị trí button.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho tọa độ y vị trí button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setPositionY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setPositionY(<span class="code-constant">10</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.getPositionY());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getSize">getSize()</h4>
+		<p class="note"><span class="code-hint">getSize()</span> được dùng để xem kích thước của button.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getSize()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.getSize());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setSize">setSize(<span class="code-param">width</span>, <span class="code-param">height</span>)</h4>
+		<p class="note"><span class="code-hint">setSize()</span> được dùng để cài đặt kích thước của button.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">width</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho độ rộng của button.</li>
+			<li><span class="code-param">height</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho độ rộng của button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setSize()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setSize(<span class="code-constant">100</span>, <span class="code-constant">200</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getWidth">getWidth()</h4>
+		<p class="note"><span class="code-hint">getWidth()</span> được dùng để xem kích thước chiều ngang của button.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getWidth()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.getWidth());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setWidth">setWidth(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setSize()</span> được dùng để cài đặt độ rộng của button.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho độ rộng của button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setWidth()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setWidth(<span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getHeight">getHeight()</h4>
+		<p class="note"><span class="code-hint">getHeight()</span> được dùng để xem kích thước chiều cao của button.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getHeight()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.getHeight());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setHeight">setHeight(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setHeight()</span> được dùng để cài đặt độ cao của button.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho độ cao của button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setHeight()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setHeight(<span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getRotate">getRotate()</h4>
+		<p class="note"><span class="code-hint">getRotate()</span> được dùng để xem góc xoay của button.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getRotate()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.getRotate());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setRotate">setRotate(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setRotate()</span> được dùng để cài đặt góc xoay của button.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">int|float</span>) tượng trưng cho góc xoay của button.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setRotate()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.setRotate(<span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="isDisable">isDisable()</h4>
+		<p class="note"><span class="code-hint">isDisable()</span> được dùng để kiểm tra xem button có bị vô hiệu hóa.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">isDisable()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.isDisable());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="disable">disable()</h4>
+		<p class="note"><span class="code-hint">disable()</span> được dùng để vô hiệu hóa button.</p>
+		<p class="tips">Khi bị vô hiệu hóa, button sẽ không sử dụng được các sự kiện <span class="code-comment">"mouseup | mouseover | click"</span>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">disable()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.disable();</p>
+			<p>console.<span class="code-keyword">log</span>(button.isDisable());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="isEnable">isEnable()</h4>
+		<p class="note"><span class="code-hint">isEnable()</span> được dùng để kiểm tra xem button đang có hiệu lực.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">isEnable()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.isEnable());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="enable">enable()</h4>
+		<p class="note"><span class="code-hint">enable()</span> được dùng để khôi phục trạng thái hiệu lực.</p>
+		<p class="tips">Khi bị vô hiệu hóa, button sẽ không sử dụng được các sự kiện <span class="code-comment">"mouseup | mouseover | click"</span>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">enable()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.enable();</p>
+			<p>console.<span class="code-keyword">log</span>(button.isDisable());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="isHide">isHide()</h4>
+		<p class="note"><span class="code-hint">isHide()</span> được dùng để kiểm tra xem button có bị ẩn đi.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">isHide()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.isHide());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="hide">hide()</h4>
+		<p class="note"><span class="code-hint">hide()</span> được dùng để ẩn đi button.</p>
+		<p class="tips">Khi bị ẩn đi, button sẽ không sử dụng được các sự kiện <span class="code-comment">"mouseup | mouseover | click"</span>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">hide()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.hide();</p>
+			<p>console.<span class="code-keyword">log</span>(button.isDisable()); <span class="code-comment">// Output true.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="isShow">isShow()</h4>
+		<p class="note"><span class="code-hint">isShow()</span> được dùng để kiểm tra xem button đang được hiển thị.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">isShow()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(button.isShow());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="show">show()</h4>
+		<p class="note"><span class="code-hint">show()</span> được dùng để khôi phục trạng thái hiển thị button.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">show()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.hide();</p>
+			<p>button.show();</p>
+			<p>console.<span class="code-keyword">log</span>(button.isHide()); <span class="code-comment">// Output false.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="invisible">invisible()</h4>
+		<p class="note"><span class="code-hint">invisible()</span> được dùng để làm khuất button.</p>
+		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">invisible</span>, nó sẽ làm cho button không còn được hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-comment">"mouseup | mouseover | click".</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">invisible()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.invisible();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="visible">visible()</h4>
+		<p class="note"><span class="code-hint">visible()</span> được dùng để khôi phục trạng thái hiển thị của button.</p>
+		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">visible</span>, nó sẽ làm cho button khôi phục được trạng thái hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-comment">"mouseup | mouseover | click".</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">visible()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.visible();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setAlpha">setAlpha()</h4>
+		<p class="note"><span class="code-hint">setAlpha()</span> được dùng để khôi phục trạng thái hiển thị của button.</p>
+		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">visible</span>, nó sẽ làm cho button khôi phục được trạng thái hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-comment">"mouseup | mouseover | click".</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">visible()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.visible();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="Draw">Draw()</h4>
+		<p class="note"><span class="code-hint">Draw()</span> được dùng để vẽ button.</p>
+		<p class="tips">Khi người ta dùng phương thức <span class="code-hint">Draw</span>, nó sẽ làm cho button khôi phục được trạng thái hiển thị, nhưng button vẫn còn hoạt động được với các sự kiện <span class="code-comment">"mouseup | mouseover | click".</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">Draw()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Layer = <span class="code-keyword">new</span> Carem_Layer(<span class="code-param">"canvas_id"</span>);</p>
+			<p><span class="code-keyword">var</span> button = <span class="code-keyword">new</span> Carem_Button(Layer, AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">20</span>, <span class="code-constant">20</span>, <span class="code-constant">100</span>, <span class="code-constant">50</span>);</p>
+			<p>button.setAsset(<span class="code-param">"Image.jpg"</span>);</p>
+			<p>button.Draw();</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,897 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+<link href="../style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../jquery.js" type="text/javascript"></script>
+<script src="../carem.js" type="text/javascript"></script>
+<script src="../carem+.js" type="text/javascript"></script>
+<title>Carem.SceneObject | Bapquad Games | bapquadgames.com</title>
+</head>
+
+<body class="border-col">
+<div class="tree-col">
+	<p><a href="index.html">Main Index</a></p>
+	<h1>Carem</h1>
+	<ul>
+		<li class="class-tree"><a href="layer.html">Carem.Layer</a></li>
+		<li class="class-tree"><a href="math.html">Carem.Math</a></li>
+		<li class="class-tree"><a href="filter.html">Carem.Filter</a></li>
+		<li class="class-tree"><a href="assetmanager.html">Carem.AssetManager</a></li>
+		<li class="class-tree"><a href="graphics.html">Carem.Graphics</a></li>
+		<li class="class-tree"><a href="sceneobject.html">Carem.SceneObject</a></li>
+		<li class="class-tree"><a href="symbolarc.html">Carem.SymbolArc</a></li>
+		<li class="class-tree"><a href="symbolcircle.html">Carem.SymbolCircle</a></li>
+		<li class="class-tree"><a href="symbolline.html">Carem.SymbolLine</a></li>
+		<li class="class-tree"><a href="symboloval.html">Carem.SymbolOval</a></li>
+		<li class="class-tree"><a href="symbolpolygon.html">Carem.SymbolPolygon</a></li>
+		<li class="class-tree"><a href="symbolrect.html">Carem.SymbolRect</a></li>
+		<li class="class-tree"><a href="symbolroundrect.html">Carem.SymbolRoundRect</a></li>
+		<li class="class-tree"><a href="symbolshape.html">Carem.SymbolShape</a></li>
+		<li class="class-tree"><a href="symboltext.html">Carem.Text</a></li>
+		<li class="class-tree"><a href="symbolimage.html">Carem.Image</a></li>
+	</ul>
+	<h1>Carem+</h1>
+	<ul>
+		<li class="class-tree"><a href="physics.html">Carem.Physics</a></li>
+		<li class="class-tree"><a href="worldlimit.html">Carem.WorldLimit</a></li>
+		<li class="class-tree"><a href="collision.html">Carem.Collision</a></li>
+		<li class="class-tree"><a href="button.html">Carem.Button</a></li>
+		<li class="class-tree"><a href="staticsprite.html">Carem.StaticSprite</a></li>
+		<li class="class-tree"><a href="animesprite.html">Carem.AnimeSprite</a></li>
+		<li class="class-tree"><a href="scroller.html">Carem.Scroller</a></li>
+		<li class="class-tree"><a href="particle.html">Carem.Particle</a></li>
+		<li class="class-tree"><a href="tile.html">Carem.Tile</a></li>
+	</ul>
+	<h1>Hướng dẫn thực hiện</h1>
+	<ul>
+		<li class="class-tree"><a href="fish-demo.html">Fish Demo</a></li>
+	</ul>
+</div>
+<div class="content-col">
+	<h1>Carem.SceneObject</h1>
+	<h2>Giới thiệu</h2>
+	<p class="note">Carem.SceneObject là class dùng để chứa các <a href="#property">thuộc tính</a> và <a href="#method">phương thức</a> quản lý, và thao tác các dữ liệu liên quan đến cách thức hiển. Mọi thứ từ vị trí vẽ đến góc xoay, và vân vân... đều được gói gọn trong <span class="code-hint">Carem.SceneObject</span>.</p>
+
+	<h3 id="property">Thuộc tính</h3>
+
+	<div class="inner">
+		<h4 class="member" id="context">context</h4>
+		<p class="note"><span class="code-hint">context</span> là bảng vẽ được lưu trong thành phần Canvas. Tại đây nó được share ra cho <span class="code-hint">Carem.SceneObject</span></p>
+		<p class="note">Cách truy cập vào <span class="code-hint">context</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.context);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="x">x</h4>
+		<p class="note">Thuộc tính <span class="code-hint">x</span> là tọa độ x của vị trí hình vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">x</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.x);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getPositionX());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="y">y</h4>
+		<p class="note">Thuộc tính <span class="code-hint">y</span> là tọa độ y của vị trí hình vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">y</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.y);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getPositionY());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="orginNode">orginNode</h4>
+		<p class="note"><span class="code-hint">orginNode</span> là một đối tượng json lưu trữ tọa độ x,y của vị trí mới sẽ được dùng để làm tọa độ gốc cho đối tượng hình vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">orginNode</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.orginNode);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getOrginNode());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="angle">angle</h4>
+		<p class="note"><span class="code-hint">angle</span> lưu trữ góc xoay của đối tượng hình vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">angle</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.angle);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getRotate());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="width">width</h4>
+		<p class="note"><span class="code-hint">width</span> lưu trữ chiều rộng của đối tượng hình vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">width</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.width);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getWidth());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="height">height</h4>
+		<p class="note"><span class="code-hint">height</span> lưu trữ chiều cao của đối tượng hình vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">height</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.height);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getHeight());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="scaleX">scaleX</h4>
+		<p class="note"><span class="code-hint">scaleX</span> lưu trữ độ co giãn theo chiều ngang của đối tượng hình vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">scaleX</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.scaleX);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getScaleX());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="scaleY">scaleY</h4>
+		<p class="note"><span class="code-hint">scaleY</span> lưu trữ độ co giãn theo chiều dọc của đối tượng hình vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">scaleY</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.scaleY);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getScaleY());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="layer">layer</h4>
+		<p class="note"><span class="code-hint">layer</span> lưu trữ thứ tự được vẽ đối tượng hình vẽ.</p>
+		<p class="tips"><span class="code-hint">layer</span> không khuyến khích sử dụng.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">layer</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.layer);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="group">group</h4>
+		<p class="note"><span class="code-hint">group</span> lưu trữ nhóm thứ tự vẽ cho đối tượng hình vẽ.</p>
+		<p class="tips"><span class="code-hint">group</span> không khuyến khích sử dụng.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">group</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.group);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="visible">visible</h4>
+		<p class="note"><span class="code-hint">visible</span> là thuộc tính cho biết hình ảnh có được hiển thị hay không.</p>
+		<p class="tips">Thuộc tính <span class="code-hint">visible</span> chỉ dùng để dọc. Nó không khuyến khích sử dụng.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">visible</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.visible);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="Enable">Enable</h4>
+		<p class="note"><span class="code-hint">Enable</span> là thuộc tính cho biết hình ảnh hoặt nút nhấn (button) có được hiệu ứng khi <span class="code-comment">"click | mouseover | mouseup"</span> hay không.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">Enable</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.Enable);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.isEnable());</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.isDisable());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="hScaleMode">hScaleMode</h4>
+		<p class="note"><span class="code-hint">hScaleMode</span> là thuộc tính cho biết trạng thái co giãn theo chiều ngang của đối tượng hình vẽ.</p>
+		<p class="tips"><span class="code-hint">hScaleMode</span> không khuyến khích sử dụng một cách trực tiếp.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">hScaleMode</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.hScaleMode);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="vScaleMode">vScaleMode</h4>
+		<p class="note"><span class="code-hint">vScaleMode</span> là thuộc tính cho biết trạng thái co giãn theo chiều dọc của đối tượng hình vẽ.</p>
+		<p class="tips"><span class="code-hint">vScaleMode</span> không khuyến khích sử dụng một cách trực tiếp.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">vScaleMode</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.vScaleMode);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="hitPointX">hitPointX</h4>
+		<p class="note"><span class="code-hint">hitPointX</span> là tọa độ x của vị trí hit point (điểm kiểm tra chạm) vào hình vẽ.</p>
+		<p class="tips"><span class="code-hint">hitPointX</span> không khuyến khích sử dụng một cách trực tiếp. Mặc định <span class="code-hint">hitPointX</span> sẽ có giá trị <span class="code-constant">-9999</span>.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">hitPointX</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.hitPointX);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="hitPointY">hitPointY</h4>
+		<p class="note"><span class="code-hint">hitPointY</span> là tọa độ y của vị trí hit point (điểm kiểm tra chạm) vào hình vẽ.</p>
+		<p class="tips"><span class="code-hint">hitPointY</span> không khuyến khích sử dụng một cách trực tiếp. Mặc định <span class="code-hint">hitPointY</span> sẽ có giá trị <span class="code-constant">-9999</span>.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">hitPointY</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.hitPointY);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="hitPointCallback">hitPointCallback</h4>
+		<p class="note"><span class="code-hint">hitPointCallback</span> là thành phần lưu trữ hàm handle (hàm thực thi), khi hình vẽ chạm vào hit point nó sẽ được thực thi.</p>
+		<p class="tips"><span class="code-hint">hitPointCallback</span> không khuyến khích sử dụng một cách trực tiếp.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">hitPointCallback</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.hitPointCallback);</p>
+		</div>
+	</div>
+
+	<h3 id="method">Phương thức</h3>
+
+	<div class="inner">
+		<h4 class="member" id="getScale">getScale()</h4>
+		<p class="note"><span class="code-hint">getScale()</span> được sử dụng để xem trạng thái co giãn hiện tại của hình vẽ.</p>
+		<p class="tips">Khi sử dụng <span class="code-hint">getScale()</span>, nó sẽ trả lại một đối tượng json <span class="code">{x: scaleX, y: scaleY}</span> cho biết trạng thái co giãn cả hai chiều ngang và chiều dọc của hình vẽ đối tượng đồ họa.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getScale()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getScale());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getScaleX">getScaleX()</h4>
+		<p class="note"><span class="code-hint">getScaleX()</span> được sử dụng để xem trạng thái co giãn hiện tại của hình vẽ theo chiều ngang.</p>
+		<p class="tips">Trả lại một số thực cho biết trạng thái co giãn theo chiều ngang của hình vẽ đối tượng đồ họa.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getScaleX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getScaleX());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getScaleY">getScaleY()</h4>
+		<p class="note"><span class="code-hint">getScaleY()</span> được sử dụng để xem trạng thái co giãn hiện tại của hình vẽ theo chiều dọc.</p>
+		<p class="tips">Trả lại một số thực cho biết trạng thái co giãn theo chiều dọc của hình vẽ đối tượng đồ họa.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getScaleY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getScaleY());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getSize">getSize()</h4>
+		<p class="note"><span class="code-hint">getSize()</span> được sử dụng để xem chiều cao và chiều rộng hiện tại của hình vẽ.</p>
+		<p class="tips">Trả lại một json <span class="code">{width: ###, height: ###}</span> cho biết chiều cao và chiều rộng hiện tại của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getScaleY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getScaleY());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getWidth">getWidth()</h4>
+		<p class="note"><span class="code-hint">getWidth()</span> được sử dụng để xem chiều rộng hiện tại của hình vẽ.</p>
+		<p class="tips">Trả lại một số nguyên tượng trưng chiều rộng hiện tại của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getWidth()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getWidth());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getWidth">getHeight()</h4>
+		<p class="note"><span class="code-hint">getHeight()</span> được sử dụng để xem chiều cao hiện tại của hình vẽ.</p>
+		<p class="tips">Trả lại một số nguyên tượng trưng chiều cao hiện tại của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getHeight()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getHeight());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getRotate">getRotate()</h4>
+		<p class="note"><span class="code-hint">getRotate()</span> được sử dụng để xem góc xoay hiện tại của hình vẽ.</p>
+		<p class="tips">Trả lại một số thực tượng trưng góc xoay hiện tại của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getRotate()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getRotate());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getOrginNode">getOrginNode()</h4>
+		<p class="note"><span class="code-hint">getOrginNode()</span> được sử dụng để xem điểm mà đang được lấy làm tọa độ điểm gốc của hình vẽ hiện tại.</p>
+		<p class="tips">Trả lại một đối tượng json <span class="code">{x: orginX, y: orginY}</span> tượng trưng cho điểm được làm tọa độ gốc hiện tại của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getOrginNode()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getOrginNode());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getOrginNodeX">getOrginNodeX()</h4>
+		<p class="note"><span class="code-hint">getOrginNodeX()</span> được sử dụng để xem tọa độ x của điểm mà đang được lấy làm tọa độ điểm gốc của hình vẽ hiện tại.</p>
+		<p class="tips">Trả lại một số nguyên tượng trưng cho tọa độ x của điểm được làm tọa độ gốc hiện tại của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getOrginNodeX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getOrginNodeX());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getOrginNodeY">getOrginNodeY()</h4>
+		<p class="note"><span class="code-hint">getOrginNodeY()</span> được sử dụng để xem tọa độ y của điểm mà đang được lấy làm tọa độ điểm gốc của hình vẽ hiện tại.</p>
+		<p class="tips">Trả lại một số nguyên tượng trưng cho tọa độ y của điểm được làm tọa độ gốc hiện tại của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getOrginNodeY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getOrginNodeY());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getPosition">getPosition()</h4>
+		<p class="note"><span class="code-hint">getPosition()</span> được sử dụng để xem tọa độ điểm của hình vẽ hiện tại.</p>
+		<p class="tips">Trả lại một đối tượng json <span class="code">{x: posX, y: posY}</span> tượng trưng cho tọa độ điểm hiện tại của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getPosition()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getPosition());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getPositionX">getPositionX()</h4>
+		<p class="note"><span class="code-hint">getPositionX()</span> được sử dụng để xem tọa độ x của điểm hiện tại của hình vẽ.</p>
+		<p class="tips">Trả lại một số nguyên tượng trưng cho tọa độ x của điểm hiện tại của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getPositionX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getPositionX());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getPositionY">getPositionY()</h4>
+		<p class="note"><span class="code-hint">getPositionY()</span> được sử dụng để xem tọa độ y của điểm hiện tại của hình vẽ.</p>
+		<p class="tips">Trả lại một số nguyên tượng trưng cho tọa độ x của điểm hiện tại của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">getPositionY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(SceneObject.getPositionY());</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="hitPoint">hitPoint(<span class="code-param">x</span>, <span class="code-param">y</span>, <span class="code-param">callback</span>)</h4>
+		<p class="note"><span class="code-hint">hitPoint()</span> được sử dụng cài đặt sự kiện đụng điểm hitpoint của đối tượng.</p>
+		<p class="tips">Khi người ta sử dụng hàm này để cài một sự kiện hitpoint, khi đối tượng hình vẽ (path) thực sự đang đụng điểm kiểm tra, thì nó sẽ thực thi hàm sự kiện hitpoint.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">x</span> - Số nguyên tượng trưng cho tọa độ x của vị trí điểm test hitpoint.</li>
+			<li><span class="code-param">y</span> - Số nguyên tượng trưng cho tọa độ y của vị trí điểm test hitpoint.</li>
+			<li><span class="code-param">callback</span> - Là hàm thực thi khi thực sự hình vẽ bao quanh điểm kiểm tra hitpoint.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">hitPoint()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p class="code-comment">// ...Some path define.</p>
+			<p>SceneObject.hitPoint(<span class="code-constant">10</span>, <span class="code-constant">10</span>, <span class="code-keyword">function</span>() {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>("OK");<br>});</p>
+		</div>
+		<p class="tips">Giải thích thêm, trong ví dụ trên, nếu thực sự đối tượng hình vẽ đang bao điểm có tọa độ (<span class="code-constant">10</span>, <span class="code-constant">10</span>), thì nó sẽ thực thi sự kiện và sẽ xuất ra console giá trị là <span class="code-comment">"OK"</span></p>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setHitPointTest">setHitPointTest(<span class="code-param">callback</span>)</h4>
+		<p class="note"><span class="code-hint">setHitPointTest()</span> cho phép người ta sử dụng để chỉnh sửa lại hàm thực thi khi test dụng hitpoint.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">callback</span> - Là hàm mà người ta muốn cài đặt để thực thi khi thực sự hình vẽ bao quanh điểm kiểm tra hitpoint.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setHitPointTest()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p class="code-comment">// ...Some path define.</p>
+			<p>SceneObject.hitPoint(<span class="code-constant">10</span>, <span class="code-constant">10</span>, <span class="code-keyword">function</span>() {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>("OK");<br>});</p>
+			<p>SceneObject.setHitPointTest(<span class="code-keyword">function</span>() {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>("OK! Other handle");
+			<br>});</p>
+		</div>
+		<p class="tips">Giải thích thêm, trong ví dụ trên, nếu thực sự đối tượng hình vẽ đang bao điểm có tọa độ (<span class="code-constant">10</span>, <span class="code-constant">10</span>), thì nó sẽ thực thi sự kiện và sẽ xuất ra console giá trị là <span class="code-comment">"OK! Other handle"</span></p>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setHitPoint">setHitPoint(<span class="code-param">x</span>, <span class="code-param">y</span>)</h4>
+		<p class="note"><span class="code-hint">setHitPoint()</span> cho phép người ta cài đặt tọa độ điểm dùng để test hitpoint.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">x</span> - Số nguyên tượng trưng cho tọa độ x của vị trí điểm test hitpoint.</li>
+			<li><span class="code-param">y</span> - Số nguyên tượng trưng cho tọa độ y của vị trí điểm test hitpoint.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setHitPoint()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p class="code-comment">// ...Some path define.</p>
+			<p>SceneObject.hitPoint(<span class="code-constant">10</span>, <span class="code-constant">10</span>, <span class="code-keyword">function</span>() {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>("OK");<br>});</p>
+			<p>SceneObject.setHitPoint(<span class="code-constant">20</span>, <span class="code-constant">20</span>);</p>
+		</div>
+		<p class="tips">Giải thích thêm, trong ví dụ trên, nếu thực sự đối tượng hình vẽ đang bao điểm có tọa độ (<span class="code-constant">20</span>, <span class="code-constant">20</span>), thì nó sẽ thực thi sự kiện và sẽ xuất ra console giá trị là <span class="code-comment">"OK"</span>. Vì người ta đã thay đổi điểm hitpoint từ tọa độ (<span class="code-constant">10</span>, <span class="code-constant">10</span>) sang tọa độ (<span class="code-constant">20</span>, <span class="code-constant">20</span>).</p>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="resetHitPoint">resetHitPoint()</h4>
+		<p class="note"><span class="code-hint">resetHitPoint()</span> được sử dụng để khôi phục tọa độ điểm hitpoint về giá trị mặc định ban đầu của nó.</p>
+		<p class="tips">Khi người ta sử dụng hàm này thì tọa độ điểm hitpoint sẽ được khôi phục về giá trị (<span class="code-constant">-9999</span>, <span class="code-constant">-9999</span>).</p>
+		<p class="note">Cách sử dụng <span class="code-hint">resetHitPoint()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p class="code-comment">// ...Some path define.</p>
+			<p>SceneObject.hitPoint(<span class="code-constant">10</span>, <span class="code-constant">10</span>, <span class="code-keyword">function</span>() {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-keyword">log</span>("OK");<br>});</p>
+			<p>SceneObject.setHitPoint(<span class="code-constant">20</span>, <span class="code-constant">20</span>);</p>
+			<p>SceneObject.resetHitPoint(); <span class="code-comment">// Now SceneObject.hitPointX and SceneObject.hitPointY give the -9999 value.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="testHitPoint">testHitPoint()</h4>
+		<p class="note"><span class="code-hint">testHitPoint()</span> được sử dụng để thực thi sự kiện hitpoint.</p>
+		<p class="tips">Không khuyến khích sử dụng <span class="code-hint">testHitPoint()</span> vì nó là một phương thức chủ động thực hiện trong khi hệ thống đang hoạt động.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">testHitPoint()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p class="code-comment">// ...Some path define.</p>
+			<p>SceneObject.testHitPoint();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="hide">hide()</h4>
+		<p class="note"><span class="code-hint">hide()</span> được sử dụng để làm ẩn đi hình vẽ.</p>
+		<p class="tips">Khi sử dụng phương thức <span class="code-hint">hide</span>, hình vẽ sẽ ẩn đi đồng thời cũng vô hiệu hóa toàn bộ các sự kiện được cài đặt trước đó lên nó.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">hide()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.hide();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="show">show()</h4>
+		<p class="note"><span class="code-hint">show()</span> được sử dụng để làm hiện hình vẽ, khi nó bị ẩn đi.</p>
+		<p class="tips">Khi sử dụng phương thức <span class="code-hint">show</span>, hình vẽ đang ẩn đi sẽ được hiện lại đồng thời cũng khôi phục hoạt động của toàn bộ các sự kiện được cài đặt trước đó lên nó.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">show()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.hide();</p>
+			<p>SceneObject.show();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="isHide">isHide()</h4>
+		<p class="note"><span class="code-hint">isHide()</span> được sử dụng để kiểm tra xem hình vẽ có bị ẩn đi hay đang được hiển thị.</p>
+		<p class="tips">Khi sử dụng phương thức <span class="code-hint">isHide</span>, người ta có thể biết được hình vẽ đang bị ẩn đi hay không, nhờ vào giá trị được trả lại. Trong trường hợp giá trị trả lại là <span class="code-constant">true</span> thì có nghĩa là nó đang bị ẩn đi, ngược lại giá trị là <span class="code-constant">false</span> thì có nghĩa là nó đang được hiển thị.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">isHide()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.hide();</p>
+			<p>SceneObject.isHide(); <span class="code-comment">// return true.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="isShow">isShow()</h4>
+		<p class="note"><span class="code-hint">isShow()</span> được sử dụng để kiểm tra xem hình vẽ có đang được hiển thị hay bị ẩn đi.</p>
+		<p class="tips">Khi sử dụng phương thức <span class="code-hint">isShow</span>, người ta có thể biết được hình vẽ đang được hiển thị hay không, nhờ vào giá trị được trả lại. Trong trường hợp giá trị trả lại là <span class="code-constant">true</span> thì có nghĩa là nó đang được hiển thị, ngược lại giá trị là <span class="code-constant">false</span> thì có nghĩa là nó đang bị ẩn đi.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">isShow()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.hide();</p>
+			<p>SceneObject.isShow(); <span class="code-comment">// return false.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="enable">enable()</h4>
+		<p class="note"><span class="code-hint">enable()</span> được sử dụng để khôi phục hiệu năng của các sự kiện được cài đặt lên hình vẽ như <span class="code-comment">"mouseup | mouseover | click"</span>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">enable()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.disable();</p>
+			<p>SceneObject.enable();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="enable">disable()</h4>
+		<p class="note"><span class="code-hint">disable()</span> được sử dụng để vô hiệu hóa các sự kiện được cài đặt lên hình vẽ như <span class="code-comment">"mouseup | mouseover | click"</span>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">disable()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.disable();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="isEnable">isEnable()</h4>
+		<p class="note"><span class="code-hint">isEnable()</span> được sử dụng để kiểm tra xem hình vẽ có đang được hiệu ứng với các sự kiện <span class="code-comment">"mouseup | mouseover | click"</span> mà người ta đã cài đặt lên nó trước đó.</p>
+		<p class="tips">Phương thức <span class="code-hint">isEnable</span>, cho phép người ta biết được hình vẽ đang có hiệu ứng hay không với các sự kiện <span class="code-comment">"mouseup | mouseover | click"</span>, nhờ vào giá trị được trả lại. Trong trường hợp giá trị trả lại là <span class="code-constant">true</span> thì có nghĩa là nó có hiệu lực, ngược lại giá trị là <span class="code-constant">false</span> thì có nghĩa là nó đang bị vô hiệu hóa.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">isEnable()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.disable();</p>
+			<p>SceneObject.isEnable(); <span class="code-comment">// return false.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="isDisable">isDisable()</h4>
+		<p class="note"><span class="code-hint">isDisable()</span> được sử dụng để kiểm tra xem hình vẽ có đang bị vô hiệu hóa với các sự kiện <span class="code-comment">"mouseup | mouseover | click"</span> mà người ta đã cài đặt lên nó trước đó.</p>
+		<p class="tips">Phương thức <span class="code-hint">isDisable</span>, cho phép người ta biết được hình vẽ có đang bị vô hiệu hóa hay không với các sự kiện <span class="code-comment">"mouseup | mouseover | click"</span>, nhờ vào giá trị được trả lại. Trong trường hợp giá trị trả lại là <span class="code-constant">true</span> thì có nghĩa là nó đang bị vô hiệu hóa, ngược lại giá trị là <span class="code-constant">false</span> thì có nghĩa là nó đang có hiệu lực.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">isDisable()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.disable();</p>
+			<p>SceneObject.isDisable(); <span class="code-comment">// return true.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="flip">flip(<span class="code-param">mode</span>)</h4>
+		<p class="note"><span class="code-hint">flip()</span> được sử dụng để lật ngược hình vẽ một cách tuần hoàn.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">mode</span> - Chế độ lật, có thể là lật chiều ngang, hay lật chiều dọc</li>
+		</ul>
+		<div class="tips">
+			<p>Tham số <span class="code-param">mode</span> được hiểu và sử dụng với các hàng số sau:</p>
+			<ul>
+				<li><span class="code-constant">CAREM_FLIP_HORIZONTAL</span> - Chế độ lật ngang</li>
+				<li><span class="code-constant">CAREM_FLIP_VERTICLE</span> - Chế độ lật dọc</li>
+			</ul>
+		</div>
+		<p class="note">Cách sử dụng <span class="code-hint">flip()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.flip(<span class="code-constant">CAREM_FLIP_HORIZONTAL</span>); <span class="code-comment">// horizontal flip.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="horizontalFlip">horizontalFlip()</h4>
+		<p class="note"><span class="code-hint">horizontalFlip()</span> được sử dụng để lật tuần hoàn hình vẽ theo chiều ngang.</p>
+		<p class="tips">Phương thức <span class="code-hint">horizontalFlip</span>, cho phép người ta lật ngang một cách tuần hoàn, ví dụ một tấm hình mũi tên đang chỉ về phía trái và người dùng <span class="code-hint">horizontalFlip()</span> hai lần, lần thứ nhất mũi tên sẽ lật sang phải, lần thứ hai mũi tên sẽ lật sang trái.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">horizontalFlip()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.horizontalFlip();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="verticalFlip">verticalFlip()</h4>
+		<p class="note"><span class="code-hint">verticalFlip()</span> được sử dụng để lật tuần hoàn hình vẽ theo chiều dọc.</p>
+		<p class="tips">Phương thức <span class="code-hint">verticalFlip</span>, cho phép người ta lật dọc một cách tuần hoàn, ví dụ một tấm hình mũi tên đang chỉ về phía dưới và người dùng <span class="code-hint">verticalFlip()</span> hai lần, lần thứ nhất mũi tên sẽ lật lên trên, lần thứ hai mũi tên sẽ lật xuống dưới.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">verticalFlip()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.verticalFlip();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setFlip">setFlip(<span class="code-param">mode</span>)</h4>
+		<p class="note"><span class="code-hint">setFlip()</span> được sử dụng để cài đặt lật ngược hình vẽ.</p>
+		<h5>Tham số</h5>
+		<ul>
+			<li><span class="code-param">mode</span> - Chế độ lật, có thể là lật ngang hay lật dọc.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">setFlip</span>, cho phép người ta lật ngang hay lật dọc một lần duy nhất.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setFlip()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setFlip(<span class="code-constant">CAREM_FLIP_HORIZONTAL</span>);  <span class="code-comment">// horizontal flip.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setHorizontalFlip">setHorizontalFlip()</h4>
+		<p class="note"><span class="code-hint">setHorizontalFlip()</span> được sử dụng để cài đặt lật ngang hình vẽ.</p>
+		<p class="tips">Phương thức <span class="code-hint">setHorizontalFlip</span>, cho phép người ta lật ngang hình vẽ một lần duy nhất.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setHorizontalFlip()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setHorizontalFlip();  <span class="code-comment">// horizontal flip.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setVerticalFlip">setVerticalFlip()</h4>
+		<p class="note"><span class="code-hint">setVerticalFlip()</span> được sử dụng để cài đặt lật dọc hình vẽ.</p>
+		<p class="tips">Phương thức <span class="code-hint">setVerticalFlip</span>, cho phép người ta lật dọc hình vẽ một lần duy nhất.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setVerticalFlip()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setVerticalFlip();  <span class="code-comment">// vertical flip.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="resetFlip">resetFlip(<span class="code-param">mode</span>)</h4>
+		<p class="note"><span class="code-hint">resetFlip()</span> được sử dụng để khôi phục cài đặt lật hình vẽ về cài đặt gốc.</p>
+		<h5>Tham số</h5>
+		<ul>
+			<li><span class="code-param">mode</span> - Chế độ lật, có thể là lật ngang hay lật dọc.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">resetFlip</span>, cho phép người ta khôi phục lật hình vẽ về các cài đặt gốc. Nếu người ta bỏ qua tham số <span class="code-param">mode</span> thì hệ thống sẽ khôi phục cài đặt lật cả hai chiều ngang dọc.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">resetFlip()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.resetFlip(<span class="code-constant">CAREM_FLIP_HORIZONTAL</span>); <span class="code-comment">// restore horizontal flip.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="resetBothFlip">resetBothFlip()</h4>
+		<p class="note"><span class="code-hint">resetBothFlip()</span> được sử dụng để khôi phục cài đặt lật hình vẽ về cài đặt gốc cả chiều ngang lẫn chiều dọc.</p>
+		<p class="tips">Phương thức <span class="code-hint">resetBothFlip</span>, cho phép người ta khôi phục lật hình vẽ về các cài đặt gốc cả chiều ngang lẫn chiều dọc.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">resetBothFlip()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.resetBothFlip(); <span class="code-comment">// restore horizontal and vertical both of flips.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="resetHorizontalFlip">resetHorizontalFlip()</h4>
+		<p class="note"><span class="code-hint">resetHorizontalFlip()</span> được sử dụng để khôi phục cài đặt lật hình vẽ về cài đặt gốc chỉ theo chiều ngang.</p>
+		<p class="tips">Phương thức <span class="code-hint">resetHorizontalFlip</span>, cho phép người ta khôi phục lật hình vẽ về các cài đặt gốc chỉ theo chiều ngang.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">resetHorizontalFlip()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.resetHorizontalFlip(); <span class="code-comment">// restore horizontal flip only.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="resetVerticalFlip">resetVerticalFlip()</h4>
+		<p class="note"><span class="code-hint">resetVerticalFlip()</span> được sử dụng để khôi phục cài đặt lật hình vẽ về cài đặt gốc chỉ theo chiều dọc.</p>
+		<p class="tips">Phương thức <span class="code-hint">resetVerticalFlip</span>, cho phép người ta khôi phục lật hình vẽ về các cài đặt gốc chỉ theo chiều dọc.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">resetVerticalFlip()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.resetVerticalFlip(); <span class="code-comment">// restore vertical flip only.</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setOrginNode">setOrginNode(<span class="code-param">x</span>, <span class="code-param">y</span>)</h4>
+		<p class="note"><span class="code-hint">setOrginNode()</span> được sử dụng để cài đặt tọa độ điểm gốc của hình vẽ.</p>
+		<h5>Tham số</h5>
+		<ul>
+			<li><span class="code-param">x</span> - Số nguyên tượng trưng tọa độ x của vị trí điểm gốc.</li>
+			<li><span class="code-param">y</span> - Số nguyên tượng trưng tọa độ y của vị trí điểm gốc.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">setOrginNode</span>, cho phép người ta cài đặt tọa độ điểm gốc của hình vẽ, ví dụ với tọa độ (<span class="code-constant">0</span>, <span class="code-constant">0</span>), thì đây là tọa độ điểm gốc mặc định, và trong thực tế đôi khi người ta muốn di chuyển tọa độ điểm gốc này sang (<span class="code-constant">10</span>, <span class="code-constant">10</span>), thì họ có thể dùng phương thức này để thực hiện việc đó.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setOrginNode()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setOrginNode(<span class="code-constant">10</span>, <span class="code-constant">10</span>); <span class="code-comment">// orgin point of draw translate to (10, 10).</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="resetOrginNode">resetOrginNode()</h4>
+		<p class="note"><span class="code-hint">resetOrginNode()</span> được sử dụng để khôi phục cài đặt tọa độ điểm gốc của hình vẽ về với cài đặt gốc.</p>
+		<p class="tips">Phương thức <span class="code-hint">resetOrginNode</span>, cho phép người ta khôi phục cài đặt tọa độ điểm gốc của hình vẽ trở về cài đặt gốc, ví dụ với tọa độ (<span class="code-constant">10</span>, <span class="code-constant">10</span>), thì đây là tọa độ điểm gốc mà người ta đã cài đặt trước đó, và trong thực tế đôi khi người ta muốn khôi phục tọa độ điểm gốc này về tọa độ điểm gốc ban đầu (<span class="code-constant">0</span>, <span class="code-constant">0</span>), thì họ có thể dùng phương thức này để thực hiện việc đó.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">resetOrginNode()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setOrginNode(<span class="code-constant">10</span>, <span class="code-constant">10</span>); <span class="code-comment">// orgin point of draw translate to (10, 10).</span></p>
+			<p>SceneObject.resetOrginNode(); <span class="code-comment">// orgin point of draw translate to (0, 0)</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setPosition">setPosition(<span class="code-param">x</span>, <span class="code-param">y</span>)</h4>
+		<p class="note"><span class="code-hint">setPosition()</span> được sử dụng để cài đặt tọa độ điểm vị trí của hình vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">x</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho tọa độ x của vị trí hình vẽ.</li>
+			<li><span class="code-param">y</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho tọa độ y của vị trí hình vẽ.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">setPosition</span>, cho phép người ta cài đặt tọa độ điểm vị trí của hình vẽ trên bảng vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setPosition()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setPosition(<span class="code-constant">10</span>, <span class="code-constant">10</span>); <span class="code-comment">// the path translates to (10, 10).</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setPositionX">setPositionX(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setPositionX()</span> được sử dụng để cài đặt tọa độ x của điểm vị trí của hình vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho tọa độ x của vị trí hình vẽ.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">setPositionX</span>, cho phép người ta cài đặt tọa độ x của điểm vị trí của hình vẽ trên bảng vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setPositionX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setPositionX(<span class="code-constant">10</span>); <span class="code-comment">// the path translates to (10, 0).</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setPositionY">setPositionY(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setPositionY()</span> được sử dụng để cài đặt tọa độ y của điểm vị trí của hình vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho tọa độ y của vị trí hình vẽ.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">setPositionY</span>, cho phép người ta cài đặt tọa độ y của điểm vị trí của hình vẽ trên bảng vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setPositionY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setPositionX(<span class="code-constant">10</span>); <span class="code-comment">// the path translates to (10, 0).</span></p>
+			<p>SceneObject.setPositionY(<span class="code-constant">10</span>); <span class="code-comment">// the path translates to (10, 10).</span></p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setSize">setSize(<span class="code-param">width</span>, <span class="code-param">height</span>)</h4>
+		<p class="note"><span class="code-hint">setSize()</span> được sử dụng để cài đặt chiều rộng và chiều cao của hình vẽ trên bảng vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">width</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho độ rộng của hình vẽ.</li>
+			<li><span class="code-param">height</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho độ cao của hình vẽ.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">setSize</span>, cho phép người ta cài đặt độ rộng và độ cao của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setSize()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setSize(<span class="code-constant">100</span>, <span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setWidth">setWidth(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setWidth()</span> được sử dụng để cài đặt độ rộng cho hình vẽ trên bảng vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho độ rộng của hình vẽ.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">setWidth</span>, cho phép người ta cài đặt độ rộng của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setWidth()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setWidth(<span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setHeight">setHeight(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setHeight()</span> được sử dụng để cài đặt độ cao cho hình vẽ trên bảng vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho độ cao của hình vẽ.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">setHeight</span>, cho phép người ta cài đặt độ cao của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setHeight()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setHeight(<span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setScale">setScale(<span class="code-param">scaleX</span>, <span class="code-param">scaleY</span>)</h4>
+		<p class="note"><span class="code-hint">setScale()</span> được sử dụng để cài đặt độ co giãn cho hình vẽ trên bảng vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">scaleX</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho độ co giãn theo chiều ngang của hình vẽ.</li>
+			<li><span class="code-param">scaleY</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho độ co giãn theo chiều dọc của hình vẽ.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">setScale</span>, cho phép người ta cài đặt độ co giãn của hình vẽ, cả chiều dọc và chiều ngang. Giá trị được phép cài đặt được giới hạn từ <span class="code-constant">0</span>, đến <code class="code-constant">1</code>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setScale()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setScale(<span class="code-constant">0.5</span>, <span class="code-constant">0.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setScaleX">setScaleX(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setScaleX()</span> được sử dụng để cài đặt độ co giãn cho hình vẽ trên bảng vẽ theo chiều ngang.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho độ co giãn theo chiều ngang của hình vẽ.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">setScaleX</span>, cho phép người ta cài đặt độ co giãn của hình vẽ, theo chiều ngang. Giá trị được phép cài đặt được giới hạn từ <span class="code-constant">0</span>, đến <code class="code-constant">1</code>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setScaleX()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setScaleX(<span class="code-constant">0.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setScaleY">setScaleY(<span class="code-param">value</span>)</h4>
+		<p class="note"><span class="code-hint">setScaleY()</span> được sử dụng để cài đặt độ co giãn cho hình vẽ trên bảng vẽ theo chiều dọc.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">value</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho độ co giãn theo chiều dọc của hình vẽ.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">setScaleY</span>, cho phép người ta cài đặt độ co giãn của hình vẽ, theo chiều dọc. Giá trị được phép cài đặt được giới hạn từ <span class="code-constant">0</span>, đến <code class="code-constant">1</code>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setScaleY()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setScaleY(<span class="code-constant">0.5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setRotate">setRotate(<span class="code-param">angle</span>)</h4>
+		<p class="note"><span class="code-hint">setRotate()</span> được sử dụng để cài đặt góc xoay cho hình vẽ trên bảng vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">angle</span> - Kiểu số (<span class="code">float | int</span>) tượng trưng cho góc xoay của hình vẽ.</li>
+		</ul>
+		<p class="tips">Phương thức <span class="code-hint">setRotate</span>, cho phép người ta cài đặt góc xoay của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setRotate()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.setRotate(<span class="code-constant">175</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="UpdateParameter">UpdateParameter()</h4>
+		<p class="note"><span class="code-hint">UpdateParameter()</span> được sử dụng để cập nhật các cài đặt của hình vẽ cho bảng vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">UpdateParameter()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> SceneObject = <span class="code-keyword">new</span> Carem.SceneObject(<span class="code-param">canvas_context</span>);</p>
+			<p>SceneObject.UpdateParameter();</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

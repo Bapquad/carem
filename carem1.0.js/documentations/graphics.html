@@ -1,0 +1,839 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+<link href="../style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../jquery.js" type="text/javascript"></script>
+<script src="../carem.js" type="text/javascript"></script>
+<script src="../carem+.js" type="text/javascript"></script>
+<title>Graphics | Bapquad Games | bapquadgames.com</title>
+</head>
+
+<body class="border-col">
+<div class="tree-col">
+	<p><a href="index.html">Main Index</a></p>
+	<h1>Carem</h1>
+	<ul>
+		<li class="class-tree"><a href="layer.html">Carem_Layer</a></li>
+		<li class="class-tree"><a href="math.html">Carem_Math</a></li>
+		<li class="class-tree"><a href="filter.html">Carem_Filter</a></li>
+		<li class="class-tree"><a href="assetmanager.html">Carem_AssetManager</a></li>
+		<li class="class-tree"><a href="graphics.html">Carem_Graphics</a></li>
+		<li class="class-tree"><a href="sceneobject.html">Carem_SceneObject</a></li>
+		<li class="class-tree"><a href="symbolarc.html">Carem_SymbolArc</a></li>
+		<li class="class-tree"><a href="symbolcircle.html">Carem_SymbolCircle</a></li>
+		<li class="class-tree"><a href="symbolline.html">Carem_SymbolLine</a></li>
+		<li class="class-tree"><a href="symboloval.html">Carem_SymbolOval</a></li>
+		<li class="class-tree"><a href="symbolpolygon.html">Carem_SymbolPolygon</a></li>
+		<li class="class-tree"><a href="symbolrect.html">Carem_SymbolRect</a></li>
+		<li class="class-tree"><a href="symbolroundrect.html">Carem_SymbolRoundRect</a></li>
+		<li class="class-tree"><a href="symbolshape.html">Carem_SymbolShape</a></li>
+		<li class="class-tree"><a href="symboltext.html">Carem_Text</a></li>
+		<li class="class-tree"><a href="symbolimage.html">Carem_Image</a></li>
+	</ul>
+	<h1>Carem+</h1>
+	<ul>
+		<li class="class-tree"><a href="physics.html">Carem_Physics</a></li>
+		<li class="class-tree"><a href="worldlimit.html">Carem_WorldLimit</a></li>
+		<li class="class-tree"><a href="collision.html">Carem_Collision</a></li>
+		<li class="class-tree"><a href="button.html">Carem_Button</a></li>
+		<li class="class-tree"><a href="staticsprite.html">Carem_StaticSprite</a></li>
+		<li class="class-tree"><a href="animesprite.html">Carem_AnimeSprite</a></li>
+		<li class="class-tree"><a href="scroller.html">Carem_Scroller</a></li>
+		<li class="class-tree"><a href="particle.html">Carem_Particle</a></li>
+		<li class="class-tree"><a href="tile.html">Carem_Tile</a></li>
+	</ul>
+	<h1>Hướng dẫn thực hiện</h1>
+	<ul>
+		<li class="class-tree"><a href="fish-demo.html">Fish Demo</a></li>
+	</ul>
+</div>
+<div class="content-col">
+	<h1>Carem_Graphics</h1>
+	<h2>Giới thiệu</h2>
+	<p class="note">Carem_Graphics là class dùng để chứa các <a href="#property">thuộc tính</a> và <a href="#method">phương thức</a> quản lý, và thao tác đồ họa. Các kiểu hiển thị (Styling) của hình vẽ (tức là các thành phần đồ họa, đặc biệt là các thành phần hình họa, trong Carem gọi là Symbol) được điều khiển qua <span class="code-hint">Carem_Graphics</span>.</p>
+
+	<h3 id="property">Thuộc tính</h3>
+
+	<div class="inner">
+		<h4 class="member" id="context">context</h4>
+		<p class="note"><span class="code-hint">context</span> là một đối tượng bảng vẽ của canvas.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">context</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.context);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="patternFill">patternFill</h4>
+		<p class="note"><span class="code-hint">patternFill</span> là một thành phần chứa mẫu tô lên hình vẽ trên bảng vẽ canvas.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">patternFill</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.patternFill);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="gradientFill">gradientFill</h4>
+		<p class="note"><span class="code-hint">gradientFill</span> là một thành phần chứa mẫu tô với chuyển sắc lên hình vẽ trên bảng vẽ canvas.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">gradientFill</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.gradientFill);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="patternStroke">patternStroke</h4>
+		<p class="note"><span class="code-hint">patternStroke</span> là một thành phần chứa mẫu viền cho hình vẽ trên bảng vẽ canvas.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">patternStroke</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.patternStroke);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="gradientStroke">gradientStroke</h4>
+		<p class="note"><span class="code-hint">gradientStroke</span> là một thành phần chứa mẫu viền có sự chuyển sắc cho hình vẽ trên bảng vẽ canvas.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">gradientStroke</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.gradientStroke);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="fillStyle">fillStyle</h4>
+		<p class="note"><span class="code-hint">fillStyle</span> là một thành phần chứa kiểu tô màu cho hình vẽ, có thể là màu nguyên khối (solid), hay chuyển sắc(gradient), hoặt là mẫu hình ảnh(pattern).</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">fillStyle</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.fillStyle);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="strokeStyle">strokeStyle</h4>
+		<p class="note"><span class="code-hint">strokeStyle</span> là một thành phần chứa kiểu viền cho hình vẽ, có thể là màu nguyên khối (solid), hay chuyển sắc(gradient), hoặt là mẫu hình ảnh(pattern).</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">strokeStyle</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.strokeStyle);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="shadowColor">shadowColor</h4>
+		<p class="note"><span class="code-hint">shadowColor</span> là một thành phần chứa màu của bóng được tô cho hình vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">shadowColor</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.shadowColor);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="shadowBlur">shadowBlur</h4>
+		<p class="note"><span class="code-hint">shadowBlur</span> là một thành phần chứa kính cỡ của bóng được tô cho hình vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">shadowBlur</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.shadowBlur);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="shadowOffsetX">shadowOffsetX</h4>
+		<p class="note"><span class="code-hint">shadowOffsetX</span> là một thành phần chứa khoảng cách theo chiều ngang của bóng được tô cho hình vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">shadowOffsetX</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.shadowOffsetX);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="shadowOffsetY">shadowOffsetY</h4>
+		<p class="note"><span class="code-hint">shadowOffsetY</span> là một thành phần chứa khoảng cách theo chiều dọc của bóng được tô cho hình vẽ.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">shadowOffsetY</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.shadowOffsetY);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="lineCap">lineCap</h4>
+		<p class="note"><span class="code-hint">lineCap</span> là thành phần chứa thông tin về kiểu gấp của hai đường thẳng nối nhau.</p>
+		<p>Có các hằng số quy định về các kiểu như sau</p>
+		<ul>
+			<li><span class="code-constant">CAREM_LINE_CAP_DEFAULT</span> - "butt".</li>
+			<li><span class="code-constant">CAREM_LINE_CAP_ROUND</span> - "round".</li>
+			<li><span class="code-constant">CAREM_LINE_CAP_SQUARE</span> - "square".</li>
+		</ul>
+		<p class="note">Cách truy cập vào <span class="code-hint">lineCap</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>Graphics.lineCap = <span class="code-constant">CAREM_LINE_CAP_ROUND</span>;</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.lineCap);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="lineJoin">lineJoin</h4>
+		<p class="note"><span class="code-hint">lineJoin</span> là thành phần chứa thông tin về kiểu nối của hai đường thẳng nối nhau.</p>
+		<p>Có các hằng số quy định về các kiểu như sau</p>
+		<ul>
+			<li><span class="code-constant">CAREM_LINE_JOIN_DEFAULT</span> - "miter".</li>
+			<li><span class="code-constant">CAREM_LINE_JOIN_BEVEL</span> - "bevel".</li>
+			<li><span class="code-constant">CAREM_LINE_JOIN_ROUND</span> - "round".</li>
+		</ul>
+		<p class="note">Cách truy cập vào <span class="code-hint">lineJoin</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>Graphics.lineJoin = <span class="code-constant">CAREM_LINE_JOIN_ROUND</span>;</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.lineJoin);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="strokeWidth">strokeWidth</h4>
+		<p class="note"><span class="code-hint">strokeWidth</span> là thành phần chứa thông tin độ dày của đường thẳng.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">strokeWidth</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>Graphics.strokeWidth = <span class="code-constant">5</span>;</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.strokeWidth);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="alpha">alpha</h4>
+		<p class="note"><span class="code-hint">alpha</span> là thành phần chứa thông tin độ trong suốt hay chắn sáng của đối tượng.</p>
+		<p class="tips">Số lớn nhất cho <span class="code-hint">alpha</span> là 1.0, và nhỏ nhất là 0, nghĩa là <span class="code-hint">alpha</span> có giá trị giới hạn trong khoảng từ 0 đến 1.0.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">alpha</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>Graphics.alpha = <span class="code-constant">0.1</span>;</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.alpha);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="composite">composite</h4>
+		<p class="note"><span class="code-hint">composite</span> là thành phần chứa thông tin về việc cắn xén, trộn, hợp các đối tượng đồ họa.</p>
+		<p>Có các hằng số sau:</p>
+		<ul>
+			<li><span class="code-constant">CAREM_GLOBAL_CO_SRCOVER</span></li>
+			<li><span class="code-constant">CAREM_GLOBAL_CO_SRCATOP</span></li>
+			<li><span class="code-constant">CAREM_GLOBAL_CO_SRCIN</span></li>
+			<li><span class="code-constant">CAREM_GLOBAL_CO_SRCOUT</span></li>
+			<li><span class="code-constant">CAREM_GLOBAL_CO_DESTOVER</span></li>
+			<li><span class="code-constant">CAREM_GLOBAL_CO_DESTATOP</span></li>
+			<li><span class="code-constant">CAREM_GLOBAL_CO_DESTIN</span></li>
+			<li><span class="code-constant">CAREM_GLOBAL_CO_DESTOUT</span></li>
+			<li><span class="code-constant">CAREM_GLOBAL_CO_LIGHTER</span></li>
+			<li><span class="code-constant">CAREM_GLOBAL_CO_COPY</span></li>
+			<li><span class="code-constant">CAREM_GLOBAL_CO_XOR</span></li>
+		</ul>
+		<p class="note">Cách truy cập vào <span class="code-hint">composite</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>Graphics.composite = <span class="code-constant">CAREM_GLOBAL_CO_SRCOVER</span>;</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.composite);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="clip">clip</h4>
+		<p class="note"><span class="code-hint">clip</span> là thành phần chứa thông tin cho biết có sử dụng <span class="code-hint">clip</span> để mask hay không.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">alpha</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>Graphics.clip = <span class="code-constant">true</span>;</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.clip);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="save">save</h4>
+		<p class="note"><span class="code-hint">save</span> là thành phần chứa thông tin cho biết có sử dụng <span class="code-hint">save</span> để giữ lại trạng thái bảng vẻ hay không.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">save</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>Graphics.save = <span class="code-constant">true</span>;</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.save);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="restore">restore</h4>
+		<p class="note"><span class="code-hint">restore</span> là thành phần chứa thông tin cho biết có sử dụng <span class="code-hint">restore</span> để giữ lại trạng thái bảng vẻ hay không.</p>
+		<p class="note">Cách truy cập vào <span class="code-hint">restore</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>Graphics.restore = <span class="code-constant">true</span>;</p>
+			<p>console.<span class="code-keyword">log</span>(Graphics.restore);</p>
+		</div>
+	</div>
+
+	<h3 id="method">Phương thức</h3>
+
+	<div class="inner">
+		<h4 class="member" id="setMask">setMask()</h4>
+		<p class="note"><span class="code-hint">setMask()</span> sẽ cài đặt bảng vẽ trong trạng thái mask.</p>
+		<p class="tips">Khi tất cả các thành phần đồ họa được vẽ sau khi cài đặt trạng thái mask, chúng sẽ ẩn sau thành phần đồ họa mà được cài đặt mask.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setMask()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> rect = <span class="code-keyword">new</span> Carem_SymbolRect(<span class="code-param">Layer</span>);</p>
+			<p>rect.setMask();</p>
+			<p><span class="code-keyword">var</span> round_rect = <span class="code-keyword">new</span> Carem_SymbolRoundRect(<span class="code-param">Layer</span>);</p>
+			<p><span class="code-keyword">var</span> arc = <span class="code-keyword">new</span> Carem_SymbolArc(<span class="code-param">Layer</span>);</p>
+			<p>arc.releaseMask();</p>
+			<p class="code-comment">// Result: 'rect' will mask for 'round_rect', 'arc' will draw normal.</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="clearMask">clearMask()</h4>
+		<p class="note"><span class="code-hint">clearMask()</span> sẽ hủy trạng thái mask cho bảng vẽ. Hủy ở đây được hiểu là, dừng thôi không mask nữa chứ không phải là thoát ra, hay kết thúc mask.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">clearMask()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> rect = <span class="code-keyword">new</span> Carem_SymbolRect(<span class="code-param">Layer</span>);</p>
+			<p>rect.setMask();</p>
+			<p><span class="code-keyword">var</span> round_rect = <span class="code-keyword">new</span> Carem_SymbolRoundRect(<span class="code-param">Layer</span>);</p>
+			<p><span class="code-keyword">var</span> arc = <span class="code-keyword">new</span> Carem_SymbolArc(<span class="code-param">Layer</span>);</p>
+			<p>rect.clearMask();</p>
+			<p class="code-comment">// Result: 'rect', 'round_rect' and 'arc' will draw normal.</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="endMask">endMask()</h4>
+		<p class="note"><span class="code-hint">endMask()</span> sẽ kết thúc trạng thái mask trên bản vẽ.</p>
+		<p class="tips">Khi đối tượng được cài đặt kết thúc trạng thái mask, thì nó sẽ vẫn được vẽ như bình thường.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">endMask()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> rect = <span class="code-keyword">new</span> Carem_SymbolRect(<span class="code-param">Layer</span>);</p>
+			<p>rect.setMask();</p>
+			<p><span class="code-keyword">var</span> round_rect = <span class="code-keyword">new</span> Carem_SymbolRoundRect(<span class="code-param">Layer</span>);</p>
+			<p><span class="code-keyword">var</span> arc = <span class="code-keyword">new</span> Carem_SymbolArc(<span class="code-param">Layer</span>);</p>
+			<p>arc.endMask();</p>
+			<p class="code-comment">// Result: 'rect' will mask for 'round_rect', 'arc' will draw normal.</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="releaseMask">releaseMask()</h4>
+		<p class="note"><span class="code-hint">releaseMask()</span> sẽ kết thúc trạng thái mask trên bản vẽ.</p>
+		<p class="tips">Khi đối tượng được cài đặt kết thúc trạng thái mask, thì nó sẽ vẫn được vẽ như bình thường.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">releaseMask()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> rect = <span class="code-keyword">new</span> Carem_SymbolRect(<span class="code-param">Layer</span>);</p>
+			<p>rect.setMask();</p>
+			<p><span class="code-keyword">var</span> round_rect = <span class="code-keyword">new</span> Carem_SymbolRoundRect(<span class="code-param">Layer</span>);</p>
+			<p><span class="code-keyword">var</span> arc = <span class="code-keyword">new</span> Carem_SymbolArc(<span class="code-param">Layer</span>);</p>
+			<p>arc.releaseMask();</p>
+			<p class="code-comment">// Result: 'rect' will mask for 'round_rect', 'arc' will draw normal.</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setSave">setSave(<span class="code-param">State</span>)</h4>
+		<p class="note"><span class="code-hint">setSave()</span> được dùng để cài đặt thành phần <span class="code-hint">save</span>.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">State</span> - Giá trị bool mà được gán vào thành phần <span class="code-hint">save</span>.</li>
+		</ul>
+		<p class="tips">Nếu đưa vào giá trị <span class="code-constant">true</span>, thì thành phần <span class="code">Graphics.save</span> sẽ được gắn với giá trị <span class="code-constant">true</span>, tương tự với giá trị <span class="code-constant">false</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">setSave()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>Graphics.setSave(<span class="code-constant">true</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setRestore">setRestore(<span class="code-param">State</span>)</h4>
+		<p class="note"><span class="code-hint">setRestore()</span> được dùng để cài đặt thành phần <span class="code-hint">restore</span>.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">State</span> - Giá trị <span class="code">bool</span> mà được gán vào thành phần <span class="code-hint">restore</span>.</li>
+		</ul>
+		<p class="tips">Nếu đưa vào giá trị <span class="code-constant">true</span>, thì thành phần <span class="code">Graphics.restore</span> sẽ được gắn với giá trị <span class="code-constant">true</span>, tương tự với giá trị <span class="code-constant">false</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">setRestore()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>Graphics.setRestore(<span class="code-constant">true</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setClip">setClip(<span class="code-param">clip</span>)</h4>
+		<p class="note"><span class="code-hint">setClip()</span> được dùng để cài đặt thành phần <span class="code-hint">clip</span>.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">clip</span> - Giá trị <span class="code">bool</span> mà được gán vào thành phần <span class="code">clip</span>.</li>
+		</ul>
+		<p class="tips">Nếu đưa vào giá trị <span class="code-constant">true</span>, thì thành phần <span class="code">Graphics.clip</span> sẽ được gắn với giá trị <span class="code-constant">true</span>, tương tự với giá trị <span class="code-constant">false</span></p>
+		<p class="note">Cách sử dụng setClip() như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">canvas_context</span>);</p>
+			<p>Graphics.setClip(<span class="code-constant">true</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="drawImage">drawImage(<span class="code-param">Asset</span>, <span class="code-param">x</span>, <span class="code-param">y</span>)</h4>
+		<p class="note"><span class="code-hint">drawImage()</span> được dùng để vẽ một hình ảnh lên trên bảng vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">Asset</span> - Asset mà được lấy từ trong AssetManager.</li>
+			<li><span class="code-param">x</span> - Vị trí x mà hình ảnh được vẽ lên.</li>
+			<li><span class="code-param">y</span> - Vị trí y mà hình ảnh được vẽ lên.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">drawImage()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> AssetMng = <span class="code-keyword">new</span> Carem_AssetManager(<span class="code-param">".jpg|.gif|.png"</span>);</p>
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>AssetMng.QueueFile(<span class="code-param">"File.jpg"</span>);</p>
+			<p>Graphics.drawImage(AssetMng.getAsset(<span class="code-param">"File.jpg"</span>), <span class="code-constant">100</span>, <span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="getImageData">getImageData(<span class="code-param">imgData</span>)</h4>
+		<p class="note"><span class="code-hint">getImageData()</span> sẽ trả đối tượng dữ liệu hình ảnh.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">imgData</span> - Dữ liệu của hình ảnh.</li>
+		</ul>
+		<p class="tips">Trả lại: Đối tượng json dữ liệu hình ảnh <span class="code">{Data: <span class="code-constant">imgData</span>, Width: <span class="code-constant">imgWidth</span>, Height: <span class="code-constant">imgHeight</span>}</span>.</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p><span class="code-keyword">var</span> imgData = Graphics.copyImageData(<span class="code-constant">100</span>, <span class="code-constant">100</span>, <span class="code-constant">200</span>, <span class="code-constant">100</span>);</p>
+			<p><span class="code-keyword">var</span> Image = Graphics.getImageData(<span class="code-param">imgData</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="copyImageData">copyImageData(<span class="code-param">x</span>, <span class="code-param">y</span>, <span class="code-param">width</span>, <span class="code-param">height</span>)</h4>
+		<p class="note"><span class="code-hint">copyImageData()</span> sẽ sao chép dữ liệu pixel trên bảng vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">x</span> - Vị trí x điểm bắt đầu sao chép.</li>
+			<li><span class="code-param">y</span> - Vị trí y điểm bắt đầu sao chép.</li>
+			<li><span class="code-param">width</span> - Chiều rộng (số pixels theo chiều ngang) bắt đầu từ vị trí x điểm bắt đầu.</li>
+			<li><span class="code-param">height</span> - Chiều cao (số pixels theo chiều dọc) bắt đầu từ vị trí y điểm bắt đầu.</li>
+		</ul>
+		<p class="tips">Trả lại: đối tượng chứa width, height, và dữ liệu hình ảnh <span class="code">{data: <span class="code-constant">imgdata</span>, width: <span class="code-constant">imgWidth</span>, height: <span class="code-constant">imgHeight</span>}</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">copyImageData()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p><span class="code-keyword">var</span> imgData = Graphics.copyImageData(<span class="code-constant">100</span>, <span class="code-constant">100</span>, <span class="code-constant">200</span>, <span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="pasteImageData">pasteImageData(<span class="code-param">imgData</span>, <span class="code-param">x</span>, <span class="code-param">y</span>)</h4>
+		<p class="note"><span class="code-hint">pasteImageData()</span> sẽ vẽ lại dữ liệu pixel trên bảng vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">imgData</span> - Dữ liệu pixels đã sao chép.</li>
+			<li><span class="code-param">x</span> - Vị trí x điểm bắt đầu vẽ lại.</li>
+			<li><span class="code-param">y</span> - Vị trí y điểm bắt đầu vẽ lại.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">pasteImageData()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p><span class="code-keyword">var</span> imgData = Graphics.copyImageData(<span class="code-constant">100</span>, <span class="code-constant">100</span>, <span class="code-constant">200</span>, <span class="code-constant">100</span>);</p>
+			<p>Graphics.pasteImageData(<span class="code-param">imgData</span>, <span class="code-constant">100</span>, <span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="createBlankImage">createBlankImage(<span class="code-param">width</span>, <span class="code-param">height</span>)</h4>
+		<p class="note"><span class="code-hint">createBlankImage()</span> sẽ tạo ra một dữ liệu hình ảnh trống với width, height được ấn định trong tham số.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">width</span> - Số lượng pixels theo chiều ngang của hình ảnh.</li>
+			<li><span class="code-param">height</span> - Số lượng pixels theo chiều dọc của hình ảnh.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">createBlankImage()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p><span class="code-keyword">var</span> imgBlankData = Graphics.createBlankImage(<span class="code-constant">100</span>, <span class="code-constant">100</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setComposite">setComposite(<span class="code-param">Composite</span>)</h4>
+		<p class="note"><span class="code-hint">setComposite()</span> sẽ cài đặt thành phần composite của đối tượng Graphics với chế độ Composite nào đó.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">Composite</span> - Hằng số <span class="code">composite</span> mong muốn. Tham khảo danh sách <a href="#composite">tại đây</a></li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setComposite()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setComposite(<span class="code-constant">CAREM_GLOBAL_CO_SRCOVER</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setAlpha">setAlpha(<span class="code-param">alpha</span>)</h4>
+		<p class="note"><span class="code-hint">setAlpha()</span> sẽ cài đặt thành phần alpha của đối tượng <span class="code">Graphics</span>.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">alpha</span> - Tỉ lệ phần trăm của độ trong suốt và chắn sáng.</li>
+		</ul>
+		<p class="tips">Tham số <span class="code-param">alpha</span> chỉ có thể số phần trăm, tức có giới hạn trong khoảng từ 0, đến 100.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">setAlpha()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setAlpha(<span class="code-constant">50</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="createPattern">createPattern(<span class="code-param">asset</span>, <span class="code-param">mode</span>)</h4>
+		<p class="note"><span class="code-hint">createPattern()</span> được dùng để tạo ra các pattern trong việc tô màu hay tô viền cho hình vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">asset</span> - Tài liệu hình ảnh được dùng để tạo pattern.</li>
+			<li><span class="code-param">mode</span> - Chế độ repeat.</li>
+		</ul>
+		<div class="tips">
+			<p>Tham số <span class="code-param">mode</span> được dùng với các hằng số sau:</p>
+			<ul>
+				<li><span class="code-constant">CAREM_REPEAT</span> - Lặp đều từ ngang đến dọc.</li>
+				<li><span class="code-constant">CAREM_REPEAT_X</span> - Lặp đều chỉ theo chiều ngang.</li>
+				<li><span class="code-constant">CAREM_REPEAT_Y</span> - Lặp đều chỉ theo chiều dọc.</li>
+				<li><span class="code-constant">CAREM_NO_REPEAT</span> - Chỉ vẽ một lần duy nhất.</li>
+			</ul>
+		</div>
+		<p class="note">Cách sử dụng <span class="code-hint">createPattern()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.createPattern(AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">CAREM_REPEAT</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="createLinearGradient">createLinearGradient(<span class="code-param">startPoint</span>, <span class="code-param">endPoint</span>, <span class="code-param">color</span>)</h4>
+		<p class="note"><span class="code-hint">createLinearGradient()</span> được dùng để tạo ra các hình thức chuyển sắc trong việc tô màu hay tô viền cho hình vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">startPoint</span> - Đối tượng gồm <span class="code">{x, y}</span> chứa tọa độ điểm bắt đầu chuyển sắc.</li>
+			<li><span class="code-param">endPoint</span> - Đối tượng gồm <span class="code">{x, y}</span> chứa tọa độ điểm kết thúc chuyển sắc.</li>
+			<li><span class="code-param">color</span> - Mảng json cứa màu chuyển sắc.</li>
+		</ul>
+		<p class="tips">Thông thường bạn sẽ ít dùng đến <span class="code-hint">createLinearGradient</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">createLinearGradient()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p><span class="code-keyword">var</span> gradientFill = Graphics.createLinearGradient(<span class="code-param">startPoint</span>, <span class="code-param">endPoint</span>, <span class="code-param">color</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="createRadialGradient">createRadialGradient(<span class="code-param">startPoint</span>, <span class="code-param">endPoint</span>, <span class="code-param">radius</span>, <span class="code-param">color</span>)</h4>
+		<p class="note"><span class="code-hint">createRadialGradient()</span> được dùng để tạo ra các hình thức chuyển sắc vòng tròn trong việc tô màu hay tô viền cho hình vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">startPoint</span> - Đối tượng gồm <span class="code">{x, y}</span> chứa tọa độ điểm bắt đầu chuyển sắc.</li>
+			<li><span class="code-param">endPoint</span> - Đối tượng gồm <span class="code">{x, y}</span> chứa tọa độ điểm kết thúc chuyển sắc.</li>
+			<li><span class="code-param">radius</span> - Bán kính của vòng tròn chuyển sắc.</li>
+			<li><span class="code-param">color</span> - Mảng json cứa màu chuyển sắc.</li>
+		</ul>
+		<p class="tips">Thông thường bạn sẽ ít dùng đến <span class="code-hint">createRadialGradient</span></p>
+		<p class="note">Cách sử dụng <span class="code-hint">createRadialGradient()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p><span class="code-keyword">var</span> gradientFill = Graphics.createRadialGradient(<span class="code-param">startPoint</span>, <span class="code-param">endPoint</span>, <span class="code-param">radius</span>, <span class="code-param">color</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setBackground">setBackground(<span class="code-param">color</span>, <span class="code-param">startPoint</span>, <span class="code-param">endPoint</span>, <span class="code-param">radius</span>)</h4>
+		<p class="note"><span class="code-hint">setBackground()</span> được dùng để tạo ra các hình thức chuyển sắc (vòng tròn) trong việc tô màu cho hình vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">color</span> - Mảng json cứa màu chuyển sắc.</li>
+			<li><span class="code-param">startPoint</span> - Đối tượng gồm <span class="code">{x, y}</span> chứa tọa độ điểm bắt đầu chuyển sắc.</li>
+			<li><span class="code-param">endPoint</span> - Đối tượng gồm <span class="code">{x, y}</span> chứa tọa độ điểm kết thúc chuyển sắc.</li>
+			<li><span class="code-param">radius</span> - Bán kính của vòng tròn chuyển sắc.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setBackground()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setBackground(<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{r:<span class="code-constant">255</span>, g:<span class="code-constant">255</span>, b:<span class="code-constant">255</span>, a:<span class="code-constant">0.5</span>, stop:<span class="code-constant">0</span>}, <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{r:<span class="code-constant">128</span>, g:<span class="code-constant">128</span>, b:<span class="code-constant">128</span>, a:<span class="code-constant">0.5</span>, stop:<span class="code-constant">1</span>}<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;], <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;{x: <span class="code-constant">0</span>, y:<span class="code-constant">0</span>}, {x: <span class="code-constant">0</span>, y:<span class="code-constant">100</span>}, <span class="code-constant">50</span><br>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setPatternFill">setPatternFill(<span class="code-param">asset</span>, <span class="code-param">mode</span>)</h4>
+		<p class="note"><span class="code-hint">setPatternFill()</span> được dùng để cài đặt các pattern trong việc tô màu cho hình vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">asset</span> - Tài liệu hình ảnh được dùng để tạo pattern.</li>
+			<li><span class="code-param">mode</span> - Chế độ repeat.</li>
+		</ul>
+		<div class="tips">
+			<p>Tham số <span class="code-param">mode</span> được dùng với các hằng số sau:</p>
+			<ul>
+				<li><span class="code-constant">CAREM_REPEAT</span> - Lặp đều từ ngang đến dọc.</li>
+				<li><span class="code-constant">CAREM_REPEAT_X</span> - Lặp đều chỉ theo chiều ngang.</li>
+				<li><span class="code-constant">CAREM_REPEAT_Y</span> - Lặp đều chỉ theo chiều dọc.</li>
+				<li><span class="code-constant">CAREM_NO_REPEAT</span> - Chỉ vẽ một lần duy nhất.</li>
+			</ul>
+		</div>
+		<p class="note">Cách sử dụng <span class="code-hint">setPatternFill()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setPatternFill(AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">CAREM_REPEAT</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="clearBackground">clearBackground()</h4>
+		<p class="note"><span class="code-hint">clearBackground()</span> sẽ cài đặt background của hình vẽ về rỗng.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">clearBackground()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setBackground(<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{r:<span class="code-constant">255</span>, g:<span class="code-constant">255</span>, b:<span class="code-constant">255</span>, a:<span class="code-constant">0.5</span>, stop:<span class="code-constant">0</span>}, <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{r:<span class="code-constant">128</span>, g:<span class="code-constant">128</span>, b:<span class="code-constant">128</span>, a:<span class="code-constant">0.5</span>, stop:<span class="code-constant">1</span>}<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;], <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;{x: <span class="code-constant">0</span>, y:<span class="code-constant">0</span>}, {x: <span class="code-constant">0</span>, y:<span class="code-constant">100</span>}, <span class="code-constant">50</span><br>);</p>
+				<p>Graphics.clearBackground();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setStrokeColor">setStrokeColor(<span class="code-param">color</span>, <span class="code-param">startPoint</span>, <span class="code-param">endPoint</span>, <span class="code-param">radius</span>)</h4>
+		<p class="note"><span class="code-hint">setStrokeColor()</span> được dùng để tạo ra các hình thức chuyển sắc (vòng tròn) trong việc tô viền cho hình vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">color</span> - Mảng json cứa màu chuyển sắc.</li>
+			<li><span class="code-param">startPoint</span> - Đối tượng gồm <span class="code">{x, y}</span> chứa tọa độ điểm bắt đầu chuyển sắc.</li>
+			<li><span class="code-param">endPoint</span> - Đối tượng gồm <span class="code">{x, y}</span> chứa tọa độ điểm kết thúc chuyển sắc.</li>
+			<li><span class="code-param">radius</span> - Bán kính của vòng tròn chuyển sắc.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setStrokeColor()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setStrokeColor(<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;[<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{r:<span class="code-constant">255</span>, g:<span class="code-constant">255</span>, b:<span class="code-constant">255</span>, a:<span class="code-constant">0.5</span>, stop:<span class="code-constant">0</span>}, <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{r:<span class="code-constant">128</span>, g:<span class="code-constant">128</span>, b:<span class="code-constant">128</span>, a:<span class="code-constant">0.5</span>, stop:<span class="code-constant">1</span>}<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;], <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;{x: <span class="code-constant">0</span>, y:<span class="code-constant">0</span>}, {x: <span class="code-constant">0</span>, y:<span class="code-constant">100</span>}, <span class="code-constant">50</span><br>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setPatternStroke">setPatternStroke(<span class="code-param">asset</span>, <span class="code-param">mode</span>)</h4>
+		<p class="note"><span class="code-hint">setPatternStroke()</span> được dùng để cài đặt các pattern trong việc tô viền cho hình vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">asset</span> - Tài liệu hình ảnh được dùng để tạo pattern.</li>
+			<li><span class="code-param">mode</span> - Chế độ repeat.</li>
+		</ul>
+		<div class="tips">
+			<p>Tham số <span class="code-param">mode</span> được dùng với các hằng số sau:</p>
+			<ul>
+				<li><span class="code-constant">CAREM_REPEAT</span> - Lặp đều từ ngang đến dọc.</li>
+				<li><span class="code-constant">CAREM_REPEAT_X</span> - Lặp đều chỉ theo chiều ngang.</li>
+				<li><span class="code-constant">CAREM_REPEAT_Y</span> - Lặp đều chỉ theo chiều dọc.</li>
+				<li><span class="code-constant">CAREM_NO_REPEAT</span> - Chỉ vẽ một lần duy nhất.</li>
+			</ul>
+		</div>
+		<p class="note">Cách sử dụng <span class="code-hint">setPatternStroke()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setPatternStroke(AssetMng.getAsset(<span class="code-param">"image.jpg"</span>), <span class="code-constant">CAREM_REPEAT</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setStrokeShape">setStrokeShape(<span class="code-param">lineCap</span>, <span class="code-param">lineJoin</span>, <span class="code-param">strokeWidth</span>)</h4>
+		<p class="note"><span class="code-hint">setStrokeShape()</span> được dùng để cài đặt các hình thức tô viền cho hình vẽ như kiểu gấp, kiểu nối và độ rộng của đường viền hay đường thẳng.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">lineCap</span> - Kiểu gấp đường viền hay đường thẳng.</li>
+			<li><span class="code-param">lineJoin</span> - Kiểu nối đường viền hay đường thẳng.</li>
+			<li><span class="code-param">strokeWidth</span> - Độ rộng của đường viền hay đường thẳng.</li>
+		</ul>
+		<div class="tips">
+			<p>Tham số <span class="code-param">lineCap</span> được dùng với các <a href="#lineCap">hằng số</a></p>
+			<p>Tham số <span class="code-param">lineJoin</span> được dùng với các <a href="#lineJoin">hằng số</a></p>
+		</div>
+		<p class="note">Cách sử dụng <span class="code-hint">setStrokeShape()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setStrokeShape(<span class="code-constant">CAREM_LINE_CAP_ROUND</span>, <span class="code-constant">CAREM_LINE_JOIN_ROUND</span>, <span class="code-constant">5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setStrokeCap">setStrokeCap(<span class="code-param">Type</span>)</h4>
+		<p class="note"><span class="code-hint">setStrokeCap()</span> được dùng để cài đặt các kiểu gấp của đường viền hay đường thẳng.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">Type</span> - Kiểu gấp đường viền hay đường thẳng.</li>
+		</ul>
+		<div class="tips">
+			<p>Tham số <span class="code-param">Type</span> được dùng với các <a href="#lineCap">hằng số</a></p>
+		</div>
+		<p class="note">Cách sử dụng <span class="code-hint">setStrokeCap()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setStrokeCap(<span class="code-constant">CAREM_LINE_CAP_ROUND</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setStrokeJoin">setStrokeJoin(<span class="code-param">Type</span>)</h4>
+		<p class="note"><span class="code-hint">setStrokeJoin()</span> được dùng để cài đặt các kiểu nối của đường viền hay đường thẳng.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">Type</span> - Kiểu nối đường viền hay đường thẳng.</li>
+		</ul>
+		<div class="tips">
+			<p>Tham số <span class="code-param">Type</span> được dùng với các <a href="#lineJoin">hằng số</a></p>
+		</div>
+		<p class="note">Cách sử dụng <span class="code-hint">setStrokeJoin()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setStrokeJoin(<span class="code-constant">CAREM_LINE_JOIN_ROUND</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setStrokeWidth">setStrokeWidth(<span class="code-param">Width</span>)</h4>
+		<p class="note"><span class="code-hint">setStrokeWidth()</span> được dùng để cài đặt độ rộng của đường viền hay đường thẳng.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">Width</span> - Độ rộng của đường viền hay đường thẳng.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setStrokeWidth()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setStrokeWidth(<span class="code-constant">5</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="clearStroke">clearStroke()</h4>
+		<p class="note"><span class="code-hint">clearStroke()</span> được dùng để cài đặt độ rộng, kiểu gấp, kiểu nối của đường viền hay đường thẳng về rỗng.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">clearStroke()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setStrokeShape(<span class="code-constant">CAREM_LINE_CAP_ROUND</span>, <span class="code-constant">CAREM_LINE_JOIN_ROUND</span>, <span class="code-constant">5</span>);</p>
+			<p>Graphics.clearStroke();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="setShadow">setShadow(<span class="code-param">color</span>, <span class="code-param">offset</span>, <span class="code-param">blur</span>)</h4>
+		<p class="note"><span class="code-hint">setShadow()</span> được dùng để cài đặt bóng đỗ cho hình vẽ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">color</span> - Màu sắc của bóng đỗ.</li>
+			<li><span class="code-param">offset</span> - Khoảng cách của bóng đỗ với hình vẽ.</li>
+			<li><span class="code-param">blur</span> - Độ lớn của bóng bỗ.</li>
+		</ul>
+		<p class="note">Cách sử dụng <span class="code-hint">setShadow()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.setShadow({r: <span class="code-constant">128</span>, g: <span class="code-constant">128</span>, b: <span class="code-constant">128</span>, a: <span class="code-constant">0.5</span>}, {x: <span class="code-constant">12</span>, y: <span class="code-constant">12</span>}, <span class="code-constant">10</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="showShadow">showShadow(<span class="code-param">allow</span>)</h4>
+		<p class="note"><span class="code-hint">showShadow()</span> được dùng để cài đặt sự cho phép hiển thị bóng đỗ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">allow</span> - Giá trị bool của sự cho phép tạo bóng đỗ.</li>
+		</ul>
+		<p class="tips">Tham số <span class="code-param">allow</span>, nếu được cài đặt với giá trị là <span class="code-constant">true</span> thì nó cho phép tạo bóng đỗ cho hình vẽ, tương tự ngược lại với giá trị <span class="code-constant">false</span>.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">showShadow()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.showShadow(<span class="code-constant">false</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="hideShadow">hideShadow()</h4>
+		<p class="note"><span class="code-hint">hideShadow()</span> được dùng để làm ẩn đi bóng đỗ của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">hideShadow()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.hideShadow();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="clearShadow">clearShadow()</h4>
+		<p class="note"><span class="code-hint">clearShadow()</span> được dùng để xóa đi những cài đặt về bóng đỗ của hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">clearShadow()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.clearShadow();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="ShadowShape">ShadowShape(<span class="code-param">allow</span>)</h4>
+		<p class="note"><span class="code-hint">ShadowShape()</span> được dùng để tính toán bóng đỗ cho hình vẽ hiện tại.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">ShadowShape()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.ShadowShape();</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="ShadowText">ShadowText(<span class="code-param">textDoc</span>)</h4>
+		<p class="note"><span class="code-hint">ShadowText()</span> được dùng để cài đặt sự cho phép hiển thị bóng đỗ.</p>
+		<h5>Tham số:</h5>
+		<ul>
+			<li><span class="code-param">textDoc</span> - Mảng json các đối tượng dữ liệu về text.</li>
+		</ul>
+		<p class="tips">Bạn sẽ rất ít khi sử dụng đến <span class="code-hint">ShadowText</span>. Để tìm hiểu về nguyên nhân, hãy tham khảo thêm tại <span class="code-hint">Carem_Text</span> class</p>
+		<p class="note">Cách sử dụng <span class="code-hint">ShadowText()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>Graphics.ShadowText(<span class="code-constant">textDoc</span>);</p>
+		</div>
+	</div>
+
+	<div class="inner">
+		<h4 class="member" id="UpdateParameter">UpdateParameter()</h4>
+		<p class="note"><span class="code-hint">UpdateParameter()</span> được dùng để cập nhật tham số tại mỗi lần thực hiện vẽ hình vẽ.</p>
+		<p class="note">Cách sử dụng <span class="code-hint">UpdateParameter()</span> như ví dụ sau:</p>
+		<div class="code-block">
+			<p><span class="code-keyword">var</span> Graphics = <span class="code-keyword">new</span> Carem_Graphics(<span class="code-param">Canvas</span>);</p>
+			<p>var Draw = function() <br>
+			{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;Graphics.UpdateParameter();<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">//... Draw Codes</span><br>
+			}</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>
