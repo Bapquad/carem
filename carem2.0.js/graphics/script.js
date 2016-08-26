@@ -36,7 +36,6 @@ function CyGame() {
 	var canvasShaperAssetManager = new Carem.AssetManager("jpg|gif|png","wav|ogg|mp3");
 	canvasShaperAssetManager.QueueFile("images/flower.jpg");
 	canvasShaperAssetManager.QueueFile("images/load_bar.png");
-	canvasShaperAssetManager.QueueFile("images/heavy-sample.gif");
 	canvasShaperAssetManager.QueueFile("images/img_lamp.jpg");
 	canvasShaperAssetManager.QueueFile("images/filter-sample.jpg");
 	canvasShaperAssetManager.QueueDownloadAll();
