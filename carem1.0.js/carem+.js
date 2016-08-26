@@ -477,6 +477,12 @@ var Carem_Button = function(Canvas, Asset, x, y, width, height)
 			this.Graphics.setAlpha(100);
 		return;
 	};
+	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
+		return;
+	};
 
 	this.Draw = function(ratio) 
 	{
@@ -838,6 +844,12 @@ var Carem_StaticSprite = function(Canvas, Asset, x, y, width, height)
 		if(this.WorldLimit == 0)
 			return;
 		this.WorldLimit.test();
+		return;
+	};
+	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
 		return;
 	};
 	
@@ -1203,7 +1215,12 @@ var Carem_AnimeSprite = function(Canvas, Asset, Width, Height)
 		this.WorldLimit.test();
 		return;
 	};
-
+	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
+		return;
+	};
 	
 	this.Draw = function(ratio) 
 	{
@@ -1433,6 +1450,12 @@ var Carem_Scroller = function(Canvas, Asset)
 			this.Graphics.setAlpha(percent);
 		else 
 			this.Graphics.setAlpha(100);
+		return;
+	};
+	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
 		return;
 	};
 	
@@ -1670,6 +1693,12 @@ var Carem_Particle = function(Canvas, Asset, Density)
 				Life: 0
 			});
 		}
+		return;
+	};
+	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
 		return;
 	};
 	
@@ -1960,6 +1989,12 @@ var Carem_Tile = function(Canvas)
 		if(this.WorldLimit == 0)
 			return;
 		this.WorldLimit.test();
+		return;
+	};
+	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
 		return;
 	};
 	

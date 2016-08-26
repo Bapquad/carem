@@ -1938,6 +1938,12 @@ var Carem_SymbolArc = function(Canvas)
 		return;
 	};
 	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
+		return;
+	};
+	
 	this.Draw = function(ratio, layerX, layerY) 
 	{
 		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
@@ -2162,6 +2168,12 @@ var Carem_SymbolCircle = function(Canvas)
 	this.releaseMask = function() 
 	{
 		this.Graphics.releaseMask();
+		return;
+	};
+	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
 		return;
 	};
 	
@@ -2415,6 +2427,12 @@ var Carem_SymbolLine = function(Canvas)
 	this.releaseMask = function() 
 	{
 		this.Graphics.releaseMask();
+		return;
+	};
+	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
 		return;
 	};
 	
@@ -2679,6 +2697,12 @@ var Carem_SymbolOval = function(Canvas)
 	this.releaseMask = function() 
 	{
 		this.Graphics.releaseMask();
+		return;
+	};
+	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
 		return;
 	};
 	
@@ -2979,6 +3003,12 @@ var Carem_SymbolPolygon = function(Canvas)
 		return;
 	};
 	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
+		return;
+	};
+	
 	this.Draw = function(ratio, layerX, layerY) 
 	{
 		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
@@ -3275,6 +3305,12 @@ var Carem_SymbolRect = function(Canvas)
 		return;
 	};
 	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
+		return;
+	};
+	
 	this.Draw = function(ratio, layerX, layerY) 
 	{
 		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
@@ -3560,6 +3596,12 @@ var Carem_SymbolRoundRect = function(Canvas)
 	this.releaseMask = function() 
 	{
 		this.Graphics.releaseMask();
+		return;
+	};
+	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
 		return;
 	};
 	
@@ -3851,6 +3893,12 @@ var Carem_SymbolShape = function(Canvas)
 		return;
 	};
 	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
+		return;
+	};
+	
 	this.Draw = function(ratio, layerX, layerY) 
 	{
 		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
@@ -4131,6 +4179,12 @@ var Carem_Text = function(Canvas)
 		return;
 	};
 	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
+		return;
+	};
+	
 	this.Draw = function(ratio, layerX, layerY) 
 	{
 		this.SceneObject.UpdateParameter(ratio, layerX, layerY);
@@ -4349,6 +4403,12 @@ var Carem_Image = function(Canvas, Asset)
 	this.clearShadow = function() 
 	{
 		this.Graphics.clearShadow();
+		return;
+	};
+	
+	this.setAlpha = function(percent) 
+	{
+		this.Graphics.setAlpha(0);
 		return;
 	};
 	
