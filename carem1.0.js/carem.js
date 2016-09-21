@@ -78,7 +78,46 @@ var CAREM_COLLISION_RAD = 1;
 
 if (!window.Float32Array)
 	Float32Array = Array;
+
+/**
+ * Object Extends Functions 
+ */
+Object.appendChain = function( oChain, oProto ) 
+{
+	if( arguments.length < 2 ) 
+	{ 
+		throw new TypeError( 'Object.appendChain - Not enough arguments' );
+	} 
 	
+	if(typeof oProto === 'number' || typeof oProto === 'boolean') 
+	{
+		return;
+	}
+
+	var oNewProto = oProto,
+		oReturn = o2nd = oLast = oChain instanceof this ? oChain : new oChain.constructor(oChain);
+
+	for(var o1st = this.getPrototypeOf( o2nd ); o1st !== Object.prototype && o1st !== Function.prototype; o1st = this.getPrototypeOf( o2nd ) ) 
+	{
+		o2nd = o1st;
+	}
+
+	if(oProto.constructor === String) 
+	{
+		oNewProto = Function.prototype;
+		oReturn = Function.apply( null, Array.prototype.slice.call( arguments, 1 ) );
+		this.setPrototypeOf( oReturn, oLast );
+	}
+
+	this.setPrototypeOf( o2nd, oNewProto );
+	return oReturn;
+}; 
+
+Object.prototype.extends = function( proto ) 
+{
+	Object.appendChain( this, proto );
+	return;
+};
 
 var Carem_Layer = function(canvasId) 
 {
