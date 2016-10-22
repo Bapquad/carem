@@ -19,7 +19,7 @@ function init()
 	myRect_01.setBackground([{r:128, g: 128, b: 128, a: 1}]);
 	myRRect.endMask();
 
-	stage.zoom(120);
+	stage.zoom(100);
 	stage.swap();
 	return;
 	

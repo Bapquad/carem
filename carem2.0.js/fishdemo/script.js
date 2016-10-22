@@ -269,10 +269,6 @@ function CyGame()
 	return;
 }
 
-$(document).ready(function(e) {
+window.addEventListener( 'DOMContentLoaded' , function( e ) {
 	CyGame();
-});
-
-$(window).resize(function(e) {
-	
 });
