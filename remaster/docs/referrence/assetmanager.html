@@ -1,0 +1,321 @@
+<h1>Carem.AssetManager</h1>
+<h2>Giới thiệu</h2>
+<p class="note"><span class="code">Carem.AssetManager</span> là class dùng để quản lý các tài nguyên như hình ảnh và âm thanh.</p>
+
+<h3>Thành phần dữ liệu</h3>
+
+<div class="entire" id="queueType">
+	<h4 class="code">queueType</h4>
+	<div class="explain">
+		<p class="note">Một mảng chứa dữ liệu mô tả kiểu dữ liệu tài nguyên.</p>
+		<p class="bold">Cách truy cập</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>console.log( assetMgr );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="errorCount">
+	<h4 class="code">errorCount</h4>
+	<div class="explain">
+		<p class="note">Một số nguyên chỉ số lỗi phát sinh trong quá trình tải dữ liệu.</p>
+		<p class="bold">Cách truy cập</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>console.log( assetMgr.errorCount );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="successCount">
+	<h4 class="code">successCount</h4>
+	<div class="explain">
+		<p class="note">Một số nguyên chỉ số thành công trong quá trình tải dữ liệu.</p>
+		<p class="bold">Cách truy cập</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>console.log( assetMgr.successCount );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="assetList">
+	<h4 class="code">assetList</h4>
+	<div class="explain">
+		<p class="note">Một mảng dữ liệu được để lưu trữ tạm thời tài nguyên.</p>
+		<p class="bold">Cách truy cập</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>console.log( assetMgr.assetList );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<h3>Thành phần constructor</h3>
+
+<div class="entire" id="Carem.AssetManager">
+	<h4 class="code">Carem.AssetManager( <span class="code-param">imgExtDesc</span>, <span class="code-param">sndExtDesc</span> )</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để tạo ra một đối tượng <span class="code">Carem.AssetManager</span> mới.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">imgExtDesc</span>:<span class="code">string</span> Chuỗi mô tả kiểu ảnh.</li>
+				<li><span class="code-param">sndExtDesc</span>:<span class="code">string</span> Chuỗi mô tả kiểu âm thanh.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>console.log( assetMgr );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Một đối tượng <span class="code">Carem.AssetManager</span> mới.</p>
+		</div>
+	</div>
+</div>
+
+<h3>Các hàm phương thức</h3>
+
+<div class="entire" id="GetErrorNumber">
+	<h4 class="code">GetErrorNumber()</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lấy về một chỉ số về lỗi loading.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>console.log( assetMgr.GetErrorNumber() );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Giá trị số.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="GetSuccessNumber">
+	<h4 class="code">GetSuccessNumber()</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lấy về một chỉ số về loading thành công.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>console.log( assetMgr.GetSuccessNumber() );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Giá trị số.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="GetAssetList">
+	<h4 class="code">GetAssetList()</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lấy về một mảng dữ liệu tài nguyên.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>console.log( assetMgr.GetAssetList() );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Một mảng dữ liệu.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="IsComplete">
+	<h4 class="code">IsComplete()</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lấy về một giá trị boolean cho biết quá trình download đã hoàn thành hay chưa.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>console.log( assetMgr.IsComplete() );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Giá trị boolean.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="GetProgress">
+	<h4 class="code">GetProgress()</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lấy về một giá trị số phần trăm cho biết lượng download hiện tại.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>console.log( assetMgr.GetProgress() );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Giá trị số.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="GetType">
+	<h4 class="code">GetType( <span class="code-param">path</span> )</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lấy về kiểu tài nguyên.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">path</span>:<span class="code">string</span> Chuỗi chứa đường dẫn đến tài nguyên.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>console.log( assetMgr.GetType( <span class="char">'image.jpg'</span> ) );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Chỉ số kiểu tài nguyên.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="IsQueued">
+	<h4 class="code">IsQueued( <span class="code-param">path</span> )</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lấy về giá trị boolean cho biết tài nguyên đã được yêu cầu hay chưa.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">path</span>:<span class="code">string</span> Chuỗi chứa đường dẫn đến tài nguyên.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>console.log( assetMgr.IsQueued( <span class="char">'image.jpg'</span> ) );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Giá trị boolean.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="QueueFile">
+	<h4 class="code">QueueFile( <span class="code-param">path</span> )</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để nạp tài nguyên vào Asset Manager.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">path</span>:<span class="code">string</span> Chuỗi chứa đường dẫn đến tài nguyên.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>assetMgr.QueueFile( <span class="char">'image.jpg'</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Giá trị void.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="GetAsset">
+	<h4 class="code">GetAsset( <span class="code-param">path</span> )</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lấy về một tài nguyên.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">path</span>:<span class="code">string</span> Chuỗi chứa đường dẫn đến tài nguyên.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>assetMgr.GetAsset( <span class="char">'image.jpg'</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng tài nguyên.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="QueueDownloadFile">
+	<h4 class="code">QueueDownloadFile( <span class="code-param">index</span>, <span class="code-param">type</span> )</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để tải tài nguyên vào danh sách tài nguyên trong Asset Manager.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">index</span>:<span class="code">number</span> Chỉ số vị trí tài nguyên trong danh sách tài nguyên.</li>
+				<li><span class="code-param">type</span>:<span class="code">number</span> Hằng số chỉ kiểu tài nguyên.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>assetMgr.QueueFile( <span class="char">'image.jpg'</span> );</li>
+				<li>assetMgr.QueueDownloadFile( <span class="decimal">0</span>, <span class="decimal">1</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.AssetManager</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="QueueDownloadAll">
+	<h4 class="code">QueueDownloadAll()</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để tải tất cả tài nguyên vào danh sách tài nguyên trong Asset Manager.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> assetMgr = <span class="word">new</span> Carem.AssetManager( <span class="code-char">'.jpg|.gif|.png'</span> );</li>
+				<li>assetMgr.QueueFile( <span class="char">'image.jpg'</span> );</li>
+				<li>assetMgr.QueueDownloadAll();</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.AssetManager</span> hiện tại.</p>
+		</div>
+	</div>
+</div>

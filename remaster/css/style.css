@@ -1,0 +1,562 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+	font-family: 'Open Sans', sans-serif;
+}
+
+a, a:active, a:visited, a:focus 
+{
+	text-decoration: none;
+	outline: 0 none;
+	color: #fff;
+}
+
+body 
+{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 100;
+	font-style: normal;
+	font-size: 14px;
+	background: #1f1f20;
+	color: white;
+	line-height: 1.5;
+}
+
+button 
+{
+	background: none;
+	border: 0 none;
+	color: #fff;
+}
+
+/* Portrait layout (default) */
+.statusbar 
+{
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .statusbar 
+	{
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+.bold 
+{
+	font-weight: bold;
+	/** Sub-title */
+	font-size: 16px;
+}
+
+.event 
+{
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening 
+{
+    background-color:#333333;
+    display:none;
+}
+
+.event.received 
+{
+    background-color:#4B946A;
+    display:none;
+}
+
+.code-block, .code-text, .code, 
+.code-block .char, .code-char, 
+.code-block .word, .code-word, 
+.code-block .type, .code-type, 
+.code-block .param, .code-param, 
+.code-block .decimal, .code-decimal, 
+.code-block .comment, .code-comment
+{
+	font-family: 'Consolas', 'Lucida Console', 'monospace';
+}
+
+.code-block 
+{
+	color: #fff;
+	background: #171719;
+	font-size: 12px;
+	border: 1px solid #595755;
+	line-height: 1.2;
+	overflow: scroll;
+}
+
+.code-block li 
+{
+	margin-left: 50px;
+	padding-top: 3px;
+	padding-bottom: 2px;
+	padding-left: 6px;
+	background: #2d2e2f;
+	list-style: decimal-leading-zero;
+	min-width: 750px;
+}
+
+.code-block .char, 
+.code .char, 
+.code-char 
+{
+	color: #f60;
+}
+
+.code-block .word, 
+.code .word, 
+.code-word
+{
+	color: #82c5ff;
+}
+
+.code-block .type, 
+.code .type, 
+.code-type
+{
+	color: #df76e6;
+}
+
+.code-block .param, 
+.code .param, 
+.code-param
+{
+	color: #f60;
+}
+
+.code-block .decimal, 
+.code .decimal, 
+.code-decimal
+{
+	color: #e2c715;
+}
+
+.code-block .comment, 
+.code .comment, 
+.code-comment
+{
+	color: #888;
+} 
+
+.file-block 
+{
+	border: 1px solid #595755;
+	margin: 0 0 8px;
+}
+
+.file-block .filename 
+{
+	background: #333;
+	color: #eee;
+	padding: 0 2px;
+	font-size: 12px;
+} 
+
+.file-block .code-block 
+{
+	border: 0 none;
+}
+
+.pagei .figure-list li 
+{
+	margin: 20px 0;
+}
+
+.pagei .figure-list .figure-image 
+{
+	float: left;
+} 
+
+.pagei .figure-list .figure-image p 
+{
+	border: 1px solid #fff;
+	background: #2f2f32;
+}
+
+.pagei .figure-list .figure-image img 
+{
+	width: 72px;
+	display: block;
+}
+
+.pagei .figure-list .infos 
+{
+	margin-left: 86px;
+}
+
+.pagei .figure-list .infos .text 
+{
+	color: #c30000;
+	display: inline-block;
+	width: 64px;
+}
+
+/**
+ * 
+ * LOADING INITIALIZING ...
+ * 
+ */
+.load-init 
+{
+	text-align: center;
+	color: #fff;
+	position: fixed;
+	width: 100%;
+	top: 50%;
+	margin-top: -202px;
+	text-shadow: 0 0 16px #f00;
+	
+	transition: opacity 300ms linear 0s;
+}
+
+.ani-scale 
+{
+	animation-name: init-scale;
+	animation-delay: 0s;
+	animation-duration: 600ms;
+	animation-iteration-count: 1;
+	animation-timing-function: cubic-bezier(0.56, -0.37, 0, 2.14);
+}
+
+.load-init.faded 
+{
+	opacity: 0;
+}
+
+.load-init .logo-symb
+{
+	background: url(../images/logo_big_cyc.png) no-repeat center center;
+	width: 244px;
+	height: 244px;
+	margin: 0 auto;
+}
+
+.load-init .logo-symb .loadimg 
+{
+	border: 4px solid #fff;
+	
+	border-radius: 50%;
+	box-shadow: 0 0 30px 0px #f00;
+}
+
+.load-init .logo-symb img 
+{
+	display: block;
+    border-radius: 50%;
+    box-shadow: inset 0 0 30px 0 #f00;
+	
+	animation-name: init-roration;
+	animation-delay: 0s;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	/* animation-direction: alternate; */
+	animation-timing-function: linear;
+}
+
+.load-init .loadtxt 
+{
+	font-size: 11px;
+	margin-top: 30px;
+}
+
+.load-init .caremTM 
+{
+	font-size: 60px;
+}
+
+@keyframes init-scale 
+{
+	from 
+	{
+		transform: scale( 0.2 );
+		opacity: 0;
+	} 
+	
+	to 
+	{
+		transform: scale( 1 );
+		opacity: 0.6;
+	}
+}
+
+@keyframes init-roration 
+{
+	from 
+	{
+		transform: rotate( 0deg );
+	}
+	
+	to 
+	{
+		transform: rotate( 360deg );
+	}
+}
+
+
+/**
+ *
+ * BACK BUTTONS
+ *
+ */
+.back-btn 
+{
+	height: 30px;
+	padding: 0 15px;
+	outline: 0 none;
+	margin: 10px 10px 0;
+	border: 1px solid #fff;
+}
+
+
+/**
+ *
+ *	NAVIGATION BAR
+ *
+ */
+#nav 
+{
+	border-right: 1px solid #0c0e13;
+	overflow-y: scroll;
+	transition: transform 260ms linear 0s;
+	transform: translateX(-64px);
+}
+
+#nav.floatPoint 
+{
+	position: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+#nav .top 
+{
+	border-bottom: 1px solid #0c0e13;
+	padding-bottom: 20px;
+}
+
+#nav #logo 
+{
+	float: left;
+}
+
+#nav .docuname 
+{
+	float: left;
+	margin-top: 30px;
+} 
+
+#nav h2 
+{
+	font-size: 44px;
+}
+
+#nav strong 
+{
+	color: #eee;
+	font-size: 11px;
+} 
+
+#nav span 
+{
+	font-size: 11px;
+} 
+
+#nav .docuname span 
+{
+	color: #ef0000;
+}
+#nav nav 
+{
+	margin-left: 30px;
+} 
+
+#nav nav a 
+{
+	font-size: 18px;
+}
+
+#nav nav a.active 
+{
+	color: #c30000;
+}
+
+#nav nav .include 
+{
+	margin-left: 15px;
+	overflow: hidden;
+	transition: height 200ms linear 0s;
+	height: 0px;
+}
+
+#nav .page 
+{
+	padding: 10px;
+} 
+
+#nav .pagei 
+{
+	opacity: 0;
+	display: none;
+	transition: opacity 200ms linear 0s;
+}
+
+#nav .pagei.active 
+{
+	display: block;
+}
+
+#nav .pagei.show 
+{
+	opacity: 1;
+}
+
+#nav .page1
+{
+	padding-left: 15px;
+}
+
+#nav .page1 ul
+{
+	font-family: 'Consolas', 'Lucida Console', 'monospace';
+}
+
+#nav .namespc 
+{
+	font-size: 30px;
+	padding-left: 20px;
+	margin-bottom: 8px;
+	margin-top: 22px;
+	background: url(../images/namespace_cyc.png) no-repeat left 16px;
+}
+
+#nav .package li 
+{
+	border: 1px solid transparent;
+	background: url(../images/package_cyc.png) no-repeat 2px 8px / 10px 10px;
+	padding-left: 20px;
+	font-size: 18px;
+}
+
+#nav .package li strong 
+{
+	font-size: 18px;
+	color: #fe0000;
+}
+
+/**
+ *
+ * MAIN SECTION
+ *
+ */
+#main 
+{
+	background: #0b0b0c;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	overflow-y: scroll;
+	
+	transition: transform 260ms linear 0s;
+} 
+
+#main .page 
+{
+	padding: 10px;
+}
+
+#main .page h1 
+{
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#main .page h2 
+{
+	margin-bottom: 5px;
+	font-size: 22px;
+} 
+
+#main .page h3 
+{
+	background: #232323;
+	padding-top: 3px;
+	padding-left: 3px;
+	border: 1px solid #333;
+	font-size: 20px;
+	margin: 25px 0 10px;
+}
+
+#main .page h4 
+{
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#main .page .entire 
+{
+	margin-bottom: 25px;
+	padding-bottom: 10px;
+	/*border-bottom: 1px solid #2a282b;*/
+}
+
+#main .page .note 
+{
+	margin: 12px 0;
+	line-height: 1.4em;
+}
+
+#main .page .param li 
+{
+	line-height: 1.1em;
+}
+
+#menupoint 
+{
+	display: block;
+	background: rgba(0, 0, 0, 0.3);
+	position: fixed;
+	left: 4px;
+	top: 4px;
+	width: 40px;
+	height: 40px;
+	z-index: 10001;
+} 
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	<!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; connect-src *" /> -->
+	
+	<link rel="stylesheet" type="text/css" href="css/family.css" /> 
+	<link rel="stylesheet" type="text/css" href="css/reset.css" /> 
+	<link rel="stylesheet" type="text/css" href="css/style.css" /> 
+	
+	<script type="text/javascript" src="js/element5.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	
+	<title>Tài liệu Carem.js | Bapquad Games | bapquadgames.com</title>
+</head>
+
+<body>
+<div class="wrapper">
+	<div id="nav" class="floatPoint">
+		<button class="back-btn">Quay lại</button>
+		<div class="top">
+			<div class="clearfix">
+				<h1 id="logo"><img src="images/logo_medium_cyc.png" /></h1>
+				<div class="docuname">
+					<h2>CaremJS</h2>
+					<p><strong>Phiên bản Remaster</strong></p>
+					<p><span class="red-txt">Trang tham khảo tài liệu</span></p>
+				</div>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="#" class="menu-page" data-page="page1">Mục chính</a></li>
+					<li>
+						<a href="javascript:openInc()">Tải nguồn</a>
+						<ul class="include">
+							<li><a href="http://bapquadgames.com/caremjs/carem.js" download>Mã nguồn (carem.js)</a></li>
+						</ul>
+					</li>
+					<li><a href="#" class="menu-page-disabled" data-page="page2">Demos</a></li>
+					<li><a href="#" class="menu-page-disabled" data-page="page3">Hướng dẫn thực hiện</a></li>
+				</ul>
+			</nav>
+		</div>
+		
+		<div class="page">
+			<div class="pagei page1 active show">
+				<h1>Giới thiệu</h1>
+				<div class="intro-desc">
+					<p class="note">Carem là một thư viện javascript nguồn mở do Bapquad Games xây dựng và phát triển, Carem.js tập hợp tất cả các thành phần đồ họa trên thẻ <span class="code">&lt;canvas&gt;</span> trong HTML5 và cộng thêm các chức năng trong game, nhằm có thể giúp các developer tạo ra các ứng dung đồ họa hoặt các game 2D trên nền tảng HTML5 dễ dàng và nhanh chóng hơn.</p>
+					<p class="note">Carem.js chứa khá nhiều các class và function, nhưng chủ yếu được tập hợp theo 2 gói, gói cơ bản và gói nâng cao. Gói cơ bản chuyên về đồ họa, hình họa và chữ. Gói thứ hai chuyên về ứng dụng game. Trong phiên bản Remaster hai gói được đặt chung một source.</p>
+					<p class="note">Carem.js được lập trình khá rõ ràng, mạch lạc, giúp dễ dàng nắm bắt, thực hành và ứng dụng trong thực tế.</p>
+					<p class="note">Carem.js cảm ơn bạn đã quan tâm sử dụng, Trong quá trình thực hiện sẽ xãy ra vài thiếu sót, mong được phản hồi và đóng góp ý kiến từ các bạn để giúp Bapquad Games phát triển Carem.js được tốt hơn trong tương lai.</p>
+				</div>
+				
+				<h2 class="namespc">Carem</h2>
+				<ul class="package">
+					<li class="intoContent" data-dir="docs" data-conn="layer.html">Carem<strong>.Layer</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="math.html">Carem<strong>.Math</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="filter.html">Carem<strong>.Filter</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="assetmanager.html">Carem<strong>.AssetManager</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="graphics.html">Carem<strong>.Graphics</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="sceneobject.html">Carem<strong>.SceneObject</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="symbolarc.html">Carem<strong>.SymbolArc</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="symbolcircle.html">Carem<strong>.SymbolCircle</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="symbolline.html">Carem<strong>.SymbolLine</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="symboloval.html">Carem<strong>.SymbolOval</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="symbolpolygon.html">Carem<strong>.SymbolPolygon</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="symbolrect.html">Carem<strong>.SymbolRect</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="symbolroundrect.html">Carem<strong>.SymbolRoundRect</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="symbolshape.html">Carem<strong>.SymbolShape</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="image.html">Carem<strong>.Image</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="text.html">Carem<strong>.Text</strong></li>
+				</ul>
+				<h2 class="namespc">Carem+</h2>
+				<ul class="package">
+					<li class="intoContent" data-dir="docs" data-conn="physics.html">Carem<strong>.Physics</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="worldlimit.html">Carem<strong>.WorldLimit</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="collison.html">Carem<strong>.Collison</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="button.html">Carem<strong>.Button</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="staticsprite.html">Carem<strong>.StaticSprite</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="animesprite.html">Carem<strong>.AnimeSprite</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="scroller.html">Carem<strong>.Scroller</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="particle.html">Carem<strong>.Particle</strong></li>
+					<li class="intoContent" data-dir="docs" data-conn="tile.html">Carem<strong>.Tile</strong></li>
+				</ul>
+			</div>
+			<div class="pagei page2">
+				<ul class="figure-list">
+					<li class="intoContent clearfix">
+						<div class="figure-image">
+							<p><img src="images/flag_cyc.png" alt="title puts at here" /></p>
+						</div>
+						<div class="infos">
+							<p class="title"><span class="text">Title:</span> <span>The title puts at here.</span></p>
+							<p class="date"><span class="text">Created date:</span> <span>12/10/2016</span></p>
+							<p class="author"><span class="text">Author:</span> <span>Jack Sanders.</span></p>
+						</div>
+					</li>
+					<li class="intoContent clearfix">
+						<div class="figure-image">
+							<p><img src="images/flag_cyc.png" alt="title puts at here" /></p>
+						</div>
+						<div class="infos">
+							<p class="title"><span class="text">Title:</span> <span>The title puts at here.</span></p>
+							<p class="date"><span class="text">Created date:</span> <span>12/10/2016</span></p>
+							<p class="author"><span class="text">Author:</span> <span>Jack Sanders.</span></p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="pagei page3">
+				<ul class="figure-list">
+					<li class="intoContent clearfix">
+						<div class="figure-image">
+							<p><img src="images/flag_cyc.png" alt="title puts at here" /></p>
+						</div>
+						<div class="infos">
+							<p class="title"><span class="text">Title:</span> <span>The title puts at here.</span></p>
+							<p class="date"><span class="text">Created date:</span> <span>12/10/2016</span></p>
+							<p class="author"><span class="text">Author:</span> <span>Jack Sanders.</span></p>
+						</div>
+					</li>
+					<li class="intoContent clearfix">
+						<div class="figure-image">
+							<p><img src="images/flag_cyc.png" alt="title puts at here" /></p>
+						</div>
+						<div class="infos">
+							<p class="title"><span class="text">Title:</span> <span>The title puts at here.</span></p>
+							<p class="date"><span class="text">Created date:</span> <span>12/10/2016</span></p>
+							<p class="author"><span class="text">Author:</span> <span>Jack Sanders.</span></p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="menuflag">
+		<p><a id="menupoint" href="javascript:void(0)"><img src="images/flag_cyc.png" alt="Menu"/></a></p>
+	</div>
+	<div id="main">
+		<div class="page" id="doc-content">
+			
+		</div>
+		
+		<div class="page2 load-init ani-scale">
+			<div class="logo-symb">
+				<p class="loadimg"><img class="cycle-sym" src="images/loading_big_cyc.png" alt="loading..." /></p>
+			</div>
+
+			<p class="loadtxt">Đang tải...</p>
+			<p class="present">Tài liệu phiên bản Remaster được thực hiện bởi Bapquad Games.</p>
+			<p class="caremTM">CaremJS</p>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>
