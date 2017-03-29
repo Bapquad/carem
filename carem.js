@@ -851,6 +851,21 @@ Carem.Graphics = function( context )
 		this.alpha = value/100;
 		return this;
 	};
+
+	this.Invisible = function() 
+	{
+		this.SetAlpha(0);
+		return this;
+	};
+
+	this.Visible = function( percent ) 
+	{
+		if(percent != undefined)
+			this.SetAlpha(percent);
+		else 
+			this.SetAlpha(100);
+		return this;
+	};
 	
 	/**********************************************************
 	 * function CreatePattern();
@@ -1104,15 +1119,21 @@ Carem.Graphics = function( context )
 	 * function ShowShadow();
 	 * Description: This method used to show shadow 
 	 *				for current path.
-	 * Parameters:	1. allow
+	 * Parameters:	1. flag
 	 **********************************************************/
-	this.ShowShadow = function(allow) 
+	this.ShowShadow = function( flag ) 
 	{
-		if(!allow) 
+		if( flag == undefined ) 
+		{
+			flag = true;
+		}
+		
+		if(!flag) 
 		{
 			this.HideShadow();
 			return;
 		}
+		
 		this.context.shadowColor = this.shadowColor;
 		this.context.shadowBlur = this.shadowBlur;
 		this.context.shadowOffsetX = this.shadowOffsetX;
@@ -1398,6 +1419,7 @@ Carem.SceneObject = function(context)
 			default:
 				break;
 		}
+		return this;
 	};
 
 	this.HorizontalFlip = function() 
@@ -1522,7 +1544,7 @@ Carem.SceneObject = function(context)
 	this.IsHide 	= function() { return !(this.visible && this.enable); };
 	this.IsShow 	= function() { return (this.visible && this.enable); };
 	this.IsEnable 	= function() { return this.enable; };
-	this.isDisable 	= function() { return !(this.enable); };
+	this.IsDisable 	= function() { return !(this.enable); };
 	
 	this.Hide = function() 
 	{
@@ -1597,21 +1619,6 @@ Carem.SymbolArc = function( canvas )
 		this.SetCircleSlice(angleFrom, angleTo);
 		return this;
 	};
-
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else 
-			this.SetAlpha(100);
-		return this;
-	};
 	
 	this.SetBackgroundImage = function( asset, mode ) 
 	{
@@ -1663,21 +1670,6 @@ Carem.SymbolCircle = function( canvas )
 	this.SetDistance = function( d ) 
 	{
 		this.SetSize( d, d );
-		return this;
-	};
-
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else 
-			this.SetAlpha(100);
 		return this;
 	};
 	
@@ -1748,21 +1740,6 @@ Carem.SymbolLine = function( canvas )
 		this.pointArray[1] = p;
 		return this;
 	};
-
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else 
-			this.SetAlpha(100);
-		return this;
-	};
 	
 	this.SetStrokeImage = function( asset, mode ) 
 	{
@@ -1795,21 +1772,6 @@ Carem.SymbolOval = function( canvas )
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
 	this.__proto__.__proto__ = new Carem.SceneObject();
-
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function(percent) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else
-			this.SetAlpha(100);
-		return this;
-	};
 
 	this.SetBackgroundImage = function( asset, mode ) 
 	{
@@ -1862,21 +1824,6 @@ Carem.SymbolPolygon = function( canvas )
 			var pointVector = Carem.Math.VectorFromAngle(point);
 			this.pointArray.push(pointVector);
 		}
-		return this;
-	};
-
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function(percent) 
-	{
-		if(percent != undefined)
-			this.SetAlpha();
-		else 
-			this.SetAlpha();
 		return this;
 	};
 	
@@ -1932,21 +1879,6 @@ Carem.SymbolRect = function( canvas )
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
 	this.__proto__.__proto__ = new Carem.SceneObject();
-
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else 
-			this.SetAlpha(100);
-		return this;
-	};
 	
 	this.SetBackgroundImage = function( asset, mode ) 
 	{
@@ -2008,21 +1940,6 @@ Carem.SymbolRoundRect = function( canvas )
 	this.SetRadius = function( radius ) 
 	{
 		this.SetRoundRadius(radius, radius, radius, radius);
-		return this;
-	};
-	
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else 
-			this.SetAlpha(100);
 		return this;
 	};
 		
@@ -2095,21 +2012,6 @@ Carem.SymbolShape = function( canvas )
 	this.AddPoint = function( x, y, bX, bY, lX, lY ) 
 	{
 		this.PushPoint({x: x, y: y, bpX: bX, bpY: bY, lpX: lX, lpY: lY});
-		return this;
-	};
-	
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else
-			this.SetAlpha(100);
 		return this;
 	};
 	
@@ -2239,21 +2141,6 @@ Carem.Text = function( canvas )
 		return this;
 	};
 	
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else 
-			this.SetAlpha(100);
-		return this;
-	};
-	
 	this.SetBackgroundImage = function( asset, mode ) 
 	{
 		this.SetPatternFill(asset, mode);
@@ -2298,21 +2185,6 @@ Carem.Image = function( canvas, asset )
 	this.SetFilter = function( filter, arg1, arg2, arg3 ) 
 	{
 		this.idata = Carem.Filter.FilterImage( filter, this.image, arg1, arg2, arg3 );
-		return this;
-	};
-	
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else 
-			this.SetAlpha(100);
 		return this;
 	};
 	
@@ -2700,21 +2572,6 @@ Carem.Button = function( canvas, asset, x, y, w, h)
 		return this;
 	};
 
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else 
-			this.SetAlpha(100);
-		return this;
-	};
-
 	this.Draw = function( ratio, layerX, layerY ) 
 	{
 		this.UpdateScene(ratio, layerX, layerY);
@@ -2759,21 +2616,6 @@ Carem.StaticSprite = function( canvas, asset, x, y, w, h )
 	this.cropY = y;
 
 	this.SetSize(w, h);
-	
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-	
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else 
-			this.SetAlpha(100);
-		return this;
-	};
 	
 	this.SetCollisionBound = function( l, t, w, h ) 
 	{
@@ -2861,21 +2703,6 @@ Carem.AnimeSprite = function( canvas, asset, w, h )
 	this.SetAction = function( value ) 
 	{
 		this.currAction = value;
-		return this;
-	};
-
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else 
-			this.SetAlpha(100);
 		return this;
 	};
 	
@@ -2972,21 +2799,6 @@ Carem.Scroller = function( canvas, asset )
 			this.direct = {x:1,y:0};
 		else 
 			this.direct = {x:0,y:1};
-		return this;
-	};
-
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else 
-			this.SetAlpha(100);
 		return this;
 	};
 	
@@ -3358,21 +3170,6 @@ Carem.Tile = function( canvas )
 	this.AddCell = function( asset, x, y ) 
 	{
 		this.tiles.push( { image: asset.asset, x: x, y: y } );
-		return this;
-	};
-
-	this.Invisible = function() 
-	{
-		this.SetAlpha(0);
-		return this;
-	};
-
-	this.Visible = function( percent ) 
-	{
-		if(percent != undefined)
-			this.SetAlpha(percent);
-		else 
-			this.SetAlpha(100);
 		return this;
 	};
 

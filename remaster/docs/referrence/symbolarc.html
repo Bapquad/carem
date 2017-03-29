@@ -1,39 +1,187 @@
-<h1>Carem.Math</h1>
+<h1>Carem.SymbolArc</h1>
 <h2>Giới thiệu</h2>
-<p class="note"><span class="code">Carem.Math</span> là class dùng để chứa các phương thức toán học, Carem.Math là class tĩnh, bạn có thể sử dụng trực tiếp mà không cần tạo cụ thể.</p>
+<p class="note"><span class="code">Carem.SymbolArc</span> chứa các thành phần dữ liệu và phương thức thao tác các hình vòng cung.</p>
+<p class="note"><span class="code">Carem.SymbolArc</span> được mở rộng với <span class="code">Carem.Graphics</span> và <span class="code">Carem.SceneObject</span></p>
 
 <h3>Thành phần dữ liệu</h3>
 
-<p class="note">You can see members of <span class="code">Carem.Vec3</span>, <span class="code">Carem.Color</span> for more information.</p>
+<div class="entire" id="DOMCanvasElement">
+	<h4 class="code">DOMCanvasElement</h4>
+	<div class="explain">
+		<p class="note">Được dùng để chứa thành phần dom trong html5 được lưu trong thành phần canvas. Tại đây nó được share ra cho <span class="code">Carem.SymbolArc</span>.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="code-param">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolArc( layer );</li>
+				<li>console.log( symbol.DOMCanvasElement );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="context">
+	<h4 class="code">context</h4>
+	<div class="explain">
+		<p class="note">Được dùng để chứa thành phần drawing context của canvas.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="code-param">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolArc( layer );</li>
+				<li>console.log( symbol.context );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="sliceAngleFrom">
+	<h4 class="code">sliceAngleFrom</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ góc độ bắt đầu cắt hình vẽ.</p>
+		<p class="note">Thành phần chỉ đọc. Không khuyến khích sử dụng trực tiếp.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="code-param">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolArc( layer );</li>
+				<li>console.log( symbol.sliceAngleFrom );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="sliceAngleTo">
+	<h4 class="code">sliceAngleTo</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ góc độ kết thúc cắt hình vẽ.</p>
+		<p class="note">Thành phần chỉ đọc. Không khuyến khích sử dụng trực tiếp.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="code-param">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolArc( layer );</li>
+				<li>console.log( symbol.sliceAngleTo );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="sliceAngleFromDraw">
+	<h4 class="code">sliceAngleFromDraw</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ góc độ bắt đầu vẽ hình vẽ.</p>
+		<p class="note">Thành phần chỉ đọc. Không khuyến khích sử dụng trực tiếp.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="code-param">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolArc( layer );</li>
+				<li>console.log( symbol.sliceAngleFromDraw );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="sliceAngleToDraw">
+	<h4 class="code">sliceAngleToDraw</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ góc độ kết thúc vẽ hình vẽ.</p>
+		<p class="note">Thành phần chỉ đọc. Không khuyến khích sử dụng trực tiếp.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="code-param">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolArc( layer );</li>
+				<li>console.log( symbol.sliceAngleToDraw );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<p class="note">Bạn có thể xem thêm các thành phần dữ liệu từ <span class="code">Carem.Graphics</span> và <span class="code">Carem.SceneObject</span> để có thêm nhiều thông tin.</p>
 
 <h3>Thành phần constructor</h3>
 
-<div class="entire" id="Carem.Light">
-	<h4 class="code">Carem.Light( <span class="code-param">x</span>, <span class="code-param">y</span>, <span class="code-param">z</span> )</h4>
+<div class="entire" id="Carem.SymbolArc">
+	<h4 class="code">Carem.SymbolArc( <span class="code-param">layer</span> )</h4>
 	<div class="explain">
-		<p class="note">Creates a new <span class="code">Carem.Light</span> instance object.</p>
+		<p class="note">Tạo ra một đối tượng <span class="code">Carem.SymbolArc</span> mới.</p>
 		<div class="note">
-			<p class="bold">The params</p>
+			<p class="bold">Tham số</p>
 			<ul class="param">
-				<li><span class="code-param">x</span>:<span class="code">number</span> the x-coord of the light position.</li>
-				<li><span class="code-param">y</span>:<span class="code">number</span> the y-coord of the light position.</li>
-				<li><span class="code-param">z</span>:<span class="code">number</span> the z-coord of the light position.</li>
+				<li><span class="code-param">layer</span>:<span class="code">Carem.Layer</span> Layer chứa và vẽ đối tượng.</li>
 			</ul>
 		</div>
-		<p class="bold">How to use</p>
+		<p class="bold">Cách sử dụng</p>
 		<div class="code-block">
 			<ul>
-				<li><span class="word">var</span> light = <span class="word">new</span> Carem.Light( <span class="code-decimal">128.0</span>, <span class="code-decimal">128.0</span>, <span class="code-decimal">128.0</span> );</li>
-				<li>console.log( light );</li>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="code-param">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolArc( layer );</li>
+				<li>console.log( symbol );</li>
 			</ul>
 		</div>
 		<div class="note">
-			<p class="bold">The return</p>
-			<p>The new <span class="code">Carem.Light</span> instance object.</p>
+			<p class="bold">Giá trị trả về</p>
+			<p>The new <span class="code">Carem.SymbolArc</span> instance object.</p>
 		</div>
 	</div>
 </div>
 
 <h3>Các hàm phương thức</h3>
 
-<p class="note">You can see methods of <span class="code">Carem.Vec3</span>, <span class="code">Carem.Color</span> for more information.</p>
+<div class="entire" id="SetCircleSlice">
+	<h4 class="code">SetCircleSlice( <span class="code-param">startAngle</span>, <span class="code-param">endAngle</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt phần cắt của hình vẽ.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">startAngle</span>:<span class="code">number</span> Chỉ số góc bắt đầu cắt.</li>
+				<li><span class="code-param">endAngle</span>:<span class="code">number</span> Chỉ số góc kết thúc cắt.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="code-param">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolArc( layer );</li>
+				<li>symbol.SetSize( <span class="decimal">50.0</span>, <span class="decimal">50.0</span> );</li>
+				<li>symbol.SetCircleSlice( <span class="decimal">45.0</span>, <span class="decimal">90.0</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>The new <span class="code">Carem.SymbolArc</span> instance object.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="SetSlice">
+	<h4 class="code">SetSlice( <span class="code-param">startAngle</span>, <span class="code-param">endAngle</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt phần cắt của hình vẽ.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">startAngle</span>:<span class="code">number</span> Chỉ số góc bắt đầu cắt.</li>
+				<li><span class="code-param">endAngle</span>:<span class="code">number</span> Chỉ số góc kết thúc cắt.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="code-param">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolArc( layer );</li>
+				<li>symbol.SetSize( <span class="decimal">50.0</span>, <span class="decimal">50.0</span> );</li>
+				<li>symbol.SetSlice( <span class="decimal">45.0</span>, <span class="decimal">90.0</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>The new <span class="code">Carem.SymbolArc</span> instance object.</p>
+		</div>
+	</div>
+</div>
+
+<p class="note">Bạn có thể xem thêm các hàm phương thức từ <span class="code">Carem.Graphics</span> và <span class="code">Carem.SceneObject</span> để có thêm nhiều thông tin.</p>
