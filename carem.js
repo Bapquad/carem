@@ -1717,7 +1717,7 @@ Carem.SymbolLine = function( canvas )
 	/** Line Section */
 	this.pointArray = new Array();
 	
-	this.pushPoint = function( p ) 
+	this.PushPoint = function( p ) 
 	{
 		this.pointArray.push( p );
 		return this;
@@ -2057,7 +2057,7 @@ Carem.SymbolShape = function( canvas )
 };
 
 
-Carem.Text = function( canvas ) 
+Carem.SymbolText = function( canvas ) 
 {
 	canvas.AddChild(this);
 	/** get Canvas DOM */
@@ -2167,7 +2167,7 @@ Carem.Text = function( canvas )
 };
 
 
-Carem.Image = function( canvas, asset ) 
+Carem.SymbolImage = function( canvas, asset ) 
 {
 	canvas.AddChild(this);
 	/** get Canvas DOM */
