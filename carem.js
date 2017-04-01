@@ -1931,9 +1931,9 @@ Carem.SymbolRoundRect = function( canvas )
 		return this;
 	};
 	
-	this.SetRound = function( radiusLT, radiusRT, radiusRB, radiusLB ) 
+	this.SetRound = function( r1, r2, r3, r4 ) 
 	{
-		this.SetRoundRadius(radiusLT, radiusRT, radiusRB, radiusLB);
+		this.SetRoundRadius( r1, r2, r3, r4 );
 		return this;
 	};
 	
@@ -1989,7 +1989,7 @@ Carem.SymbolShape = function( canvas )
 	this.__proto__.__proto__ = new Carem.SceneObject();
 	/** Sumbol Shape Section */
 	this.pointArray = new Array();
-	this.openShape = 0;
+	this.openShape = {};
 	
 	this.StartShape = function( p ) 
 	{
@@ -2135,7 +2135,7 @@ Carem.SymbolText = function( canvas )
 		return this;
 	};
 	
-	this.SetText = function( txt, x, y, textWidth) 
+	this.SetText = function( txt, x, y, textWidth ) 
 	{
 		this.textList = [{text:txt, x:x, y:y, width:textWidth}];
 		return this;

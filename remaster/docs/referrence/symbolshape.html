@@ -1,39 +1,303 @@
-<h1>Carem.Math</h1>
+<h1>Carem.SymbolShape</h1>
 <h2>Giới thiệu</h2>
-<p class="note"><span class="code">Carem.Math</span> là class dùng để chứa các phương thức toán học, Carem.Math là class tĩnh, bạn có thể sử dụng trực tiếp mà không cần tạo cụ thể.</p>
+<p class="note"><span class="code">Carem.SymbolShape</span> là class dùng để chứa các thành phần dữ liệu, các hàm phương thức nhằm quản lý, và thao tác các dữ liệu liên quan đến hình họa.</p>
+<p class="note"><span class="code">Carem.SymbolShape</span> được mở rộng với <span class="code">Carem.Graphics</span> và <span class="code">Carem.SceneObject</span>.</p>
 
 <h3>Thành phần dữ liệu</h3>
 
-<p class="note">You can see members of <span class="code">Carem.Vec3</span>, <span class="code">Carem.Color</span> for more information.</p>
+<div class="entire" id="DOMCanvasElement">
+	<h4 class="code">DOMCanvasElement</h4>
+	<div class="explain">
+		<p class="note">Được dùng để chứa thành phần dom trong html5 được lưu trong thành phần canvas. Tại đây nó được share ra cho <span class="code">Carem.SymbolShape</span>.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolShape( layer );</li>
+				<li>console.log( symbol.DOMCanvasElement );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="context">
+	<h4 class="code">context</h4>
+	<div class="explain">
+		<p class="note">Được dùng để chứa thành phần drawing context của canvas.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolShape( layer );</li>
+				<li>console.log( symbol.context );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="pointArray">
+	<h4 class="code">pointArray</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ các điểm đầu cuối của các đường cong hoặt đường thẳng.</p>
+		<p class="note">Thành phần chỉ đọc. Không khuyến khích sử dụng trực tiếp.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolShape( layer );</li>
+				<li>console.log( symbol.pointArray );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="openShape">
+	<h4 class="code">openShape</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ tọa độ điểm, nơi mà sẽ được dùng để bắt đầu vẽ hình họa.</p>
+		<p class="note">Thành phần chỉ đọc. Không khuyến khích sử dụng trực tiếp.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolShape( layer );</li>
+				<li>console.log( symbol.openShape );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<p class="note">Bạn có thể xem thêm các thành phần dữ liệu từ <span class="code">Carem.Graphics</span> và <span class="code">Carem.SceneObject</span> để có thêm nhiều thông tin.</p>
 
 <h3>Thành phần constructor</h3>
 
-<div class="entire" id="Carem.Light">
-	<h4 class="code">Carem.Light( <span class="code-param">x</span>, <span class="code-param">y</span>, <span class="code-param">z</span> )</h4>
+<div class="entire" id="Carem.SymbolShape">
+	<h4 class="code">Carem.SymbolShape( <span class="code-param">layer</span> )</h4>
 	<div class="explain">
-		<p class="note">Creates a new <span class="code">Carem.Light</span> instance object.</p>
+		<p class="note">Tạo mới một đối tượng <span class="code">Carem.SymbolShape</span>.</p>
 		<div class="note">
-			<p class="bold">The params</p>
+			<p class="bold">Tham số</p>
 			<ul class="param">
-				<li><span class="code-param">x</span>:<span class="code">number</span> the x-coord of the light position.</li>
-				<li><span class="code-param">y</span>:<span class="code">number</span> the y-coord of the light position.</li>
-				<li><span class="code-param">z</span>:<span class="code">number</span> the z-coord of the light position.</li>
+				<li><span class="code-param">layer</span>:<span class="code">Carem.Layer</span> Một đối tượng layer dùng render hình vẽ.</li>
 			</ul>
 		</div>
-		<p class="bold">How to use</p>
+		<p class="bold">Cách sử dụng</p>
 		<div class="code-block">
 			<ul>
-				<li><span class="word">var</span> light = <span class="word">new</span> Carem.Light( <span class="code-decimal">128.0</span>, <span class="code-decimal">128.0</span>, <span class="code-decimal">128.0</span> );</li>
-				<li>console.log( light );</li>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolShape( layer );</li>
+				<li>console.log( symbol );</li>
 			</ul>
 		</div>
 		<div class="note">
-			<p class="bold">The return</p>
-			<p>The new <span class="code">Carem.Light</span> instance object.</p>
+			<p class="bold">Giá trị trả về</p>
+			<p>Một đối tượng <span class="code">Carem.SymbolShape</span> mới.</p>
 		</div>
 	</div>
 </div>
 
 <h3>Các hàm phương thức</h3>
 
-<p class="note">You can see methods of <span class="code">Carem.Vec3</span>, <span class="code">Carem.Color</span> for more information.</p>
+<div class="entire" id="StartShape">
+	<h4 class="code">StartShape( <span class="code-param">point</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt tọa độ điểm bắt đầu vẽ hình họa.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">point</span>:<span class="code">object</span> Đối tượng lưu trữ tọa độ điểm.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolShape( layer );</li>
+				<li>symbol.StartShape( {x: <span class="decimal">100</span>, y: <span class="decimal">100</span>} );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Một đối tượng <span class="code">Carem.SymbolShape</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="StartPoint">
+	<h4 class="code">StartPoint( <span class="code-param">point</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt tọa độ điểm bắt đầu vẽ hình họa.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">point</span>:<span class="code">object</span> Đối tượng lưu trữ tọa độ điểm.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolShape( layer );</li>
+				<li>symbol.StartPoint( {x: <span class="decimal">100</span>, y: <span class="decimal">100</span>} );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Một đối tượng <span class="code">Carem.SymbolShape</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="PushPoint">
+	<h4 class="code">PushPoint( <span class="code-param">point</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để thêm các điểm neo và các điểm biên tập vào trong bộ máy vẽ hình họa.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">point</span>:<span class="code">object</span> Một đối tượng json {x: posX, y: posY, bpX: bX, bpY: bY, lpX: lX, lpY: lY} tượng trưng cho điểm bắt đầu vẽ hình họa.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolShape( layer );</li>
+				<li>symbol.PushPoint( {x: <span class="decimal">50</span>, y: <span class="decimal">10</span>, bpX: <span class="decimal">15</span>, bpY: <span class="decimal">25</span>, lpX: <span class="decimal">30</span>, lpY: <span class="decimal">50</span>} );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Một đối tượng <span class="code">Carem.SymbolShape</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="AddPoint">
+	<h4 class="code">AddPoint( <span class="code-param">x</span>, <span class="code-param">y</span>, <span class="code-param">bX</span>, <span class="code-param">bY</span>, <span class="code-param">lX</span>, <span class="code-param">lY</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để thêm các điểm neo và các điểm biên tập vào trong bộ máy vẽ hình họa.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">x</span>:<span class="code">number</span> Tọa độ x của điểm neo hiện tại.</li>
+				<li><span class="code-param">y</span>:<span class="code">number</span> Tọa độ y của điểm neo hiện tại.</li>
+				<li><span class="code-param">bX</span>:<span class="code">number</span> Tọa độ x của điểm biên tập (thuộc cánh tay phải) của điểm neo kế trước.</li>
+				<li><span class="code-param">bY</span>:<span class="code">number</span> Tọa độ y của điểm biên tập (thuộc cánh tay phải) của điểm neo kế trước.</li>
+				<li><span class="code-param">lx</span>:<span class="code">number</span> Tọa độ x của điểm biên tập (thuộc cánh tay trái) của điểm hiện tại.</li>
+				<li><span class="code-param">ly</span>:<span class="code">number</span> Tọa độ y của điểm biên tập (thuộc cánh tay trái) của điểm hiện tại.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolShape( layer );</li>
+				<li>symbol.AddPoint( <span class="decimal">50</span>, <span class="decimal">10</span>, <span class="decimal">15</span>, <span class="decimal">25</span>, <span class="decimal">30</span>, <span class="decimal">50</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Một đối tượng <span class="code">Carem.SymbolShape</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="SetBackgroundImage">
+	<h4 class="code">SetBackgroundImage( <span class="code-param">asset</span>, <span class="code-param">mode</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt hình nền của hình vẽ bằng hình ảnh.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">asset</span>:<span class="code">object</span> Đối tượng lưu trữ tài liệu.</li>
+				<li><span class="code-param">mode</span>:<span class="code">number</span> Hằng số chỉ chế độ repeat.</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p>Các hằng số cho tham số <span class="code-param">mode</span></p>
+			<ul>
+				<li><span class="code-type">CAREM_REPEAT</span> Lặp đều từ ngang đến dọc.</li>
+				<li><span class="code-type">CAREM_REPEAT_X</span> Lặp đều theo chiều ngang.</li>
+				<li><span class="code-type">CAREM_REPEAT_Y</span> Lặp đều theo chiều dọc.</li>
+				<li><span class="code-type">CAREM_NO_REPEAT</span> Chỉ vẽ một lần duy nhất.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolShape( layer );</li>
+				<li>symbol.SetBackgroundImage( assetMgr.GetAsset( <span class="char">'image.jpg'</span> ), <span class="type">CAREM_REPEAT</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Một đối tượng <span class="code">Carem.SymbolShape</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="SetStrokeImage">
+	<h4 class="code">SetStrokeImage( <span class="code-param">asset</span>, <span class="code-param">mode</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt màu viền cho hình vẽ.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">asset</span>:<span class="code">object</span> Đối tượng lưu trữ tài liệu.</li>
+				<li><span class="code-param">mode</span>:<span class="code">number</span> Hằng số chỉ chế độ repeat.</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p>Các hằng số cho tham số <span class="code-param">mode</span></p>
+			<ul>
+				<li><span class="code-type">CAREM_REPEAT</span> Lặp đều từ ngang đến dọc.</li>
+				<li><span class="code-type">CAREM_REPEAT_X</span> Lặp đều theo chiều ngang.</li>
+				<li><span class="code-type">CAREM_REPEAT_Y</span> Lặp đều theo chiều dọc.</li>
+				<li><span class="code-type">CAREM_NO_REPEAT</span> Chỉ vẽ một lần duy nhất.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolShape( layer );</li>
+				<li>symbol.SetStrokeImage( assetMgr.GetAsset( <span class="char">'image.jpg'</span> ), <span class="type">CAREM_REPEAT</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Một đối tượng <span class="code">Carem.SymbolShape</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="Draw">
+	<h4 class="code">Draw( <span class="code-param">ratio</span>, <span class="code-param">layerX</span>, <span class="code-param">layerY</span> )</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để render hình vẽ lên bảng vẽ.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">ratio</span>:<span class="code">number</span> Tỉ lệ phóng to hay thu nhỏ.</li>
+				<li><span class="code-param">layerX</span>:<span class="code">number</span> Tọa độ x của vị trí layer.</li>
+				<li><span class="code-param">layerY</span>:<span class="code">number</span> Tọa độ y của vị trí layer.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> symbol = <span class="word">new</span> Carem.SymbolShape( layer );</li>
+				<li>symbol.Draw( ratio, layerX, layerY );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Giá trị void.</p>
+		</div>
+	</div>
+</div>
+
+<p class="note">Bạn có thể xem thêm các hàm phương thức từ <span class="code">Carem.Graphics</span> và <span class="code">Carem.SceneObject</span> để có thêm nhiều thông tin.</p>
