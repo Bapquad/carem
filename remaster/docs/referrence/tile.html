@@ -1,39 +1,261 @@
-<h1>Carem.Math</h1>
+<h1>Carem.Tile</h1>
 <h2>Giới thiệu</h2>
-<p class="note"><span class="code">Carem.Math</span> là class dùng để chứa các phương thức toán học, Carem.Math là class tĩnh, bạn có thể sử dụng trực tiếp mà không cần tạo cụ thể.</p>
+<p class="note"><span class="code">Carem.Tile</span> là class dùng để chứa các thành phần dữ liệu, các hàm phương thức nhằm quản lý, và thao tác các dữ liệu liên quan đến tile.</p>
+<p class="note"><span class="code">Carem.Tile</span> được mở rộng với <span class="code">Carem.Graphics</span>, <span class="code">Carem.SceneObject</span>, <span class="code">Carem.Physics</span> và <span class="code">Carem.WorldLimit</span>.</p>
 
 <h3>Thành phần dữ liệu</h3>
 
-<p class="note">You can see members of <span class="code">Carem.Vec3</span>, <span class="code">Carem.Color</span> for more information.</p>
+<div class="entire" id="DOMCanvasElement">
+	<h4 class="code">DOMCanvasElement</h4>
+	<div class="explain">
+		<p class="note">Được dùng để chứa thành phần dom trong html5 được lưu trong thành phần canvas. Tại đây nó được share ra cho <span class="code">Carem.Tile</span>.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> tile = <span class="word">new</span> Carem.Tile( layer );</li>
+				<li>console.log( tile.DOMCanvasElement );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="context">
+	<h4 class="code">context</h4>
+	<div class="explain">
+		<p class="note">Được dùng để chứa thành phần drawing context của canvas.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> tile = <span class="word">new</span> Carem.Tile( layer );</li>
+				<li>console.log( tile.context );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="align">
+	<h4 class="code">align</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ chế độ canh hàng cho tile.</p>
+		<div class="note">
+			<p>Các hằng số của tham số <span class="code-param">align</span></p>
+			<ul>
+				<li><span class="code-type">CAREM_ALIGN_TOP</span> - <span class="code-char">'TOP'</span></li>
+				<li><span class="code-type">CAREM_ALIGN_MIDDLE</span> - <span class="code-char">'MIDDLE'</span></li>
+				<li><span class="code-type">CAREM_ALIGN_BOTTOM</span> - <span class="code-char">'BOTTOM'</span></li>
+				<li><span class="code-type">CAREM_ALIGN_LEFT</span> - <span class="code-char">'LEFT'</span></li>
+				<li><span class="code-type">CAREM_ALIGN_CENTER</span> - <span class="code-char">'CENTER'</span></li>
+				<li><span class="code-type">CAREM_ALIGN_RIGHT</span> - <span class="code-char">'RIGHT'</span></li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> tile = <span class="word">new</span> Carem.Tile( layer );</li>
+				<li>console.log( tile.align );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="order">
+	<h4 class="code">order</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ thứ tự vẽ cho tile.</p>
+		<div class="note">
+			<p>Các hằng số của tham số <span class="code-param">order</span></p>
+			<ul>
+				<li><span class="code-type">CAREM_ORDER_LEFT</span> - <span class="code-decimal">0</span></li>
+				<li><span class="code-type">CAREM_ORDER_RIGHT</span> - <span class="code-decimal">1</span></li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> tile = <span class="word">new</span> Carem.Tile( layer );</li>
+				<li>console.log( tile.order );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="tiles">
+	<h4 class="code">tiles</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ hình vẽ cho tile.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> tile = <span class="word">new</span> Carem.Tile( layer );</li>
+				<li>console.log( tile.tiles );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<p class="note">Bạn có thể xem thêm các thành phần dữ liệu từ <span class="code">Carem.Graphics</span>, <span class="code">Carem.SceneObject</span>, <span class="code">Carem.Physics</span> và <span class="code">Carem.WorldLimit</span> để có thêm nhiều thông tin.</p>
 
 <h3>Thành phần constructor</h3>
 
-<div class="entire" id="Carem.Light">
-	<h4 class="code">Carem.Light( <span class="code-param">x</span>, <span class="code-param">y</span>, <span class="code-param">z</span> )</h4>
+<div class="entire" id="Carem.Tile">
+	<h4 class="code">Carem.Tile( <span class="code-param">layer</span> )</h4>
 	<div class="explain">
-		<p class="note">Creates a new <span class="code">Carem.Light</span> instance object.</p>
+		<p class="note">Tạo mới một đối tượng <span class="code">Carem.Tile</span>.</p>
 		<div class="note">
-			<p class="bold">The params</p>
+			<p class="bold">Tham số</p>
 			<ul class="param">
-				<li><span class="code-param">x</span>:<span class="code">number</span> the x-coord of the light position.</li>
-				<li><span class="code-param">y</span>:<span class="code">number</span> the y-coord of the light position.</li>
-				<li><span class="code-param">z</span>:<span class="code">number</span> the z-coord of the light position.</li>
+				<li><span class="code-param">layer</span>:<span class="code">Carem.Layer</span> Đối tượng layer dùng render hình vẽ.</li>
 			</ul>
 		</div>
-		<p class="bold">How to use</p>
+		<p class="bold">Cách sử dụng</p>
 		<div class="code-block">
 			<ul>
-				<li><span class="word">var</span> light = <span class="word">new</span> Carem.Light( <span class="code-decimal">128.0</span>, <span class="code-decimal">128.0</span>, <span class="code-decimal">128.0</span> );</li>
-				<li>console.log( light );</li>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> tile = <span class="word">new</span> Carem.Tile( layer );</li>
+				<li>console.log( tile );</li>
 			</ul>
 		</div>
 		<div class="note">
-			<p class="bold">The return</p>
-			<p>The new <span class="code">Carem.Light</span> instance object.</p>
+			<p class="bold">Giá trị trả về</p>
+			<p>Một đối tượng <span class="code">Carem.Tile</span> mới.</p>
 		</div>
 	</div>
 </div>
 
 <h3>Các hàm phương thức</h3>
 
-<p class="note">You can see methods of <span class="code">Carem.Vec3</span>, <span class="code">Carem.Color</span> for more information.</p>
+<div class="entire" id="AddCell">
+	<h4 class="code">AddCell( <span class="code-param">asset</span>, <span class="code-param">x</span>, <span class="code-param">y</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt độ trong suốt hay chắn sáng của tile.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">asset</span>:<span class="code">number</span> Chế độ loop tile.</li>
+				<li><span class="code-param">x</span>:<span class="code">number</span> Tọa độ x của điểm mà muốn vẽ.</li>
+				<li><span class="code-param">y</span>:<span class="code">number</span> Tọa độ y của điểm mà muốn vẽ.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> tile = <span class="word">new</span> Carem.Tile( layer );</li>
+				<li>tile.AddCell( assetMgr.getAsset( <span class="char">'image.jpg'</span> ), 50, 20 );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.Tile</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="SetWorldLimit">
+	<h4 class="code">SetWorldLimit( <span class="code-param">minX</span>, <span class="code-param">minY</span>, <span class="code-param">maxX</span>, <span class="code-param">maxY</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để nhận tọa độ đường bao giới hạn của world limit với tile.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">minX</span>:<span class="code">number</span> Tọa độ x của điểm min trên đường bao.</li>
+				<li><span class="code-param">minY</span>:<span class="code">number</span> Tọa độ y của điểm min trên đường bao.</li>
+				<li><span class="code-param">maxX</span>:<span class="code">number</span> Tọa độ x của điểm max trên đường bao.</li>
+				<li><span class="code-param">maxY</span>:<span class="code">number</span> Tọa độ y của điểm max trên đường bao.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> tile = <span class="word">new</span> Carem.Tile( layer );</li>
+				<li>tile.SetWorldLimit( <span class="decimal">10</span>, <span class="decimal">10</span>, <span class="decimal">120</span>, <span class="decimal">50</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.Tile</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="SetWorldLimitTest">
+	<h4 class="code">SetWorldLimitTest( <span class="code-param">callback</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để hàm thực thi khi test world limit của tile.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">callback</span>:<span class="code">function</span> Hàm thực thi khi tile va chạm world limit.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> tile = <span class="word">new</span> Carem.Tile( layer );</li>
+				<li>tile.SetWorldLimitTest( <span class="word">function</span>() </li>
+				<li>{</li>
+				<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Do something ...</span></li>
+				<li>});</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.Tile</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="TestWorldLimit">
+	<h4 class="code">TestWorldLimit()</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt kiểm tra va chạm vào đường bao giới hạn của tile.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> tile = <span class="word">new</span> Carem.Tile( layer );</li>
+				<li>tile.TestWorldLimit();</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.Tile</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="Draw">
+	<h4 class="code">Draw( <span class="code-param">ratio</span>, <span class="code-param">layerX</span>, <span class="code-param">layerY</span> )</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để render tile lên bảng vẽ.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">ratio</span>:<span class="code">number</span> Tỉ lệ phóng to hay thu nhỏ.</li>
+				<li><span class="code-param">layerX</span>:<span class="code">number</span> Tọa độ x của vị trí layer.</li>
+				<li><span class="code-param">layerY</span>:<span class="code">number</span> Tọa độ y của vị trí layer.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> layer = <span class="word">new</span> Carem.Layer( <span class="char">'canvas_id'</span> );</li>
+				<li><span class="word">var</span> tile = <span class="word">new</span> Carem.Tile( layer );</li>
+				<li>tile.Draw( ratio, layerX, layerY );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Giá trị void.</p>
+		</div>
+	</div>
+</div>
+
+<p class="note">Bạn có thể xem thêm các hàm phương thức từ <span class="code">Carem.Graphics</span>, <span class="code">Carem.SceneObject</span>, <span class="code">Carem.Physics</span> và <span class="code">Carem.WorldLimit</span> để có thêm nhiều thông tin.</p>
