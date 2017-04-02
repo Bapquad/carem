@@ -148,7 +148,7 @@ Carem.Layer = function( canvasId )
 	this.buttonList = new Array();
 	this.fillStyle = 0;
 	this.ratio = 1.0;
-	this.DOMElement.addEventListener("click", function(e) 
+	this.DOMElement.addEventListener("mousedown", function(e) 
 	{
 		var size = LAYRoot.buttonList.length;
 		var mpx = e.layerX | e.clientX;
@@ -159,10 +159,10 @@ Carem.Layer = function( canvasId )
 			&& mpx < LAYRoot.buttonList[i].x+LAYRoot.buttonList[i].width
 			&& mpy > LAYRoot.buttonList[i].y
 			&& mpy < LAYRoot.buttonList[i].y+LAYRoot.buttonList[i].height
-			&& LAYRoot.buttonList[i].clickCallback != 0
+			&& LAYRoot.buttonList[i].mouseDownCallback != 0
 			&& LAYRoot.buttonList[i].enable) 
 			{
-				LAYRoot.buttonList[i].clickCallback(e);
+				LAYRoot.buttonList[i].mouseDownCallback(e);
 			}
 		}
 	}, false);
@@ -2229,7 +2229,7 @@ Carem.SymbolImage = function( canvas, asset )
 
 Carem.Physics = function( sceneObject ) 
 {
-	this.SceneObject = sceneObject;
+	this.sceneObject = sceneObject;
 	this.velocityX = 0;
 	this.velocityY = 0;
 	this.angleVelocity = 0;
@@ -2324,15 +2324,15 @@ Carem.Physics = function( sceneObject )
 	{
 		if(this.gravityMode) 
 		{
-			this.SceneObject.y += this.gravity;
+			this.sceneObject.y += this.gravity;
 		};
 		return this;
 	};
 	
 	this.ForceAccum = function() 
 	{
-		this.SceneObject.x += this.constantForceX;
-		this.SceneObject.y += this.constantForceY;
+		this.sceneObject.x += this.constantForceX;
+		this.sceneObject.y += this.constantForceY;
 		return this;
 	};
 	
@@ -2340,7 +2340,7 @@ Carem.Physics = function( sceneObject )
 	{
 		if(velocity == undefined) 
 			velocity = this.velocityX;
-		this.SceneObject.x += velocity;
+		this.sceneObject.x += velocity;
 		return this;
 	};
 	
@@ -2348,7 +2348,7 @@ Carem.Physics = function( sceneObject )
 	{
 		if(velocity == undefined) 
 			velocity = this.velocityY;
-		this.SceneObject.y += velocity;
+		this.sceneObject.y += velocity;
 		return this;
 	};
 	
@@ -2356,14 +2356,14 @@ Carem.Physics = function( sceneObject )
 	{
 		if(angle == undefined)
 			angle = this.angleVelocity;
-		this.SceneObject.angle += angle;
+		this.sceneObject.angle += angle;
 		return this;
 	};
 };
 
 Carem.WorldLimit = function( sceneObject ) 
 {
-	this.SceneObject = sceneObject;
+	this.sceneObject = sceneObject;
 	this.boundMinX = 0;
 	this.boundMinY = 0;
 	this.boundMaxX = 0;
@@ -2395,19 +2395,19 @@ Carem.WorldLimit = function( sceneObject )
 	this.TestLimit = function() 
 	{
 		var lim = -1;
-		if(this.SceneObject.x < this.boundMinX) 
+		if(this.sceneObject.x < this.boundMinX) 
 		{
 			lim = CAREM_LIMIT_LEFT;
 		} 
-		else if(this.SceneObject.y < this.boundMinY) 
+		else if(this.sceneObject.y < this.boundMinY) 
 		{
 			lim = CAREM_LIMIT_TOP;
 		} 
-		else if(this.SceneObject.x > this.boundMaxX) 
+		else if(this.sceneObject.x > this.boundMaxX) 
 		{
 			lim = CAREM_LIMIT_RIGHT;
 		} 
-		else if(this.SceneObject.y > this.boundMaxY) 
+		else if(this.sceneObject.y > this.boundMaxY) 
 		{
 			lim = CAREM_LIMIT_BOTTOM;
 		}
@@ -2522,7 +2522,7 @@ Carem.Button = function( canvas, asset, x, y, w, h)
 	this.image = asset.asset;
 	this.mouseUpCallback = 0;
 	this.mouseOverCallback = 0;
-	this.clickCallback = 0;
+	this.mouseDownCallback = 0;
 	this.imagePositionX = 0;
 	this.imagePositionY = 0;
 
@@ -2554,9 +2554,9 @@ Carem.Button = function( canvas, asset, x, y, w, h)
 		return this;
 	};
 
-	this.onClick = function( c ) 
+	this.onMouseDown = function( c ) 
 	{
-		this.clickCallback = c;
+		this.mouseDownCallback = c;
 		return this;
 	};
 
@@ -2844,7 +2844,7 @@ Carem.Particle = function( canvas, asset, density )
 		.__proto__ = new Carem.SceneObject();
 	/** Scroller Section */
 	this.image 		= asset.asset;
-	this.density 	= density;
+	this.density 	= density || 10;
 	this.particle 	= new Array();
 	this.loopMode 	= CAREM_LOOP_CYCLE;
 	this.alphaBase 	= false;

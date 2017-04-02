@@ -1,39 +1,242 @@
-<h1>Carem.Math</h1>
+<h1>Carem.WorldLimit</h1>
 <h2>Giới thiệu</h2>
-<p class="note"><span class="code">Carem.Math</span> là class dùng để chứa các phương thức toán học, Carem.Math là class tĩnh, bạn có thể sử dụng trực tiếp mà không cần tạo cụ thể.</p>
+<p class="note"><span class="code">Carem.WorldLimit</span> là class dùng để chứa các thành phần dữ liệu, các hàm phương thức nhằm quản lý, và thao tác các dữ liệu liên quan đến giới hạn của không gian level.</p>
 
 <h3>Thành phần dữ liệu</h3>
 
-<p class="note">You can see members of <span class="code">Carem.Vec3</span>, <span class="code">Carem.Color</span> for more information.</p>
+<div class="entire" id="sceneObject">
+	<h4 class="code">sceneObject</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lưu trữ đối tượng <span class="code">sceneObject</span>.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> worldLimit = <span class="word">new</span> Carem.WorldLimit( sceneObject );</li>
+				<li>console.log( worldLimit.sceneObject );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="boundMinX">
+	<h4 class="code">boundMinX</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lưu trữ tọa độ x của điểm min trên đường bao.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> worldLimit = <span class="word">new</span> Carem.WorldLimit( sceneObject );</li>
+				<li>console.log( worldLimit.boundMinX );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="boundMinY">
+	<h4 class="code">boundMinY</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lưu trữ tọa độ y của điểm min trên đường bao.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> worldLimit = <span class="word">new</span> Carem.WorldLimit( sceneObject );</li>
+				<li>console.log( worldLimit.boundMinY );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="boundMaxX">
+	<h4 class="code">boundMaxX</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lưu trữ tọa độ x của điểm max trên đường bao.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> worldLimit = <span class="word">new</span> Carem.WorldLimit( sceneObject );</li>
+				<li>console.log( worldLimit.boundMaxX );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="boundMaxY">
+	<h4 class="code">boundMaxY</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lưu trữ tọa độ y của điểm max trên đường bao.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> worldLimit = <span class="word">new</span> Carem.WorldLimit( sceneObject );</li>
+				<li>console.log( worldLimit.boundMaxY );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="mode">
+	<h4 class="code">mode</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ chế độ test World Limit.</p>
+		<div class="note">
+			<p>Giá trị mặc định được sử dụng là giá trị <span class="code-type">CAREM_LIMIT_OFF</span>. Ngoài ra, còn có các hằng số giá trị khác như:</p>
+			<ul class="param">
+				<li><span class="code-type">CAREM_LIMIT_OFF</span> - <span class="code-decimal">0</span></li>
+				<li><span class="code-type">CAREM_LIMIT_NULL</span> - <span class="code-decimal">1</span></li>
+				<li><span class="code-type">CAREM_LIMIT_CLAMP</span> - <span class="code-decimal">2</span></li>
+				<li><span class="code-type">CAREM_LIMIT_BOUNCE</span> - <span class="code-decimal">3</span></li>
+				<li><span class="code-type">CAREM_LIMIT_STICKY</span> - <span class="code-decimal">4</span></li>
+				<li><span class="code-type">CAREM_LIMIT_KILL</span> - <span class="code-decimal">5</span></li>
+				<li><span class="code-type">CAREM_LIMIT_LEFT</span> - <span class="code-decimal">6</span></li>
+				<li><span class="code-type">CAREM_LIMIT_TOP</span> - <span class="code-decimal">7</span></li>
+				<li><span class="code-type">CAREM_LIMIT_RIGHT</span> - <span class="code-decimal">8</span></li>
+				<li><span class="code-type">CAREM_LIMIT_BOTTOM</span> - <span class="code-decimal">9</span></li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> worldLimit = <span class="word">new</span> Carem.WorldLimit( sceneObject );</li>
+				<li>console.log( worldLimit.mode );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="testCallback">
+	<h4 class="code">testCallback</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ các tài liệu văn bản mà sẽ được hiển thị.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> worldLimit = <span class="word">new</span> Carem.WorldLimit( sceneObject );</li>
+				<li>console.log( worldLimit.testCallback );</li>
+			</ul>
+		</div>
+	</div>
+</div>
 
 <h3>Thành phần constructor</h3>
 
-<div class="entire" id="Carem.Light">
-	<h4 class="code">Carem.Light( <span class="code-param">x</span>, <span class="code-param">y</span>, <span class="code-param">z</span> )</h4>
+<div class="entire" id="Carem.WorldLimit">
+	<h4 class="code">Carem.WorldLimit( <span class="code-param">sceneObject</span> )</h4>
 	<div class="explain">
-		<p class="note">Creates a new <span class="code">Carem.Light</span> instance object.</p>
+		<p class="note">Tạo mới một đối tượng <span class="code">Carem.WorldLimit</span>.</p>
 		<div class="note">
-			<p class="bold">The params</p>
+			<p class="bold">Tham số</p>
 			<ul class="param">
-				<li><span class="code-param">x</span>:<span class="code">number</span> the x-coord of the light position.</li>
-				<li><span class="code-param">y</span>:<span class="code">number</span> the y-coord of the light position.</li>
-				<li><span class="code-param">z</span>:<span class="code">number</span> the z-coord of the light position.</li>
+				<li><span class="code-param">sceneObject</span>:<span class="code">Carem.SceneObject</span> Một đối tượng layer dùng để tương tác với world limit.</li>
 			</ul>
 		</div>
-		<p class="bold">How to use</p>
+		<p class="bold">Cách sử dụng</p>
 		<div class="code-block">
 			<ul>
-				<li><span class="word">var</span> light = <span class="word">new</span> Carem.Light( <span class="code-decimal">128.0</span>, <span class="code-decimal">128.0</span>, <span class="code-decimal">128.0</span> );</li>
-				<li>console.log( light );</li>
+				<li><span class="word">var</span> worldLimit = <span class="word">new</span> Carem.WorldLimit( sceneObject );</li>
+				<li>console.log( worldLimit );</li>
 			</ul>
 		</div>
 		<div class="note">
-			<p class="bold">The return</p>
-			<p>The new <span class="code">Carem.Light</span> instance object.</p>
+			<p class="bold">Giá trị trả về</p>
+			<p>Một đối tượng <span class="code">Carem.WorldLimit</span> mới.</p>
 		</div>
 	</div>
 </div>
 
 <h3>Các hàm phương thức</h3>
 
-<p class="note">You can see methods of <span class="code">Carem.Vec3</span>, <span class="code">Carem.Color</span> for more information.</p>
+<div class="entire" id="SetMode">
+	<h4 class="code">SetMode( <span class="code-param">mode</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt kích hoạt chế độ test world limit.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">mode</span>:<span class="code">number</span> Hằng số chế độ test world limit.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> worldLimit = <span class="word">new</span> Carem.WorldLimit( sceneObject );</li>
+				<li>worldLimit.SetMode( <span class="type">CAREM_LIMIT_CLAMP</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.WorldLimit</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="SetBound">
+	<h4 class="code">SetBound( <span class="code-param">minX</span>, <span class="code-param">minY</span>, <span class="code-param">maxX</span>, <span class="code-param">maxY</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt đường bao.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">minX</span>:<span class="code">number</span> Tọa độ x của điểm min trên đường bao.</li>
+				<li><span class="code-param">minY</span>:<span class="code">number</span> Tọa độ y của điểm min trên đường bao.</li>
+				<li><span class="code-param">maxX</span>:<span class="code">number</span> Tọa độ x của điểm max trên đường bao.</li>
+				<li><span class="code-param">maxY</span>:<span class="code">number</span> Tọa độ y của điểm max trên đường bao.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> worldLimit = <span class="word">new</span> Carem.WorldLimit( sceneObject );</li>
+				<li>worldLimit.SetBound( <span class="decimal">10</span>, <span class="decimal">10</span>, <span class="decimal">320</span>, <span class="decimal">240</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.WorldLimit</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="SetCallback">
+	<h4 class="code">SetCallback( <span class="code-param">callback</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt hàm thực thi khi xãy ra chạm world limit.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">callback</span>:<span class="code">function</span> Hàm thực thi khi sự kiện chạm world limit được tạo ra.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> worldLimit = <span class="word">new</span> Carem.WorldLimit( sceneObject );</li>
+				<li>worldLimit.SetCallback( <span class="word">function</span>()</li>
+				<li>{</li>
+				<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Do something ...</span></li>
+				<li>});</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.WorldLimit</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="TestLimit">
+	<h4 class="code">TestLimit()</h4>
+	<div class="explain">
+		<p class="note">Được dùng để kiểm tra chạm world limit.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> worldLimit = <span class="word">new</span> Carem.WorldLimit( sceneObject );</li>
+				<li>worldLimit.TestLimit();</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.WorldLimit</span> hiện tại.</p>
+		</div>
+	</div>
+</div>

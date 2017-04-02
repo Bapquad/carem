@@ -1,39 +1,359 @@
-<h1>Carem.Math</h1>
+<h1>Carem.Collision</h1>
 <h2>Giới thiệu</h2>
-<p class="note"><span class="code">Carem.Math</span> là class dùng để chứa các phương thức toán học, Carem.Math là class tĩnh, bạn có thể sử dụng trực tiếp mà không cần tạo cụ thể.</p>
+<p class="note"><span class="code">Carem.Collision</span> là class dùng để chứa các thuộc tính và phương thức quản lý, thao tác, và kiểm tra đụng chạm.</p>
 
 <h3>Thành phần dữ liệu</h3>
 
-<p class="note">You can see members of <span class="code">Carem.Vec3</span>, <span class="code">Carem.Color</span> for more information.</p>
+<div class="entire" id="minX">
+	<h4 class="code">minX</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lưu trữ tọa độ x của điểm min trên đường bao.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.minX );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="minY">
+	<h4 class="code">minY</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lưu trữ tọa độ y của điểm min trên đường bao.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.minY );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="maxX">
+	<h4 class="code">maxX</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lưu trữ tọa độ x của điểm max trên đường bao.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.maxX );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="maxY">
+	<h4 class="code">maxY</h4>
+	<div class="explain">
+		<p class="note">Được sử dụng để lưu trữ tọa độ y của điểm max trên đường bao.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.maxY );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="boundLeft">
+	<h4 class="code">boundLeft</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ đường bao bên trái.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.boundLeft );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="boundTop">
+	<h4 class="code">boundTop</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ đường bao trên cùng.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.boundTop );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="boundRight">
+	<h4 class="code">boundRight</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ đường bao bên phải.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.boundRight );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="boundBottom">
+	<h4 class="code">boundBottom</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ đường bao dưới đáy.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.boundBottom );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="centerX">
+	<h4 class="code">centerX</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ tọa độ x của điểm trung tâm.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.centerX );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="centerY">
+	<h4 class="code">centerY</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ tọa độ y của điểm trung tâm.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.centerY );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="radius">
+	<h4 class="code">radius</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ bán kính của đường tròn trong chế độ kiểm tra va chạm theo hình tròn.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.radius );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="target">
+	<h4 class="code">target</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ danh sách các mục tiêu kiểm tra đụng.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.target );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="source">
+	<h4 class="code">source</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ đối tượng sẽ được để kiểm tra, nguồn.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.source );</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="mode">
+	<h4 class="code">mode</h4>
+	<div class="explain">
+		<p class="note">Được dùng để lưu trữ chế độ dùng để kiểm tra va chạm.</p>
+		<div class="note">
+			<p>Có hai loại chế độ kiểm tra va chạm</p>
+			<ul>
+				<li><span class="code-type">CAREM_COLLISION_RECT</span> - Kiểm tra với đường bao hình chữ nhật.</li>
+				<li><span class="code-type">CAREM_COLLISION_RAD</span> - Kiểm tra với đường bao hình tròn.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision.mode );</li>
+			</ul>
+		</div>
+	</div>
+</div>
 
 <h3>Thành phần constructor</h3>
 
-<div class="entire" id="Carem.Light">
-	<h4 class="code">Carem.Light( <span class="code-param">x</span>, <span class="code-param">y</span>, <span class="code-param">z</span> )</h4>
+<div class="entire" id="Carem.Collision">
+	<h4 class="code">Carem.Collision( <span class="code-param">source</span> )</h4>
 	<div class="explain">
-		<p class="note">Creates a new <span class="code">Carem.Light</span> instance object.</p>
+		<p class="note">Tạo mới một đối tượng <span class="code">Carem.Collision</span>.</p>
 		<div class="note">
-			<p class="bold">The params</p>
+			<p class="bold">Tham số</p>
 			<ul class="param">
-				<li><span class="code-param">x</span>:<span class="code">number</span> the x-coord of the light position.</li>
-				<li><span class="code-param">y</span>:<span class="code">number</span> the y-coord of the light position.</li>
-				<li><span class="code-param">z</span>:<span class="code">number</span> the z-coord of the light position.</li>
+				<li><span class="code-param">source</span>:<span class="code">Carem.Collision</span> Đối tượng nguồn dùng để kiểm tra va chạm.</li>
 			</ul>
 		</div>
-		<p class="bold">How to use</p>
+		<p class="bold">Cách sử dụng</p>
 		<div class="code-block">
 			<ul>
-				<li><span class="word">var</span> light = <span class="word">new</span> Carem.Light( <span class="code-decimal">128.0</span>, <span class="code-decimal">128.0</span>, <span class="code-decimal">128.0</span> );</li>
-				<li>console.log( light );</li>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>console.log( collision );</li>
 			</ul>
 		</div>
 		<div class="note">
-			<p class="bold">The return</p>
-			<p>The new <span class="code">Carem.Light</span> instance object.</p>
+			<p class="bold">Giá trị trả về</p>
+			<p>Một đối tượng <span class="code">Carem.Collision</span> mới.</p>
 		</div>
 	</div>
 </div>
 
 <h3>Các hàm phương thức</h3>
 
-<p class="note">You can see methods of <span class="code">Carem.Vec3</span>, <span class="code">Carem.Color</span> for more information.</p>
+<div class="entire" id="SetBox">
+	<h4 class="code">SetBox( <span class="code-param">left</span>, <span class="code-param">top</span>, <span class="code-param">width</span>, <span class="code-param">height</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt đường bao hình chữ nhật.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">left</span>:<span class="code">number</span> Tọa độ x của vị trí điểm bắt đầu của đường bao.</li>
+				<li><span class="code-param">top</span>:<span class="code">number</span> Tọa độ y của vị trí điểm bắt đầu của đường bao.</li>
+				<li><span class="code-param">width</span>:<span class="code">number</span> Chiều rộng của đường bao.</li>
+				<li><span class="code-param">height</span>:<span class="code">number</span> Chiều cao của đường bao.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>collision.SetBox( <span class="decimal">10</span>, <span class="decimal">10</span>, <span class="decimal">300</span>, <span class="decimal">220</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.Collision</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="SetRadius">
+	<h4 class="code">SetRadius( <span class="code-param">centerX</span>, <span class="code-param">centerY</span>, <span class="code-param">radius</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt tâm và bán kính của hình tròn.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">centerX</span>:<span class="code">number</span> Tọa độ x của điểm trung tâm đường bao hình tròn.</li>
+				<li><span class="code-param">centerY</span>:<span class="code">number</span> Tọa độ y của điểm trung tâm đường bao hình tròn.</li>
+				<li><span class="code-param">radius</span>:<span class="code">number</span> Bán kính đường bao hình tròn.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>collision.SetRadius( <span class="decimal">50</span>, <span class="decimal">50</span>, <span class="decimal">30</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.Collision</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="SetMode">
+	<h4 class="code">SetMode( <span class="code-param">mode</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để cài đặt chế độ kiểm tra va chạm.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">mode</span>:<span class="code">number</span> Chế độ kiểm tra.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>collision.SetMode( <span class="type">CAREM_COLLISION_RECT</span> );</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.Collision</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="AddTarget">
+	<h4 class="code">AddTarget( <span class="code-param">target</span>, <span class="code-param">callback</span> )</h4>
+	<div class="explain">
+		<p class="note">Được dùng để thêm đối tượng kiểm tra dụng vào danh sách mục tiêu.</p>
+		<div class="note">
+			<p class="bold">Tham số</p>
+			<ul class="param">
+				<li><span class="code-param">target</span>:<span class="code">Carem.Collision</span> Mục tiêu kiểm tra.</li>
+				<li><span class="code-param">callback</span>:<span class="code">function</span> Hàm handle sự kiện khi kiểm tra.</li>
+			</ul>
+		</div>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>collision.AddTarget( target, <span class="word">function</span>() </li>
+				<li>{</li>
+				<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Do something ...</span></li>
+				<li>});</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Đối tượng <span class="code">Carem.Collision</span> hiện tại.</p>
+		</div>
+	</div>
+</div>
+
+<div class="entire" id="Test">
+	<h4 class="code">Test()</h4>
+	<div class="explain">
+		<p class="note">Được dùng để kiểm tra va chạm.</p>
+		<p class="bold">Cách sử dụng</p>
+		<div class="code-block">
+			<ul>
+				<li><span class="word">var</span> collision = <span class="word">new</span> Carem.Collision( source );</li>
+				<li>collision.Test();</li>
+			</ul>
+		</div>
+		<div class="note">
+			<p class="bold">Giá trị trả về</p>
+			<p>Giá trị void.</p>
+		</div>
+	</div>
+</div>
