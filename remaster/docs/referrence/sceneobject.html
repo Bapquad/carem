@@ -12,7 +12,7 @@
 		<div class="code-block">
 			<ul>
 				<li><span class="word">var</span> sceneObj = <span class="word">new</span> Carem.SceneObject( <span class="code-char">ctx</span> );</li>
-				<li>console.log( sceneObj );</li>
+				<li>console.log( sceneObj.context );</li>
 			</ul>
 		</div>
 	</div>
@@ -965,7 +965,7 @@
 		<div class="code-block">
 			<ul>
 				<li><span class="word">var</span> sceneObj = <span class="word">new</span> Carem.SceneObject( ctx );</li>
-				<li>sceneObj.SetFlip( <span class="type">CAREM_FLIP_VERTICAL</span> );</li>
+				<li>sceneObj.ResetFlip( <span class="type">CAREM_FLIP_VERTICAL</span> );</li>
 			</ul>
 		</div>
 		<div class="note">
@@ -1303,7 +1303,7 @@
 		<div class="code-block">
 			<ul>
 				<li><span class="word">var</span> sceneObj = <span class="word">new</span> Carem.SceneObject( ctx );</li>
-				<li>sceneObj.Enable();</li>
+				<li>sceneObj.Disable();</li>
 			</ul>
 		</div>
 		<div class="note">
