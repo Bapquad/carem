@@ -115,9 +115,17 @@ function Factory()
 						{
 							el.ShiftClass( clsn[ 2 ] ); 
 						}
+						if( clsn ) 
+						{
+							el.el5 = clsn[ 2 ];
+						}
+						else 
+						{
+							el.el5 = true;
+						}
 					} 
-					
-					el.el5 = true; 
+					else 
+						el.el5 = true; 
 					
 					return el;
 				}; 
@@ -581,8 +589,17 @@ function Factory()
 						return this;
 					}, 
 					
-					SetStyle: function( name, value, com ) 
+					AddContext: function( ctx ) 
 					{
+						if( typeof this.el5 == 'string' ) 
+						{
+							this.CssSelf.AddSelector( ctx + ' ' + this.tagName.toLowerCase() + '.' + this.el5 );
+						} 
+						return this;
+					}, 
+					
+					SetStyle: function( name, value, com ) 
+					{				
 						if( com ) 
 						{
 							if( this.CssComm )
@@ -763,8 +780,12 @@ function Factory()
 					HasClass: function( clsn, target ) 
 					{
 						var el = target || this;
-						var clsnAttr = el.getAttribute( 'class' ); 
-						return ( clsnAttr != null && clsnAttr != '' && clsnAttr.indexOf( clsn ) >= 0 ); 
+						if( el.getAttribute ) 
+						{
+							var clsnAttr = el.getAttribute( 'class' ); 
+							return ( clsnAttr != null && clsnAttr != '' && clsnAttr.indexOf( clsn ) >= 0 ); 
+						}
+						return false;
 					}, 
 					
 					RemoveClass: function( clsn ) 
@@ -902,7 +923,7 @@ function Factory()
 								this.appendChild( el );
 							}
 						}
-						return el; 
+						return this; 
 					}, 
 					
 					Equip: function( el ) 
@@ -910,12 +931,10 @@ function Factory()
 						if( el.nodeType != undefined ) 
 						{
 							var nodeType = parseInt( el.nodeType );
-
 							if( ( el.el5 && ( nodeType === 1 ) ) || nodeType === 3 ) 
 							{
 								this.appendChild( el );
 							} 
-							return el;
 						}
 						else if( el.length )
 						{
@@ -924,8 +943,8 @@ function Factory()
 							{
 								this.Equip( el[ i ] );
 							}
-						}  
-						return el;
+						}
+						return this;
 					}, 
 					
 					EquipedBy: function( el ) 
@@ -950,12 +969,12 @@ function Factory()
 						try 
 						{
 							if( el == undefined ) throw "The 'el' param is undefined.";
+							
 							if( this.nodeType === 1 ) 
 							{
 								var node = el.parentNode;
 								node.insertBefore( this, el ); 
 							}
-							return this;
 						} 
 						catch( err ) 
 						{
@@ -963,8 +982,9 @@ function Factory()
 								console.error( err );
 							else 
 								console.log( err );
-							return;
 						}
+						
+						return this;
 					}, 
 					
 					EquipAfter: function( el ) 
@@ -972,6 +992,7 @@ function Factory()
 						try 
 						{
 							if( el == undefined ) throw "The 'el' param is undefined."; 
+							
 							if( this.nodeType === 1 ) 
 							{
 								var node = el.nextElementSibling;
@@ -986,7 +1007,6 @@ function Factory()
 									node.appendChild( this );
 								}
 							}
-							return this;
  						}
 						catch( err ) 
 						{
@@ -994,25 +1014,32 @@ function Factory()
 								console.error( err );
 							else 
 								console.log( err ); 
-							return;
 						}
+						
+						return this;
 					}, 
 					
 					Clone: function( deep ) 
 					{
+						if( deep == undefined ) 
+						{
+							deep = true;
+						}
+						
 						var el = this;
-						var elc = el.cloneNode( true ); 
-						elc.clonedBy = true;
+						var elCloned = el.cloneNode( deep ); 
+						elCloned.clonedBy = true;
+						
 						return element5( elc );
 					},
 					
 					EnterFullscreen: ( function() 
 					{
-						Element.prototype.requestFullscreen = Element.prototype.webkitRequestFullscreen || Element.prototype.mozRequestFullScreen || Element.prototype.msRequestFullscreen || Element.prototype.requestFullscreen;
-						Element.prototype.exitFullscreen = Element.prototype.webkitExitFullscreen || Element.prototype.mozCancelFullScreen || Element.prototype.msExitFullscreen || Element.prototype.exitFullscreen;
+						// Element.prototype.requestFullscreen = Element.prototype.webkitRequestFullscreen || Element.prototype.mozRequestFullScreen || Element.prototype.msRequestFullscreen || Element.prototype.requestFullscreen;
+						// Element.prototype.exitFullscreen = Element.prototype.webkitExitFullscreen || Element.prototype.mozCancelFullScreen || Element.prototype.msExitFullscreen || Element.prototype.exitFullscreen;
 						// Element.prototype.onfullscreenerror = Element.prototype.onmozfullscreenerror || Element.prototype.onmsfullscreenerror || Element.prototype.onfullscreenerror;
-						Element.prototype.onfullscreenchange = Element.prototype.onmozfullscreenchange || Element.prototype.onmsfullscreenchange || Element.prototype.onfullscreenchange;
-						document.exitFullscreen = document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen || document.exitFullscreen;
+						// Element.prototype.onfullscreenchange = Element.prototype.onmozfullscreenchange || Element.prototype.onmsfullscreenchange || Element.prototype.onfullscreenchange;
+						// document.exitFullscreen = document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen || document.exitFullscreen;
 						// document.onfullscreenerror = document.onwebkitfullscreenerror || document.onmozfullscreenerror || document.onmsfullscreenerror || document.onfullscreenerror;
 						// document.onfullscreenchange = document.onwebkitfullscreenchange || document.onmozfullscreenchange || document.onmsfullscreenchange || document.onfullscreenchange;
 						
@@ -1021,6 +1048,8 @@ function Factory()
 							var el = targetElement || this; 
 							el.requestFullscreen(); 
 							el.fullscreenElement = true;
+							
+							return this;
 						}; 
 					})(), 
 					
@@ -1029,6 +1058,8 @@ function Factory()
 						var el = targetElement || this; 
 						document.exitFullscreen(); 
 						el.fullscreenElement = false;
+						
+						return this;
 					}, 
 					
 					ToggleFullscreen: function( targetElement ) 
@@ -1044,7 +1075,7 @@ function Factory()
 							document.exitFullscreen(); 
 							el.fullscreenElement = false;
 						}
-						return el;
+						return this;
 					},
 				}; 
 				// Alias Section for Element DOM Modifier.
@@ -1054,16 +1085,18 @@ function Factory()
 				{
 					includeHTML: function() 
 					{
-						element5.includeHtml( this ); 
-						return this;
+						var el = this;
+						element5.includeHtml( el ); 
+						return el;
 					},
 				};
 				
 				var AniModifier = {
 					EffectedBy: function( timeline, duration, delay, timing ) 
 					{
-						timeline.Effect( this, duration, delay, timing ); 
-						return this;
+						var el = this;
+						timeline.Effect( el, duration, delay, timing ); 
+						return el;
 					}, 
 				};
 				AniModifier.Animation = AniModifier.EffectedBy;
@@ -1134,7 +1167,7 @@ function Factory()
 								{
 									if( item.indexOf( name ) === 2 ) 
 									{
-										el.BackData[ index ] = ( '{"' + name + '":' + el.JSonString( value ) + '}' ); 
+										el.BackData[ i ] = ( '{"' + name + '":' + el.JSonString( value ) + '}' ); 
 										return el;
 									}
 								}
@@ -1155,6 +1188,12 @@ function Factory()
 					GetData: function( name ) 
 					{
 						var el = this;
+						
+						if( el.BackData == undefined ) 
+						{
+							return null;
+						}
+						
 						if( name == undefined && el.BackData != undefined ) 
 						{
 							return el.BackData; 
@@ -1457,6 +1496,7 @@ function Factory()
 						trace = trace || false;
 						var el = this;
 						el.addEventListener( eventType, eventHandle, trace );
+						return el;
 					}, 
 					
 					FireEvent: function( eventType ) 
@@ -1519,6 +1559,8 @@ function Factory()
 							event.synthetic = true; // allow detection of synthetic events
 							el.fireEvent( "on" + eventType, event );
 						}
+						
+						return el;
 					}, 
 					
 					Draggable: function( home ) 
@@ -1582,7 +1624,7 @@ function Factory()
 									console.error( err ); 
 								else 
 									console.log( err ); 
-								return;
+								return el;
 							}
 						} 
 						
@@ -1632,7 +1674,7 @@ function Factory()
 									console.error( err ); 
 								else 
 									console.log( err );
-								return;
+								return el;
 							}
 						} 
 						
@@ -1688,7 +1730,7 @@ function Factory()
 									console.error( err ); 
 								else 
 									console.log( err ); 
-								return;
+								return el;
 							} 
 						}
 						
@@ -2323,8 +2365,9 @@ function Factory()
 					},
 					SetStyle: function( name, value ) 
 					{
-						this.style[name] = value;
-						return this;
+						var rule = this;
+						rule.style[name] = value;
+						return rule;
 					}, 
 					
 					css: function() 
@@ -2341,29 +2384,32 @@ function Factory()
 					
 					Css: function() 
 					{
+						var rule = this;
 						if( arguments.length ) 
 						{
 							if( arguments.length == 1 )
-								this.SetStyles( arguments[0] );
+								rule.SetStyles( arguments[0] );
 							else if( arguments.length == 2 ) 
-								this.SetStyle( arguments[0], arguments[1] );
+								rule.SetStyle( arguments[0], arguments[1] );
 						}
-						return this;
+						return rule;
 					},
 					
 					AddStyle: function( name, value ) 
 					{
-						this.style[name] = value;
-						return this;
+						var rule = this;
+						rule.style[name] = value;
+						return rule;
 					}, 
 					
 					SetStyles: function( styles ) 
 					{
+						var rule = this;
 						for( x in styles) 
 						{
-							this.SetStyle( x, styles[x] );
+							rule.SetStyle( x, styles[x] );
 						} 
-						return this;
+						return rule;
 					}, 
 				}; 
 				
@@ -2561,7 +2607,13 @@ function Factory()
 					
 					Action: function( topIndex ) 
 					{
+						if( topIndex == undefined ) 
+						{
+							topIndex = 0;
+						}
+						
 						var motion = this;
+						
 						motion.topIndex = topIndex; 
 						
 						var topOffset = ( topIndex * parseInt( motion.height ) );
@@ -3122,7 +3174,7 @@ function Factory()
 				
 				var dataModifier = 
 				{
-					readVariables: function( text ) 
+					ReadVariables: function( text ) 
 					{
 						text = text || this.responseText;
 						var pat = /([\w\_]+)=([^\&]+)/gi;
@@ -3142,12 +3194,12 @@ function Factory()
 							return result;
 						}
 					}, 
-					parseJSON: function( jsonText ) 
+					ParseJSON: function( jsonText ) 
 					{
 						jsonText = jsonText || this.responseText; 
 						return JSON.parse( jsonText );
 					}, 
-					readJSON: function( jsonText ) 
+					ReadJSON: function( jsonText ) 
 					{
 						jsonText = jsonText || this.responseText;
 						return JSON.parse( jsonText );
@@ -3165,6 +3217,11 @@ function Factory()
 						element5.Extend( xhr, dataModifier );
 						xhr.connect = xhr.Connect;
 						return xhr;
+					}, 
+					
+					Instance: function( url, data ) 
+					{
+						return Request.Initialize( url, data );
 					}, 
 					
 					Connect: function( url, onload, data ) 
@@ -3434,8 +3491,8 @@ function Factory()
 							default:
 								return null;
 						}
-					}, 
-					open: function( storageType ) 
+					},
+					Open: function( storageType ) 
 					{
 						try 
 						{
@@ -3574,12 +3631,24 @@ function Factory()
 								{
 									GetValue: function() 
 									{
-										return this.value.data;
+										var record = this;
+										if( record.destroyed )
+										{
+											return;
+										}
+										return record.value.data;
 									}, 
 									
 									Destroy: function() 
 									{
 										var record = this;
+										
+										if( record.destroyed )
+										{
+											return;
+										}
+										
+										record.destroyed = true;
 										
 										var cookieString = 
 										[
@@ -3599,6 +3668,23 @@ function Factory()
 									SetValue: function( data )
 									{
 										var record = this; 
+										
+										try 
+										{
+											if( record.destroyed ) throw "This item had been destroyed.";
+										}
+										catch( err ) 
+										{
+											if( console.error ) 
+											{
+												console.error( err );
+											}
+											else 
+											{
+												console.log( err );
+											}
+											return;
+										}
 										
 										record.value.data = data;
 										
@@ -3712,20 +3798,23 @@ function Factory()
 										
 										if( arguments.length == 1 ) 
 										{
-											if( myCore.Public[ key ] != undefined ) 
-											{
-												return myCore.Public[ key ];
-											}
-											
+											records = loadDB();
 											var len = records.length;
-											
 											for ( var i = 0; i < len; i++ ) 
 											{
 												var item = records[ i ];
 												if( item.key == key && item.value.meta.branch == "/" ) 
 												{
-													return myCore.Public[ key ] = element5.Extend( item, recordModifier ); 
+													if( myCore.Public[ key ] == undefined ) 
+													{
+														myCore.Public[ key ] = element5.Extend( item, recordModifier );
+													}
+													return myCore.Public[ key ]; 
 												}
+											}
+											if( myCore.Public[ key ] != undefined ) 
+											{
+												myCore.Public[ key ].Destroy();
 											}
 											return;
 										} 
@@ -3953,17 +4042,30 @@ function Factory()
 									Remove: function() 
 									{
 										var item = this;
+										if( item.removed ) 
+										{
+											return;
+										}
+										item.removed = true;
 										keyInput = 'lds_id ' + item.id + ' ' + item.key; 
 										storageAdapter.removeItem( keyInput );
 									}, 
 									GetValue: function() 
 									{
 										var item = this;
+										if( item.removed ) 
+										{
+											return;
+										}
 										return item.value.value.data;
 									}, 
 									SetValue: function( data ) 
 									{
 										var item = this;
+										if( item.removed ) 
+										{
+											return;
+										}
 										keyInput = 'lds_id ' + item.id + ' ' + item.key; 
 										item.value.value.data = data; 
 										storageAdapter.setItem( keyInput, JSON.stringify( item.value ) );
@@ -4201,7 +4303,7 @@ function Factory()
 									
 									Empty: function() 
 									{
-										storageAdapter
+										//storageAdapter
 									}
 								};
 								
@@ -4662,6 +4764,610 @@ function Factory()
 							}
 						}
 					})(), 
+					
+					// Not documentation
+					Watch: (function() 
+					{
+						function _extendArray(arr, callback, framework) {
+							if (arr.__wasExtended === true) return;
+
+							function generateOverloadedFunction(target, methodName, self) {
+								return function () {
+									var oldValue = Array.prototype.concat.apply(target);
+									var newValue = Array.prototype[methodName].apply(target, arguments);
+									target.updated(oldValue, motive);
+									return newValue;
+								};
+							}
+							arr.updated = function (oldValue, self) {
+								callback.call(this, 'items', oldValue, this, motive);
+							};
+							motive = undefined || 'motive';
+							arr.concat = generateOverloadedFunction(arr, 'concat', motive);
+							arr.join = generateOverloadedFunction(arr, 'join', motive);
+							arr.pop = generateOverloadedFunction(arr, 'pop', motive);
+							arr.push = generateOverloadedFunction(arr, 'push', motive);
+							arr.reverse = generateOverloadedFunction(arr, 'reverse', motive);
+							arr.shift = generateOverloadedFunction(arr, 'shift', motive);
+							arr.slice = generateOverloadedFunction(arr, 'slice', motive);
+							arr.sort = generateOverloadedFunction(arr, 'sort', motive);
+							arr.splice = generateOverloadedFunction(arr, 'splice', motive);
+							arr.unshift = generateOverloadedFunction(arr, 'unshift', motive);
+							arr.__wasExtended = true;
+
+							return arr;
+						}
+						
+						return function(target, prop, handler) 
+						{
+							if (target.__lookupGetter__(prop) != null) {
+								return true;
+							}
+							var oldval = target[prop],
+								newval = oldval,
+								self = this,
+								getter = function () {
+									return newval;
+								},
+								setter = function (val) {
+									if (Object.prototype.toString.call(val) === '[object Array]') {
+										val = _extendArray(val, handler, self);
+									}
+									oldval = newval;
+									newval = val;
+									handler.call(target, prop, oldval, val);
+								};
+							if (delete target[prop]) { // can't watch constants
+								if (Object.defineProperty) { // ECMAScript 5
+									Object.defineProperty(target, prop, {
+										get: getter,
+										set: setter,
+										enumerable: false,
+										configurable: true
+									});
+								} else if (Object.prototype.__defineGetter__ && Object.prototype.__defineSetter__) { // legacy
+									Object.prototype.__defineGetter__.call(target, prop, getter);
+									Object.prototype.__defineSetter__.call(target, prop, setter);
+								}
+							}
+							return this;
+						};
+					})(),
+					
+					// Not Documentation
+					Unwatch: ( function() 
+					{
+						return function(target, prop) 
+						{
+							var val = target[prop];
+							delete target[prop]; // remove accessors
+							target[prop] = val;
+							return this;
+						};
+					})(),
+					
+					Routing: ( function() 
+					{
+						return ( function() 
+						{
+							var agrs = Array.from( arguments ), routes, d = arguments[ arguments.length - 1 ], a = arguments[ 0 ];
+							if( d instanceof Function ) 
+							{
+								routes = agrs.splice( 0, agrs.length-1 );
+							} 
+							else 
+							{
+								d = undefined;
+								routes = agrs;
+							}
+							
+							if( a.__vmodel ) 
+							{
+								routes = routes.splice( a.__vmodel );
+							}
+							
+							var f = function() 
+							{
+								var hash = window.location.hash, vars;
+								if( hash.indexOf( '{' ) > -1 && hash.lastIndexOf( '}' ) > -1 ) 
+								{
+									vars = hash.slice( hash.indexOf( '{' ) + 1, hash.lastIndexOf( '}' ) );
+								}
+								
+								hash = (vars) ? hash.slice( 0, hash.indexOf( '{' ) ) : hash;
+								
+								var route = routes.filter( function( c ) 
+								{
+									return hash === c.hash;
+								});
+								
+								if( route.length )
+								{
+									var r = route[ 0 ];
+									var c = r.todo;
+									document.title = r.title;
+									
+									$_get = new Object();
+									if(vars) 
+									{
+										vars = vars.split( ';' );
+										for( var i = 0; i < vars.length; i++ ) 
+										{
+											inp = (/([a-zA-Z0-9\_]+)=([a-zA-Z0-9\_]+)/g).exec( vars[ i ].trim() );
+											$_get[ inp[ 1 ] ] = inp[ 2 ];
+										}
+									}
+									c.apply( ( a.__vmodel ) ? a : window, [ $_get ] );
+									delete window[ '$_get' ];
+								}
+							};
+							
+							window.onpopstate = f;
+
+							if( d ) 
+							{
+								d.apply( window, [routes] );
+							}
+							
+							return f;
+						});
+					})(),
+					
+					Computed: ( function() 
+					{
+						return (function( f ) 
+						{
+							return { 'computed':false, 'callback': f };
+						});
+					})(),
+					
+					Binding: ( function() 
+					{
+						return ( function( viewmodel, context ) 
+						{
+							var root = ( viewmodel instanceof Function ) ? new viewmodel() : viewmodel;
+							var doc = ( !!context && context !== undefined && typeof context === 'string' ) ? document.getElementById( context ) : document;
+							
+							var events = [ 'click', 'mouseup', 'mousedown', 'mouseleave', 'mouseover', 'mouseout', 'change', 'keydown', 'keyup', 'blur', 'focus' ];
+							var lotas = [ 'text', 'html', 'value', 'src', 'href' ];
+							var loops = [ 'each', 'list' ];
+							var funcs = [ 'method', 'function', 'visible', 'disable', 'select' ];
+							
+							function eventIs( t ) 
+							{
+								var r = events.filter( function( c ) 
+								{
+									return c === t;
+								});
+								return ( r.length ) ? true : false;
+							}
+							
+							function lotaIs( t ) 
+							{
+								var r = lotas.filter( function( c ) 
+								{
+									return c === t;
+								});
+								return ( r.length ) ? true : false;
+							}
+							
+							function loopIs( t ) 
+							{
+								var r = loops.filter( function( c ) 
+								{
+									return c === t;
+								});
+								return ( r.length ) ? true : false;
+							}
+							
+							function funcIs( t ) 
+							{
+								var r = funcs.filter( function( c ) 
+								{
+									return c === t;
+								});
+								return ( r.length ) ? true : false;
+							}
+							
+							function toqs( t, p ) 
+							{
+								return '[data-' + t + '=' + p + ']';
+							}
+							
+							function toels( q, ctx ) 
+							{
+								var result = [];
+								
+								if( ctx.length ) 
+								{
+									for( var i = 0; i < ctx.length; i++ ) 
+									{
+										if( ctx[ i ].tagName.toLowerCase() == 'option' ) 
+										{
+											var item = ctx[ i ];
+											q = q.substr(1);
+											q = q.substr(0,q.lastIndexOf(']')).trim();
+											q = q.split( '=' );
+											for( var k = 0; k < item.attributes.length; k++ ) 
+											{
+												var attr = item.attributes[ k ];
+												if( attr.name == q[ 0 ] && attr.value == q[ 1 ] ) 
+												{
+													result = result.concat( item );
+													break;
+												}
+											}
+										}
+										else 
+										{
+											var narr = toels( q, ctx[ i ] );
+											result = result.concat( narr );
+										}
+									}
+								}
+								else 
+								{
+									result = Array.from( ctx.querySelectorAll( q ) );
+								}
+								return result;
+							}
+							
+							function applyEvent( obj, p, et, el, id ) 
+							{
+								if( !el.binding ) 
+								{
+									el.binding = { update: id };
+								}
+								else 
+								{
+									el.binding.update = id;
+								}
+								
+								var callback = obj[ p ];
+								function eh( e ) 
+								{
+									e.preventDefault();
+									callback.call( obj, e );
+								}
+								el.addEventListener( et, eh );
+							}
+							
+							function addEvent( obj, p, et, ct, id ) 
+							{
+								var els = toels( toqs( et, p ), ct );
+								
+								els.forEach( function( el ) 
+								{
+									if( el.eventRooted ) 
+									{
+										return;
+									}
+									
+									applyEvent( obj, p, et, el, id );
+								});
+							}
+							
+							function trace( p, ctx, id ) 
+							{
+								console.log( '[', 'property: ' + '"' + p + '"', 'context:', ctx, 'id: ' + id, ']' );
+							}
+							
+							function collecting( o, p, ctx, id ) 
+							{
+								var lim = lotas.length;
+								var collect = [];
+								for( var i = 0; i < lim; i++ ) 
+								{
+									var ta = lotas[ i ];
+									var els = toels( toqs( ta, p ), ctx );
+									if( els.length ) 
+									{
+										collect = collect.concat( els );
+									}
+								}
+								
+								return collect;
+							}
+							
+							function bindValue() 
+							{
+								
+							}
+							
+							function binding( o, p, ctx, id ) 
+							{
+trace( p, ctx, id );/////////////////////////////////////////////////
+								var ct = ctx || doc;
+								var v = o[ p ];
+								var pt = v.constructor;
+								
+								switch( pt ) 
+								{
+									case Object:
+										if( !v.computed && v.callback ) 
+										{
+											var c = v.callback;
+											v.computed = true;
+											o.computed.push( { p:p, c:c } );
+											o[ p ] = v.callback.apply( o );
+										}
+									case String:
+									case Number:
+										v = ( pt != String ) ? v.toString() : v;
+										o.context = ct;
+										observeAuto( o, p, function( pn, oVal, nVal )
+										{
+											var cb = collecting( o, p, o.context, id );
+											cb.forEach( function( el ) 
+											{
+												var attrs = Array.from( el.attributes );
+												for( var i = 0; i < attrs.length; i++ ) 
+												{
+													var attr = attrs[ i ];
+													if( attr.name.indexOf( 'data-' ) < 0 || p != attr.value ) 
+													{
+														continue;
+													}
+													
+													var extp = attr.name.replace( 'data-', '' ).trim();
+													
+													if( extp == 'text' ) 
+													{
+														el.textContent = nVal;
+													}
+													else if( extp == 'html' ) 
+													{
+														el.innerHTML = nVal;
+													}
+													else
+													{
+														el.setAttribute( extp, nVal );
+														if( el.nodeName.toLowerCase().trim() == 'input' && el.type == undefined || el.type == 'text' ) 
+														{
+															el.addEventListener( 'change', function( e ) 
+															{
+																o[ p ] = e.target.value;
+															});
+														}
+													}
+												}
+											}); 
+										}, ct);
+										break;
+									case Array:
+										observeAuto( o, p, function( pn, oVal, nVal ) 
+										{
+											var els = [];
+											var a = nVal;
+											
+											for( var i = 0; i < loops.length; i++ ) 
+											{
+												els = els.concat( toels( toqs( loops[ i ], p ), ct ) );
+											}
+											
+											if( a.length )
+											{
+												for( var i = 0; i < a.length; i++ ) 
+												{
+													var templates = new Array();
+													els.forEach( function( el )
+													{
+														var template = el.firstElementChild;
+														
+														if( i > 0 ) 
+														{
+															template = template.cloneNode( true );
+															el.appendChild( template );
+														}
+														else 
+														{
+															if( template == null ) 
+															{
+																template = el.template;
+																el.innerHTML = template;
+															}
+															else 
+															{
+																el.innerHTML = template.outerHTML;
+															}
+													
+															template = el.firstElementChild;
+														}
+														
+														if( !template.binding ) 
+														{
+															template.binding = { update: i };
+														}
+														else 
+														{
+															template.binding.update = i;
+														}
+														for( var j = 0; j < events.length; j++ ) 
+														{
+															var et = events[ j ];
+															for( var k = 0; k < root.funcRoot.length; k++ ) 
+															{
+																var els = toels( toqs( et, root.funcRoot[ k ] ), template );
+																
+																els.forEach( function( el ) 
+																{
+																	if( !el.eventRooted ) 
+																	{
+																		el.eventRooted = root.funcRoot[ k ];
+																		applyEvent( root, el.eventRooted, et, el, i );
+																	}
+																});
+															}
+														}
+														
+														templates.push( template );
+													});
+													initProperty( a[ i ], templates, i );
+												}
+											} 
+											else 
+											{
+												els.forEach( function( el ) 
+												{
+													var template = el.firstElementChild;
+													if( template != null ) 
+													{
+														el.template = el.firstElementChild.outerHTML;
+													}
+													el.innerHTML = '';
+												});
+											}
+										}, ct);
+										break;
+									case Function: 
+									default:
+										for( var i = 0; i < events.length; i++ ) 
+										{
+											var et = events[ i ];
+											addEvent( o, p, et, ct, id );
+										}
+										break;
+								}
+							}
+							
+							function observeAuto( o, p, c ) 
+							{
+								if( !o.observed.filter(function(c){return c==p}).length ) 
+								{
+									o.observed.push( p );
+									
+									if( o[p] instanceof Array ) 
+									{
+										var bkv = o[ p ];
+										o[ p ] = '';
+										solution5.Watch( o, p, function( pn, ov, nv ) 
+										{
+											c.apply( o, [ pn, ov, nv ] );
+											computeAuto( o );
+										});
+										o[p] = bkv;
+										return;
+									}
+									else 
+									{
+										solution5.Watch( o, p, function( pn, ov, nv ) 
+										{
+											c.apply( o, [ pn, ov, nv ] ); 
+											if( !o.computed.filter( function( c ) { return p == c.p; } ).length ) 
+											{
+												computeAuto( o );
+											}
+										});
+									}
+								} 
+								c.apply( o, [ p, '', o[p]] );
+							}
+							
+							function computeAuto( o ) 
+							{
+								var lim = o.computed.length;
+								for( var i = 0; i < lim; i++ ) 
+								{
+									var p = o.computed[ i ].p;
+									var c = o.computed[ i ].c;
+									o[ p ] = c.apply( o );
+								}
+							}
+							
+							function initProperty( o, ctx, id ) 
+							{
+								var ct = ctx || doc;
+								
+								if( o.propList == undefined ) 
+								{
+									o.propList = new Array();
+									for( var p in o ) 
+									{
+										if( p === 'funcRoot' || 
+											p === 'dataList' || 
+											p === 'propList' || 
+											p === 'computed' || 
+											p === 'observed' || 
+											( p === 'remove' && id == undefined ) ) 
+										{
+											continue;
+										}
+										o.propList.push( p );
+									}
+								}
+								
+								if( o.funcRoot == undefined && id == undefined ) 
+								{
+									o.funcRoot = new Array();
+									for( var p in o ) 
+									{
+										if( o[ p ] instanceof Function ) 
+										{
+											o.funcRoot.push( p );
+										}
+									}
+								}
+								
+								if( o.dataList == undefined && id == undefined )
+								{
+									o.dataList = new Array();
+									for( var p in o ) 
+									{
+										if( o[ p ] instanceof Array ) 
+										{
+											if( p === 'funcRoot' || 
+												p === 'dataList' || 
+												p === 'propList' || 
+												p === 'computed' || 
+												p === 'observed' || 
+												( p === 'remove' && id == undefined ) ) 
+											{
+												continue;
+											}
+											o.dataList.push( p );
+										}
+									}
+								}
+								
+								if( o.computed == undefined ) 
+								{
+									o.computed = [];
+								}
+								
+								if( o.observed == undefined ) 
+								{
+									o.observed = [];
+								}
+								
+								var propList = o.propList;
+								
+								for( var i = 0; i < propList.length; i++ ) 
+								{
+									var p = propList[ i ];
+									binding( o, p, ct, id );
+								} 
+							}
+							
+							initProperty( root, doc );
+							
+							root.remove = function( a, id ) 
+							{
+								return a.splice( id, 1 );
+							};
+							
+							root.__vmodel = 1;
+							return root;
+						});
+					})(),
+					
+					ObserveArray: function( arr, d ) 
+					{
+						var obj = new Object();
+						obj.observe = 'observe';
+						solution5.Watch( obj, obj.observe, function( propName, oldVal, newVal ) { d() });
+						obj.observe = arr;
+						return arr;
+					},
 					
 					// TODO:
 					RequestWorker: function ( scriptPath, onMessage ) 

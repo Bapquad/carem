@@ -75,9 +75,13 @@ var CAREM_LOOP_KILL = 0;
 var CAREM_LOOP_CYCLE = 1;
 var CAREM_COLLISION_RECT = 0;
 var CAREM_COLLISION_RAD = 1;
+var CAREM_ACTX = 0;
 
 if (!window.Float32Array)
 	Float32Array = Array; 
+
+/** Global Audio Context */
+window.AudioContext = window.AudioContext||window.webkitAudioContext;
 	
 /**
  * Object Extends Functions
@@ -142,66 +146,96 @@ Carem.Layer = function( canvasId )
 	var LAYRoot = this;
 	this.DOMElement = document.getElementById(canvasId);
 	this.context = this.DOMElement.getContext("2d");
+	this.width = this.DOMElement.width;
+	this.height = this.DOMElement.height;
 	this.x = 0;
 	this.y = 0;
 	this.childList = new Array();
 	this.buttonList = new Array();
 	this.fillStyle = 0;
 	this.ratio = 1.0;
-	this.DOMElement.addEventListener("mousedown", function(e) 
+
+	if(this.DOMElement.CaremSDK==undefined) 
 	{
-		var size = LAYRoot.buttonList.length;
-		var mpx = e.layerX | e.clientX;
-		var mpy = e.layerY | e.clientY;
-		for(var i=0;i<size;i++) 
+		this.DOMElement.CaremSDK = {
+			"layers": [LAYRoot], 
+		};
+
+		this.DOMElement.addEventListener("mousedown", function(e)
 		{
-			if(mpx > LAYRoot.buttonList[i].x
-			&& mpx < LAYRoot.buttonList[i].x+LAYRoot.buttonList[i].width
-			&& mpy > LAYRoot.buttonList[i].y
-			&& mpy < LAYRoot.buttonList[i].y+LAYRoot.buttonList[i].height
-			&& LAYRoot.buttonList[i].mouseDownCallback != 0
-			&& LAYRoot.buttonList[i].enable) 
+			var DOMElement = e.target;
+			var mpx = (e.layerX | e.clientX)/(DOMElement.clientWidth/DOMElement.width);
+			var mpy = (e.layerY | e.clientY)/(DOMElement.clientHeight/DOMElement.height);
+			var len = DOMElement.CaremSDK.layers.length;
+			for(var i=0; i<len; i++) 
 			{
-				LAYRoot.buttonList[i].mouseDownCallback(e);
+				var layer = DOMElement.CaremSDK.layers[i];
+				var buttonLen = layer.buttonList.length;
+				for(var k=0;k<buttonLen;k++) 
+				{
+					if(mpx > layer.buttonList[k].x
+					&& mpx < layer.buttonList[k].x+layer.buttonList[k].width
+					&& mpy > layer.buttonList[k].y
+					&& mpy < layer.buttonList[k].y+layer.buttonList[k].height
+					&& layer.buttonList[k].mouseDownCallback != 0
+					&& layer.buttonList[k].enable) 
+					{
+						layer.buttonList[k].mouseDownCallback(e);
+					}
+				}
 			}
-		}
-	}, false);
-	this.DOMElement.addEventListener("mousemove", function(e) 
+		});
+		this.DOMElement.addEventListener("mouseup", function(e) {
+			var DOMElement = e.target;
+			var mpx = (e.layerX | e.clientX)/(DOMElement.clientWidth/DOMElement.width);
+			var mpy = (e.layerY | e.clientY)/(DOMElement.clientHeight/DOMElement.height);
+			var len = DOMElement.CaremSDK.layers.length;
+			for(var i=0; i<len; i++) 
+			{
+				var layer = DOMElement.CaremSDK.layers[i];
+				var buttonLen = layer.buttonList.length;
+				for(var k=0;k<buttonLen;k++) 
+				{
+					if(mpx > layer.buttonList[k].x
+					&& mpx < layer.buttonList[k].x+layer.buttonList[k].width
+					&& mpy > layer.buttonList[k].y
+					&& mpy < layer.buttonList[k].y+layer.buttonList[k].height
+					&& layer.buttonList[k].mouseUpCallback != 0
+					&& layer.buttonList[k].enable) 
+					{
+						layer.buttonList[k].mouseUpCallback(e);
+					}
+				}
+			}
+		});
+		this.DOMElement.addEventListener("mouseover", function(e) {
+			var DOMElement = e.target;
+			var mpx = (e.layerX | e.clientX)/(DOMElement.clientWidth/DOMElement.width);
+			var mpy = (e.layerY | e.clientY)/(DOMElement.clientHeight/DOMElement.height);
+			var len = DOMElement.CaremSDK.layers.length;
+			for(var i=0; i<len; i++) 
+			{
+				var layer = DOMElement.CaremSDK.layers[i];
+				var buttonLen = layer.buttonList.length;
+				for(var k=0;k<buttonLen;k++) 
+				{
+					if(mpx > layer.buttonList[k].x
+					&& mpx < layer.buttonList[k].x+layer.buttonList[k].width
+					&& mpy > layer.buttonList[k].y
+					&& mpy < layer.buttonList[k].y+layer.buttonList[k].height
+					&& layer.buttonList[k].mouseOverCallback != 0
+					&& layer.buttonList[k].enable) 
+					{
+						layer.buttonList[k].mouseOverCallback(e);
+					}
+				}
+			}
+		});
+	} 
+	else 
 	{
-		var size = LAYRoot.buttonList.length;
-		var mpx = e.layerX | e.clientX;
-		var mpy = e.layerY | e.clientY;
-		for(var i=0;i<size;i++) 
-		{
-			if(mpx > LAYRoot.buttonList[i].x
-			&& mpx < LAYRoot.buttonList[i].x+LAYRoot.buttonList[i].width
-			&& mpy > LAYRoot.buttonList[i].y
-			&& mpy < LAYRoot.buttonList[i].y+LAYRoot.buttonList[i].height
-			&& LAYRoot.buttonList[i].mouseOverCallback != 0
-			&& LAYRoot.buttonList[i].enable) 
-			{
-				LAYRoot.buttonList[i].mouseOverCallback(e);
-			}
-		}
-	}, false);
-	this.DOMElement.addEventListener("mouseup", function(e) 
-	{
-		var size = LAYRoot.buttonList.length;
-		var mpx = e.layerX | e.clientX;
-		var mpy = e.layerY | e.clientY;
-		for(var i=0;i<size;i++) 
-		{
-			if(mpx > LAYRoot.buttonList[i].x
-			&& mpx < LAYRoot.buttonList[i].x+LAYRoot.buttonList[i].width
-			&& mpy > LAYRoot.buttonList[i].y
-			&& mpy < LAYRoot.buttonList[i].y+LAYRoot.buttonList[i].height
-			&& LAYRoot.buttonList[i].mouseUpCallback != 0
-			&& LAYRoot.buttonList[i].enable) 
-			{
-				LAYRoot.buttonList[i].mouseUpCallback(e);
-			}
-		}
-	}, false);
+		this.DOMElement.CaremSDK["layers"].push(LAYRoot);
+	} 
 
 	this.GetChilds		= function() { return this.childList; };
 	this.GetButtons		= function() { return this.buttonList; };
@@ -215,20 +249,20 @@ Carem.Layer = function( canvasId )
 	
 	this.SetWidth = function( value )  
 	{
-		this.DOMElement.width = value;
+		this.width = value;
 		return this;
 	};
 	
 	this.SetHeight = function( value ) 
 	{
-		this.DOMElement.height = value;
+		this.height = value;
 		return this;
 	};
 	
 	this.SetSize = function( width, height ) 
 	{
-		this.DOMElement.width = width;
-		this.DOMElement.height = height;
+		this.width = width;
+		this.height = height;
 		return this;
 	};
 
@@ -279,7 +313,7 @@ Carem.Layer = function( canvasId )
 	this.SetBackground = function( r, g, b, a ) 
 	{
 		this.fillStyle = "rgba("+r+", "+g+", "+b+", "+a+")";
-		return;
+		return this;
 	};
 	
 	this.AddChild = function( child ) 
@@ -300,16 +334,36 @@ Carem.Layer = function( canvasId )
 		this.context.setTransform(1, 0, 0, 1, this.x, this.y);
 		this.context.fillStyle = this.fillStyle;
 		this.context.fillRect(0, 0, this.DOMElement.width, this.DOMElement.height);
+		return this;
 	};
 	
 	this.Clear = function() 
 	{
 		this.context.clearRect(0, 0, this.DOMElement.width, this.DOMElement.height);
+		return this;
+	};
+
+	this.Remove = function( child ) 
+	{
+		child.delFlag = true;
+		var childs = this.childList;
+		var len = childs.length;
+		for(var i=0;i<len;i++) 
+		{
+			if( childs[i].delFlag ) 
+			{
+				delete childs[i];
+				childs.splice( i, 1 );
+				break;
+			}
+		} 
+		return this;
 	};
 	
 	this.Zoom = function( percent ) 
 	{
 		this.ratio = percent/100;
+		return this;
 	};
 	
 	this.Swap = function() 
@@ -319,16 +373,17 @@ Carem.Layer = function( canvasId )
 		var lim = this.childList.length;
 		for(var i=0;i<lim;i++) 
 		{
-			if(!this.childList[i].visible)
+			var childNode = this.childList[i];
+			if(!childNode.visible||childNode.delFlag)
 				continue;
 			this.context.save();
-			this.childList[i].Draw(this.ratio, this.x, this.y);
+			childNode.Draw(this.ratio, this.x, this.y);
 			this.context.restore();
-			this.childList[i].UpdateMask();
+			childNode.UpdateMask();
 		}
 		this.context.restore();
 	}
-	
+
 	/** Events */
 	this.addEventListener = function( e, c, t ) 
 	{
@@ -579,49 +634,112 @@ Carem.AssetManager = function( imgExtDesc, sndExtDesc )
 		
 		var file;
 		var type = this.GetType( p );
+		var obj = {
+			path:p, 
+			type:type, 
+			ready:false, 
+		};
 		switch(type) {
 			case CAREM_QUEUE_IMAGE:
 				file = new Image();
 				break;
 			case CAREM_QUEUE_SOUND:
 				file = new Audio();
-				break;
+				obj["Play"] = function(loop) 
+				{
+					if(CAREM_ACTX) 
+					{
+						var source = CAREM_ACTX.createBufferSource();
+						if(loop) source.loop = true;
+						source.buffer = obj["buffer"];
+						source.connect(CAREM_ACTX.destination);
+						source.start(); 
+						return source;
+					}
+					return;
+				};
+				obj["Loop"] = function(flag) 
+				{
+					var loop = flag || true;
+					obj["asset"].loop = loop;
+				};
+				obj["Mute"] = function(flag) 
+				{
+					var mute = flag || true;
+					obj["asset"].muted = mute;
+				};
+				obj["Volume"] = function(value) 
+				{
+					var volume = (value/100).toFixed(0) || 0;
+					obj["asset"].volume = volume;
+				};
 			default:
 				break;
-		}
-		this.assetList.push({path:p, asset:file, type:type, ready:false});
+		} 
+		obj["asset"] = file;
+		this.assetList.push(obj);
 	};
 	
 	this.QueueDownloadFile = function( index, type ) 
 	{		
 		var file = this.assetList[index];
 		var mgr = this;
-		var compFlg, errFlg = "error";
+		var compFlg = "load", errFlg = "error";
 		
 		if( type == CAREM_QUEUE_SOUND )
 		{
-			compFlg = "canplaythrough";
+			var request = new XMLHttpRequest();
+			request.open("GET", file.path, true); 
+			request.responseType = "arraybuffer";
+			// Tracking Success State
+			request.addEventListener( compFlg, function() 
+			{
+				file.ready = true;
+				mgr.successCount += 1;
+				if( CAREM_ACTX ) 
+				{
+					CAREM_ACTX.decodeAudioData(request.response, function(buffer)
+					{
+						if(!buffer) 
+						{
+							console.error('error decode file data: ' + file.path);
+						} 
+						else 
+						{
+							file["buffer"] = buffer;
+						}
+					}, function(error)
+					{
+						console.error('RAMEM_ACTX.decodeAudioData error', error);
+					});
+				}
+			}, false); 
+			// Tracking Failure State
+			request.addEventListener( errFlg, function() 
+			{
+				file.ready = false;
+				mgr.errorCount += 1;
+			}, false);
+			request.send(); 
 		}
 		else 
 		{
-			compFlg = "load";
+			// Tracking Success State
+			file.asset.addEventListener( compFlg, function() 
+			{
+				file.ready = true;
+				mgr.successCount += 1;
+			}, false);
+			
+			// Tracking Failure State
+			file.asset.addEventListener( errFlg, function() 
+			{
+				file.ready = false;
+				mgr.errorCount += 1;
+			}, false);
+			
+			file.asset.src = file.path;
 		}
-		
-		// Tracking Success State
-		file.asset.addEventListener( compFlg, function() 
-		{
-			file.ready = true;
-			mgr.successCount += 1;
-		}, false);
-		
-		// Tracking Failure State
-		file.asset.addEventListener( errFlg, function() 
-		{
-			file.ready = false;
-			mgr.errorCount += 1;
-		}, false);
-		
-		file.asset.src = file.path;
 		
 		return this;
 	};
@@ -1030,7 +1148,7 @@ Carem.Graphics = function( context )
 	 **********************************************************/
 	this.SetPatternStroke = function( asset, mode ) 
 	{
-		this.patternStroke = this.createPattern(asset, mode);
+		this.patternStroke = this.CreatePattern(asset, mode);
 		return this;
 	};
 	
@@ -1290,6 +1408,7 @@ Carem.SceneObject = function(context)
 	this.group = 0;
 	this.visible = true;
 	this.enable = true;
+	this.delFlag = false;
 	this.hScaleMode = 1;
 	this.vScaleMode = 1;
 	this.hitPointX = -9999;
@@ -1334,6 +1453,25 @@ Carem.SceneObject = function(context)
 	this.SetPositionY = function( value ) 
 	{
 		this.y = value;
+		return this;
+	};
+
+	this.AddPosition = function( x, y ) 
+	{
+		this.y += y;
+		this.x += x;
+		return this;
+	}; 
+
+	this.AddPositionX = function( value ) 
+	{
+		this.x += value;
+		return this;
+	};
+
+	this.AddPositionY = function( value ) 
+	{
+		this.y += value;
 		return this;
 	};
 
@@ -2131,7 +2269,7 @@ Carem.SymbolText = function( canvas )
 	
 	this.AddText = function( txt, x, y, textWidth ) 
 	{
-		this.pushTextItem({text:txt, x:x, y:y, width:textWidth});
+		this.PushTextItem({text:txt, x:x, y:y, width:textWidth});
 		return this;
 	};
 	
@@ -2434,6 +2572,7 @@ Carem.Collision = function( source )
 	
 	this.target = new Array();
 	this.source = source;
+	this.blind = false;
 	this.mode = CAREM_COLLISION_RECT;
 	
 	this.SetBox = function( l, t, w, h ) 
@@ -2477,8 +2616,27 @@ Carem.Collision = function( source )
 	
 	this.AddTarget = function( target, callback ) 
 	{
-		target.collision.callback = callback;
-		this.target.push(target);
+		this.target.push({
+			"checker": target, 
+			"callback": callback
+		});
+		return this;
+	};
+
+	this.CancelCollision = function( target ) 
+	{
+		target.blind = true;
+		var targets = this.target;
+		var size = targets.length;
+		for(var i=0;i<size;i++) 
+		{
+			if(targets[i]["checker"].blind) 
+			{
+				delete targets[i];
+				targets.splice(i,1);
+				break;
+			}
+		} 
 		return this;
 	};
 	
@@ -2490,16 +2648,20 @@ Carem.Collision = function( source )
 			setBound(this, this.source);
 			for(var i=0;i<size;i++) 
 			{
-				setBound(this.target[i].collision, this.target[i].SceneObject);
-				if(!(this.boundLeft > this.target[i].collision.boundRight
-				|| this.boundRight < this.target[i].collision.boundLeft
-				|| this.boundTop > this.target[i].collision.boundBottom
-				|| this.boundBottom < this.target[i].collision.boundTop))
+				var checker = this.target[i]["checker"];
+				if(checker.visible) 
 				{
-					if(this.mode == CAREM_COLLISION_RECT 
-					&& this.target[i].collision) 
+					setBound(checker.collision, checker);
+					if(!(this.boundLeft > checker.collision.boundRight
+					|| this.boundRight < checker.collision.boundLeft
+					|| this.boundTop > checker.collision.boundBottom
+					|| this.boundBottom < checker.collision.boundTop))
 					{
-						this.target[i].collision.callback();
+						if(this.mode == CAREM_COLLISION_RECT 
+						&& checker.collision) 
+						{
+							this.target[i]["callback"]();
+						}
 					}
 				}
 			}
@@ -2812,19 +2974,16 @@ Carem.Scroller = function( canvas, asset )
 		this.context.clip();
 		this.scrollPositionX += this.scrollVelocity*this.direct.x;
 		this.scrollPositionY += this.scrollVelocity*this.direct.y;
-		if(this.scrollPositionX >= this.image.width)
+		if(this.scrollPositionX >= this.DOMCanvasElement.width)
 			this.scrollPositionX = 0;
-		if(this.scrollPositionY >= this.image.height)
+		if(this.scrollPositionY >= this.DOMCanvasElement.height)
 			this.scrollPositionY = 0;
-		this.context.drawImage(
-			this.image, 
-			this.scrollPositionX, 
-			this.scrollPositionY
-		);
-		this.context.drawImage(
-			this.image, 
-			this.direct.x*((-1)*(this.image.width-this.scrollPositionX)), 
-			this.direct.y*((-1)*(this.image.height-this.scrollPositionY))
+		var scrollX = this.scrollPositionX+10;
+		var scrollY = this.scrollPositionY+10;
+		this.context.drawImage(this.image, this.direct.x*scrollX, this.direct.y*scrollY);
+		this.context.drawImage(this.image, 
+			this.direct.x*(this.DOMCanvasElement.width-scrollX)*(-1), 
+			this.direct.y*(this.DOMCanvasElement.height-scrollY)*(-1)
 		);
 	};
 };
