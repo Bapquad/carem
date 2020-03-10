@@ -109,7 +109,7 @@ button
 .code-block .decimal, .code-decimal, 
 .code-block .comment, .code-comment
 {
-	font-family: 'Consolas', 'Lucida Console', 'monospace';
+	font-family: source-code-pro, monospace; 
 }
 
 .code-block 
@@ -459,7 +459,7 @@ button
 
 #nav .page1 ul
 {
-	font-family: 'Consolas', 'Lucida Console', 'monospace';
+	font-family: source-code-pro, monospace;
 }
 
 #nav .namespc 
