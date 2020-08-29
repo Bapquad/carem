@@ -1,0 +1,24 @@
+{
+  "name": "@bapquad/carem",
+  "version": "1.0.0",
+  "description": "An open source Javascript library for 2D graphics programing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bapquad/carem.git"
+  },
+  "keywords": [
+    "carem",
+    "caremjs",
+    "bapquadgames"
+  ],
+  "author": "Cuong H.Vu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bapquad/carem/issues"
+  },
+  "homepage": "https://github.com/bapquad/carem#readme"
+}

@@ -145,7 +145,10 @@ var Carem = function()
 Carem.Layer = function( canvasId ) 
 {
 	var LAYRoot = this;
-	this.DOMElement = document.getElementById(canvasId);
+	if(typeof canvasId==="string")
+		this.DOMElement = document.getElementById(canvasId);
+	else
+		this.DOMElement = canvasId;
 	this.context = this.DOMElement.getContext("2d");
 	this.width = this.DOMElement.width;
 	this.height = this.DOMElement.height;
