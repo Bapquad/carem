@@ -320,17 +320,26 @@ Carem.Layer = function( canvasId )
 		return this;
 	};
 	
+	this.Add = function( child ) 
+	{
+		child.DOMCanvasElement = this.DOMElement;
+		child.context = this.context;
+		this.childList.push(child);
+		if(child.button===1) 
+		{
+			this.buttonList.push(child);
+		}
+		return this;
+	};
+	
 	this.AddChild = function( child ) 
 	{
-		this.childList.push(child);
-		return this;
+		return this.Add(child);
 	};
 
 	this.AddButton = function( child ) 
 	{
-		this.childList.push(child);
-		this.buttonList.push(child);
-		return this;
+		return this.Add(child);
 	};
 	
 	this.Fill = function() 
@@ -1732,11 +1741,10 @@ Carem.SceneObject = function(context)
 
 Carem.SymbolArc = function( canvas ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphic */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -1799,11 +1807,10 @@ Carem.SymbolArc = function( canvas )
 
 Carem.SymbolCircle = function( canvas ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphic */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -1847,11 +1854,10 @@ Carem.SymbolCircle = function( canvas )
 
 Carem.SymbolLine = function( canvas ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Layer Context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphic */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -1905,11 +1911,10 @@ Carem.SymbolLine = function( canvas )
 
 Carem.SymbolOval = function( canvas ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Context Section */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphic */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -1943,11 +1948,10 @@ Carem.SymbolOval = function( canvas )
 
 Carem.SymbolPolygon = function( canvas ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphic */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -2012,11 +2016,10 @@ Carem.SymbolPolygon = function( canvas )
 
 Carem.SymbolRect = function( canvas ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphic */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -2049,11 +2052,10 @@ Carem.SymbolRect = function( canvas )
 
 Carem.SymbolRoundRect = function( canvas ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphic */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -2120,11 +2122,10 @@ Carem.SymbolRoundRect = function( canvas )
 
 Carem.SymbolShape = function( canvas ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Layer Context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphic */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -2201,11 +2202,10 @@ Carem.SymbolShape = function( canvas )
 
 Carem.SymbolText = function( canvas ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Layer Context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphic */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -2311,11 +2311,10 @@ Carem.SymbolText = function( canvas )
 
 Carem.SymbolImage = function( canvas, asset ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Layer Context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphic */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -2675,11 +2674,11 @@ Carem.Collision = function( source )
 
 Carem.Button = function( canvas, asset, x, y, w, h) 
 {
-	canvas.AddButton(this);
-	/** Get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Layer Context */
-	this.context = canvas.GetContext();
+	this.button = 1;
+	if(undefined!=canvas) 
+	{
+		canvas.AddButton(this);
+	}
 	/** Extends Graphic */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -2751,11 +2750,10 @@ Carem.Button = function( canvas, asset, x, y, w, h)
 
 Carem.StaticSprite = function( canvas, asset, x, y, w, h ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Layer Context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphics */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -2829,11 +2827,10 @@ Carem.StaticSprite = function( canvas, asset, x, y, w, h )
 
 Carem.AnimeSprite = function( canvas, asset, w, h ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Layer Context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphics */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
@@ -2934,11 +2931,10 @@ Carem.AnimeSprite = function( canvas, asset, w, h )
 
 Carem.Scroller = function( canvas, asset ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Layer Context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Graphics Section */
 	this.__proto__ = new Carem.Graphics();
 	/** Scene Object */
@@ -2995,11 +2991,10 @@ Carem.Scroller = function( canvas, asset )
 
 Carem.Particle = function( canvas, asset, density ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get Layer Context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Graphics Section */
 	this.__proto__ = new Carem.Graphics();
 	/** Scene Object */
@@ -3306,11 +3301,10 @@ Carem.Particle = function( canvas, asset, density )
 
 Carem.Tile = function( canvas ) 
 {
-	canvas.AddChild(this);
-	/** get Canvas DOM */
-	this.DOMCanvasElement = canvas.GetDOM();
-	/** Get context */
-	this.context = canvas.GetContext();
+	if(undefined!=canvas) 
+	{
+		canvas.AddChild(this);
+	}
 	/** Extends Graphics */
 	this.__proto__ = new Carem.Graphics();
 	/** Extends SceneObject */
