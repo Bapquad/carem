@@ -325,9 +325,12 @@ Carem.Layer = function( canvasId )
 		child.DOMCanvasElement = this.DOMElement;
 		child.context = this.context;
 		this.childList.push(child);
-		if(child.button===1) 
-		{
-			this.buttonList.push(child);
+		if(undefined!=child.button) 
+		{ 
+			if(child.button===1) 
+			{
+				this.buttonList.push(child);
+			}
 		}
 		return this;
 	};
@@ -2309,7 +2312,7 @@ Carem.SymbolText = function( canvas )
 };
 
 
-Carem.SymbolImage = function( canvas, asset ) 
+Carem.SymbolImage = function( asset, canvas ) 
 {
 	if(undefined!=canvas) 
 	{
@@ -2672,7 +2675,7 @@ Carem.Collision = function( source )
 	};
 };
 
-Carem.Button = function( canvas, asset, x, y, w, h) 
+Carem.Button = function(asset, x, y, w, h, canvas) 
 {
 	this.button = 1;
 	if(undefined!=canvas) 
@@ -2748,7 +2751,7 @@ Carem.Button = function( canvas, asset, x, y, w, h)
 	}
 };
 
-Carem.StaticSprite = function( canvas, asset, x, y, w, h ) 
+Carem.StaticSprite = function(asset, x, y, w, h, canvas) 
 {
 	if(undefined!=canvas) 
 	{
@@ -2825,7 +2828,7 @@ Carem.StaticSprite = function( canvas, asset, x, y, w, h )
 };
 
 
-Carem.AnimeSprite = function( canvas, asset, w, h ) 
+Carem.AnimeSprite = function(asset, w, h, canvas) 
 {
 	if(undefined!=canvas) 
 	{
@@ -2929,7 +2932,7 @@ Carem.AnimeSprite = function( canvas, asset, w, h )
 };
 
 
-Carem.Scroller = function( canvas, asset ) 
+Carem.Scroller = function(asset, canvas) 
 {
 	if(undefined!=canvas) 
 	{
@@ -2989,7 +2992,7 @@ Carem.Scroller = function( canvas, asset )
 };
 
 
-Carem.Particle = function( canvas, asset, density ) 
+Carem.Particle = function(asset, density, canvas) 
 {
 	if(undefined!=canvas) 
 	{
