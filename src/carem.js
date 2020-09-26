@@ -2244,9 +2244,9 @@ Carem.SymbolText = function( canvas )
 		return this;
 	};
 	
-	this.SetTextBaseLine = function( baseLine ) 
+	this.SetTextBaseline = function( baseline ) 
 	{
-		this.textBaseline = baseLine;
+		this.textBaseline = baseline;
 		return this;
 	};
 	
@@ -2268,9 +2268,9 @@ Carem.SymbolText = function( canvas )
 		return this;
 	};
 	
-	this.SetBaseLine = function( baseLine ) 
+	this.SetBaseline = function( baseline ) 
 	{
-		this.SetTextBaseLine(baseLine);
+		this.SetTextBaseLine(baseline);
 		return this;
 	};
 	
