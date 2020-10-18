@@ -2614,7 +2614,7 @@ Carem.Collision = function( source )
 		return this;
 	};
 	
-	this.SetMode = function( mode ) 
+	this.SetCollisionMode = function( mode ) 
 	{
 		this.collisionMode = mode;
 		return this;
