@@ -2579,7 +2579,7 @@ Carem.Collision = function( source )
 	this.target = new Array();
 	this.source = source;
 	this.blind = false;
-	this.mode = CAREM_COLLISION_RECT;
+	this.collisionMode = CAREM_COLLISION_RECT;
 	
 	this.SetBox = function( l, t, w, h ) 
 	{
@@ -2587,7 +2587,7 @@ Carem.Collision = function( source )
 		this.minY = t;
 		this.maxX = l+w;
 		this.maxY = t+h;
-		this.mode = CAREM_COLLISION_RECT;
+		this.collisionMode = CAREM_COLLISION_RECT;
 		
 		setBound(this, this.source);
 		
@@ -2610,13 +2610,13 @@ Carem.Collision = function( source )
 		this.centerX= cX;
 		this.centerY= cY;
 		this.radius = r;
-		this.mode 	= CAREM_COLLISION_RAD;
+		this.collisionMode = CAREM_COLLISION_RAD;
 		return this;
 	};
 	
 	this.SetMode = function( mode ) 
 	{
-		this.mode = mode;
+		this.collisionMode = mode;
 		return this;
 	};
 	
@@ -2663,7 +2663,7 @@ Carem.Collision = function( source )
 					|| this.boundTop > checker.collision.boundBottom
 					|| this.boundBottom < checker.collision.boundTop))
 					{
-						if(this.mode == CAREM_COLLISION_RECT 
+						if(this.collisionMode == CAREM_COLLISION_RECT 
 						&& checker.collision) 
 						{
 							this.target[i]["callback"]();
