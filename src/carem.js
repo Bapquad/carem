@@ -3006,7 +3006,7 @@ Carem.Particle = function(asset, density, canvas)
 	/** Scroller Section */
 	this.image 		= asset.asset;
 	this.density 	= density || 10;
-	this.particle 	= new Array();
+	this.particles 	= new Array();
 	this.loopMode 	= CAREM_LOOP_CYCLE;
 	this.alphaBase 	= false;
 	this.alphaLife 	= false;
@@ -3181,7 +3181,7 @@ Carem.Particle = function(asset, density, canvas)
 			var deltaPosY = Carem.Math.IntRandom(this.boundMinY, this.boundMaxY);
 			deltaPosY = deltaPosY-positionY;
 			
-			this.particle.push({
+			this.particles.push({
 				x: positionX, 
 				deltaPosX: deltaPosX, 
 				y: positionY, 
@@ -3216,68 +3216,68 @@ Carem.Particle = function(asset, density, canvas)
 			var positionX;
 			var positionY;
 			
-			this.particle[i].Life += 1;
-			var life = (this.particle[i].Life%this.particle[i].Lifetime);
-			life = life/this.particle[i].Lifetime;
+			this.particles[i].Life += 1;
+			var life = (this.particles[i].Life%this.particles[i].Lifetime);
+			life = life/this.particles[i].Lifetime;
 			life = life.toFixed(3);
 			var iLife = 1-life;
 			iLife = iLife.toFixed(3);
 			
 			if(this.loopMode == CAREM_LOOP_CYCLE 
-			|| this.particle[i].Life < this.particle[i].Lifetime) 
+			|| this.particles[i].Life < this.particles[i].Lifetime) 
 			{
 				/** process for alpha */
-				if(this.particle[i].deltaAlpha < 0) 
-					alpha = this.alphaLife+(iLife*Math.abs(this.particle[i].deltaAlpha));
+				if(this.particles[i].deltaAlpha < 0) 
+					alpha = this.alphaLife+(iLife*Math.abs(this.particles[i].deltaAlpha));
 				else
-					alpha = this.particle[i].alpha+(life*this.particle[i].deltaAlpha);
+					alpha = this.particles[i].alpha+(life*this.particles[i].deltaAlpha);
 				/** process for scaleX */
-				if(this.particle[i].deltaScaleX < 0) 
-					scaleX = this.scaleXLife+(iLife*Math.abs(this.particle[i].deltaScaleX));
+				if(this.particles[i].deltaScaleX < 0) 
+					scaleX = this.scaleXLife+(iLife*Math.abs(this.particles[i].deltaScaleX));
 				else
-					scaleX = this.particle[i].scaleX+(life*this.particle[i].deltaScaleX);
+					scaleX = this.particles[i].scaleX+(life*this.particles[i].deltaScaleX);
 				/** process for scaleY */
-				if(this.particle[i].deltaScaleY < 0) 
-					scaleY = this.scaleYLife+(iLife*Math.abs(this.particle[i].deltaScaleY));
+				if(this.particles[i].deltaScaleY < 0) 
+					scaleY = this.scaleYLife+(iLife*Math.abs(this.particles[i].deltaScaleY));
 				else
-					scaleY = this.particle[i].scaleY+(life*this.particle[i].deltaScaleY);
+					scaleY = this.particles[i].scaleY+(life*this.particles[i].deltaScaleY);
 				/** process for rotation */
-				this.particle[i].angle += this.particle[i].speedRotate;
-				angle = this.particle[i].angle;
+				this.particles[i].angle += this.particles[i].speedRotate;
+				angle = this.particles[i].angle;
 				/** process for movement X */
-				/* if(this.particle[i].deltaPosX < 0) 
-					positionX = this.scaleYLife+(iLife*Math.abs(this.particle[i].deltaScaleY));
+				/* if(this.particles[i].deltaPosX < 0) 
+					positionX = this.scaleYLife+(iLife*Math.abs(this.particles[i].deltaScaleY));
 				else
-					scaleY = this.particle[i].scaleY+(life*this.particle[i].deltaScaleY); */
+					scaleY = this.particles[i].scaleY+(life*this.particles[i].deltaScaleY); */
 				if(this.emittion) {
-					if(this.particle[i].x < this.boundMinX 
-					|| this.particle[i].x > this.boundMaxX
-					|| this.particle[i].y < this.boundMinY
-					|| this.particle[i].y > this.boundMaxY) 
+					if(this.particles[i].x < this.boundMinX 
+					|| this.particles[i].x > this.boundMaxX
+					|| this.particles[i].y < this.boundMinY
+					|| this.particles[i].y > this.boundMaxY) 
 					{
 						var resetPosX = Carem.Math.IntRandom(this.positionXMin, this.positionXMax);
 						var resetPosY = Carem.Math.IntRandom(this.positionYMin, this.positionYMax);
-						this.particle[i].x = resetPosX;
-						positionX = this.particle[i].x;
-						this.particle[i].y = resetPosY;
-						positionY = this.particle[i].y;
+						this.particles[i].x = resetPosX;
+						positionX = this.particles[i].x;
+						this.particles[i].y = resetPosY;
+						positionY = this.particles[i].y;
 					} 
 					else 
 					{
 						var moveX = Carem.Math.IntRandom(-5, 5);
 						moveX = moveX/10;
-						this.particle[i].x += moveX;
-						positionX = this.particle[i].x;
+						this.particles[i].x += moveX;
+						positionX = this.particles[i].x;
 						var moveY = Carem.Math.IntRandom(-30, 0);
 						moveY = moveY/10;
-						this.particle[i].y += moveY;
-						positionY = this.particle[i].y;
+						this.particles[i].y += moveY;
+						positionY = this.particles[i].y;
 					}
 				} 
 				else 
 				{
-					positionX = this.particle[i].x;
-					positionY = this.particle[i].y;
+					positionX = this.particles[i].x;
+					positionY = this.particles[i].y;
 				}
 				
 				this.context.globalAlpha = alpha;
