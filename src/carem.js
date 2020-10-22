@@ -77,6 +77,40 @@ export const CAREM_LOOP_CYCLE = 1;
 export const CAREM_COLLISION_RECT = 0;
 export const CAREM_COLLISION_RAD = 1;
 export const CAREM_ACTX = 0;
+export function Tick( callback ) 
+{
+	if(window.requestAnimationFrame) 
+	{
+		return window.requestAnimationFrame(callback);
+	} 
+	else if(window.mozRequestAnimationFrame) 
+	{
+		return window.mozRequestAnimationFrame(callback);
+	} 
+	else if(window.webkitRequestAnimationFrame) 
+	{
+		return window.webkitRequestAnimationFrame(callback);
+	} 
+	else if(window.msRequestAnimationFrame) 
+	{
+		return window.msRequestAnimationFrame(callback);
+	}
+	else 
+	{
+		return window.SetTimeout(callback, 1000 / 60);
+	}
+} 
+export function UnTick(tickID) 
+{
+	if(window.cancelAnimationFrame) 
+	{
+		return window.cancelAnimationFrame(tickID); 
+	} 
+	else 
+	{
+		return window.clearTimeout(tickID);
+	}
+}
 
 if (!window.Float32Array)
 	Float32Array = Array; 
