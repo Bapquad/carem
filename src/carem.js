@@ -2416,9 +2416,13 @@ Carem.SymbolImage = function( asset, canvas )
 		this.ShowShadow(false);
 		
 		if(this.idata != 0)
-			this.context.putImageData(this.idata, this.x, this.y);
+		{
+			this.context.putImageData(this.idata, this.x + this.orginNode.x, this.y + this.orginNode.y);
+		}
 		else
+		{
 			this.context.drawImage(this.image, 0, 0);
+		}
 	};
 };
 
