@@ -25,6 +25,7 @@ export const CAREM_ORDER_LEFT = 0;
 export const CAREM_ORDER_RIGHT = 1;
 export const CAREM_QUEUE_IMAGE = 0;
 export const CAREM_QUEUE_SOUND = 1;
+export const CAREM_QUEUE_FONT = 2;
 export const CAREM_LINE_CAP_DEFAULT = "butt";
 export const CAREM_LINE_CAP_BUTT = "butt";
 export const CAREM_LINE_CAP_ROUND = "round";
@@ -633,9 +634,9 @@ Carem.Filter.ConvoluteFloat32 = function( pixels, weights, opaque )
 	return output;
 };
 
-Carem.AssetManager = function( imgExtDesc, sndExtDesc ) 
+Carem.AssetManager = function( imgExtDesc, sndExtDesc, fntExtDesc ) 
 {
-	this.queueType = [ {desc : imgExtDesc}, {desc : sndExtDesc} ];
+	this.queueType = [ {desc : imgExtDesc}, {desc : sndExtDesc}, {desc : fntExtDesc} ];
 	this.errorCount = 0;
 	this.successCount = 0;
 	this.assetList = new Array();
@@ -690,6 +691,9 @@ Carem.AssetManager = function( imgExtDesc, sndExtDesc )
 			ready:false, 
 		};
 		switch(type) {
+			case CAREM_QUEUE_FONT:
+				file = new FontFace(p, 'url('+p+')');
+				break;
 			case CAREM_QUEUE_IMAGE:
 				file = new Image();
 				break;
@@ -731,12 +735,25 @@ Carem.AssetManager = function( imgExtDesc, sndExtDesc )
 	};
 	
 	this.QueueDownloadFile = function( index, type ) 
-	{		
+	{
 		var file = this.assetList[index];
 		var mgr = this;
 		var compFlg = "load", errFlg = "error";
 		
-		if( type == CAREM_QUEUE_SOUND )
+		if( type == CAREM_QUEUE_FONT ) 
+		{ 
+			file.asset.load().then( function(font)
+			{
+				// Add font to document
+				document.fonts.add(font);
+				// Enable font with CSS class
+				document.body.classList.add('fonts-loaded');
+
+				file.ready = true;
+				mgr.successCount += 1;
+			});
+		}
+		else if( type == CAREM_QUEUE_SOUND )
 		{
 			var request = new XMLHttpRequest();
 			request.open("GET", file.path, true); 
@@ -2337,7 +2354,7 @@ Carem.SymbolText = function( canvas )
 		this.UpdateScene(ratio, layerX, layerY);
 		this.UpdateGraphics();
 		
-		this.context.font = this.fontSize+"px "+this.fontName;
+		this.context.font = this.fontSize+'px "'+this.fontName+'"';
 		this.context.textAlign = this.textAlign;
 		this.context.textBaseline = this.textBaseline;
 		
