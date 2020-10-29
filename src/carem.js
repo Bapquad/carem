@@ -2874,7 +2874,16 @@ Carem.StaticSprite = function(asset, x, y, w, h, canvas)
 		this.UpdateScene(ratio, layerX, layerY);
 		this.UpdateGraphics();
 		if(this != 0)
+		{
+			if(this.gravityMode)
+				this.ForceGravity(); 
+			this.ForceAccum();
+			this.LinearVelocityX();
+			this.LinearVelocityY();
+			this.AngularVelocity();
+			this.TestWorldLimit();
 			this.Test();
+		}
 		this.context.rect(0, 0, this.width, this.height);
 		this.TestHitPoint();
 		this.context.clip();
@@ -2960,8 +2969,17 @@ Carem.AnimeSprite = function(asset, w, h, canvas)
 	{
 		this.UpdateScene(ratio, layerX, layerY);
 		this.UpdateGraphics();
-		if(this != 0)
+		if(this != 0) 
+		{
+			if(this.gravityMode)
+				this.ForceGravity(); 
+			this.ForceAccum();
+			this.LinearVelocityX();
+			this.LinearVelocityY();
+			this.AngularVelocity();
+			this.TestWorldLimit();
 			this.Test();
+		}
 		this.context.rect(0, 0, this.width, this.height);
 		this.TestHitPoint();
 		
@@ -3409,6 +3427,16 @@ Carem.Tile = function( canvas )
 	{
 		this.UpdateScene(ratio, layerX, layerY);
 		this.UpdateGraphics();
+		if(this != 0) 
+		{
+			if(this.gravityMode)
+				this.ForceGravity(); 
+			this.ForceAccum();
+			this.LinearVelocityX();
+			this.LinearVelocityY();
+			this.AngularVelocity();
+			this.TestWorldLimit();
+		}
 		var size = this.tiles.length;
 		for(var i=0;i<size;i++) 
 		{
