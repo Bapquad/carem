@@ -2640,12 +2640,10 @@ Carem.Collision = function( source )
 	{
 		this.minX = l;
 		this.minY = t;
-		this.maxX = l+w;
-		this.maxY = t+h;
+		this.maxX = w;
+		this.maxY = h;
 		this.collisionMode = CAREM_COLLISION_RECT;
-		
 		setBound(this, this.source);
-		
 		return this;
 	};
 	
@@ -2653,8 +2651,8 @@ Carem.Collision = function( source )
 	{
 		if(source != undefined || source != 0) 
 		{
-			collision.boundLeft 	= collision.minX + ((-1)*source.orginNode.x) + source.x;
-			collision.boundTop 		= collision.minY + ((-1)*source.orginNode.y) + source.y;
+			collision.boundLeft 	= collision.minX+(source.orginNode.x*source.scaleX)+source.x;
+			collision.boundTop 		= collision.minY+(source.orginNode.y*source.scaleY)+source.y;
 			collision.boundRight 	= collision.boundLeft+collision.maxX;
 			collision.boundBottom 	= collision.boundTop+collision.maxY;
 		}
