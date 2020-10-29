@@ -1,6 +1,6 @@
 {
   "name": "@bapquad/carem",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "An open source Javascript library for 2D graphics programing",
   "main": "index.js",
   "scripts": {
