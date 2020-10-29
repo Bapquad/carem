@@ -203,8 +203,8 @@ Carem.Layer = function( canvasId )
 		this.DOMElement.addEventListener("mousedown", function(e)
 		{
 			var DOMElement = e.target;
-			var mpx = (e.layerX | e.clientX)/(DOMElement.clientWidth/DOMElement.width);
-			var mpy = (e.layerY | e.clientY)/(DOMElement.clientHeight/DOMElement.height);
+			var mpx = (e.layerX||e.clientX)/(DOMElement.clientWidth/DOMElement.width);
+			var mpy = (e.layerY||e.clientY)/(DOMElement.clientHeight/DOMElement.height);
 			var len = DOMElement.CaremSDK.layers.length;
 			for(var i=0; i<len; i++) 
 			{
@@ -212,22 +212,25 @@ Carem.Layer = function( canvasId )
 				var buttonLen = layer.buttonList.length;
 				for(var k=0;k<buttonLen;k++) 
 				{
-					if(mpx > layer.buttonList[k].x
-					&& mpx < layer.buttonList[k].x+layer.buttonList[k].width
-					&& mpy > layer.buttonList[k].y
-					&& mpy < layer.buttonList[k].y+layer.buttonList[k].height
-					&& layer.buttonList[k].mouseDownCallback != 0
-					&& layer.buttonList[k].enable) 
+					if(layer.buttonList[k].mouseDownCallback) 
 					{
-						layer.buttonList[k].mouseDownCallback(e);
+						let btn = layer.buttonList[k];
+						let minX = btn.x+btn.orginNode.x*btn.scaleX;
+						let minY = btn.y+btn.orginNode.y*btn.scaleY;
+						let maxX = minX+btn.width*btn.scaleX;
+						let maxY = minY+btn.height*btn.scaleY;
+						if(mpx > minX && mpx < maxX && mpy > minY && mpy < maxY && btn.enable) 
+						{
+							btn.mouseDownCallback.apply(null, e);
+						}
 					}
 				}
 			}
 		});
 		this.DOMElement.addEventListener("mouseup", function(e) {
 			var DOMElement = e.target;
-			var mpx = (e.layerX | e.clientX)/(DOMElement.clientWidth/DOMElement.width);
-			var mpy = (e.layerY | e.clientY)/(DOMElement.clientHeight/DOMElement.height);
+			var mpx = (e.layerX||e.clientX)/(DOMElement.clientWidth/DOMElement.width);
+			var mpy = (e.layerY||e.clientY)/(DOMElement.clientHeight/DOMElement.height);
 			var len = DOMElement.CaremSDK.layers.length;
 			for(var i=0; i<len; i++) 
 			{
@@ -235,22 +238,25 @@ Carem.Layer = function( canvasId )
 				var buttonLen = layer.buttonList.length;
 				for(var k=0;k<buttonLen;k++) 
 				{
-					if(mpx > layer.buttonList[k].x
-					&& mpx < layer.buttonList[k].x+layer.buttonList[k].width
-					&& mpy > layer.buttonList[k].y
-					&& mpy < layer.buttonList[k].y+layer.buttonList[k].height
-					&& layer.buttonList[k].mouseUpCallback != 0
-					&& layer.buttonList[k].enable) 
+					if(layer.buttonList[k].mouseUpCallback) 
 					{
-						layer.buttonList[k].mouseUpCallback(e);
+						let btn = layer.buttonList[k];
+						let minX = btn.x+btn.orginNode.x*btn.scaleX;
+						let minY = btn.y+btn.orginNode.y*btn.scaleY;
+						let maxX = minX+btn.width*btn.scaleX;
+						let maxY = minY+btn.height*btn.scaleY;
+						if(mpx > minX && mpx < maxX && mpy > minY && mpy < maxY && btn.enable) 
+						{
+							btn.mouseUpCallback.apply(null, e);
+						}
 					}
 				}
 			}
 		});
-		this.DOMElement.addEventListener("mouseover", function(e) {
+		this.DOMElement.addEventListener("mousemove", function(e) {
 			var DOMElement = e.target;
-			var mpx = (e.layerX | e.clientX)/(DOMElement.clientWidth/DOMElement.width);
-			var mpy = (e.layerY | e.clientY)/(DOMElement.clientHeight/DOMElement.height);
+			var mpx = (e.layerX||e.clientX)/(DOMElement.clientWidth/DOMElement.width);
+			var mpy = (e.layerY||e.clientY)/(DOMElement.clientHeight/DOMElement.height);
 			var len = DOMElement.CaremSDK.layers.length;
 			for(var i=0; i<len; i++) 
 			{
@@ -258,14 +264,17 @@ Carem.Layer = function( canvasId )
 				var buttonLen = layer.buttonList.length;
 				for(var k=0;k<buttonLen;k++) 
 				{
-					if(mpx > layer.buttonList[k].x
-					&& mpx < layer.buttonList[k].x+layer.buttonList[k].width
-					&& mpy > layer.buttonList[k].y
-					&& mpy < layer.buttonList[k].y+layer.buttonList[k].height
-					&& layer.buttonList[k].mouseOverCallback != 0
-					&& layer.buttonList[k].enable) 
+					if(layer.buttonList[k].mouseMoveCallback) 
 					{
-						layer.buttonList[k].mouseOverCallback(e);
+						let btn = layer.buttonList[k];
+						let minX = btn.x+btn.orginNode.x*btn.scaleX;
+						let minY = btn.y+btn.orginNode.y*btn.scaleY;
+						let maxX = minX+btn.width*btn.scaleX;
+						let maxY = minY+btn.height*btn.scaleY;
+						if(mpx > minX && mpx < maxX && mpy > minY && mpy < maxY && btn.enable) 
+						{
+							btn.mouseMoveCallback.apply(null, e);
+						}
 					}
 				}
 			}
@@ -2742,7 +2751,7 @@ Carem.Button = function(asset, x, y, w, h, canvas)
 	/** Button Section */
 	this.image = asset.asset;
 	this.mouseUpCallback = 0;
-	this.mouseOverCallback = 0;
+	this.mouseMoveCallback = 0;
 	this.mouseDownCallback = 0;
 	this.imagePositionX = 0;
 	this.imagePositionY = 0;
@@ -2781,9 +2790,9 @@ Carem.Button = function(asset, x, y, w, h, canvas)
 		return this;
 	};
 
-	this.onMouseOver = function( c ) 
+	this.onMouseMove = function( c ) 
 	{
-		this.mouseOverCallback = c;
+		this.mouseMoveCallback = c;
 		return this;
 	};
 
