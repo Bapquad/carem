@@ -3061,8 +3061,8 @@ Carem.Scroller = function(asset, canvas)
 			this.scrollPositionX = 0;
 		if(this.scrollPositionY >= this.DOMCanvasElement.height)
 			this.scrollPositionY = 0;
-		var scrollX = this.scrollPositionX+10;
-		var scrollY = this.scrollPositionY+10;
+		var scrollX = this.scrollPositionX;
+		var scrollY = this.scrollPositionY;
 		this.context.drawImage(this.image, this.direct.x*scrollX, this.direct.y*scrollY);
 		this.context.drawImage(this.image, 
 			this.direct.x*(this.DOMCanvasElement.width-scrollX)*(-1), 
