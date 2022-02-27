@@ -168,7 +168,9 @@ Object.prototype.extends = function( proto )
  *-----------------------------------------------------------------*/
 var Carem = function() 
 {
-	this.version = 2.0;
+	this.name = "@bapquad/carem";
+	this.description = "An open source Javascript library for 2D graphics programing";
+	this.version = "1.x";
 }; 
 
 /*------------------------------------------------------------------
